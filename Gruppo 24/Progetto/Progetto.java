@@ -5,7 +5,7 @@ public class Progetto {
 		System.out.println("Ciao mondo!");
 		System.out.println("funziona?");
 		System.out.println("Arrivato");
-		
+		System.out.println("si");
 	}
 
 }
