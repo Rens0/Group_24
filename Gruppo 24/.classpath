@@ -6,6 +6,5 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Cosimo/Downloads/Gruppo-24-master.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
