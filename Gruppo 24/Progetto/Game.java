@@ -29,7 +29,7 @@ public class Game {
 					+ "\naltrimenti premi un altro numero per continuare l'inserimento"+ "");
 			Scanner scannerint = new Scanner(System.in);
 			scelta=scannerint.nextInt();
-			if(number==3)
+			if(number==4)
 			{
 				break;
 			}else
