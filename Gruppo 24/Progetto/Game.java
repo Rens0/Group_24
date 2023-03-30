@@ -16,7 +16,7 @@ public class Game {
 		}
 		}while (number_of_players<2 || number_of_players>4); 
 		
-		Player [] p=new Player[number_of_players];
+		Player [] p=new Player[number_of_players];//chiama la classe Player
 		
 			for (int i=0; i<number_of_players; i++) {
 				System.out.println("Insert player name: " + (i+1)); 
