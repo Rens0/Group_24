@@ -3,30 +3,55 @@ import java.util.Scanner;
 public class Game {
 
 	public static void main(String[] args) {
-		int number_of_players;
+		int id=0;
 		String name; 
+		boolean verifica=true;
+		int scelta=0;
+		int number=0;
+		System.out.println("Welcome to the game,\nnumber max of player: 4");
+		
 		do { 
-		System.out.println("Insert number of players: "); 
-		Scanner scanner = new Scanner (System.in); 
-		number_of_players = scanner.nextInt();
-		if (number_of_players<2 || number_of_players>4) {
-			System.out.println("Please insert from 2 to 4 players "); 
-		}
-		}while (number_of_players<2 || number_of_players>4); 
+			
+			System.out.println("Insert your name: "); 
+			number++;
+			
+			Player [] p=new Player[4];
+			Scanner scannerplayer = new Scanner (System.in); 
+			name=scannerplayer.nextLine(); 
+			p[id]=new Player(name,id);
+			p[id].print();
+			
 		
-		Player [] p=new Player[number_of_players];
+			
 		
-			for (int i=0; i<number_of_players; i++) {
-				System.out.println("Insert your name: "); 
-				Scanner in = new Scanner (System.in); 
-				name=in.nextLine(); 
-				p[i]=new Player(name);
-			}
-		  
+		if (number>=2) {
+			System.out.println("Premi 1 per terminare l'inserimento dei giocatori,"
+					+ "\naltrimenti premi un altro numero per continuare l'inserimento"+ "");
+			Scanner scannerint = new Scanner(System.in);
+			scelta=scannerint.nextInt();
+			if(number==4)
+			{
+				break;
+			}else
+			{
+				if(scelta==1) 
 				
+			{
+			verifica=false;
+			}
+			}
+			
+		}
+		id++;
 		
-		p[0].print();
-		p[1].print();
+		}while (verifica); 
+		
+
+		  
+	
+			
+		
+		
 	}
 	
 

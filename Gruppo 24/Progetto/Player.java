@@ -4,19 +4,11 @@ public class Player {
 
 	private String name;
 	private int ID; 
-	private static int ID_Number=0; 
-	public Player() {}
-	public Player (String name) {
-		this.name=name;
-		//ID_Number++;
-		this.ID=ID_Number();  
-		//this.ID=ID_Number; 
-	}
 	
-	private int ID_Number () {
-		ID_Number++;
-		ID=ID_Number;
-		return ID; 
+	public Player (String name, int Number) {
+		this.name=name;
+		this.ID=Number;  
+		
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////////////////
