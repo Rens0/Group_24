@@ -1,9 +1,19 @@
 package game;
 
 public class Celle {
-
-	public Celle() {
-		// TODO Auto-generated constructor stub
+	private int value;
+	
+	public Celle(int value) {
+		
 	}
 
+	public int getValue() {
+		return value;
+	}
+	
+	public void setValue(int value)
+	{
+		this.value=value;
+	}
+	
 }

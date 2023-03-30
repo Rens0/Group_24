@@ -5,13 +5,13 @@ public class Libreria {
 	private static int RIGHE=5;
 	public Libreria () {
 		
-		 for(int i=0;i<RIGHE;i++)
+		 Celle [][] celle= new Celle[COLONNE][RIGHE];
+		 for(int i=0;i<celle.length;i++)
 		 {
-			 for(int j=0;j<COLONNE;j++)
+			 for(int j=0;j<celle[i].length;j++)
 			 {
-				 System.out.print("\n");
+				 
 			 }
-			 System.out.print("\n");
 		 }
 		
 	}
