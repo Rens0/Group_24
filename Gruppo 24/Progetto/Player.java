@@ -3,7 +3,7 @@ public class Player {
 	private String name;
 	private int ID; 
 	private static int ID_Number=0; 
-	public Player() {}
+	
 	public Player (String name) {
 		this.name=name;
 		//ID_Number++;

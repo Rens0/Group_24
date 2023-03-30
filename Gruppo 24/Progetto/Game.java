@@ -5,9 +5,9 @@ public class Game {
 	public static void main(String[] args) {
 		int number_of_players;
 		String name; 
+		Scanner scanner = new Scanner (System.in); 
 		do { 
 		System.out.println("Insert number of players: "); 
-		Scanner scanner = new Scanner (System.in); 
 		number_of_players = scanner.nextInt();
 		if (number_of_players<2 || number_of_players>4) {
 			System.out.println("Please insert from 2 to 4 players "); 
