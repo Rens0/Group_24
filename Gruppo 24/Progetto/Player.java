@@ -17,7 +17,7 @@ public class Player {
 		return ID; 
 	}
 	
-	/////////////////////////////////////////////////////////////////////////////////////////
+	//stampa
 	public void print() {
 		System.out.println("name: "+name);
 		System.out.println(name+"'s ID is: "+ID);
