@@ -17,17 +17,17 @@ public class Game {
 		Player [] p=new Player[number_of_players];
 		
 			for (int i=0; i<number_of_players; i++) {
-				System.out.println("Insert your name: "); 
+				System.out.println("Insert player name: " + (i+1)); 
 				Scanner in = new Scanner (System.in); 
 				name=in.nextLine(); 
 				p[i]=new Player(name);
 			}
-		  
-		//ciao		
-		
+		  	
 		p[0].print();
 		p[1].print();
+		
 	}
+	
 	
 
 }
