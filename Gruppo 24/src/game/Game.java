@@ -1,11 +1,16 @@
+package game;
 import java.util.Scanner;
 
 public class Game {
 
+	private static int colonne=6;
+	private static int righe=5;
+	
+	
 	public static void main(String[] args) {
 		int number_of_players;
 		String name; 
-		
+		int c=1;
 		do { 
 		System.out.println("Insert number of players: "); 
 		Scanner scanner = new Scanner (System.in); 
@@ -27,6 +32,15 @@ public class Game {
 		  	
 		p[0].print();
 		p[1].print();
+		
+		for(int b=0;b<righe;b++)
+		 {
+			 for(int j=0;j<colonne;j++)
+			 {
+				 System.out.print("*");
+			 }
+			 System.out.print("\n");
+		 }
 		
 	}
 	
