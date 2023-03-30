@@ -23,7 +23,7 @@ public class Game {
 				p[i]=new Player(name);
 			}
 		  
-				
+		//ciao		
 		
 		p[0].print();
 		p[1].print();
