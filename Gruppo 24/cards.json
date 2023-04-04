@@ -1,0 +1,330 @@
+{
+	"common_goal": {
+		"path": "common goal cards",
+		"list":[
+				{
+					"id": "1",
+					"nome": "1",
+					"amount": "1",
+					"description":"Two groups each containing 4 tiles of the same type in a 2x2 square. The tiles of one square can be different from those of the other square."
+				},
+				{
+					"id": "2",
+					"nome": "2",
+					"amount": "1",
+					"description":"Two columns each formed by 6 different types of tiles. "
+				},
+				{
+					"id": "3",
+					"nome": "3",
+					"amount": "1",
+					"description":"Four groups each containing at least 4 tiles of the same type (not necessarily in the depicted shape). The tiles of one group can be different from those of another group."
+				},
+				{
+					"id": "4",
+					"nome": "4",
+					"amount": "1",
+					"description":"Six groups each containing at least 2 tiles of the same type (not necessarily in the depicted shape). The tiles of one group can be different from those of another group."
+				},
+				{
+					"id": "5",
+					"nome": "5",
+					"amount": "1",
+					"description": "Three columns each formed by 6 tiles Five tiles of the same type forming an X. of maximum three different types. One column can show the same or a different combination of another column."
+				},
+				{
+					"id": "6",
+					"nome": "6",
+					"amount": "1",
+					"description": "Two lines each formed by 5 different types of tiles. One line can show the same or a different combination of the other line."
+				},
+				{
+					"id": "7",
+					"nome": "7",
+					"amount": "1",
+					"description": "Four lines each formed by 5 tiles of maximum three different types. One line can show the same or a different combination of another line."
+				},
+				{
+					"id": "8",
+					"nome": "8",
+					"amount": "1",
+					"description":"Four tiles of the same type in the four corners of the bookshelf. "
+				},
+				{
+					"id": "9",
+					"nome": "9",
+					"amount": "1",
+					"description": "Eight tiles of the same type. There’s no restriction about the position of these tiles."
+				},
+				{
+					"id": "10",
+					"nome": "10",
+					"amount": "1",
+					"description": "Five tiles of the same type forming an X."
+				},
+				{
+					"id": "11",
+					"nome": "11",
+					"amount": "1",
+					"description":"Five tiles of the same type forming a diagonal. "
+				},
+				{
+					"id": "12",
+					"nome": "12",
+					"amount": "1",
+					"description": "Five columns of increasing or decreasing height. Starting from the first column on the left or on the right, each next column must be made of exactly one more tile. Tiles can be of any type."
+				}
+			]
+		},
+	"personal_goal": {
+		"path": "personal goal cards",
+		"list": [
+			{
+				"id": "1",
+				"nome": "Personal_Goals",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "2",
+				"nome": "Personal_Goals2",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "3",
+				"nome": "Personal_Goals3",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "4",
+				"nome": "Personal_Goals4",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "5",
+				"nome": "Personal_Goals5",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "6",
+				"nome": "Personal_Goals6",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "7",
+				"nome": "Personal_Goals7",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "8",
+				"nome": "Personal_Goals8",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "9",
+				"nome": "Personal_Goals9",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "10",
+				"nome": "Personal_Goals10",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "11",
+				"nome": "Personal_Goals11",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "12",
+				"nome": "Personal_Goals12",
+				"amount": "1",
+				"description":""
+			}
+		]
+	},
+	"tiles": {
+		"path": "item tiles",
+		"list": [
+			{
+				"id": "1",
+				"nome": "Cornici1.1",
+				"amount": "2",
+				"description":""
+			},
+			{
+				"id": "2",
+				"nome": "Cornici1.2",
+				"amount": "2",
+				"description":""
+			},
+			{
+				"id": "3",
+				"nome": "Cornici1.3",
+				"amount": "2",
+				"description":""
+			},
+			{
+				"id": "4",
+				"nome": "Gatti1.1",
+				"amount": "2",
+				"description":""
+			},
+			{
+				"id": "5",
+				"nome": "Gatti1.2",
+				"amount": "2",
+				"description":""
+			},
+			{
+				"id": "6",
+				"nome": "Gatti1.3",
+				"amount": "2",
+				"description":""
+			},
+			{
+				"id": "7",
+				"nome": "Giochi1.1",
+				"amount": "2",
+				"description":""
+			},
+			{
+				"id": "8",
+				"nome": "Giochi1.2",
+				"amount": "2",
+				"description":""
+			},
+			{
+				"id": "9",
+				"nome": "Giochi1.3",
+				"amount": "2",
+				"description":""
+			},
+			{
+				"id": "10",
+				"nome": "Libri1.1",
+				"amount": "2",
+				"description":""
+			},
+			{
+				"id": "11",
+				"nome": "Libri1.2",
+				"amount": "2",
+				"description":""
+			},
+			{
+				"id": "12",
+				"nome": "Libri1.3",
+				"amount": "2",
+				"description":""
+			},
+			{
+				"id": "13",
+				"nome": "Piante1.1",
+				"amount": "2",
+				"description":""
+			},
+			{
+				"id": "14",
+				"nome": "Piante1.2",
+				"amount": "2",
+				"description":""
+			},
+			{
+				"id": "15",
+				"nome": "Piante1.2",
+				"amount": "2",
+				"description":""
+			},
+			{
+				"id": "16",
+				"nome": "Trofei1.1",
+				"amount": "2",
+				"description":""
+			},
+			{
+				"id": "17",
+				"nome": "Trofei1.2",
+				"amount": "2",
+				"description":""
+			},
+			{
+				"id": "18",
+				"nome": "Trofei1.3",
+				"amount": "2",
+				"description":""
+			}
+		]
+	},
+	"scoring_tokens": {
+		"path": "scoring tokens",
+		"list": [
+			{
+				"id": "1",
+				"nome": "end game",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "2",
+				"nome": "scoring",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "3",
+				"nome": "scoring_2",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "4",
+				"nome": "scoring_4",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "5",
+				"nome": "scoring_6",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "6",
+				"nome": "scoring_8",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "7",
+				"nome": "scoring_back_EMPTY",
+				"amount": "1",
+				"description":""
+			},
+			{
+				"id": "8",
+				"nome": "",
+				"amount": "1",
+				"description":""
+			}
+		]
+	}
+
+}
+
+
+
+
+
+
+
