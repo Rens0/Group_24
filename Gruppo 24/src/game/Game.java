@@ -1,26 +1,24 @@
 package game;
-import card.CardLoad;
+import card.CardList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Game {
 
 	public static void main(String[] args) {
 		String path = "Gruppo 24/cards.json";
-		CardLoad card = new CardLoad();
+		CardList card = new CardList();
 		//--- Creo file gson
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			//--- Leggo da file
 			BufferedReader br = new BufferedReader(new FileReader(path));
 			//--- Carico dal file json i dati
-			card = gson.fromJson(br,CardLoad.class);
+			card = gson.fromJson(br, CardList.class);
 			//System.out.println(card.common_goal.list.get(0).description);
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException(e);

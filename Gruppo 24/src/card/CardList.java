@@ -1,12 +1,11 @@
 package card;
-
-import java.util.ArrayList;
-/**
- * list contiente tutte le carte
- * path dove si trovano le immagini
- * */
-
+/*
+    Qui saranno contenute tutte le carte
+ */
 public class CardList {
-    public ArrayList<Card>list;
-    public String path;
+    public CardContainer common_goal;
+    public CardContainer personal_goal;
+    public CardContainer tiles;
+    public CardContainer scoring_tokens;
+
 }
