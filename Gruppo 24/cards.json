@@ -83,73 +83,69 @@
 				"id": "1",
 				"nome": "Personal_Goals",
 				"amount": "1",
-				"description":""
+
+
 			},
 			{
 				"id": "2",
 				"nome": "Personal_Goals2",
-				"amount": "1",
-				"description":""
+				"amount": "1"
+
 			},
 			{
 				"id": "3",
 				"nome": "Personal_Goals3",
-				"amount": "1",
-				"description":""
+				"amount": "1"
+
 			},
 			{
 				"id": "4",
 				"nome": "Personal_Goals4",
-				"amount": "1",
-				"description":""
+				"amount": "1"
+
 			},
 			{
 				"id": "5",
 				"nome": "Personal_Goals5",
-				"amount": "1",
-				"description":""
+				"amount": "1"
+
 			},
 			{
 				"id": "6",
 				"nome": "Personal_Goals6",
-				"amount": "1",
-				"description":""
+				"amount": "1"
+
 			},
 			{
 				"id": "7",
 				"nome": "Personal_Goals7",
-				"amount": "1",
-				"description":""
+				"amount": "1"
+
 			},
 			{
 				"id": "8",
 				"nome": "Personal_Goals8",
-				"amount": "1",
-				"description":""
+				"amount": "1"
 			},
 			{
 				"id": "9",
 				"nome": "Personal_Goals9",
-				"amount": "1",
-				"description":""
+				"amount": "1"
 			},
 			{
 				"id": "10",
 				"nome": "Personal_Goals10",
-				"amount": "1",
-				"description":""
+				"amount": "1"
 			},
 			{
 				"id": "11",
 				"nome": "Personal_Goals11",
-				"amount": "1",
-				"description":""
+				"amount": "1"
 			},
 			{
 				"id": "12",
 				"nome": "Personal_Goals12",
-				"amount": "1",
-				"description":""
+				"amount": "1"
 			}
 		]
 	},
@@ -159,110 +155,92 @@
 			{
 				"id": "1",
 				"nome": "Cornici1.1",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			},
 			{
 				"id": "2",
 				"nome": "Cornici1.2",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			},
 			{
 				"id": "3",
 				"nome": "Cornici1.3",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			},
 			{
 				"id": "4",
 				"nome": "Gatti1.1",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			},
 			{
 				"id": "5",
 				"nome": "Gatti1.2",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			},
 			{
 				"id": "6",
 				"nome": "Gatti1.3",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			},
 			{
 				"id": "7",
 				"nome": "Giochi1.1",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			},
 			{
 				"id": "8",
 				"nome": "Giochi1.2",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			},
 			{
 				"id": "9",
 				"nome": "Giochi1.3",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			},
 			{
 				"id": "10",
 				"nome": "Libri1.1",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			},
 			{
 				"id": "11",
 				"nome": "Libri1.2",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			},
 			{
 				"id": "12",
 				"nome": "Libri1.3",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			},
 			{
 				"id": "13",
 				"nome": "Piante1.1",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			},
 			{
 				"id": "14",
 				"nome": "Piante1.2",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			},
 			{
 				"id": "15",
 				"nome": "Piante1.2",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			},
 			{
 				"id": "16",
 				"nome": "Trofei1.1",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			},
 			{
 				"id": "17",
 				"nome": "Trofei1.2",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			},
 			{
 				"id": "18",
 				"nome": "Trofei1.3",
-				"amount": "2",
-				"description":""
+				"amount": "2"
 			}
 		]
 	},
@@ -272,50 +250,42 @@
 			{
 				"id": "1",
 				"nome": "end game",
-				"amount": "1",
-				"description":""
+				"amount": "1"
 			},
 			{
 				"id": "2",
 				"nome": "scoring",
-				"amount": "1",
-				"description":""
+				"amount": "1"
 			},
 			{
 				"id": "3",
 				"nome": "scoring_2",
-				"amount": "1",
-				"description":""
+				"amount": "1"
 			},
 			{
 				"id": "4",
 				"nome": "scoring_4",
-				"amount": "1",
-				"description":""
+				"amount": "1"
 			},
 			{
 				"id": "5",
 				"nome": "scoring_6",
-				"amount": "1",
-				"description":""
+				"amount": "1"
 			},
 			{
 				"id": "6",
 				"nome": "scoring_8",
-				"amount": "1",
-				"description":""
+				"amount": "1"
 			},
 			{
 				"id": "7",
 				"nome": "scoring_back_EMPTY",
-				"amount": "1",
-				"description":""
+				"amount": "1"
 			},
 			{
 				"id": "8",
 				"nome": "",
-				"amount": "1",
-				"description":""
+				"amount": "1"
 			}
 		]
 	}
