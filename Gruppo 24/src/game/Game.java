@@ -1,5 +1,5 @@
 package game;
-import card.CardList;
+import card.TileList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -11,14 +11,14 @@ public class Game {
 
 	public static void main(String[] args) {
 		String path = "Gruppo 24/cards.json";
-		CardList card = new CardList();
+		TileList card = new TileList();
 		//--- Creo file gson
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			//--- Leggo da file
 			BufferedReader br = new BufferedReader(new FileReader(path));
 			//--- Carico dal file json i dati
-			card = gson.fromJson(br, CardList.class);
+			card = gson.fromJson(br, TileList.class);
 			//System.out.println(card.common_goal.list.get(0).description);
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException(e);
