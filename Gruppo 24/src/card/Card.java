@@ -1,6 +1,6 @@
 package card;
 
-public class Card {
+ class Card {
     public String id;
     public String description;
     public int amount;

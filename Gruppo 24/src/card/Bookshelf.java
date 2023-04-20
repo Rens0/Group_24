@@ -1,5 +1,7 @@
 package card;
 
+import game.Cell;
+
 import java.util.ArrayList;
 
 public class Bookshelf {

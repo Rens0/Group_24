@@ -1,4 +1,4 @@
-package card;
+package game;
 
 public class Cell {
     public String type;
