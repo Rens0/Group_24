@@ -1,9 +1,12 @@
 package card;
 
- class Card {
+import java.util.ArrayList;
+
+class Card {
     public String id;
     public String description;
-    public int amount;
+    public ArrayList<CardTile>tile;
+    public ArrayList<CardBookshelf> bookshelf;
     
 
 }
