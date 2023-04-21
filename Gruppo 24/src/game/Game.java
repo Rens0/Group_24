@@ -20,7 +20,7 @@ public class Game {
 			BufferedReader br = new BufferedReader(new FileReader(path));
 			//--- Carico dal file json i dati
 			card = gson.fromJson(br, CardType.class);
-			System.out.println(card.common_goal);
+			System.out.println(card.tiles.list.get(0).tile.size());
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException(e);
 		}

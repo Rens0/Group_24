@@ -7,7 +7,7 @@ public class CardType {
 
     public CardList common_goal;
     public CardList personal_goal;
-    public CardList tile_list;
+    public CardList tiles;
     public CardList scoring_tokens;
 
 }

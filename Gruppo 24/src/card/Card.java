@@ -2,7 +2,7 @@ package card;
 
 import java.util.ArrayList;
 
-class Card {
+public class Card {
     public String id;
     public String description;
     public ArrayList<CardTile>tile;
