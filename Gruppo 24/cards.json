@@ -1,10 +1,12 @@
 {
+	"path": "",
 	"common_goal": {
 		"path": "common goal cards",
-		"common_goal_list":[
+		"list":[
 				{
 					"id": "1",	
 					"description":"Two groups each containing 4 tiles of the same type in a 2x2 square. The tiles of one square can be different from those of the other square."
+
 				},
 				{
 					"id": "2",
@@ -54,10 +56,10 @@
 		},
 	"personal_goal": {
 		"path": "personal goal cards",
-		"personal_goal_list": [
-			{				
+		"list": [
+			{
 				"id": "Personal_Goals",
-				"bookshelf_cell": [
+				"bookshelf": [
 					{
 						"type": "pianta",
 						"row": 0,
@@ -91,7 +93,7 @@
 				]
 
 			},
-			{				
+			{
 				"id": "Personal_Goals2",
 				"bookshelf_cell": [
 					{
@@ -127,47 +129,47 @@
 				]
 
 			},
-			{				
+			{
 				"id": "Personal_Goals3"
 			},
-			{				
+			{
 				"id": "Personal_Goals4"
 			},
-			{			
+			{
 				"id": "Personal_Goals5"
-				
+
 			},
-			{				 
+			{
 				"id": "Personal_Goals6"
 			},
-			{				
+			{
 				"id": "Personal_Goals7"
-				
+
 
 			},
 			{
 				"id": "Personal_Goals8"
-				
+
 			},
-			{			
+			{
 				"id": "Personal_Goals9"
-				
+
 			},
-			{				
+			{
 				"id": "Personal_Goals10"
-				
+
 			},
-			{			
-				"id": "Personal_Goals11"				
+			{
+				"id": "Personal_Goals11"
 			},
-			{			
-				"id": "Personal_Goals12"				
+			{
+				"id": "Personal_Goals12"
 			}
 		]
 	},
 	"tiles": {
 		"path": "item tiles",
-		"tile_list": [
+		"list": [
 			{
 				"type": "cornice",
 				"tile": [
@@ -274,14 +276,14 @@
 	},
 	"scoring_tokens": {
 		"path": "scoring tokens",
-		"scoring_tokens_list": [
+		"list": [
 			{
 				"id": "end game"
 			},
 			{
 				"id": "scoring"
 			},
-			{				
+			{
 				"id": "scoring_2"
 			},
 			{
