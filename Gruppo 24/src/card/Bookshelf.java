@@ -1,0 +1,11 @@
+package card;
+
+import game.Cell;
+
+import java.util.ArrayList;
+
+public class Bookshelf {
+   public String id;
+   public ArrayList<Cell>bookshelf_cell;
+
+}
