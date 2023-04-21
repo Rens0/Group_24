@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="src" path="Gruppo 24/Progetto"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="Gruppo 24/src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/gson-2.8.2"/>
-	<classpathentry kind="output" path="classes/production/Group_24"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>
