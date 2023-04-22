@@ -1,20 +1,24 @@
 package game;
+import card.Card;
 
 public class Celle {
-	private int value;
+	//aggiornare
+	public Card card;
 	
-	public Celle(int value) {
+	public Celle()
+	{
 		
 	}
+	public Celle(Card card) {
+		
+		this.card=card;
+	}
 
-	public int getValue() {
-		return value;
+	public Card getValue() {
+		return card;
 	}
 	
-	public void setValue(int value)
-	{
-		this.value=value;
-	}
+	
 	
 	
 }

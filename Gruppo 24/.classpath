@@ -6,5 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/micio/git/Group_24/Gruppo 24/gson-2.8.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
