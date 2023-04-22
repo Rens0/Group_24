@@ -59,7 +59,7 @@
 		"list": [
 			{
 				"id": "Personal_Goals",
-				"bookshelf": [
+				"card": [
 					{
 						"type": "pianta",
 						"row": 0,
@@ -95,7 +95,7 @@
 			},
 			{
 				"id": "Personal_Goals2",
-				"bookshelf_cell": [
+				"card": [
 					{
 						"type": "pianta",
 						"row": 1,
@@ -172,7 +172,7 @@
 		"list": [
 			{
 				"type": "cornice",
-				"tile": [
+				"card": [
 					{
 						"id":"Cornici1.1",
 						"amount": "2"
@@ -189,7 +189,7 @@
 			},
 			{
 				"type": "gatto",
-				"tile": [
+				"card": [
 					{
 						"id":"Gatti1.1",
 						"amount": "2"
@@ -206,7 +206,7 @@
 			},
 			{
 				"type": "gioco",
-				"tile": [
+				"card": [
 					{
 						"id":"Giochi1.1",
 						"amount": "2"
@@ -223,7 +223,7 @@
 			},
 			{
 				"type": "libro",
-				"tile": [
+				"card": [
 					{
 						"id":"Libri1.1",
 						"amount": "2"
@@ -240,7 +240,7 @@
 			},
 			{
 				"type": "pianta",
-				"tile": [
+				"card": [
 					{
 						"id":"Piante1.1",
 						"amount": "2"
@@ -257,7 +257,7 @@
 			},
 			{
 				"type": "trofeo",
-				"tile": [
+				"card": [
 					{
 						"id":"Trofei1.1",
 						"amount": "2"

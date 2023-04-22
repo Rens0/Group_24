@@ -1,13 +1,11 @@
 package card;
 
-import java.util.ArrayList;
-
 public class CardType {
-    public String path;
 
-    public CardList common_goal;
-    public CardList personal_goal;
-    public CardList tiles;
-    public CardList scoring_tokens;
 
+    public Cards common_goal;
+
+    public Cards scoring_tokens;
+    public CardsComposed personal_goal;
+    public CardsComposed tiles;
 }
