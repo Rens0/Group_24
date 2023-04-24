@@ -1,10 +1,15 @@
 package card;
 
 public class Card {
-    protected String id;
-    protected String description;
-    protected String type;
-    protected int amount;
-    protected int row;
-    protected int column;
+    public String id;
+    public String description;
+    public String type;
+    public int amount;
+    public int row;
+    public int column;
+
+    @Override
+    public String toString() {
+        return id+" "+description+" "+type+" "+amount+" "+row+" "+ " "+column;
+    }
 }

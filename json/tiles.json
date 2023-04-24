@@ -6,15 +6,15 @@
 			"list": [
 				{
 					"id":"Cornici1.1",
-					"amount": "2"
+					"amount": 7
 				},
 				{
 					"id":"Cornici1.2",
-					"amount": "2"
+					"amount": 7
 				},
 				{
 					"id":"Cornici1.3",
-					"amount": "2"
+					"amount": 8
 				}
 			]
 		},
@@ -23,15 +23,15 @@
 			"list": [
 				{
 					"id":"Gatti1.1",
-					"amount": "2"
+					"amount": 7
 				},
 				{
 					"id":"Gatti1.2",
-					"amount": "2"
+					"amount": 7
 				},
 				{
 					"id":"Gatti1.3",
-					"amount": "2"
+					"amount": 8
 				}
 			]
 		},
@@ -40,15 +40,15 @@
 			"list": [
 				{
 					"id":"Giochi1.1",
-					"amount": "2"
+					"amount": 7
 				},
 				{
 					"id":"Giochi1.2",
-					"amount": "2"
+					"amount": 7
 				},
 				{
 					"id":"Giochi1.3",
-					"amount": "2"
+					"amount": 8
 				}
 			]
 		},
@@ -57,15 +57,15 @@
 			"list": [
 				{
 					"id":"Libri1.1",
-					"amount": "2"
+					"amount": 7
 				},
 				{
 					"id":"Libri1.2",
-					"amount": "2"
+					"amount": 7
 				},
 				{
 					"id":"Libri1.3",
-					"amount": "2"
+					"amount": 8
 				}
 			]
 		},
@@ -74,15 +74,15 @@
 			"list": [
 				{
 					"id":"Piante1.1",
-					"amount": "2"
+					"amount": 7
 				},
 				{
 					"id":"Piante1.2",
-					"amount": "2"
+					"amount": 7
 				},
 				{
 					"id":"Piante1.3",
-					"amount": "2"
+					"amount": 8
 				}
 			]
 		},
@@ -91,15 +91,15 @@
 			"list": [
 				{
 					"id":"Trofei1.1",
-					"amount": "2"
+					"amount": 7
 				},
 				{
 					"id":"Trofei1.2",
-					"amount": "2"
+					"amount": 7
 				},
 				{
 					"id":"Trofei1.3",
-					"amount": "2"
+					"amount": 8
 				}
 			]
 		}
