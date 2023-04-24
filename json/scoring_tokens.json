@@ -1,0 +1,37 @@
+{		
+	"id": "scoring tokens",
+	"list": [
+		{
+			"id": "end game"
+		},
+		{
+			"id": "scoring"
+		},
+		{
+			"id": "scoring_2"
+		},
+		{
+			"id": "scoring_4"
+		},
+		{
+			"id": "scoring_6"
+		},
+		{
+			"id": "scoring_8"
+		},
+		{
+			"id": "scoring_back_EMPTY"
+		},
+		{
+			"id": "scoring_back_example"
+		}
+	]
+}
+
+
+
+
+
+
+
+

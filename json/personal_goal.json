@@ -1,0 +1,113 @@
+ {
+	"path": "personal goal cards",
+	"list": [
+		{
+			"id": "Personal_Goals",
+			"list": [
+				{
+					"type": "pianta",
+					"row": 0,
+					"column": 0
+				},
+				{
+					"type": "cornice",
+					"row": 0,
+					"column": 2
+				},
+				{
+					"type": "gatto",
+					"row": 1,
+					"column": 4
+				},
+				{
+					"type": "libro",
+					"row": 2,
+					"column": 3
+				},
+				{
+					"type": "gioco",
+					"row": 3,
+					"column": 1
+				},
+				{
+					"type": "trofeo",
+					"row": 5,
+					"column": 2
+				}
+			]
+
+		},
+		{
+			"id": "Personal_Goals2",
+			"list": [
+				{
+					"type": "pianta",
+					"row": 1,
+					"column": 1
+				},
+				{
+					"type": "cornice",
+					"row": 5,
+					"column": 4
+				},
+				{
+					"type": "gatto",
+					"row": 2,
+					"column": 1
+				},
+				{
+					"type": "libro",
+					"row": 3,
+					"column": 4
+				},
+				{
+					"type": "gioco",
+					"row": 2,
+					"column": 2
+				},
+				{
+					"type": "trofeo",
+					"row": 4,
+					"column": 3
+				}
+			]
+
+		},
+		{
+			"id": "Personal_Goals3"
+		},
+		{
+			"id": "Personal_Goals4"
+		},
+		{
+			"id": "Personal_Goals5"
+
+		},
+		{
+			"id": "Personal_Goals6"
+		},
+		{
+			"id": "Personal_Goals7"
+
+
+		},
+		{
+			"id": "Personal_Goals8"
+
+		},
+		{
+			"id": "Personal_Goals9"
+
+		},
+		{
+			"id": "Personal_Goals10"
+
+		},
+		{
+			"id": "Personal_Goals11"
+		},
+		{
+			"id": "Personal_Goals12"
+		}
+	]
+}

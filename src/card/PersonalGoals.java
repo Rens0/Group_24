@@ -2,8 +2,7 @@ package card;
 
 import java.util.ArrayList;
 
-public class Cards extends Card{
+public class PersonalGoals {
     public String path;
-    public ArrayList<Card>list;
-
+    public ArrayList<Cards>list;
 }

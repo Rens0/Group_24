@@ -2,8 +2,7 @@ package card;
 
 import java.util.ArrayList;
 
-public class CardsComposed {
+public class Tiles {
     public String path;
-
-    public ArrayList<ComposedList>list;
+    public ArrayList<Cards>list;
 }

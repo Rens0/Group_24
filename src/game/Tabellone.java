@@ -1,17 +1,16 @@
 package game;
 import card.Card;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 public class Tabellone {
-	public ArrayList <Celle> celle;
-	
-	public Tabellone() {
-		
-		for(int i=0; i<45;i++)
-		{
-			celle.add(new Celle());
-		}
-	}
+	public Celle [][] celle;
+	public String path;
 
 	public void riempimento()
 	{
@@ -21,14 +20,14 @@ public class Tabellone {
 		  allora la tavola deve essere ririempita, DXSX*/
 	}
 	
-	public Celle pesca(int posizione)
+	/*public Celle pesca(int posizione)
 	{
 		//controlli, risettaggio cella vuota
-		return celle.get(posizione);
+		return list.get(posizione);
 	}
 	
 	public void inserisciTessera(Card card, int posizione) {
 		//da vedere
-	}
+	}*/
 }
 

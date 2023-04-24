@@ -1,29 +1,81 @@
 package game;
-import card.CardType;
+import card.*;
+
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Game {
 
 	public static void main(String[] args) {
-		String path = "Gruppo 24/cards.json";
-		CardType card = new CardType();
-		//--- Creo file gson
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String path;
+		Gson gson = new Gson();
+
+		Cards commonGoal;
+		path = "json/common_goal.json";
+
 		try {
-			//--- Leggo da file
-			BufferedReader br = new BufferedReader(new FileReader(path));
-			//--- Carico dal file json i dati
-			card = gson.fromJson(br, CardType.class);
-			System.out.println(card.tiles.list.get(2).type);
-		} catch (FileNotFoundException e) {
+			Reader reader = Files.newBufferedReader(Paths.get(path));
+			commonGoal = gson.fromJson(reader, Cards.class);
+		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+
+
+
+		Cards scoringTokens;
+		path = "json/scoring_tokens.json";
+
+		try {
+			Reader reader = Files.newBufferedReader(Paths.get(path));
+			scoringTokens = gson.fromJson(reader, Cards.class);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
+
+		PersonalGoals personalGoals;
+		path = "json/personal_goal.json";
+
+		try {
+			Reader reader = Files.newBufferedReader(Paths.get(path));
+			personalGoals = gson.fromJson(reader, PersonalGoals.class);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
+
+		Tiles tiles;
+		path = "json/tiles.json";
+
+		try {
+			Reader reader = Files.newBufferedReader(Paths.get(path));
+			tiles = gson.fromJson(reader, Tiles.class);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
+
+		path= "json/tabellone.json";
+		Tabellone tabellone;
+		try {
+			Reader reader = Files.newBufferedReader(Paths.get(path));
+			tabellone = gson.fromJson(reader, Tabellone.class);
+
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
+
+
+
+
+
+
+
 /*
 
 

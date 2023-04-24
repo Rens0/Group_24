@@ -1,0 +1,54 @@
+{
+	"id": "common goal cards",
+	"list":[
+			{
+				"id": "1",
+				"description":"Two groups each containing 4 tiles of the same type in a 2x2 square. The tiles of one square can be different from those of the other square."
+
+			},
+			{
+				"id": "2",
+				"description":"Two columns each formed by 6 different types of tiles. "
+			},
+			{
+				"id": "3",
+				"description":"Four groups each containing at least 4 tiles of the same type (not necessarily in the depicted shape). The tiles of one group can be different from those of another group."
+			},
+			{
+				"id": "4",
+				"description":"Six groups each containing at least 2 tiles of the same type (not necessarily in the depicted shape). The tiles of one group can be different from those of another group."
+			},
+			{
+				"id": "5",
+				"description": "Three columns each formed by 6 tiles Five tiles of the same type forming an X. of maximum three different types. One column can show the same or a different combination of another column."
+			},
+			{
+				"id": "6",
+				"description": "Two lines each formed by 5 different types of tiles. One line can show the same or a different combination of the other line."
+			},
+			{
+				"id": "7",
+				"description": "Four lines each formed by 5 tiles of maximum three different types. One line can show the same or a different combination of another line."
+			},
+			{
+				"id": "8",
+				"description":"Four tiles of the same type in the four corners of the bookshelf. "
+			},
+			{
+				"id": "9",
+				"description": "Eight tiles of the same type. There’s no restriction about the position of these tiles."
+			},
+			{
+				"id": "10",
+				"description": "Five tiles of the same type forming an X."
+			},
+			{
+				"id": "11",
+				"description":"Five tiles of the same type forming a diagonal. "
+			},
+			{
+				"id": "12",
+				"description": "Five columns of increasing or decreasing height. Starting from the first column on the left or on the right, each next column must be made of exactly one more tile. Tiles can be of any type."
+			}
+		]
+}

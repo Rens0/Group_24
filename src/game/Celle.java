@@ -3,14 +3,12 @@ import card.Card;
 
 public class Celle {
 	//aggiornare
+
+
 	public Card card;
-	
-	public Celle()
-	{
-		
-	}
+	public int acc;
+
 	public Celle(Card card) {
-		
 		this.card=card;
 	}
 
