@@ -5,7 +5,7 @@ public class Gestore {
 	public Tabellone tabellone;
 	
 	public Gestore() {
-		tabellone = new Tabellone();
+		//tabellone = new Tabellone();
 	}
 
 }

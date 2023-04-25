@@ -70,6 +70,7 @@ public class Game {
 			throw new RuntimeException(e);
 		}
 
+		tabellone.setPlayer(3);
 		tabellone.riempimento(tiles);
 		//tabellone.print();
 
