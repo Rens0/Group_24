@@ -1,107 +1,35 @@
 {
-	"id": "item tiles",
+	"path": "item tiles",
 	"list": [
 		{
 			"type": "cornice",
-			"list": [
-				{
-					"id":"Cornici1.1",
-					"amount": 7
-				},
-				{
-					"id":"Cornici1.2",
-					"amount": 7
-				},
-				{
-					"id":"Cornici1.3",
-					"amount": 8
-				}
-			]
+			"amount": 22,
+			"moreId": ["Cornici1.1","Cornici1.2","Cornici1.3"]
 		},
 		{
 			"type": "gatto",
-			"list": [
-				{
-					"id":"Gatti1.1",
-					"amount": 7
-				},
-				{
-					"id":"Gatti1.2",
-					"amount": 7
-				},
-				{
-					"id":"Gatti1.3",
-					"amount": 8
-				}
-			]
+			"amount": 22,
+			"moreId": ["Gatti1.1","Gatti1.2","Gatti1.3"]
 		},
 		{
 			"type": "gioco",
-			"list": [
-				{
-					"id":"Giochi1.1",
-					"amount": 7
-				},
-				{
-					"id":"Giochi1.2",
-					"amount": 7
-				},
-				{
-					"id":"Giochi1.3",
-					"amount": 8
-				}
-			]
+			"amount": 22,
+			"moreId": ["Giochi1.1","Giochi1.2","Giochi1.3"]
 		},
 		{
 			"type": "libro",
-			"list": [
-				{
-					"id":"Libri1.1",
-					"amount": 7
-				},
-				{
-					"id":"Libri1.2",
-					"amount": 7
-				},
-				{
-					"id":"Libri1.3",
-					"amount": 8
-				}
-			]
+			"amount": 22,
+			"moreId": ["Libri1.1","Libri1.2","Libri1.3"]
 		},
 		{
 			"type": "pianta",
-			"list": [
-				{
-					"id":"Piante1.1",
-					"amount": 7
-				},
-				{
-					"id":"Piante1.2",
-					"amount": 7
-				},
-				{
-					"id":"Piante1.3",
-					"amount": 8
-				}
-			]
+			"amount": 22,
+			"moreId": ["Piante1.1","Piante1.2","Piante1.3"]
 		},
 		{
 			"type": "trofeo",
-			"list": [
-				{
-					"id":"Trofei1.1",
-					"amount": 7
-				},
-				{
-					"id":"Trofei1.2",
-					"amount": 7
-				},
-				{
-					"id":"Trofei1.3",
-					"amount": 8
-				}
-			]
+			"amount": 22,
+			"moreId": ["Trofei1.1","Trofei1.2","Trofei1.3"]
 		}
 	]
 }

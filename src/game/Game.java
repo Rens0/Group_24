@@ -49,12 +49,12 @@ public class Game {
 		}
 
 
-		Tiles tiles;
+		Cards tiles;
 		path = "json/tiles.json";
 
 		try {
 			Reader reader = Files.newBufferedReader(Paths.get(path));
-			tiles = gson.fromJson(reader, Tiles.class);
+			tiles = gson.fromJson(reader, Cards.class);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}

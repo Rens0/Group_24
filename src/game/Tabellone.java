@@ -1,6 +1,7 @@
 package game;
 import card.Card;
-import card.Tiles;
+import card.Cards;
+
 
 import java.util.Random;
 
@@ -11,28 +12,33 @@ public class Tabellone{
 	public int [][] mappa;
 	public Cella [][] celle = new Cella[9][9];
 
-	public Card randomTile(Tiles tiles){
+	public Card randomTile(Cards tiles){
 		Random rand = new Random();
 		int rand1 = rand.nextInt(tiles.list.size());
-		int rand2 = rand.nextInt(tiles.list.get(rand1).list.size());
-		Card c = tiles.list.get(rand1).list.get(rand2);
+		int rand2 = rand.nextInt(tiles.list.get(rand1).moreId.size());
 
-		if(tiles.list.get(rand1).list.get(rand2).amount>0) {
-			tiles.list.get(rand1).list.get(rand2).amount--;
-			System.out.println(tiles.list.get(rand1).list.get(rand2).id+" "+tiles.list.get(rand1).list.get(rand2).amount);
+		Card c = tiles.list.get(rand1);
+		c.id = (String) tiles.list.get(rand1).moreId.get(rand2);
+
+		if(tiles.list.get(rand1).amount>0) {
+			tiles.list.get(rand1).amount--;
+			System.out.println(tiles.list.get(rand1).id+" "+tiles.list.get(rand1).amount);
 
 
 		}
-		if(tiles.list.get(rand1).list.get(rand2).amount==0)
-			tiles.list.get(rand1).list.remove(rand2);
+		if(tiles.list.get(rand1).amount==0)
+			tiles.list.remove(rand1);
 
 		return c;
 	}
 
-	public void riempimento (Tiles tiles)
+	public void riempimento (Cards tiles)
 	{
-		for(int i = 0; i < mappa.length; i++){
-			for(int j = 0; j<mappa[i].length;j++){
+
+		for(int i = 0; i < mappa.length&&tiles.list.size()>0; i++){
+
+			for(int j = 0; j<mappa[i].length&&tiles.list.size()>0;j++){
+
 				if(celle[i][j] == null)
 					celle[i][j] = new Cella();
 
