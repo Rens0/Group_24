@@ -27,7 +27,7 @@ public class Tabellone{
 
 		if(tiles.list.get(rand1).amount>0) {
 			tiles.list.get(rand1).amount--;
-			System.out.println(tiles.list.get(rand1).id+" "+tiles.list.get(rand1).amount);
+		//	System.out.println(tiles.list.get(rand1).id+" "+tiles.list.get(rand1).amount);
 
 
 		}

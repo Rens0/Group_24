@@ -7,7 +7,6 @@ import com.google.gson.Gson;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 
 public class Game {
 
@@ -70,10 +69,9 @@ public class Game {
 			throw new RuntimeException(e);
 		}
 
-		tabellone.setPlayer(3);
-		tabellone.riempimento(tiles);
-		//tabellone.print();
 
+		tabellone.setPlayer(4);
+		tabellone.riempimento(tiles);
 
 
 
@@ -105,5 +103,6 @@ public class Game {
 		}*/
 
 	}
+
 
 }
