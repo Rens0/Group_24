@@ -30,17 +30,42 @@ public class Libreria {
 				contarighe++;
 			}
 		}
+		System.out.println(contarighe); //test 1
 		if(contarighe-card.size()>=0)
 		{
-			for (int i=RIGHE-1; i>0;i--) {
+			for (int i=contarighe-1; i>0;i--) {
 
 				if(celle[i][COLONNE]!=null)
 				{
-
+					for(int j=0;j<card.size();j++)
+					{
+						celle[i][COLONNE]=card.get(j);
+					}
 				}
-
-
 			}
+		}
+		//else throw new RuntimeException("Le tessere non ci stanno");
+	}
+
+
+	public boolean tabellonePieno()
+	{
+		int contarighe=0;
+		for(int i=0;i<RIGHE;i++) {
+			for(int j=0;j<COLONNE;j++) {
+				if(celle[j][COLONNE].id!=null)
+				{
+					contarighe++;
+				}
+			}
+		}
+		if(contarighe==(RIGHE*COLONNE))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
 		}
 	}
 

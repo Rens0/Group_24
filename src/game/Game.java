@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class Game {
 
@@ -70,11 +71,14 @@ public class Game {
 		}
 
 
-		tabellone.setPlayer(4);
-		tabellone.riempimento(tiles);
+		//tabellone.setPlayer(4);
+		//tabellone.riempimento(tiles);
 
-
-
+		Libreria libreria= new Libreria();
+		ArrayList <Card> card = new ArrayList<>();
+		card.add(new Card());
+		card.add(new Card());
+		libreria.inserisciTessere(card,1);
 
 
 /*
