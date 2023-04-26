@@ -32,7 +32,13 @@ public class Player {
 		
 		 this.points+=points; 
 	}
+/*	public void inserisciTessera(ArrayList <Card> card, int COLONNA)
+	{
+		if(COLONNA)
+		{
 
+		}
+	}*/
 	@Override
 	public String toString() {
 		return this.name+" "+this.ID+" "+this.points;
