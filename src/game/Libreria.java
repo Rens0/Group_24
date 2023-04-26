@@ -25,7 +25,7 @@ public class Libreria {
 		int contarighe=0;
 		for(int y=0;y<RIGHE;y++)
 		{
-			if(celle[y][COLONNE]!=null)
+			if(celle[y][COLONNE].id!=null)
 			{
 				contarighe++;
 			}
