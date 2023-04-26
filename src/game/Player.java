@@ -32,13 +32,20 @@ public class Player {
 		
 		 this.points+=points; 
 	}
-/*	public void inserisciTessera(ArrayList <Card> card, int COLONNA)
+	
+	public ArrayList<Card> drawItemTiles(Tabellone t ){
+		ArrayList<Card> drawItemTiles= new ArrayList<Card>(); 
+		if(/*t.getTessera().pescabile()*/true) {
+			drawItemTiles.add(null); 
+		}//da completare
+		return drawItemTiles; 
+	}
+	
+	public void inserisciTessera(ArrayList <Card> card, int COLONNA)
 	{
-		if(COLONNA)
-		{
-
-		}
-	}*/
+		this.libreria.inserisciTessere(card, COLONNA);
+	}
+	
 	@Override
 	public String toString() {
 		return this.name+" "+this.ID+" "+this.points;
