@@ -4,6 +4,7 @@ import card.Cards;
 
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Random;
 
 public class Tabellone{
@@ -13,6 +14,7 @@ public class Tabellone{
 
 	public int [][] mappa;
 	public Cella [][] celle = new Cella[9][9];
+
 
 	public void setPlayer(int nPlayer){
 		this.nPlayer = nPlayer;

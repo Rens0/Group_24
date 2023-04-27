@@ -71,6 +71,9 @@ public class Game {
 		}
 
 
+
+
+
 		//tabellone.setPlayer(4);
 		//tabellone.riempimento(tiles);
 
