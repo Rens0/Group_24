@@ -4,7 +4,7 @@ import card.Cards;
 
 
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.List;
 import java.util.Random;
 
 public class Tabellone{
@@ -12,9 +12,11 @@ public class Tabellone{
 	public String id;
 	public int nPlayer;
 
-	public int [][] mappa;
-	public Cella [][] celle = new Cella[9][9];
+	public List<ArrayList<Cella>> mappa;
 
+	public Tabellone(){
+		mappa = new ArrayList<ArrayList<Cella>>();
+	}
 
 	public void setPlayer(int nPlayer){
 		this.nPlayer = nPlayer;
@@ -42,7 +44,8 @@ public class Tabellone{
 	public void riempimento (Cards tiles)
 	{
 
-		for(int i = 0; i < mappa.length&&tiles.list.size()>0; i++){
+
+		/*for(int i = 0; i < mappa.length&&tiles.list.size()>0; i++){
 
 			for(int j = 0; j<mappa[i].length&&tiles.list.size()>0;j++){
 
@@ -71,21 +74,20 @@ public class Tabellone{
 					celle[i][j].stato = false;
 				}
 			}
-		}
+		}*/
 		//riempe con le carte dentro la sacchetta/mazzo : GESTORE
 		
 		/*ntb le tessere alla fine del turno di un player se vicino alla tessera non ci sono altre tessere adiacenti,
 		  allora la tavola deve essere ririempita, DXSX*/
 	}
 	public void setCella(int i, int j, Cards tiles){
-		celle[i][j].setCella(randomTile(tiles));
-		celle[i][j].stato = true;
+		//celle[i][j].setCella(randomTile(tiles));
+		//celle[i][j].stato = true;
 	}
 	public void print(){
-		for(int i = 0; i < mappa.length; i++){
-			for(int j = 0; j<mappa[i].length;j++){
-				if(celle[i][j].stato)
-					System.out.println(celle[i][j].stato+" "+celle[i][j].tile.toString());
+		for(int i = 0; i < mappa.size(); i++){
+			for(int j = 0; j<mappa.get(i).size();j++){
+				System.out.println(mappa.get(i).get(j));
 
 			}
 		}

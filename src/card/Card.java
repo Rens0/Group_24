@@ -11,6 +11,7 @@ public class Card {
     public int row;
     public int column;
 
+
     @Override
     public String toString() {
         return id+" "+description+" "+type+" "+amount+" "+row+" "+ " "+column;

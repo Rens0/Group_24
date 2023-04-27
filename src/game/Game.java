@@ -1,8 +1,11 @@
 package game;
+import Test.Deserializzazione;
+import Test.TabelloneDeserializer;
 import card.*;
 
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -59,13 +62,13 @@ public class Game {
 			throw new RuntimeException(e);
 		}
 
-
-		path= "json/tabellone.json";
 		Tabellone tabellone;
+		path= "json/tabellone.json";
 		try {
 			Reader reader = Files.newBufferedReader(Paths.get(path));
-			tabellone = gson.fromJson(reader, Tabellone.class);
-
+			GsonBuilder gsonBuilder = new GsonBuilder();
+			gsonBuilder.registerTypeAdapter(Tabellone.class, new TabelloneDeserializer());
+			tabellone = gsonBuilder.create().fromJson(reader, Tabellone.class);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -76,13 +79,13 @@ public class Game {
 
 		//tabellone.setPlayer(4);
 		//tabellone.riempimento(tiles);
-
+		/*
 		Libreria libreria= new Libreria();
 		ArrayList <Card> card = new ArrayList<>();
 		card.add(new Card());
 		card.add(new Card());
 		libreria.inserisciTessere(card,1);
-
+		*/
 
 /*
 
