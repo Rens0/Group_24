@@ -25,7 +25,7 @@ public class Libreria {
 
 	}
 
-	public void inserisciTessere(ArrayList<Card> card, int COLONNASELEZIONATA) {
+	public void inserisciTessere(ArrayList<Card> card, int COLONNASELEZIONATA, ArrayList <Integer> ordine) {
 		int contarighe=0;
 
 		for(int y=0;y<RIGHE;y++) {
@@ -40,10 +40,12 @@ public class Libreria {
 
 				if(celle.get(i).get(COLONNASELEZIONATA).tile==null) {
 
-					if(card.size()>0)
+					if(ordine.size()>0)
 					{
-						celle.get(i).get(COLONNASELEZIONATA).tile=card.get(0);
-						card.remove(0);
+
+						celle.get(i).get(COLONNASELEZIONATA).tile=card.get(ordine.get(0));
+						ordine.remove(0);
+
 
 					}
 

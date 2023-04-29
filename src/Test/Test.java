@@ -35,6 +35,9 @@ public class Test {
         }
 */
         ArrayList < Card> card= new ArrayList<>();
+        ArrayList < Integer> it= new ArrayList<>();
+        it.add(0); //seconda carta
+        it.add(1); //prima carta
         Card card1= new Card();
         Card card2= new Card();
         card1.id="1";
@@ -42,7 +45,7 @@ public class Test {
         card.add(card1);
         card.add(card2);
         Libreria libreria= new Libreria();
-        libreria.inserisciTessere(card,4);
+        libreria.inserisciTessere(card,4,it);
         libreria.print();
 
     }
