@@ -6,8 +6,8 @@ import java.util.List;
 
 
 public class Libreria {
-	private static int COLONNE=6;
-	private static int RIGHE=5;
+	private static int COLONNE=5;
+	private static int RIGHE=6;
 	public List <List< Cella>>celle;
 
 	public Libreria () {
