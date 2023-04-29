@@ -1,4 +1,4 @@
-package Test;
+package game;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
@@ -18,11 +18,13 @@ public class TabelloneDeserializer implements JsonDeserializer<Tabellone> {
         if(!jsonObject.has("mappa"))
             return null;
         else {
+
             Tabellone tabellone = new Tabellone();
             List<List<Integer>>mappa = jsonDeserializationContext.deserialize(jsonObject.get("mappa"),new TypeToken<List<List<Integer>>>(){}.getType());
-            ArrayList<Cella>matrice=new ArrayList<>();
+
 
             for(int i = 0; i < mappa.size(); i++){
+                ArrayList<Cella>matrice=new ArrayList<>();
                 for(int j = 0; j<mappa.get(i).size();j++){
                     int accCella = mappa.get(i).get(j);
                         switch (accCella){
@@ -36,8 +38,25 @@ public class TabelloneDeserializer implements JsonDeserializer<Tabellone> {
                                 matrice.add(null);
                         }
                     }
+
                 tabellone.mappa.add(matrice);
+
+            }
+
+
+            /*
+
+            for(int i = 0; i < tabellone.mappa.size(); i++){
+
+                for(int j = 0; j<tabellone.mappa.get(i).size();j++){
+                    Cella accCella = tabellone.mappa.get(i).get(j);
+                    System.out.print(accCella.access);
+
                 }
+                System.out.println();
+            }*/
+
+
             return tabellone;
             }
     }

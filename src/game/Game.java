@@ -1,6 +1,4 @@
 package game;
-import Test.Deserializzazione;
-import Test.TabelloneDeserializer;
 import card.*;
 
 
@@ -10,7 +8,6 @@ import com.google.gson.GsonBuilder;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 
 public class Game {
 
@@ -69,9 +66,12 @@ public class Game {
 			GsonBuilder gsonBuilder = new GsonBuilder();
 			gsonBuilder.registerTypeAdapter(Tabellone.class, new TabelloneDeserializer());
 			tabellone = gsonBuilder.create().fromJson(reader, Tabellone.class);
+			//System.out.println(tabellone.mappa.size());
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+
+		//tabellone.print();
 
 
 

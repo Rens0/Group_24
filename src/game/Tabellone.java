@@ -87,9 +87,10 @@ public class Tabellone{
 	public void print(){
 		for(int i = 0; i < mappa.size(); i++){
 			for(int j = 0; j<mappa.get(i).size();j++){
-				System.out.println(mappa.get(i).get(j));
+				System.out.print(mappa.get(i).get(j).access);
 
 			}
+			System.out.println();
 		}
 
 	}
