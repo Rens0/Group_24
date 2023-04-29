@@ -70,7 +70,7 @@ public class Game {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		System.out.println(tabellone.mappa.get(0).size());
+		//System.out.println(tabellone.mappa.get(0).size());
 		tabellone.print();
 
 
