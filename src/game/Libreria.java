@@ -25,12 +25,13 @@ public class Libreria {
 		int contarighe=0;
 		for(int y=0;y<RIGHE;y++)
 		{
-			if(celle[y][COLONNE].id!=null)
+
+			if(celle[y][COLONNE].id==null)
 			{
 				contarighe++;
 			}
 		}
-		System.out.println(contarighe); //test 1
+
 		if(contarighe-card.size()>=0)
 		{
 			for (int i=contarighe-1; i>0;i--) {
@@ -44,6 +45,17 @@ public class Libreria {
 				}
 			}
 		}
+
+
+		contarighe=0;
+		for(int y=0;y<RIGHE;y++)		{
+
+			if(celle[y][COLONNE].id==null)
+			{
+				contarighe++;
+			}
+		}
+		System.out.println(contarighe); //test 1
 		//else throw new RuntimeException("Le tessere non ci stanno");
 	}
 
