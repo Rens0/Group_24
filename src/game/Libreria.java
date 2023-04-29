@@ -2,81 +2,64 @@ package game;
 import card.Card;
 
 import java.util.ArrayList;
+import java.util.List;
+
 
 public class Libreria {
 	private static int COLONNE=6;
 	private static int RIGHE=5;
-	private Card [][] celle;
+	private List <List< Cella>>celle;
 
 	public Libreria () {
 
-		celle= new Card[RIGHE][COLONNE];
+		celle=new ArrayList<>();
+		ArrayList <Cella> rigac;
 		for(int i=0;i<RIGHE;i++) {
+			rigac=new ArrayList<>();
+
 			for(int j=0;j<COLONNE;j++) {
-				celle[i][j]= new Card();
-				//rivedere
+				rigac.add(new Cella());
 			}
+			celle.add(rigac);
 		}
 
 	}
 
-	public void inserisciTessere(ArrayList <Card> card, int COLONNE)
-	{
+	public void inserisciTessere(ArrayList<Card> card, int COLONNASELEZIONATA) {
 		int contarighe=0;
-		for(int y=0;y<RIGHE;y++)
-		{
+		for(int y=0;y<RIGHE;y++) {
 
-			if(celle[y][COLONNE].id==null)
-			{
+			if(celle.get(y).get(COLONNASELEZIONATA).tile==null) {
 				contarighe++;
 			}
 		}
 
-		if(contarighe-card.size()>=0)
-		{
+		if(contarighe-card.size()>=0) {
 			for (int i=contarighe-1; i>0;i--) {
 
-				if(celle[i][COLONNE]!=null)
-				{
-					for(int j=0;j<card.size();j++)
-					{
-						celle[i][COLONNE]=card.get(j);
-					}
+				if(celle.get(i).get(COLONNASELEZIONATA).tile==null) {
+
+
+					celle.get(i).get(COLONNASELEZIONATA).tile=card.get(0);
+					card.remove(0);
 				}
 			}
-		}
-
-
-		contarighe=0;
-		for(int y=0;y<RIGHE;y++)		{
-
-			if(celle[y][COLONNE].id==null)
-			{
-				contarighe++;
-			}
-		}
-		System.out.println(contarighe); //test 1
-		//else throw new RuntimeException("Le tessere non ci stanno");
+		} else throw new RuntimeException("Le tessere non ci stanno");
 	}
 
 
-	public boolean tabellonePieno()
-	{
-		int contarighe=0;
+	public boolean libreriaPiena() {
+		int contacella=0;
 		for(int i=0;i<RIGHE;i++) {
 			for(int j=0;j<COLONNE;j++) {
-				if(celle[j][COLONNE].id!=null)
-				{
-					contarighe++;
+				if(celle.get(i).get(j).tile!=null) {
+					contacella++;
 				}
 			}
 		}
-		if(contarighe==(RIGHE*COLONNE))
-		{
+		if(contacella==(RIGHE*COLONNE)) {
 			return true;
-		}
-		else
-		{
+		} else {
 			return false;
 		}
 	}
