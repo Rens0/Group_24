@@ -8,7 +8,7 @@ import java.util.List;
 public class Libreria {
 	private static int COLONNE=6;
 	private static int RIGHE=5;
-	private List <List< Cella>>celle;
+	public List <List< Cella>>celle;
 
 	public Libreria () {
 
@@ -27,6 +27,7 @@ public class Libreria {
 
 	public void inserisciTessere(ArrayList<Card> card, int COLONNASELEZIONATA) {
 		int contarighe=0;
+
 		for(int y=0;y<RIGHE;y++) {
 
 			if(celle.get(y).get(COLONNASELEZIONATA).tile==null) {
@@ -39,9 +40,13 @@ public class Libreria {
 
 				if(celle.get(i).get(COLONNASELEZIONATA).tile==null) {
 
+					if(card.size()>0)
+					{
+						celle.get(i).get(COLONNASELEZIONATA).tile=card.get(0);
+						card.remove(0);
 
-					celle.get(i).get(COLONNASELEZIONATA).tile=card.get(0);
-					card.remove(0);
+					}
+
 				}
 			}
 		} else throw new RuntimeException("Le tessere non ci stanno");
@@ -61,6 +66,23 @@ public class Libreria {
 			return true;
 		} else {
 			return false;
+		}
+	}
+
+	public void print()
+	{
+		for(int i=0; i<RIGHE; i++)
+		{
+			for( int y=0; y<COLONNE; y++)
+			{
+				if(celle.get(i).get(y).tile==null) {
+					System.out.print("NULL");
+				}
+				else {
+					System.out.print(celle.get(i).get(y).tile.id);
+				}
+			}
+			System.out.println();
 		}
 	}
 

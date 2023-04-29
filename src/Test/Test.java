@@ -1,11 +1,15 @@
 package Test;
 
+import card.Card;
+import game.Libreria;
+import game.Tabellone;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        List<List<Integer>>matrice = new ArrayList<>();
+       /* List<List<Integer>>matrice = new ArrayList<>();
         ArrayList<Integer>a,b,c;
         a =  new ArrayList<>();
         b= new ArrayList<>();
@@ -29,7 +33,17 @@ public class Test {
                 System.out.print(matrice.get(i).get(j));
             System.out.println();
         }
-
+*/
+        ArrayList < Card> card= new ArrayList<>();
+        Card card1= new Card();
+        Card card2= new Card();
+        card1.id="1";
+        card2.id="2";
+        card.add(card1);
+        card.add(card2);
+        Libreria libreria= new Libreria();
+        libreria.inserisciTessere(card,4);
+        libreria.print();
 
     }
 }
