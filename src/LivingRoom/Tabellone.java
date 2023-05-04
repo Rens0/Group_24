@@ -1,6 +1,6 @@
-package game;
+package LivingRoom;
 import card.Card;
-import card.Cards;
+import game.Cella;
 
 
 import java.util.ArrayList;

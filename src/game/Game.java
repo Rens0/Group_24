@@ -1,4 +1,6 @@
 package game;
+import LivingRoom.Tabellone;
+import LivingRoom.TabelloneDeserializer;
 import card.*;
 
 
@@ -9,7 +11,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -18,24 +19,33 @@ public class Game {
 		String path;
 		Gson gson = new Gson();
 
-		Cards commonGoal;
+		List<Card> commonGoal;
 		path = "json/common_goal.json";
 
 		try {
 			Reader reader = Files.newBufferedReader(Paths.get(path));
-			commonGoal = gson.fromJson(reader, Cards.class);
+			GsonBuilder gsonBuilder = new GsonBuilder();
+			gsonBuilder.registerTypeAdapter(new TypeToken<List<Card>>(){}.getType(), new CardDeserializer());
+			commonGoal = gsonBuilder.create().fromJson(reader, new TypeToken<List<Card>>(){}.getType());
+			System.out.println(commonGoal.get(0).id);
+
+			//System.out.println(tabellone.mappa.size());
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
 
 
 
-		Cards scoringTokens;
-		path = "json/scoring_tokens.json";
-
+		List<Card> scoringToken;
+		path= "json/scoring_tokens.json";
 		try {
 			Reader reader = Files.newBufferedReader(Paths.get(path));
-			scoringTokens = gson.fromJson(reader, Cards.class);
+			GsonBuilder gsonBuilder = new GsonBuilder();
+			gsonBuilder.registerTypeAdapter(new TypeToken<List<Card>>(){}.getType(), new CardDeserializer());
+			scoringToken = gsonBuilder.create().fromJson(reader, new TypeToken<List<Card>>(){}.getType());
+			System.out.println(scoringToken.get(0).id);
+
+			//System.out.println(tabellone.mappa.size());
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -51,7 +61,7 @@ public class Game {
 			throw new RuntimeException(e);
 		}
 
-
+/*
 		Cards tiles;
 		path = "json/tiles.json";
 
@@ -60,7 +70,7 @@ public class Game {
 			tiles = gson.fromJson(reader, Cards.class);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
-		}
+		}*/
 
 		Tabellone tabellone;
 		path= "json/tabellone.json";
@@ -78,19 +88,7 @@ public class Game {
 
 
 
-		List<Card> scoringToken;
-		path= "json/scoring_tokens.json";
-		try {
-			Reader reader = Files.newBufferedReader(Paths.get(path));
-			GsonBuilder gsonBuilder = new GsonBuilder();
-			gsonBuilder.registerTypeAdapter(new TypeToken<List<Card>>(){}.getType(), new CardDeser());
-			scoringToken = gsonBuilder.create().fromJson(reader, new TypeToken<List<Card>>(){}.getType());
-			System.out.println(scoringToken.get(0).id);
 
-			//System.out.println(tabellone.mappa.size());
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
 
 
 		//tabellone.setPlayer(4);

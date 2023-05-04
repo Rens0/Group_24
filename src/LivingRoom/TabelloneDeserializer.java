@@ -1,9 +1,8 @@
-package game;
+package LivingRoom;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import game.Cella;
-import game.Tabellone;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

@@ -1,15 +1,14 @@
-package game;
+package card;
 
 import card.Card;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CardDeser implements JsonDeserializer<List<Card>> {
+public class CardDeserializer implements JsonDeserializer<List<Card>> {
     @Override
     public List<Card> deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
         if(!jsonElement.isJsonObject())
