@@ -21,7 +21,7 @@ public class Tabellone{
 	public void setPlayer(int nPlayer){
 		this.nPlayer = nPlayer;
 	}
-	public Card randomTile(Cards tiles){
+	/*public Card randomTile(Cards tiles){
 		Random rand = new Random();
 		int rand1 = rand.nextInt(tiles.list.size());
 		int rand2 = rand.nextInt(tiles.list.get(rand1).moreId.size());
@@ -39,9 +39,9 @@ public class Tabellone{
 			tiles.list.remove(rand1);
 
 		return c;
-	}
+	}*/
 
-	public void riempimento (Cards tiles)
+	/*public void riempimento (Cards tiles)
 	{
 
 
@@ -79,11 +79,11 @@ public class Tabellone{
 		
 		/*ntb le tessere alla fine del turno di un player se vicino alla tessera non ci sono altre tessere adiacenti,
 		  allora la tavola deve essere ririempita, DXSX*/
-	}
-	public void setCella(int i, int j, Cards tiles){
+	//}
+	//public void setCella(int i, int j, Cards tiles){
 		//celle[i][j].setCella(randomTile(tiles));
 		//celle[i][j].stato = true;
-	}
+	//}
 	public void print(){
 		for(int i = 0; i < mappa.size(); i++){
 			for(int j = 0; j<mappa.get(i).size();j++){
