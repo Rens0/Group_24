@@ -19,12 +19,7 @@ public class Player {
 		libreria = new Libreria();
 	}
 	
-	public void inserisciTessere(int posizione,ArrayList <Integer> ordine, ArrayList <Card> card)
-	{
-		// 1,2,3 + controlli se n tessere superano la dimensione massima della colonna 
-		//return n leght- n tessere con lastpose (da vedere)
-		
-	}
+
 	
 	public int getPoints() {
 		return points;
@@ -42,14 +37,19 @@ public class Player {
 		}//da completare
 		return drawItemTiles; 
 	}
-	
-	public void inserisciTessera(ArrayList <Card> card, int COLONNA)
+
+	public boolean inserisciTessera(ArrayList <Card> card, int COLONNA, ArrayList <Integer> ordine)
 	{
-		this.libreria.inserisciTessere(card, COLONNA);
+		libreria.inserisciTessere(card, COLONNA,ordine);
+		return libreria.libreriaPiena();
+
 	}
-	
+
+
 	@Override
 	public String toString() {
 		return this.name+" "+this.ID+" "+this.points;
 	}
+
+
 }

@@ -83,8 +83,8 @@ public class Game {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-
-		//tabellone.print();
+		//System.out.println(tabellone.mappa.get(0).size());
+		tabellone.print();
 
 
 

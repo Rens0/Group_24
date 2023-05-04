@@ -20,21 +20,18 @@ public class TabelloneDeserializer implements JsonDeserializer<Tabellone> {
 
             Tabellone tabellone = new Tabellone();
             List<List<Integer>>mappa = jsonDeserializationContext.deserialize(jsonObject.get("mappa"),new TypeToken<List<List<Integer>>>(){}.getType());
-
-
+            ArrayList<Cella>matrice;
             for(int i = 0; i < mappa.size(); i++){
-                ArrayList<Cella>matrice=new ArrayList<>();
+                matrice = new ArrayList<>();
                 for(int j = 0; j<mappa.get(i).size();j++){
                     int accCella = mappa.get(i).get(j);
                         switch (accCella){
-                            case 0, 3, 4:{
+                            case 0, 2, 3, 4:{
                                 Cella cella = new Cella();
                                 cella.access = accCella;
                                 matrice.add(cella);
                                 break;
                             }
-                            default:
-                                matrice.add(null);
                         }
                     }
 
