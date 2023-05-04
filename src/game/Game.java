@@ -4,10 +4,13 @@ import card.*;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Game {
 
@@ -75,6 +78,19 @@ public class Game {
 
 
 
+		List<Card> scoringToken;
+		path= "json/scoring_tokens.json";
+		try {
+			Reader reader = Files.newBufferedReader(Paths.get(path));
+			GsonBuilder gsonBuilder = new GsonBuilder();
+			gsonBuilder.registerTypeAdapter(new TypeToken<List<Card>>(){}.getType(), new CardDeser());
+			scoringToken = gsonBuilder.create().fromJson(reader, new TypeToken<List<Card>>(){}.getType());
+			System.out.println(scoringToken.get(0).id);
+
+			//System.out.println(tabellone.mappa.size());
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 
 
 		//tabellone.setPlayer(4);
