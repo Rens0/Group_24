@@ -6,7 +6,7 @@ public class Card {
     public String id;
     public String description;
     public String type;
-    public ArrayList <?> moreId;
+    public ArrayList <String> moreId;
     public int amount;
     public int row;
     public int column;

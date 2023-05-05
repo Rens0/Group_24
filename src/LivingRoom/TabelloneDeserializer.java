@@ -28,7 +28,7 @@ public class TabelloneDeserializer implements JsonDeserializer<Tabellone> {
                         switch (accCella){
                             case 0, 2, 3, 4:{
                                 Cella cella = new Cella();
-                                cella.access = accCella;
+                                cella.accessibilitaCella = accCella;
                                 matrice.add(cella);
                                 break;
                             }

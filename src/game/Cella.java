@@ -3,8 +3,8 @@ package game;
 import card.Card;
 
 public class Cella {
-    public Card tile;
-    public int access;
+    private Card tile;
+    public int accessibilitaCella;
     public Cella(){
         this(null);
     }
@@ -15,6 +15,10 @@ public class Cella {
 
     public void setCella(Card tile){
         this.tile = tile;
+    }
+    public Card getTessera()
+    {
+        return tile;
     }
 
 

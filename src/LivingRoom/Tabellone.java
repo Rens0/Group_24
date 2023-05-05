@@ -1,5 +1,6 @@
 package LivingRoom;
 import card.Card;
+import card.CardContainer;
 import game.Cella;
 
 
@@ -21,7 +22,54 @@ public class Tabellone{
 	public void setPlayer(int nPlayer){
 		this.nPlayer = nPlayer;
 	}
-	/*public Card randomTile(Cards tiles){
+
+	public void riempimentoTabellone(CardContainer card) {
+		for(int i=0; i<mappa.size();i++) {
+			for(int j=0; j<mappa.get(i).size();j++) {
+				switch (nPlayer) {
+					case 2:{
+						if(mappa.get(i).get(j).accessibilitaCella ==2) {
+							mappa.get(i).get(j).setCella(randomCard(card));
+							//System.out.println(mappa.get(i).get(j).getTessera().id);
+						}
+						break;
+					}
+					case 3:{
+						if(mappa.get(i).get(j).accessibilitaCella ==2||mappa.get(i).get(j).accessibilitaCella ==3) {
+							mappa.get(i).get(j).setCella(randomCard(card));
+						}
+
+						break;
+					}
+					case 4:{
+						if(mappa.get(i).get(j).accessibilitaCella >=2&&mappa.get(i).get(j).accessibilitaCella <=4) {
+							mappa.get(i).get(j).setCella(randomCard(card));
+						}
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	private Card randomCard(CardContainer card) {
+
+		Random rand = new Random();
+
+		int valore = rand.nextInt(card.list.size());
+
+		Card cardSalvata= card.list.get(valore);
+		if(cardSalvata.amount<=0) {
+			randomCard(card);
+		}
+		//card.list.remove(valore);
+		int randid = rand.nextInt(card.list.get(valore).moreId.size());
+		cardSalvata.id=card.list.get(valore).moreId.get(randid);
+		card.list.get(valore).amount--;
+
+		return cardSalvata;
+	}
+    /*public Card randomTile(Cards tiles){
 		Random rand = new Random();
 		int rand1 = rand.nextInt(tiles.list.size());
 		int rand2 = rand.nextInt(tiles.list.get(rand1).moreId.size());
@@ -41,7 +89,7 @@ public class Tabellone{
 		return c;
 	}*/
 
-	/*public void riempimento (Cards tiles)
+    /*public void riempimento (Cards tiles)
 	{
 
 
@@ -75,27 +123,30 @@ public class Tabellone{
 				}
 			}
 		}*/
-		//riempe con le carte dentro la sacchetta/mazzo : GESTORE
-		
-		/*ntb le tessere alla fine del turno di un player se vicino alla tessera non ci sono altre tessere adiacenti,
-		  allora la tavola deve essere ririempita, DXSX*/
+	//riempe con le carte dentro la sacchetta/mazzo : GESTORE
+
+	/*ntb le tessere alla fine del turno di un player se vicino alla tessera non ci sono altre tessere adiacenti,
+      allora la tavola deve essere ririempita, DXSX*/
 	//}
 	//public void setCella(int i, int j, Cards tiles){
-		//celle[i][j].setCella(randomTile(tiles));
-		//celle[i][j].stato = true;
+	//celle[i][j].setCella(randomTile(tiles));
+	//celle[i][j].stato = true;
 	//}
 	public void print(){
 		for(int i = 0; i < mappa.size(); i++){
 			for(int j = 0; j<mappa.get(i).size();j++){
-				System.out.print(mappa.get(i).get(j).access);
+				if(mappa.get(i).get(j).getTessera()==null) {
+					System.out.print(".");
+				} else
+					System.out.print(mappa.get(i).get(j).getTessera().id);
 
 			}
 			System.out.println();
 		}
 
 	}
-	
-	/*public Celle pesca(int posizione)
+
+    /*public Celle pesca(int posizione)
 	{
 		//controlli, risettaggio cella vuota
 		return list.get(posizione);

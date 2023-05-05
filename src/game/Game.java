@@ -79,7 +79,9 @@ public class Game {
 			throw new RuntimeException(e);
 		}
 		//System.out.println(tabellone.mappa.get(0).size());
-		//tabellone.print();
+		tabellone.setPlayer(2);
+		tabellone.riempimentoTabellone(tile);
+		tabellone.print();
 
 
 		/*
