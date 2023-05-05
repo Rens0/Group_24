@@ -11,6 +11,7 @@ public class Card {
     public int row;
     public int column;
 
+    public String path;
 
     @Override
     public String toString() {

@@ -4,5 +4,5 @@ import java.util.ArrayList;
 
 public class PersonalGoals {
     public String path;
-    public ArrayList<Cards>list;
+    public ArrayList<CardContainer>list;
 }
