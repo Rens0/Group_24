@@ -13,8 +13,8 @@ public class Card {
 
     public String path;
 
-    @Override
-    public String toString() {
+    //@Override
+    /*public String toString() {
         return id+" "+description+" "+type+" "+amount+" "+row+" "+ " "+column;
-    }
+    }*/
 }

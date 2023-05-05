@@ -30,13 +30,15 @@ public class Tabellone{
 					case 2:{
 						if(mappa.get(i).get(j).accessibilitaCella ==2) {
 							mappa.get(i).get(j).setCella(randomCard(card));
+							mappa.get(i).get(j).setCella(randomId(mappa.get(i).get(j).getTessera()));
 							//System.out.println(mappa.get(i).get(j).getTessera().id);
 						}
 						break;
 					}
 					case 3:{
-						if(mappa.get(i).get(j).accessibilitaCella ==2||mappa.get(i).get(j).accessibilitaCella ==3) {
+						if(mappa.get(i).get(j).accessibilitaCella >=2&&mappa.get(i).get(j).accessibilitaCella <=3) {
 							mappa.get(i).get(j).setCella(randomCard(card));
+							mappa.get(i).get(j).setCella(randomId(mappa.get(i).get(j).getTessera()));
 						}
 
 						break;
@@ -44,6 +46,7 @@ public class Tabellone{
 					case 4:{
 						if(mappa.get(i).get(j).accessibilitaCella >=2&&mappa.get(i).get(j).accessibilitaCella <=4) {
 							mappa.get(i).get(j).setCella(randomCard(card));
+							mappa.get(i).get(j).setCella(randomId(mappa.get(i).get(j).getTessera()));
 						}
 						break;
 					}
@@ -63,11 +66,20 @@ public class Tabellone{
 			randomCard(card);
 		}
 		//card.list.remove(valore);
-		int randid = rand.nextInt(card.list.get(valore).moreId.size());
-		cardSalvata.id=card.list.get(valore).moreId.get(randid);
+
 		card.list.get(valore).amount--;
 
 		return cardSalvata;
+	}
+	public Card randomId(Card card)
+	{
+		Random rand = new Random();
+
+		int valore = rand.nextInt(card.moreId.size());
+		card.id=card.moreId.get(valore);
+		return card;
+
+
 	}
     /*public Card randomTile(Cards tiles){
 		Random rand = new Random();
@@ -145,6 +157,7 @@ public class Tabellone{
 		}
 
 	}
+
 
     /*public Celle pesca(int posizione)
 	{
