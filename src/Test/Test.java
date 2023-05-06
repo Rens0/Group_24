@@ -2,6 +2,7 @@ package Test;
 
 import card.Card;
 import game.Libreria;
+import game.Player;
 
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class Test {
             System.out.println();
         }
 */
-        ArrayList < Card> card= new ArrayList<>();
+        /*ArrayList < Card> card= new ArrayList<>();
         ArrayList < Integer> it= new ArrayList<>();
         it.add(0); //seconda carta
         it.add(1); //prima carta
@@ -47,6 +48,48 @@ public class Test {
         Libreria libreria= new Libreria();
         libreria.inserisciTessere(card,4,it);
         libreria.print();
+*/
+
+        Player p1 = new Player("Mairo");
+        Player p2 = new Player("gio");
+        Player p3 = new Player("lui");
+        System.out.println(p1.ID+" "+p2.ID+" "+p3.ID);
+
+
+
+
+
+
+        Carta gatto = new Carta("Gatto",22,"Verde");
+        Carta cornice = new Carta("Cornice",22,"Blue");
+        Carta trofeo = new Carta("Trofeo",22,"Azzurro");
+        Carta gioco = new Carta("Gioco",22,"Giallo");
+        Carta libro = new Carta("Libro",22,"Bianco");
+        Carta pianta = new Carta("Pianta",22,"Rosa");
+
+        System.out.println(gatto.toString());
+
+        gatto.prelevaTessera();
+        System.out.println(gatto.toString());
+
+
+        ArrayList<ScroingToken>punti = new ArrayList<>();
+        punti.add(new ScroingToken(4));
+        punti.add(new ScroingToken(6));
+        punti.add(new ScroingToken(8));
+
+        System.out.println(punti.get(punti.size()-1).assegnaPuntiGiovatore());
+
+
+
+
+
+
+
+
+
+
 
     }
+
 }

@@ -10,6 +10,7 @@ public class Card {
     public int amount;
     public int row;
     public int column;
+    public int point;
 
     public String path;
     public void setId(String id){

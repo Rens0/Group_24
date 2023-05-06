@@ -30,21 +30,19 @@ public class Tabellone{
 				switch (nPlayer) {
 					case 2:{
 						if(mappa.get(i).get(j).accessibilitaCella ==2) {
-							mappa.get(i).get(j).setCella(new Card(randomCard(card).id));
+							mappa.get(i).get(j).setCella(randomCard(card));
 						}
 						break;
 					}
 					case 3:{
 						if(mappa.get(i).get(j).accessibilitaCella >=2&&mappa.get(i).get(j).accessibilitaCella <=3) {
-							mappa.get(i).get(j).setCella(new Card(randomCard(card).id));
-						}
+							mappa.get(i).get(j).setCella(randomCard(card));						}
 
 						break;
 					}
 					case 4:{
 						if(mappa.get(i).get(j).accessibilitaCella >=2&&mappa.get(i).get(j).accessibilitaCella <=4) {
-							mappa.get(i).get(j).setCella(new Card(randomCard(card).id));
-						}
+							mappa.get(i).get(j).setCella(randomCard(card));						}
 						break;
 					}
 				}
@@ -56,14 +54,22 @@ public class Tabellone{
 		Random rand = new Random();
 		int randomCard = rand.nextInt(card.list.size());
 		Card cardSalvata = card.list.get(randomCard);
-        /*if(cardSalvata.amount<=0) {
+		int sum = 0;
+		for(Card c : card.list){
+			sum+=c.amount;
+		}
+
+		if(sum<=0)
+			return new Card();
+		if(cardSalvata.amount<=0) {
 			randomCard(card);
-		}*/
+		}
+
 		//card.list.remove(valore);
 		int randomId = rand.nextInt(card.list.get(randomCard).moreId.size());
 		String id = card.list.get(randomCard).moreId.get(randomId);
 
-		cardSalvata.setId(id);
+		cardSalvata = new Card(id);
 		//System.out.println(cardSalvata.id);
 		card.list.get(randomCard).amount--;
 

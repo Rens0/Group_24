@@ -2,29 +2,31 @@
 	"id": "scoring tokens",
 	"list": [
 		{
-			"id": "end game"
+			"id": "end game",
+			"amount": 4,
+			"point":1
 		},
 		{
-			"id": "scoring"
+			"id": "scoring_2",
+			"amount": 4,
+			"point":2
 		},
 		{
-			"id": "scoring_2"
+			"id": "scoring_4",
+			"amount": 4,
+			"point":4
 		},
 		{
-			"id": "scoring_4"
+			"id": "scoring_6",
+			"amount": 4,
+			"point":6
 		},
 		{
-			"id": "scoring_6"
-		},
-		{
-			"id": "scoring_8"
-		},
-		{
-			"id": "scoring_back_EMPTY"
-		},
-		{
-			"id": "scoring_back_example"
+			"id": "scoring_8",
+			"amount": 4,
+			"point":8
 		}
+
 	]
 }
 
