@@ -56,9 +56,9 @@ public class Tabellone{
 		Random rand = new Random();
 		int randomCard = rand.nextInt(card.list.size());
 		Card cardSalvata = card.list.get(randomCard);
-        /*if(cardSalvata.amount<=0) {
+        if(cardSalvata.amount<=0) {
 			randomCard(card);
-		}*/
+		}
 		//card.list.remove(valore);
 		int randomId = rand.nextInt(card.list.get(randomCard).moreId.size());
 		String id = card.list.get(randomCard).moreId.get(randomId);
