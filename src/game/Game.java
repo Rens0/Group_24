@@ -87,6 +87,8 @@ public class Game {
 
 
 
+
+
 		/*
 		List<Card> personalGoal;
 		path = "json/personal_goal.json";
