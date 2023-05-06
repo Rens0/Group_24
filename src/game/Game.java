@@ -78,7 +78,15 @@ public class Game {
 		tabellone.setPlayer(2);
 		tabellone.riempimentoTabellone(tile);
 		tabellone.print();
-		ArrayList<ArrayList<Integer>>posizion=new ArrayList<>();
+
+
+
+
+
+
+
+
+	/*	ArrayList<ArrayList<Integer>>posizion=new ArrayList<>();
 		ArrayList <Integer>posizioni= new ArrayList<>();
 		posizioni.add(1);
 		posizioni.add(3);
@@ -92,7 +100,7 @@ public class Game {
 
 		System.out.println("------");
 		tabellone.print();
-
+		*/
         /*
 		List<Card> personalGoal;
 		path = "json/personal_goal.json";
