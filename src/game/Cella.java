@@ -7,7 +7,6 @@ public class Cella {
     public int accessibilitaCella;
     public Cella(){
         tile = new Card();
-
     }
 
 

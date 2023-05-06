@@ -35,14 +35,14 @@ public class Tabellone{
 					}
 					case 3:{
 						if(mappa.get(i).get(j).accessibilitaCella >=2&&mappa.get(i).get(j).accessibilitaCella <=3) {
-							mappa.get(i).get(j).setCella(randomCard(card));
+							mappa.get(i).get(j).setCella(new Card(randomCard(card).id));
 						}
 
 						break;
 					}
 					case 4:{
 						if(mappa.get(i).get(j).accessibilitaCella >=2&&mappa.get(i).get(j).accessibilitaCella <=4) {
-							mappa.get(i).get(j).setCella(randomCard(card));
+							mappa.get(i).get(j).setCella(new Card(randomCard(card).id));
 						}
 						break;
 					}
@@ -72,9 +72,7 @@ public class Tabellone{
 	public void print(){
 		for(int i = 0; i < mappa.size(); i++){
 			for(int j = 0; j<mappa.get(i).size();j++){
-				if(mappa.get(i).get(j).getTessera().id==null) {
-					System.out.print(".");
-				} else
+
 					System.out.print(mappa.get(i).get(j).getTessera().id);
 
 			}
