@@ -29,16 +29,13 @@ public class Tabellone{
 				switch (nPlayer) {
 					case 2:{
 						if(mappa.get(i).get(j).accessibilitaCella ==2) {
-							mappa.get(i).get(j).setCella(randomCard(card));
-							mappa.get(i).get(j).setCella(randomId(mappa.get(i).get(j).getTessera()));
-							//System.out.println(mappa.get(i).get(j).getTessera().id);
+							mappa.get(i).get(j).setCella(new Card(randomCard(card).id));
 						}
 						break;
 					}
 					case 3:{
 						if(mappa.get(i).get(j).accessibilitaCella >=2&&mappa.get(i).get(j).accessibilitaCella <=3) {
 							mappa.get(i).get(j).setCella(randomCard(card));
-							mappa.get(i).get(j).setCella(randomId(mappa.get(i).get(j).getTessera()));
 						}
 
 						break;
@@ -46,7 +43,6 @@ public class Tabellone{
 					case 4:{
 						if(mappa.get(i).get(j).accessibilitaCella >=2&&mappa.get(i).get(j).accessibilitaCella <=4) {
 							mappa.get(i).get(j).setCella(randomCard(card));
-							mappa.get(i).get(j).setCella(randomId(mappa.get(i).get(j).getTessera()));
 						}
 						break;
 					}
@@ -56,31 +52,37 @@ public class Tabellone{
 	}
 
 	private Card randomCard(CardContainer card) {
-
 		Random rand = new Random();
-
-		int valore = rand.nextInt(card.list.size());
-
-		Card cardSalvata= card.list.get(valore);
-		if(cardSalvata.amount<=0) {
+		int randomCard = rand.nextInt(card.list.size());
+		Card cardSalvata = card.list.get(randomCard);
+		/*if(cardSalvata.amount<=0) {
 			randomCard(card);
-		}
+		}*/
 		//card.list.remove(valore);
+		int randomId = rand.nextInt(card.list.get(randomCard).moreId.size());
+		String id = card.list.get(randomCard).moreId.get(randomId);
 
-		card.list.get(valore).amount--;
+		cardSalvata.setId(id);
+		//System.out.println(cardSalvata.id);
+		card.list.get(randomCard).amount--;
 
 		return cardSalvata;
 	}
-	public Card randomId(Card card)
-	{
-		Random rand = new Random();
 
-		int valore = rand.nextInt(card.moreId.size());
-		card.id=card.moreId.get(valore);
-		return card;
+	public void print(){
+		for(int i = 0; i < mappa.size(); i++){
+			for(int j = 0; j<mappa.get(i).size();j++){
+				if(mappa.get(i).get(j).getTessera().id==null) {
+					System.out.print(".");
+				} else
+					System.out.print(mappa.get(i).get(j).getTessera().id);
 
+			}
+			System.out.println();
+		}
 
 	}
+
     /*public Card randomTile(Cards tiles){
 		Random rand = new Random();
 		int rand1 = rand.nextInt(tiles.list.size());
@@ -144,19 +146,7 @@ public class Tabellone{
 	//celle[i][j].setCella(randomTile(tiles));
 	//celle[i][j].stato = true;
 	//}
-	public void print(){
-		for(int i = 0; i < mappa.size(); i++){
-			for(int j = 0; j<mappa.get(i).size();j++){
-				if(mappa.get(i).get(j).getTessera()==null) {
-					System.out.print(".");
-				} else
-					System.out.print(mappa.get(i).get(j).getTessera().id);
 
-			}
-			System.out.println();
-		}
-
-	}
 
 
     /*public Celle pesca(int posizione)

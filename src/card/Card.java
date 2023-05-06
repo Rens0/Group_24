@@ -12,6 +12,16 @@ public class Card {
     public int column;
 
     public String path;
+    public void setId(String id){
+        this.id=id;
+
+    }
+    public Card(String id){
+        this.id = id;
+    }
+    public Card(){
+        this(null);
+    }
 
     //@Override
     /*public String toString() {
