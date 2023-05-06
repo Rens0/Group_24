@@ -11,6 +11,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -51,9 +52,6 @@ public class Game {
 		}
 
 
-
-
-
 		PersonalGoals personalGoal;
 		path = "json/personal_goal.json";
 
@@ -63,10 +61,6 @@ public class Game {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-
-
-
-
 
 
 		Tabellone tabellone;
@@ -84,10 +78,22 @@ public class Game {
 		tabellone.setPlayer(2);
 		tabellone.riempimentoTabellone(tile);
 		tabellone.print();
+		ArrayList<ArrayList<Integer>>posizion=new ArrayList<>();
+		ArrayList <Integer>posizioni= new ArrayList<>();
+		posizioni.add(1);
+		posizioni.add(3);
+		posizion.add(posizioni);
+		posizioni=new ArrayList<>();
+		posizioni.add(1);
+		posizioni.add(4);
+		posizion.add(posizioni);
+		ArrayList <Card>p;
+		p=tabellone.prelevaTessera(posizion);
 
+		System.out.println("------");
+		tabellone.print();
 
-
-		/*
+        /*
 		List<Card> personalGoal;
 		path = "json/personal_goal.json";
 
@@ -101,12 +107,9 @@ public class Game {
 		}*/
 
 
-
-
-
 		//tabellone.setPlayer(4);
 		//tabellone.riempimento(tiles);
-		/*
+        /*
 		Libreria libreria= new Libreria();
 		ArrayList <Card> card = new ArrayList<>();
 		card.add(new Card());

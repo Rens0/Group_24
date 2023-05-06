@@ -11,6 +11,7 @@ import java.util.Random;
 public class Tabellone{
 	public String path;
 	public String id;
+
 	public int nPlayer;
 
 	public List<ArrayList<Cella>> mappa;
@@ -55,7 +56,7 @@ public class Tabellone{
 		Random rand = new Random();
 		int randomCard = rand.nextInt(card.list.size());
 		Card cardSalvata = card.list.get(randomCard);
-		/*if(cardSalvata.amount<=0) {
+        /*if(cardSalvata.amount<=0) {
 			randomCard(card);
 		}*/
 		//card.list.remove(valore);
@@ -72,13 +73,32 @@ public class Tabellone{
 	public void print(){
 		for(int i = 0; i < mappa.size(); i++){
 			for(int j = 0; j<mappa.get(i).size();j++){
-
+				if(mappa.get(i).get(j).getTessera().id==null) {
+					System.out.print(".");
+				} else {
 					System.out.print(mappa.get(i).get(j).getTessera().id);
+				}
+
 
 			}
+
 			System.out.println();
 		}
 
+	}
+
+	public ArrayList<Card> prelevaTessera(ArrayList <ArrayList<Integer>>posizioni){
+
+		ArrayList<Card>cardSelezionate= new ArrayList<>();
+
+		for(int i=0; i<posizioni.size();i++) {
+			int y=0;
+			int k=0;
+			cardSelezionate.add(mappa.get(posizioni.get(i).get(k)).get(posizioni.get(i).get(++k)).tile);
+			mappa.get(posizioni.get(i).get(y)).get(posizioni.get(i).get(++y)).tile=new Card();
+		}
+
+		return cardSelezionate;
 	}
 
     /*public Card randomTile(Cards tiles){
@@ -137,7 +157,7 @@ public class Tabellone{
 		}*/
 	//riempe con le carte dentro la sacchetta/mazzo : GESTORE
 
-	/*ntb le tessere alla fine del turno di un player se vicino alla tessera non ci sono altre tessere adiacenti,
+    /*ntb le tessere alla fine del turno di un player se vicino alla tessera non ci sono altre tessere adiacenti,
       allora la tavola deve essere ririempita, DXSX*/
 	//}
 	//public void setCella(int i, int j, Cards tiles){
