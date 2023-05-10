@@ -203,7 +203,36 @@ public class controlloCommonGoal {
     }
 
     public boolean controlloCommonGoal12(Libreria libreria) {
-        return true;
-    }
-
+       	int casellePrimaColonna=ContaCaselleLibere(libreria, 0);
+    	for(int j=1; j<libreria.celle.size();j++){
+    		if(casellePrimaColonna!=(ContaCaselleLibere(libreria, j)-j)){
+    			break;
+    		}
+    		if(j==4){
+    		return true;
+    		}
+    		}
+    	for(int j=1; j<libreria.celle.size();j++){
+    		if(casellePrimaColonna!=(ContaCaselleLibere(libreria, j)+j)){
+    			break; 
+    		}
+    		if(j==4){
+    		return true;
+    		}
+    		}
+ 	return false;
+	}
+public int ContaCaselleLibere(Libreria libreria, int colonna){
+       		 int conta=0;
+       		for (int i=0; i<libreria.celle.size(); i++){
+       		
+       			if(libreria.celle.get(i).get(colonna).getTessera()==null){
+       			conta++;
+       			}
+       			if(libreria.celle.get(i).get(colonna).getTessera()!=null){
+       			break;
+       			}
+    		}
+    		return conta; 
+    	}
 }
