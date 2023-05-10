@@ -6,14 +6,12 @@ import card.*;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.Scanner;
 
 public class Game {
 
@@ -78,7 +76,6 @@ public class Game {
 		tabellone.setPlayer(2);
 		tabellone.riempimentoTabellone(tile);
 		tabellone.print();
-
 
 
 

@@ -7,6 +7,7 @@ import game.Player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {
@@ -58,7 +59,7 @@ public class Test {
 
 
 
-
+/*
 
         Carta gatto = new Carta("Gatto",22,"Verde");
         Carta cornice = new Carta("Cornice",22,"Blue");
@@ -80,11 +81,28 @@ public class Test {
 
         System.out.println(punti.get(punti.size()-1).assegnaPuntiGiovatore());
 
+*/
 
+/*
+        Scanner sc = new Scanner(System.in);
+        String c="";
+        do{
+            int ro, co;
+            System.out.println("Row, Col");
+            ro = sc.nextInt();
+            co = sc.nextInt();
+            ArrayList<ArrayList<Integer>>roba=new ArrayList<>();
+            ArrayList<Integer>number = new ArrayList<>();
+            number.add(ro);
+            number.add(co);
+            roba.add(number);
+            tabellone.prelevaTessera(roba);
+            System.out.println(tabellone.controlloTessereVicine());
 
+            tabellone.print();
+        }while (!c.contains("no"));
 
-
-
+*/
 
 
 

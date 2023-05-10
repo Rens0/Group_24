@@ -2,7 +2,6 @@ package LivingRoom;
 import card.Card;
 import card.CardContainer;
 import game.Cella;
-import game.Libreria;
 
 
 import java.util.ArrayList;
@@ -71,8 +70,9 @@ public class Tabellone{
 		//card.list.remove(valore);
 		int randomId = rand.nextInt(card.list.get(randomCard).moreId.size());
 		String id = card.list.get(randomCard).moreId.get(randomId);
+		String type =  card.list.get(randomCard).type;
 
-		cardSalvata = new Card(id);
+		cardSalvata = new Card(id, type);
 		//System.out.println(cardSalvata.id);
 		card.list.get(randomCard).amount--;
 
@@ -83,9 +83,9 @@ public class Tabellone{
 		for(int i = 0; i < mappa.size(); i++){
 			for(int j = 0; j<mappa.get(i).size();j++){
 				if(mappa.get(i).get(j).getTessera().id==null) {
-					System.out.print(".");
+					System.out.print(".\t");
 				} else {
-					System.out.print(mappa.get(i).get(j).getTessera().id);
+					System.out.print(mappa.get(i).get(j).getTessera().type+"\t");
 				}
 
 
@@ -102,25 +102,47 @@ public class Tabellone{
 		return tipo;
 	}
 
-	public boolean controlloVicinanzeTessere() {
+	public boolean controlloTessereVicine() {
+		for(int i = 0; i < mappa.size(); i++){
+			for(int j = 0; j < mappa.get(0).size(); j++){
+				if(i==mappa.size()-1&&j>=mappa.get(0).size()-1)
+					break;
+				if(mappa.get(i).get(j).tile.id!=null){
 
-		for(int i =0; i<mappa.size();i++) {
-			for(int j=0; j< mappa.get(i).size();j++) {
-				if(ritornoTessera(i,j)!=null) {
-					if(ritornoTessera(i,j+1)!=null||ritornoTessera(i+1,j)!=null){
-						return true;
+					if(j>=mappa.get(0).size()-1) {
+
+						if (controlloRighe(i, j).type != null)
+							return true;
 					}
-					if(j>= mappa.get(i).size())
-					{
-						if(ritornoTessera(i+1,j)!=null){
+					else {
+
+						if (controlloColonna(i, j).id != null)
+							return true;
+					}
+
+					if(i>=mappa.size()-1) {
+						if(controlloColonna(i, j).id!=null)
 							return true;
 
-						}
+					}else {
+						if(controlloRighe(i, j).id!=null)
+							return true;
 					}
 				}
+
 			}
+
 		}
 		return false;
+	}
+	public Card controlloRighe(int riga, int colonna){
+
+		return mappa.get(riga+1).get(colonna).tile;
+
+	}
+	public Card controlloColonna(int riga, int colonna){
+
+		return mappa.get(riga).get(colonna+1).tile;
 	}
 
 	public ArrayList<Card> prelevaTessera(ArrayList <ArrayList<Integer>>posizioni){
@@ -128,10 +150,13 @@ public class Tabellone{
 		ArrayList<Card>cardSelezionate= new ArrayList<>();
 
 		for(int i=0; i<posizioni.size();i++) {
-			int y=0;
 			int k=0;
-			cardSelezionate.add(mappa.get(posizioni.get(i).get(k)).get(posizioni.get(i).get(++k)).tile);
-			mappa.get(posizioni.get(i).get(y)).get(posizioni.get(i).get(++y)).tile=new Card();
+			if(posizioni.get(i).get(k)>=mappa.size())
+				return null;
+			if(posizioni.get(i).get(k+1)>=mappa.get(0).size())
+				return null;
+			cardSelezionate.add(mappa.get(posizioni.get(i).get(k)).get(posizioni.get(i).get(k+1)).tile);
+			mappa.get(posizioni.get(i).get(k)).get(posizioni.get(i).get(k+1)).tile=new Card();
 		}
 
 		return cardSelezionate;

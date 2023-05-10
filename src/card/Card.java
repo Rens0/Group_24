@@ -17,11 +17,12 @@ public class Card {
         this.id=id;
 
     }
-    public Card(String id){
+    public Card(String id, String type){
         this.id = id;
+        this.type = type;
     }
     public Card(){
-        this(null);
+        this(null, null);
     }
 
     //@Override
