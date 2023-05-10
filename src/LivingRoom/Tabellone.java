@@ -2,6 +2,7 @@ package LivingRoom;
 import card.Card;
 import card.CardContainer;
 import game.Cella;
+import game.Libreria;
 
 
 import java.util.ArrayList;
@@ -36,13 +37,15 @@ public class Tabellone{
 					}
 					case 3:{
 						if(mappa.get(i).get(j).accessibilitaCella >=2&&mappa.get(i).get(j).accessibilitaCella <=3) {
-							mappa.get(i).get(j).setCella(randomCard(card));						}
+							mappa.get(i).get(j).setCella(randomCard(card));
+						}
 
 						break;
 					}
 					case 4:{
 						if(mappa.get(i).get(j).accessibilitaCella >=2&&mappa.get(i).get(j).accessibilitaCella <=4) {
-							mappa.get(i).get(j).setCella(randomCard(card));						}
+							mappa.get(i).get(j).setCella(randomCard(card));
+						}
 						break;
 					}
 				}
@@ -91,6 +94,33 @@ public class Tabellone{
 			System.out.println();
 		}
 
+	}
+
+	public Card ritornoTessera(int riga, int colonna) {
+		Card tipo;
+		tipo = mappa.get(riga).get(colonna).tile;
+		return tipo;
+	}
+
+	public boolean controlloVicinanzeTessere() {
+
+		for(int i =0; i<mappa.size();i++) {
+			for(int j=0; j< mappa.get(i).size();j++) {
+				if(ritornoTessera(i,j)!=null) {
+					if(ritornoTessera(i,j+1)!=null||ritornoTessera(i+1,j)!=null){
+						return true;
+					}
+					if(j>= mappa.get(i).size())
+					{
+						if(ritornoTessera(i+1,j)!=null){
+							return true;
+
+						}
+					}
+				}
+			}
+		}
+		return false;
 	}
 
 	public ArrayList<Card> prelevaTessera(ArrayList <ArrayList<Integer>>posizioni){
