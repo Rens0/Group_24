@@ -4,10 +4,11 @@ import assets.card.PersonalGoals;
 import assets.LivingRoom.TabelloneDeserializer;
 
 
-
+import assets.component.ControlloCommonGoal;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.awt.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -75,7 +76,9 @@ public class Game {
 		tabellone.setPlayer(2);
 		tabellone.riempimentoTabellone(tile);
 		tabellone.print();
-
+		ControlloCommonGoal c = new ControlloCommonGoal();
+		System.out.println("Controllo 8");
+		//c.controlloCommonGoal8();
 
 
 
