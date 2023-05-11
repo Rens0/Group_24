@@ -44,7 +44,7 @@ public class Test {
         libreria.print();
 */
 
-        Player p1 = new Player("Mairo");
+       /* Player p1 = new Player("Mairo");
         Player p2 = new Player("gio");
         Player p3 = new Player("lui");
         System.out.println(p1.ID+" "+p2.ID+" "+p3.ID);

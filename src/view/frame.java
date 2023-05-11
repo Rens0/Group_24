@@ -13,6 +13,7 @@ public class frame {
         JTextArea jTextArea = new JTextArea();
         JButton jButtonProsegui= new JButton("Prosegui");
         frame.add(jButtonProsegui, BorderLayout.SOUTH);
+        
         jButtonProsegui.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -21,10 +22,11 @@ public class frame {
             }
         });
 
-        frame.setBackground(Color.BLACK);
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // per terminere l'esecuzione quando si preme la X
         frame.setSize(800,500); //dimensione dello schermo
         frame.setLocationRelativeTo(null); //setta l'apertura della finestra nel centro dello schermo
+        frame.getContentPane().setBackground(Color.LIGHT_GRAY);;
         frame.setVisible(true); // setta visibile la finestra
 
 
