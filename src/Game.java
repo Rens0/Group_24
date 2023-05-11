@@ -1,9 +1,8 @@
-package assets;
 import assets.LivingRoom.Tabellone;
 import assets.card.CardContainer;
 import assets.card.PersonalGoals;
 import assets.LivingRoom.TabelloneDeserializer;
-import assets.test.card.*;
+
 
 
 import com.google.gson.Gson;
@@ -116,10 +115,10 @@ public class Game {
 		//tabellone.riempimento(tiles);
         /*
 		Libreria libreria= new Libreria();
-		ArrayList <Card> assets.test.card = new ArrayList<>();
-		assets.test.card.add(new Card());
-		assets.test.card.add(new Card());
-		libreria.inserisciTessere(assets.test.card,1);
+		ArrayList <Card> test.card = new ArrayList<>();
+		test.card.add(new Card());
+		test.card.add(new Card());
+		libreria.inserisciTessere(test.card,1);
 		*/
 
 /*

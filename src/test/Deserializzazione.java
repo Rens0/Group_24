@@ -1,4 +1,4 @@
-package assets.test;
+package test;
 
 import assets.card.Card;
 import com.google.gson.*;

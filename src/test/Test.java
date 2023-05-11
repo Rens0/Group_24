@@ -1,4 +1,4 @@
-package assets.test;
+package test;
 
 import assets.component.Player;
 
@@ -29,7 +29,7 @@ public class Test {
             System.out.println();
         }
 */
-        /*ArrayList < Card> assets.test.card= new ArrayList<>();
+        /*ArrayList < Card> test.card= new ArrayList<>();
         ArrayList < Integer> it= new ArrayList<>();
         it.add(0); //seconda carta
         it.add(1); //prima carta
@@ -37,10 +37,10 @@ public class Test {
         Card card2= new Card();
         card1.id="1";
         card2.id="2";
-        assets.test.card.add(card1);
-        assets.test.card.add(card2);
+        test.card.add(card1);
+        test.card.add(card2);
         Libreria libreria= new Libreria();
-        libreria.inserisciTessere(assets.test.card,4,it);
+        libreria.inserisciTessere(test.card,4,it);
         libreria.print();
 */
 

@@ -67,7 +67,7 @@ public class Tabellone{
 			randomCard(card);
 		}
 
-		//assets.test.card.list.remove(valore);
+		//test.card.list.remove(valore);
 		int randomId = rand.nextInt(card.list.get(randomCard).moreId.size());
 		String id = card.list.get(randomCard).moreId.get(randomId);
 		String type =  card.list.get(randomCard).type;
@@ -234,7 +234,7 @@ public class Tabellone{
 		return list.get(posizione);
 	}
 	
-	public void inserisciTessera(Card assets.test.card, int posizione) {
+	public void inserisciTessera(Card test.card, int posizione) {
 		//da vedere
 	}*/
 
