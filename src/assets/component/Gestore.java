@@ -1,6 +1,6 @@
-package game;
+package assets.component;
 
-import LivingRoom.Tabellone;
+import assets.LivingRoom.Tabellone;
 
 public class Gestore {
 	

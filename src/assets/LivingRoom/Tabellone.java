@@ -1,7 +1,7 @@
-package LivingRoom;
-import card.Card;
-import card.CardContainer;
-import game.Cella;
+package assets.LivingRoom;
+import assets.card.Card;
+import assets.card.CardContainer;
+import assets.component.Cella;
 
 
 import java.util.ArrayList;
@@ -67,7 +67,7 @@ public class Tabellone{
 			randomCard(card);
 		}
 
-		//card.list.remove(valore);
+		//assets.test.card.list.remove(valore);
 		int randomId = rand.nextInt(card.list.get(randomCard).moreId.size());
 		String id = card.list.get(randomCard).moreId.get(randomId);
 		String type =  card.list.get(randomCard).type;
@@ -234,7 +234,7 @@ public class Tabellone{
 		return list.get(posizione);
 	}
 	
-	public void inserisciTessera(Card card, int posizione) {
+	public void inserisciTessera(Card assets.test.card, int posizione) {
 		//da vedere
 	}*/
 

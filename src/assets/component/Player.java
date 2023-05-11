@@ -1,8 +1,9 @@
-package game;
+package assets.component;
 import java.util.ArrayList;
 
-import LivingRoom.Tabellone;
-import card.Card;
+import assets.LivingRoom.Tabellone;
+import assets.card.Card;
+
 public class Player {
 
 	private String name;

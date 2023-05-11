@@ -1,7 +1,9 @@
-package game;
-import LivingRoom.Tabellone;
-import LivingRoom.TabelloneDeserializer;
-import card.*;
+package assets;
+import assets.LivingRoom.Tabellone;
+import assets.card.CardContainer;
+import assets.card.PersonalGoals;
+import assets.LivingRoom.TabelloneDeserializer;
+import assets.test.card.*;
 
 
 import com.google.gson.Gson;
@@ -10,8 +12,6 @@ import com.google.gson.GsonBuilder;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Game {
 
@@ -82,8 +82,8 @@ public class Game {
 
 
 
-
-	/*	ArrayList<ArrayList<Integer>>posizion=new ArrayList<>();
+/*
+		ArrayList<ArrayList<Integer>>posizion=new ArrayList<>();
 		ArrayList <Integer>posizioni= new ArrayList<>();
 		posizioni.add(1);
 		posizioni.add(3);
@@ -116,10 +116,10 @@ public class Game {
 		//tabellone.riempimento(tiles);
         /*
 		Libreria libreria= new Libreria();
-		ArrayList <Card> card = new ArrayList<>();
-		card.add(new Card());
-		card.add(new Card());
-		libreria.inserisciTessere(card,1);
+		ArrayList <Card> assets.test.card = new ArrayList<>();
+		assets.test.card.add(new Card());
+		assets.test.card.add(new Card());
+		libreria.inserisciTessere(assets.test.card,1);
 		*/
 
 /*

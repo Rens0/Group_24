@@ -1,4 +1,4 @@
-package card;
+package assets.card;
 
 import java.util.List;
 

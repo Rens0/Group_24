@@ -1,13 +1,6 @@
-package Test;
+package assets.test;
 
-import card.Card;
-import game.Libreria;
-import game.Player;
-
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import assets.component.Player;
 
 public class Test {
     public static void main(String[] args) {
@@ -36,7 +29,7 @@ public class Test {
             System.out.println();
         }
 */
-        /*ArrayList < Card> card= new ArrayList<>();
+        /*ArrayList < Card> assets.test.card= new ArrayList<>();
         ArrayList < Integer> it= new ArrayList<>();
         it.add(0); //seconda carta
         it.add(1); //prima carta
@@ -44,10 +37,10 @@ public class Test {
         Card card2= new Card();
         card1.id="1";
         card2.id="2";
-        card.add(card1);
-        card.add(card2);
+        assets.test.card.add(card1);
+        assets.test.card.add(card2);
         Libreria libreria= new Libreria();
-        libreria.inserisciTessere(card,4,it);
+        libreria.inserisciTessere(assets.test.card,4,it);
         libreria.print();
 */
 

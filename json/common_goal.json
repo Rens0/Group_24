@@ -8,12 +8,14 @@
 			},
 			{
 				"id": "2",
-				"description":"Two columns each formed by 6 different types of tiles. "
+				"description": "Five tiles of the same type forming an X."
+
 			},
 			{
 				"id": "3",
-				"description":"Four groups each containing at least 4 tiles of the same type (not necessarily in the depicted shape). The tiles of one group can be different from those of another group."
+				"description":"Four tiles of the same type in the four corners of the bookshelf. "
 			},
+
 			{
 				"id": "4",
 				"description":"Six groups each containing at least 2 tiles of the same type (not necessarily in the depicted shape). The tiles of one group can be different from those of another group."
@@ -24,27 +26,33 @@
 			},
 			{
 				"id": "6",
-				"description": "Two lines each formed by 5 different types of tiles. One line can show the same or a different combination of the other line."
-			},
-			{
-				"id": "7",
-				"description": "Four lines each formed by 5 tiles of maximum three different types. One line can show the same or a different combination of another line."
-			},
-			{
-				"id": "8",
-				"description":"Four tiles of the same type in the four corners of the bookshelf. "
-			},
-			{
-				"id": "9",
 				"description": "Eight tiles of the same type. There’s no restriction about the position of these tiles."
 			},
 			{
+				"id": "7",
+				"description":"Five tiles of the same type forming a diagonal. "
+			},
+			{
+				"id": "8",
+				"description":"Four groups each containing at least 4 tiles of the same type (not necessarily in the depicted shape). The tiles of one group can be different from those of another group."
+			},
+
+			{
+				"id": "9",
+				"description":"Two columns each formed by 6 different types of tiles. "
+
+
+
+			},
+			{
 				"id": "10",
-				"description": "Five tiles of the same type forming an X."
+				"description": "Two lines each formed by 5 different types of tiles. One line can show the same or a different combination of the other line."
+
 			},
 			{
 				"id": "11",
-				"description":"Five tiles of the same type forming a diagonal. "
+				"description": "Four lines each formed by 5 tiles of maximum three different types. One line can show the same or a different combination of another line."
+
 			},
 			{
 				"id": "12",

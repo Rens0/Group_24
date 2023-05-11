@@ -1,11 +1,10 @@
-package Test;
+package assets.test;
 
-import card.Card;
+import assets.card.Card;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 //--- Lettura dei parametri dal json000
 public class Deserializzazione implements JsonDeserializer<Card> {

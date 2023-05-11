@@ -1,6 +1,6 @@
-package game;
+package assets.component;
 
-import card.Card;
+import assets.card.Card;
 
 import java.util.ArrayList;
 import java.util.List;

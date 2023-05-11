@@ -1,6 +1,6 @@
-package game;
+package assets.component;
 
-import card.Card;
+import assets.card.Card;
 
 public class Cella {
     public Card tile;

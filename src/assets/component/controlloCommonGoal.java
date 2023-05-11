@@ -1,6 +1,6 @@
-package game;
+package assets.component;
 
-import card.CardContainer;
+import assets.card.CardContainer;
 
 public class controlloCommonGoal {
     public boolean controlloCommonGoal1(Libreria libreria) {
@@ -23,11 +23,7 @@ public class controlloCommonGoal {
         return false;
     }
 
-    public String ritornoTipo(int riga, int colonna, Libreria libreria) {
-        String tipo;
-        tipo = libreria.celle.get(riga).get(colonna).tile.type;
-        return tipo;
-    }
+
 
     public boolean controlloCommonGoal4(Libreria libreria) {
         return true;
@@ -235,4 +231,9 @@ public int ContaCaselleLibere(Libreria libreria, int colonna){
     		}
     		return conta; 
     	}
+    public String ritornoTipo(int riga, int colonna, Libreria libreria) {
+        String tipo;
+        tipo = libreria.celle.get(riga).get(colonna).tile.type;
+        return tipo;
+    }
 }
