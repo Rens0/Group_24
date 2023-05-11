@@ -83,7 +83,7 @@ public class Tabellone{
 		for(int i = 0; i < mappa.size(); i++){
 			for(int j = 0; j<mappa.get(i).size();j++){
 				if(mappa.get(i).get(j).getTessera().id==null) {
-					System.out.print(".\t");
+					System.out.print(".......\t");
 				} else {
 					System.out.print(mappa.get(i).get(j).getTessera().type+"\t");
 				}
