@@ -7,18 +7,23 @@ import java.util.List;
 
 
 public class Libreria {
-    private static int COLONNE = 5;
-    private static int RIGHE = 6;
+    private int righe;
+    private int colonne;
     public List<List<Cella>> celle;
+    public Libreria(){
+        this(6,5);
+    }
 
-    public Libreria() {
+    public Libreria(int righe, int colonne) {
+        this.righe = righe;
+        this.colonne = colonne;
 
         celle = new ArrayList<>();
         ArrayList<Cella> rigac;
-        for (int i = 0; i < RIGHE; i++) {
+        for (int i = 0; i < righe; i++) {
             rigac = new ArrayList<>();
 
-            for (int j = 0; j < COLONNE; j++) {
+            for (int j = 0; j < colonne; j++) {
                 rigac.add(new Cella());
             }
             celle.add(rigac);
@@ -29,7 +34,7 @@ public class Libreria {
     public void inserisciTessere(ArrayList<Card> card, int COLONNASELEZIONATA, ArrayList<Integer> ordine) {
         int contarighe = 0;
 
-        for (int y = 0; y < RIGHE; y++) {
+        for (int y = 0; y < righe; y++) {
 
             if (celle.get(y).get(COLONNASELEZIONATA).getTessera() == null) {
                 contarighe++;
@@ -57,14 +62,14 @@ public class Libreria {
 
     public boolean libreriaPiena() {
         int contacella = 0;
-        for (int i = 0; i < RIGHE; i++) {
-            for (int j = 0; j < COLONNE; j++) {
+        for (int i = 0; i < righe; i++) {
+            for (int j = 0; j < colonne; j++) {
                 if (celle.get(i).get(j).getTessera() != null) {
                     contacella++;
                 }
             }
         }
-        if (contacella == (RIGHE * COLONNE)) {
+        if (contacella == (righe * colonne)) {
             return true;
         } else {
             return false;
@@ -72,8 +77,8 @@ public class Libreria {
     }
 
     public void print() {
-        for (int i = 0; i < RIGHE; i++) {
-            for (int y = 0; y < COLONNE; y++) {
+        for (int i = 0; i < righe; i++) {
+            for (int y = 0; y < colonne; y++) {
                 if (celle.get(i).get(y).getTessera() == null) {
                     System.out.print("NULL");
                 } else {
