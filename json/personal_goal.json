@@ -53,7 +53,7 @@
 				{
 					"type": "gatto",
 					"row": 2,
-					"column": 1
+					"column": 0
 				},
 				{
 					"type": "libro",
@@ -104,10 +104,75 @@
 
 		},
 		{
-			"id": "Personal_Goals11"
+			"id": "Personal_Goals11",
+			"list": [
+				{
+					"type": "pianta",
+					"row": 0,
+					"column": 2
+				},
+				{
+					"type": "cornice",
+					"row": 3,
+					"column": 2
+				},
+				{
+					"type": "gatto",
+					"row": 4,
+					"column": 4
+				},
+				{
+					"type": "libro",
+					"row": 1,
+					"column": 1
+				},
+				{
+					"type": "gioco",
+					"row": 0,
+					"column": 2
+				},
+				{
+					"type": "trofeo",
+					"row": 5,
+					"column": 3
+				}
+			]
 		},
 		{
-			"id": "Personal_Goals12"
+			"id": "Personal_Goals12",
+			"list": [
+				{
+					"type": "pianta",
+					"row": 1,
+					"column": 1
+				},
+				{
+					"type": "cornice",
+					"row": 2,
+					"column": 2
+				},
+				{
+					"type": "gatto",
+					"row": 5,
+					"column": 0
+				},
+				{
+					"type": "libro",
+					"row": 0,
+					"column": 2
+				},
+				{
+					"type": "gioco",
+					"row": 4,
+					"column": 4
+				},
+				{
+					"type": "trofeo",
+					"row": 3,
+					"column": 3
+				}
+				]
+
 		}
 	]
 }
