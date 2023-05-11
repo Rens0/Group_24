@@ -1,17 +1,19 @@
 import assets.LivingRoom.Tabellone;
 import assets.card.CardContainer;
-import assets.card.PersonalGoals;
+import assets.card.Goals;
 import assets.LivingRoom.TabelloneDeserializer;
 
 
-import assets.component.ControlloCommonGoal;
+import assets.component.Gestore;
+import assets.component.Player;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.awt.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Game {
 
@@ -50,12 +52,12 @@ public class Game {
 		}
 
 
-		PersonalGoals personalGoal;
+		Goals personalGoal;
 		path = "json/personal_goal.json";
 
 		try {
 			Reader reader = Files.newBufferedReader(Paths.get(path));
-			personalGoal = gson.fromJson(reader, PersonalGoals.class);
+			personalGoal = gson.fromJson(reader, Goals.class);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -73,11 +75,31 @@ public class Game {
 			throw new RuntimeException(e);
 		}
 		//System.out.println(tabellone.mappa.get(0).size());
-		tabellone.setPlayer(2);
-		tabellone.riempimentoTabellone(tile);
-		tabellone.print();
-		ControlloCommonGoal c = new ControlloCommonGoal();
-		System.out.println("Controllo 8");
+		ArrayList<Player> players = new ArrayList<>();
+		Scanner scanner = new Scanner (System.in);
+
+		int number_of_players;
+		do {
+			System.out.println("Insert number of players: ");
+			number_of_players = scanner.nextInt();
+
+			if (number_of_players<2 || number_of_players>4)
+				System.out.println("Please insert from 2 to 4 players ");
+
+		} while (number_of_players<2 || number_of_players>4);
+
+		for (int i=0; i<number_of_players; i++) {
+			System.out.println("Insert player" + (i+1)+" name: " );
+			Scanner in = new Scanner (System.in);
+			players.add(new Player(in.nextLine()));
+		}
+		tabellone.setPlayer(number_of_players);
+
+		Gestore gestore = new Gestore(tabellone, players, commonGoal, scoringToken, tile, personalGoal);
+		gestore.init();
+		//gestore.start();
+
+
 		//c.controlloCommonGoal8();
 
 
@@ -130,24 +152,9 @@ public class Game {
 
 
 		int number_of_players;
-		ArrayList<Player>players = new ArrayList<>();
-		Scanner scanner = new Scanner (System.in); 
-		
-		do { 
-			System.out.println("Insert number of players: ");
-			number_of_players = scanner.nextInt();
 
-			if (number_of_players<2 || number_of_players>4)
-				System.out.println("Please insert from 2 to 4 players ");
 
-		} while (number_of_players<2 || number_of_players>4);
-
-		for (int i=0; i<number_of_players; i++) {
-			System.out.println("Insert player" + (i+1)+" name: " );
-			Scanner in = new Scanner (System.in);
-			players.add(new Player(in.nextLine()));
-			System.out.println(players.get(i).toString());
-		}*/
+		*/
 
 	}
 

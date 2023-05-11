@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import assets.LivingRoom.Tabellone;
 import assets.card.Card;
+import assets.card.CardContainer;
 
 public class Player {
 
@@ -11,7 +12,7 @@ public class Player {
 	private static int ID_Number=0; 
 	private int points=0; 
 	public Libreria libreria;
-	
+	public CardContainer personalGoal;
 	public Player (String name) {
 		
 		this.name=name;

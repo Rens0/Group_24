@@ -1,11 +1,7 @@
 {		
 	"id": "scoring tokens",
 	"list": [
-		{
-			"id": "end game",
-			"amount": 4,
-			"point":1
-		},
+
 		{
 			"id": "scoring_2",
 			"amount": 4,
@@ -25,8 +21,12 @@
 			"id": "scoring_8",
 			"amount": 4,
 			"point":8
+		},
+		{
+			"id": "end game",
+			"amount": 4,
+			"point":1
 		}
-
 	]
 }
 
