@@ -1,6 +1,5 @@
 package assets.component;
 
-import assets.LivingRoom.Tabellone;
 import assets.card.Card;
 import assets.card.CardContainer;
 
@@ -17,9 +16,9 @@ public class ControlloCommonGoal {
 
     public boolean controlloCommonGoal3(Libreria libreria) {
 
-        if (ritornoTipo(0, 0, libreria) == ritornoTipo(0, libreria.celle.get(0).size() - 1, libreria) &&
-                ritornoTipo(0, 0, libreria) == ritornoTipo(libreria.celle.size() - 1, libreria.celle.get(0).size() - 1, libreria) &&
-                ritornoTipo(0, 0, libreria) == ritornoTipo(libreria.celle.size() - 1, 0, libreria)
+        if (ritornoTipo(0, 0, libreria) == ritornoTipo(0, libreria.mappa.get(0).size() - 1, libreria) &&
+                ritornoTipo(0, 0, libreria) == ritornoTipo(libreria.mappa.size() - 1, libreria.mappa.get(0).size() - 1, libreria) &&
+                ritornoTipo(0, 0, libreria) == ritornoTipo(libreria.mappa.size() - 1, 0, libreria)
         ) {
             return true;
         }
@@ -88,8 +87,8 @@ public class ControlloCommonGoal {
 
         for (int c = 0; c < cardContainer.list.size(); c++) {
             int contacarte = 0;
-            for (int i = 0; i < libreria.celle.size(); i++) {
-                for (int j = 0; j < libreria.celle.get(i).size(); j++) {
+            for (int i = 0; i < libreria.mappa.size(); i++) {
+                for (int j = 0; j < libreria.mappa.get(i).size(); j++) {
                     if (ritornoTipo(i, j, libreria) == cardContainer.list.get(c).type) {
                         contacarte++;
                         if (contacarte >= 8) {
@@ -117,22 +116,22 @@ public class ControlloCommonGoal {
         }
         return foundMainDiagonalValue || foundSecondaryDiagonalValue;*/
 
-        for (int i = 0; i < libreria.celle.size(); i++) {
+        for (int i = 0; i < libreria.mappa.size(); i++) {
             int contDiagoPrinc = 0;
             int contDiagoSec = 0;
-            if ((libreria.celle.size() - i) >= libreria.celle.get(0).size()) {
-                for (int j = 0; j < libreria.celle.get(i).size(); j++) {
+            if ((libreria.mappa.size() - i) >= libreria.mappa.get(0).size()) {
+                for (int j = 0; j < libreria.mappa.get(i).size(); j++) {
                     if (ritornoTipo(j + i, j, libreria) == ritornoTipo(0, 0, libreria)) {
                         contDiagoPrinc++;
-                        if (contDiagoPrinc >= libreria.celle.get(0).size()) {
+                        if (contDiagoPrinc >= libreria.mappa.get(0).size()) {
                             return true;
                         }
                     }
 
-                    if (ritornoTipo(0, libreria.celle.get(0).size(), libreria) ==
-                            ritornoTipo(j + i, libreria.celle.get(0).size() - j - 1, libreria)) {
+                    if (ritornoTipo(0, libreria.mappa.get(0).size(), libreria) ==
+                            ritornoTipo(j + i, libreria.mappa.get(0).size() - j - 1, libreria)) {
                         contDiagoSec++;
-                        if (contDiagoSec >= libreria.celle.get(0).size()) {
+                        if (contDiagoSec >= libreria.mappa.get(0).size()) {
                             return true;
                         }
                     }
@@ -146,12 +145,12 @@ public class ControlloCommonGoal {
         return false;
     }
 
-    public boolean controlloCommonGoal8(Tabellone tabellone) {
+    public boolean controlloCommonGoal8(Libreria libreria) {
         int contatore = 0;
-        for(int i = 0; i < tabellone.mappa.get(0).size(); i++){
-            ArrayList<Card>tile = new ArrayList<>();
+        for(int i = 0; i < libreria.mappa.get(0).size(); i++){
+            ArrayList<Card> tile = new ArrayList<>();
 
-            for(int j = 0; j <tabellone.mappa.size(); j++){
+            for(int j = 0; j <libreria.mappa.size(); j++){
                 for(int c = 0; c<tile.size(); c++){
                     Card card = tile.get(c);
                     boolean aggiungi = true;
@@ -178,13 +177,13 @@ public class ControlloCommonGoal {
 
     public boolean controlloCommonGoal9(Libreria libreria) {
         int cont = 0;
-        for (int i = 0; i < libreria.celle.size(); i++) {
+        for (int i = 0; i < libreria.mappa.size(); i++) {
             boolean help = true;
-            for (int j = 0; j < libreria.celle.get(i).size(); j++) {
+            for (int j = 0; j < libreria.mappa.get(i).size(); j++) {
 
                 String tipo = ritornoTipo(i, j, libreria);
 
-                for (int y = 0; y < libreria.celle.get(i).size() - 1; y++) {
+                for (int y = 0; y < libreria.mappa.get(i).size() - 1; y++) {
                     if (tipo == ritornoTipo(i, y + 1, libreria)) {
                         help = false;
                     }
@@ -202,13 +201,13 @@ public class ControlloCommonGoal {
 
     public boolean controlloCommonGoal10(Libreria libreria) {
         int cont = 0;
-        for (int i = 0; i < libreria.celle.get(0).size(); i++) {
+        for (int i = 0; i < libreria.mappa.get(0).size(); i++) {
             boolean help = true;
-            for (int j = 0; j < libreria.celle.size(); j++) {
+            for (int j = 0; j < libreria.mappa.size(); j++) {
 
                 String tipo = ritornoTipo(j, i, libreria);
 
-                for (int y = 0; y < libreria.celle.size() - 1; y++) {
+                for (int y = 0; y < libreria.mappa.size() - 1; y++) {
                     if (tipo == ritornoTipo(y, i + 1, libreria)) {
                         help = false;
                     }
@@ -230,7 +229,7 @@ public class ControlloCommonGoal {
 
     public boolean controlloCommonGoal12(Libreria libreria) {
         int casellePrimaColonna=ContaCaselleLibere(libreria, 0);
-        for(int j=1; j<libreria.celle.size();j++){
+        for(int j = 1; j<libreria.mappa.size(); j++){
             if(casellePrimaColonna!=(ContaCaselleLibere(libreria, j)-j)){
                 break;
             }
@@ -238,7 +237,7 @@ public class ControlloCommonGoal {
                 return true;
             }
         }
-        for(int j=1; j<libreria.celle.size();j++){
+        for(int j = 1; j<libreria.mappa.size(); j++){
             if(casellePrimaColonna!=(ContaCaselleLibere(libreria, j)+j)){
                 break;
             }
@@ -250,12 +249,12 @@ public class ControlloCommonGoal {
     }
     public int ContaCaselleLibere(Libreria libreria, int colonna){
         int conta=0;
-        for (int i=0; i<libreria.celle.size(); i++){
+        for (int i = 0; i<libreria.mappa.size(); i++){
 
-            if(libreria.celle.get(i).get(colonna).getTessera()==null){
+            if(libreria.mappa.get(i).get(colonna).getTessera()==null){
                 conta++;
             }
-            if(libreria.celle.get(i).get(colonna).getTessera()!=null){
+            if(libreria.mappa.get(i).get(colonna).getTessera()!=null){
                 break;
             }
         }
@@ -263,7 +262,7 @@ public class ControlloCommonGoal {
     }
     public String ritornoTipo(int riga, int colonna, Libreria libreria) {
         String tipo;
-        tipo = libreria.celle.get(riga).get(colonna).tile.type;
+        tipo = libreria.mappa.get(riga).get(colonna).tile.type;
         return tipo;
     }
 }
