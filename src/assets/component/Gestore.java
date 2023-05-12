@@ -113,7 +113,6 @@ public class Gestore {
 					}
 
 				}while(continua);
-
 			}
 			System.out.print("conferma/ no: ");
 			conferma = sc.next().toLowerCase();
