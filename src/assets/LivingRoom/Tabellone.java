@@ -148,12 +148,15 @@ public class Tabellone{
 	public Card prelevaTessera(int riga, int colonna) throws Exception {
 
 		Card cartaSelezionata = new Card();
+
 		if(riga<0||colonna<0)
 			throw new Exception("Indice negativo");
 		if(riga>mappa.size())
 			throw new Exception("riga "+riga+" > "+mappa.size());
 		if(colonna>mappa.get(0).size())
 			throw new Exception("colonna "+colonna+" > "+mappa.get(0).size());
+		if(mappa.get(riga).get(colonna).tile.id==null)
+			throw new Exception("La tessera selezionata non è disponibile");
 		cartaSelezionata = mappa.get(riga).get(colonna).tile;
 		if(cartaSelezionata.type==null)
 			throw new Exception("La carta e' null ");

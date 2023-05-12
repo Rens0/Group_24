@@ -40,8 +40,7 @@ public class Player {
 		return drawItemTiles; 
 	}
 
-	public boolean inserisciTessera(ArrayList <Card> card,  ArrayList <Integer> ordine, int COLONNA)
-	{
+	public boolean inserisciTessera(ArrayList <Card> card,  ArrayList <Integer> ordine, int COLONNA) throws Exception {
 		libreria.inserisciTessere(card,ordine, COLONNA);
 		return libreria.libreriaPiena();
 

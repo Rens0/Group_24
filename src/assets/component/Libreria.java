@@ -31,7 +31,7 @@ public class Libreria {
 
     }
 
-    public ArrayList<Card> inserisciTessere(ArrayList<Card> card, ArrayList<Integer> ordine,  int COLONNASELEZIONATA) {
+    public int inserisciTessere(ArrayList<Card> card, ArrayList<Integer> ordine,  int COLONNASELEZIONATA)  throws Exception{
         int contaCelle = 0;
 
         for (int j = 0; j < righe; j++) {
@@ -40,6 +40,7 @@ public class Libreria {
                 contaCelle++;
             }
         }
+        System.out.println("spazi liberi: "+(contaCelle - card.size()));
 
         if (contaCelle - card.size() >= 0) {
             for (int i = contaCelle - 1; i > 0; i--) {
@@ -56,8 +57,8 @@ public class Libreria {
 
                 }
             }
-        } else throw new RuntimeException("Le tessere non ci stanno");
-        return null;
+        } else throw new Exception("Le tessere non ci stanno");
+        return (contaCelle - card.size());
     }
 
 

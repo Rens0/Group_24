@@ -83,9 +83,15 @@ public class Gestore {
 		Scanner sc = new Scanner(System.in);
 		//--- inserisciTessere ritorneta le tessere che non possono essere inserite nel tabellone
 		//--- creare funzione per il rinserimento delle tessere qualora non ci stassero
-		player.inserisciTessera(card, ordine, sc.nextInt());
-		tabellone.print();
-		player.libreria.print();
+		try {
+			player.inserisciTessera(card, ordine, sc.nextInt());
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}finally {
+			tabellone.print();
+			player.libreria.print();
+		}
+
 	}
 	private ArrayList<Integer> ordineDelleTessere(ArrayList<Card>card){
 		String conferma;
@@ -131,12 +137,10 @@ public class Gestore {
 			int colonna = sc.nextInt();
 			//--- Qua si deve fare il controllo che le tessere prelevate siano sulla stessa retta
 
-			if(tabellone.mappa.get(riga).get(colonna).tile.id==null)//--- Controllo che la tessera selezionata non sia null
-				System.out.println("Errore");
-			else
 			//if controllo
 			{
 				try {
+
 					card.add(tabellone.prelevaTessera(riga, colonna));
 				} catch (Exception e) {
 					System.out.println(e);

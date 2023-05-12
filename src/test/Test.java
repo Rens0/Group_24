@@ -110,7 +110,13 @@ public class Test {
         ordoine.add(0);
         ordoine.add(1);
         ordoine.add(2);
-        libreria.inserisciTessere(carte,ordoine,2);
+        try {
+            libreria.inserisciTessere(carte,ordoine,2);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }finally {
+
+        }
         libreria.print();
 
 
