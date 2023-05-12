@@ -34,9 +34,9 @@ public class Libreria {
     public ArrayList<Card> inserisciTessere(ArrayList<Card> card, ArrayList<Integer> ordine,  int COLONNASELEZIONATA) {
         int contaCelle = 0;
 
-        for (int y = 0; y < righe; y++) {
+        for (int j = 0; j < righe; j++) {
 
-            if (mappa.get(y).get(COLONNASELEZIONATA).getTessera().type == null) {
+            if (mappa.get(j).get(COLONNASELEZIONATA).getTessera().type == null) {
                 contaCelle++;
             }
         }
@@ -79,11 +79,11 @@ public class Libreria {
 
     public void print() {
         for (int i = 0; i < righe; i++) {
-            for (int y = 0; y < colonne; y++) {
-                if (mappa.get(i).get(y).getTessera() == null) {
+            for (int j = 0; j < colonne; j++) {
+                if (mappa.get(i).get(j).getTessera() == null) {
                     System.out.print(".......\t");
                 } else {
-                    System.out.print(mappa.get(i).get(y).getTessera().id+"\t");
+                    System.out.print(mappa.get(i).get(j).getTessera().id+"\t");
                 }
             }
             System.out.println();
