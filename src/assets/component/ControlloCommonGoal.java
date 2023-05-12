@@ -29,7 +29,25 @@ public class ControlloCommonGoal {
 
 
     public boolean controlloCommonGoal4(Libreria libreria) {
-        return true;
+        int contaotore=0;
+
+        for (int i = 0; i < libreria.mappa.size()-1; i++) {
+            for (int j = 0; j < libreria.mappa.get(i).size()-1; j++) {
+                if(ritornoTipo(i,j,libreria)==ritornoTipo(i+1,j,libreria)||
+                        ritornoTipo(i,j+1,libreria)==ritornoTipo(i,j,libreria)||
+                        ritornoTipo(i,j,libreria)==ritornoTipo(i+1,j+1,libreria)){
+
+                    contaotore++;
+                }
+            }
+        }
+        if(contaotore>=2)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public boolean controlloCommonGoal5(Libreria libreria) {
