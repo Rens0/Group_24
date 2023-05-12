@@ -1,6 +1,10 @@
 package test;
 
+import assets.card.Card;
+import assets.component.Libreria;
 import assets.component.Player;
+
+import java.util.ArrayList;
 
 public class Test {
     public static void main(String[] args) {
@@ -97,8 +101,17 @@ public class Test {
 
 */
 
-
-
+        Libreria libreria = new Libreria();
+        ArrayList<Card>carte = new ArrayList<>();
+        carte.add(new Card("Came","Animale"));
+        carte.add(new Card("Gabbo","Cornice"));
+        carte.add(new Card("Per","Matematica"));
+        ArrayList<Integer> ordoine = new ArrayList<>();
+        ordoine.add(0);
+        ordoine.add(1);
+        ordoine.add(2);
+        libreria.inserisciTessere(carte,ordoine,2);
+        libreria.print();
 
 
     }

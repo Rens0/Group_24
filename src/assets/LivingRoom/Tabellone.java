@@ -145,21 +145,20 @@ public class Tabellone{
 		return mappa.get(riga).get(colonna+1).tile;
 	}
 
-	public ArrayList<Card> prelevaTessera(ArrayList <ArrayList<Integer>>posizioni){
+	public Card prelevaTessera(int riga, int colonna) throws Exception {
 
-		ArrayList<Card>cardSelezionate= new ArrayList<>();
-
-		for(int i=0; i<posizioni.size();i++) {
-			int k=0;
-			if(posizioni.get(i).get(k)>=mappa.size())
-				return null;
-			if(posizioni.get(i).get(k+1)>=mappa.get(0).size())
-				return null;
-			cardSelezionate.add(mappa.get(posizioni.get(i).get(k)).get(posizioni.get(i).get(k+1)).tile);
-			mappa.get(posizioni.get(i).get(k)).get(posizioni.get(i).get(k+1)).tile=new Card();
-		}
-
-		return cardSelezionate;
+		Card cartaSelezionata = new Card();
+		if(riga<0||colonna<0)
+			throw new Exception("Indice negativo");
+		if(riga>mappa.size())
+			throw new Exception("riga "+riga+" > "+mappa.size());
+		if(colonna>mappa.get(0).size())
+			throw new Exception("colonna "+colonna+" > "+mappa.get(0).size());
+		cartaSelezionata = mappa.get(riga).get(colonna).tile;
+		if(cartaSelezionata.type==null)
+			throw new Exception("La carta e' null ");
+			mappa.get(riga).get(colonna).tile=new Card();
+		return cartaSelezionata;
 	}
 
     /*public Card randomTile(Cards tiles){

@@ -31,20 +31,20 @@ public class Libreria {
 
     }
 
-    public void inserisciTessere(ArrayList<Card> card, int COLONNASELEZIONATA, ArrayList<Integer> ordine) {
-        int contarighe = 0;
+    public ArrayList<Card> inserisciTessere(ArrayList<Card> card, ArrayList<Integer> ordine,  int COLONNASELEZIONATA) {
+        int contaCelle = 0;
 
         for (int y = 0; y < righe; y++) {
 
-            if (mappa.get(y).get(COLONNASELEZIONATA).getTessera() == null) {
-                contarighe++;
+            if (mappa.get(y).get(COLONNASELEZIONATA).getTessera().type == null) {
+                contaCelle++;
             }
         }
 
-        if (contarighe - card.size() >= 0) {
-            for (int i = contarighe - 1; i > 0; i--) {
+        if (contaCelle - card.size() >= 0) {
+            for (int i = contaCelle - 1; i > 0; i--) {
 
-                if (mappa.get(i).get(COLONNASELEZIONATA).getTessera() == null) {
+                if (mappa.get(i).get(COLONNASELEZIONATA).getTessera().type == null) {
 
                     if (ordine.size() > 0) {
 
@@ -57,6 +57,7 @@ public class Libreria {
                 }
             }
         } else throw new RuntimeException("Le tessere non ci stanno");
+        return null;
     }
 
 
@@ -80,9 +81,9 @@ public class Libreria {
         for (int i = 0; i < righe; i++) {
             for (int y = 0; y < colonne; y++) {
                 if (mappa.get(i).get(y).getTessera() == null) {
-                    System.out.print("NULL");
+                    System.out.print(".......\t");
                 } else {
-                    System.out.print(mappa.get(i).get(y).getTessera().id);
+                    System.out.print(mappa.get(i).get(y).getTessera().id+"\t");
                 }
             }
             System.out.println();
