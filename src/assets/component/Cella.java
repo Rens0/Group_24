@@ -19,5 +19,11 @@ public class Cella {
         return tile;
     }
 
+    public boolean isEmpty(){
+        if(tile==null){
+            return true;
+        }
+        return false;
+    }
 
 }

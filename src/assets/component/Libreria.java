@@ -7,6 +7,8 @@ import java.util.List;
 
 
 public class Libreria {
+
+
     private int righe;
     private int colonne;
     public List<List<Cella>> mappa;
@@ -30,6 +32,16 @@ public class Libreria {
         }
 
     }
+    public int getColonne() {
+        return colonne;
+    }
+    public int getRighe() {
+        return righe;
+    }
+    public Cella getCella(int riga, int colonna){
+            return mappa.get(riga).get(colonna);
+    }
+
 
     public int inserisciTessere(ArrayList<Card> card, ArrayList<Integer> ordine,  int COLONNASELEZIONATA)  throws Exception{
         int contaCelle = 0;
