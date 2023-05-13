@@ -31,20 +31,13 @@ public class Player {
 		
 		 this.points+=points; 
 	}
-	
-	public ArrayList<Card> drawItemTiles(Tabellone t ){
-		ArrayList<Card> drawItemTiles= new ArrayList<Card>(); 
-		if(/*t.getTessera().pescabile()*/true) {
-			drawItemTiles.add(null); 
-		}//da completare
-		return drawItemTiles; 
-	}
 
 	public boolean inserisciTessera(ArrayList <Card> card,  ArrayList <Integer> ordine, int COLONNA) throws Exception {
 		libreria.inserisciTessere(card,ordine, COLONNA);
 		return libreria.libreriaPiena();
 
 	}
+
 
 
 	@Override

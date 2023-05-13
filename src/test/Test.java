@@ -106,18 +106,24 @@ public class Test {
         carte.add(new Card("Came","Animale"));
         carte.add(new Card("Gabbo","Cornice"));
         carte.add(new Card("Per","Matematica"));
+        carte.add(new Card("Gabbo","Cornice"));
+        carte.add(new Card("Perco ","Matematica"));
+        carte.add(new Card("banana","Cornice"));
         ArrayList<Integer> ordoine = new ArrayList<>();
         ordoine.add(0);
         ordoine.add(1);
         ordoine.add(2);
+        ordoine.add(3);
+        ordoine.add(4);
+        ordoine.add(5);
         try {
             libreria.inserisciTessere(carte,ordoine,2);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }finally {
-
+            libreria.print();
         }
-        libreria.print();
+
 
 
     }

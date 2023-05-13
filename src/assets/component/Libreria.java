@@ -55,16 +55,13 @@ public class Libreria {
         System.out.println("spazi liberi: "+(contaCelle - card.size()));
 
         if (contaCelle - card.size() >= 0) {
-            for (int i = contaCelle - 1; i > 0; i--) {
+            for (int i = contaCelle-1; i >= 0; i--) {
 
                 if (mappa.get(i).get(COLONNASELEZIONATA).getTessera().type == null) {
 
                     if (ordine.size() > 0) {
-
                         mappa.get(i).get(COLONNASELEZIONATA).setCella(card.get(ordine.get(0)));
                         ordine.remove(0);
-
-
                     }
 
                 }
