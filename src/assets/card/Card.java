@@ -25,6 +25,15 @@ public class Card {
         this(null, null);
     }
 
+    public void setCoord(int riga, int colonna) {
+        row = riga;
+        column = colonna;
+    }
+
+    public String  getCoord() {
+        return row+" "+column;
+    }
+
     //@Override
     /*public String toString() {
         return id+" "+description+" "+type+" "+amount+" "+row+" "+ " "+column;

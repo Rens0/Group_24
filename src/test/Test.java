@@ -1,5 +1,6 @@
 package test;
 
+import assets.LivingRoom.Tabellone;
 import assets.card.Card;
 import assets.component.Libreria;
 import assets.component.Player;
@@ -99,7 +100,7 @@ public class Test {
             tabellone.print();
         }while (!c.contains("no"));
 
-*/
+        */
 
         Libreria libreria = new Libreria();
         ArrayList<Card>carte = new ArrayList<>();
@@ -108,21 +109,63 @@ public class Test {
         carte.add(new Card("Per","Matematica"));
         carte.add(new Card("Gabbo","Cornice"));
         carte.add(new Card("Perco ","Matematica"));
-        carte.add(new Card("banana","Cornice"));
+        //carte.add(new Card("banana","Cornice"));
         ArrayList<Integer> ordoine = new ArrayList<>();
         ordoine.add(0);
         ordoine.add(1);
         ordoine.add(2);
         ordoine.add(3);
         ordoine.add(4);
-        ordoine.add(5);
+        //ordoine.add(5);
+        int spaziLiberi = 0;
         try {
-            libreria.inserisciTessere(carte,ordoine,2);
+            spaziLiberi =  libreria.inserisciTessere(carte,ordoine,1);
         } catch (Exception e) {
             throw new RuntimeException(e);
-        }finally {
-            libreria.print();
         }
+
+        //-----
+
+        carte = new ArrayList<>();
+        carte.add(new Card("Perco ","Matematica"));
+        carte.add(new Card("banana","Cornice"));
+        carte.add(new Card("Poppi","Cornice"));
+        ordoine = new ArrayList<>();
+        ordoine.add(0);
+        ordoine.add(1);
+        ordoine.add(2);
+        try {
+            spaziLiberi =  libreria.inserisciTessere(carte,ordoine,1);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        //--- Caselle che non posso inserire
+        System.out.println(carte.size()-spaziLiberi);
+        //--- Caselle che posso inserire
+        System.out.println(spaziLiberi);
+
+
+        System.out.println("Carte non inseribili");
+        for(int i = spaziLiberi; i < carte.size(); i++){
+            System.out.println(carte.get(i).id);
+        }
+        System.out.println("-------------");
+        System.out.println("Carte inseribili:");
+        for(int i = 0; i < spaziLiberi; i++){
+            System.out.println(carte.get(i).id);
+        }
+       /*
+
+
+        for(int i = card.size()-totTessere-1; i <totTessere; i++){
+            System.out.println(card.get(i).id);
+        }
+        System.out.println("Vuoi aggiungere queste tessere? ");
+        for(int i = 0; i <card.size()-totTessere-1; i++){
+            System.out.println(card.get(i).id);
+        }*/
+
 
 
 

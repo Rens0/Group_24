@@ -95,9 +95,18 @@ public class Game {
 		}
 		tabellone.setPlayer(number_of_players);
 
+
 		Gestore gestore = new Gestore(tabellone, players, commonGoal, scoringToken, tile, personalGoal);
+
+
 		gestore.init();
-		gestore.start();
+		try {
+			gestore.start();
+		} catch (Exception e) {
+			System.out.println(e);
+		}finally {
+
+		}
 
 
 		//c.controlloCommonGoal8();

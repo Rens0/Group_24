@@ -52,7 +52,7 @@ public class Libreria {
                 contaCelle++;
             }
         }
-        System.out.println("spazi liberi: "+(contaCelle - card.size()));
+
 
         if (contaCelle - card.size() >= 0) {
             for (int i = contaCelle-1; i >= 0; i--) {
@@ -66,8 +66,8 @@ public class Libreria {
 
                 }
             }
-        } else throw new Exception("Le tessere non ci stanno");
-        return (contaCelle - card.size());
+        }
+        return contaCelle;
     }
 
 

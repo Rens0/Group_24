@@ -30,20 +30,20 @@ public class Tabellone{
 				switch (nPlayer) {
 					case 2:{
 						if(mappa.get(i).get(j).accessibilitaCella ==2) {
-							mappa.get(i).get(j).setCella(randomCard(card));
+							mappa.get(i).get(j).setCella(randomCard(card,i,j));
 						}
 						break;
 					}
 					case 3:{
 						if(mappa.get(i).get(j).accessibilitaCella >=2&&mappa.get(i).get(j).accessibilitaCella <=3) {
-							mappa.get(i).get(j).setCella(randomCard(card));
+							mappa.get(i).get(j).setCella(randomCard(card,i,j));
 						}
 
 						break;
 					}
 					case 4:{
 						if(mappa.get(i).get(j).accessibilitaCella >=2&&mappa.get(i).get(j).accessibilitaCella <=4) {
-							mappa.get(i).get(j).setCella(randomCard(card));
+							mappa.get(i).get(j).setCella(randomCard(card,i,j));
 						}
 						break;
 					}
@@ -52,7 +52,7 @@ public class Tabellone{
 		}
 	}
 
-	private Card randomCard(CardContainer card) {
+	private Card randomCard(CardContainer card, int riga, int colonna) {
 		Random rand = new Random();
 		int randomCard = rand.nextInt(card.list.size());
 		Card cardSalvata = card.list.get(randomCard);
@@ -64,7 +64,7 @@ public class Tabellone{
 		if(sum<=0)
 			return new Card();
 		if(cardSalvata.amount<=0) {
-			randomCard(card);
+			randomCard(card, riga, colonna);
 		}
 
 		//test.card.list.remove(valore);
@@ -73,10 +73,17 @@ public class Tabellone{
 		String type =  card.list.get(randomCard).type;
 
 		cardSalvata = new Card(id, type);
+		cardSalvata.setCoord(riga, colonna);
 		//System.out.println(cardSalvata.id);
 		card.list.get(randomCard).amount--;
 
 		return cardSalvata;
+	}
+	public void inserisciTessere(ArrayList<Card>card){
+		for(int i = 0; i < card.size(); i++){
+			mappa.get(card.get(i).row).get(card.get(i).column).tile=card.get(i);
+		}
+
 	}
 
 	public void print(){
@@ -85,7 +92,7 @@ public class Tabellone{
 				if(mappa.get(i).get(j).getTessera().id==null) {
 					System.out.print(".......\t");
 				} else {
-					System.out.print(mappa.get(i).get(j).getTessera().type+"\t");
+					System.out.print(mappa.get(i).get(j).getTessera().getCoord()+"\t");
 				}
 
 

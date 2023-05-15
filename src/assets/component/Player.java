@@ -1,7 +1,6 @@
 package assets.component;
 import java.util.ArrayList;
 
-import assets.LivingRoom.Tabellone;
 import assets.card.Card;
 import assets.card.CardContainer;
 
@@ -32,9 +31,8 @@ public class Player {
 		 this.points+=points; 
 	}
 
-	public boolean inserisciTessera(ArrayList <Card> card,  ArrayList <Integer> ordine, int COLONNA) throws Exception {
-		libreria.inserisciTessere(card,ordine, COLONNA);
-		return libreria.libreriaPiena();
+	public int inserisciTessera(ArrayList <Card> card, ArrayList <Integer> ordine, int COLONNA) throws Exception {
+		return libreria.inserisciTessere(card,ordine, COLONNA);
 
 	}
 

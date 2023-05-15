@@ -5,6 +5,7 @@ import assets.card.Card;
 import assets.card.CardContainer;
 import assets.card.Goals;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -59,7 +60,7 @@ public class Gestore {
 
 	}
 
-	public void start(){
+	public void start() throws Exception {
 		tabellone.riempimentoTabellone(tile);
 		tabellone.print();
 		boolean continua = false;
@@ -74,7 +75,7 @@ public class Gestore {
 
 		}while(continua);
 	}
-	private void pickCard(Player player){
+	private void pickCard(Player player) throws Exception {
 
 		ArrayList<Card> card = prelevaTessera(); //--- tessere prelevate
 		ArrayList<Integer> ordine = ordineDelleTessere(card);
@@ -83,14 +84,45 @@ public class Gestore {
 		Scanner sc = new Scanner(System.in);
 		//--- inserisciTessere ritorneta le tessere che non possono essere inserite nel tabellone
 		//--- creare funzione per il rinserimento delle tessere qualora non ci stassero
-		try {
-			player.inserisciTessera(card, ordine, sc.nextInt());
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}finally {
+
+			int spaziLiberi = player.inserisciTessera(card, ordine, sc.nextInt());
+			if (spaziLiberi>0){
+				tessereNonCiStanno(player, card, spaziLiberi);	//--- chiedo all'utente se vuole inserire le tessere
+			}
 			tabellone.print();
 			player.libreria.print();
+
+
+	}
+	//--- Chiedo all'utente, cosa vuole fare nel caso le tessere non ci stanno nella sua colonna della libreria
+	private void tessereNonCiStanno(Player player, ArrayList<Card>card, int spaziLiberi) throws Exception {
+		System.out.println("Queste tessere non ci stanno nella libreria: ");
+		ArrayList<Card>tessereNonDisponibili = new ArrayList<>();
+		for(int i = spaziLiberi; i <card.size(); i++){
+			System.out.println(card.get(i).id);
+			tessereNonDisponibili.add(card.get(i));
 		}
+		System.out.println("Vuoi aggiungere queste tessere? ");
+		ArrayList<Card>tessereDisponibili = new ArrayList<>();
+		for(int i = 0; i <spaziLiberi; i++){
+			System.out.println(card.get(i).id);
+			tessereDisponibili.add(card.get(i));
+		}
+		System.out.println("Vuoi inserire le tessere che ci stanno?");
+		Scanner sc = new Scanner(System.in);
+		if(sc.next().toLowerCase().equals("si")){
+			ArrayList<Integer> ordine = ordineDelleTessere(card);
+			player.inserisciTessera(card, ordine, sc.nextInt());
+		}
+		tabellone.inserisciTessere(tessereNonDisponibili);
+
+
+
+
+
+		//Scanner sc = new Scanner(System.in);
+
+
 
 	}
 	private ArrayList<Integer> ordineDelleTessere(ArrayList<Card>card){
