@@ -112,11 +112,11 @@ public class Gestore {
 		Scanner sc = new Scanner(System.in);
 		if(sc.next().toLowerCase().equals("si")){
 			ArrayList<Integer> ordine = ordineDelleTessere(card);
-			player.inserisciTessera(card, ordine, sc.nextInt());
-			player.inserisciTessera(card, ordine, colonna);
+			player.inserisciTessera(tessereDisponibili, ordine, sc.nextInt());
+			tabellone.inserisciTessere(tessereNonDisponibili);
+		}else
+			tabellone.inserisciTessere(card);
 
-		}
-		tabellone.inserisciTessere(tessereNonDisponibili);
 
 
 

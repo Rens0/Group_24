@@ -262,8 +262,7 @@ public class ControlloCommonGoal {
                     return true;
                 }
             }
-
-        }
+            }
         }
         return false;
 
