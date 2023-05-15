@@ -84,10 +84,10 @@ public class Gestore {
 		Scanner sc = new Scanner(System.in);
 		//--- inserisciTessere ritorneta le tessere che non possono essere inserite nel tabellone
 		//--- creare funzione per il rinserimento delle tessere qualora non ci stassero
-
-			int spaziLiberi = player.inserisciTessera(card, ordine, sc.nextInt());
+			int colonna = sc.nextInt();
+			int spaziLiberi = player.inserisciTessera(card, ordine, colonna );
 			if (spaziLiberi>0){
-				tessereNonCiStanno(player, card, spaziLiberi);	//--- chiedo all'utente se vuole inserire le tessere
+				tessereNonCiStanno(player, card, spaziLiberi, colonna);	//--- chiedo all'utente se vuole inserire le tessere
 			}
 			tabellone.print();
 			player.libreria.print();
@@ -95,7 +95,7 @@ public class Gestore {
 
 	}
 	//--- Chiedo all'utente, cosa vuole fare nel caso le tessere non ci stanno nella sua colonna della libreria
-	private void tessereNonCiStanno(Player player, ArrayList<Card>card, int spaziLiberi) throws Exception {
+	private void tessereNonCiStanno(Player player, ArrayList<Card>card, int spaziLiberi, int colonna) throws Exception {
 		System.out.println("Queste tessere non ci stanno nella libreria: ");
 		ArrayList<Card>tessereNonDisponibili = new ArrayList<>();
 		for(int i = spaziLiberi; i <card.size(); i++){
@@ -113,6 +113,8 @@ public class Gestore {
 		if(sc.next().toLowerCase().equals("si")){
 			ArrayList<Integer> ordine = ordineDelleTessere(card);
 			player.inserisciTessera(card, ordine, sc.nextInt());
+			player.inserisciTessera(card, ordine, colonna);
+
 		}
 		tabellone.inserisciTessere(tessereNonDisponibili);
 
