@@ -4,12 +4,12 @@ import assets.card.Card;
 import assets.card.CardContainer;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ControlloCommonGoal {
     public boolean controlloCommonGoal1(Libreria libreria) {
         return true;
     }
-
     public boolean controlloCommonGoal2(Libreria libreria) {
         return true;
     }
@@ -41,7 +41,7 @@ public class ControlloCommonGoal {
                 }
             }
         }
-        if(contatore>=2)
+        if(contatore>=2) //Non dovrebbe essere solamente 2, se no assegna dei punti in più?
         {
             return true;
         }
@@ -365,3 +365,45 @@ public class ControlloCommonGoal {
         return tipo;
     }
 }
+
+/* COMMON GOAL 1
+int contatore = 0;
+
+        for (int i = 0; i < libreria.mappa.size() - 1; i++) {
+            for (int j = 0; j < libreria.mappa.get(i).size() - 1; j++) {
+                if (ritornoTipo(i, j, libreria).equals(ritornoTipo(i, j + 1, libreria)) &&
+                        (ritornoTipo(i + 1, j, libreria).equals(ritornoTipo(i + 1, j + 1, libreria))))
+
+                    contatore++;
+               }
+            }
+        if(contatore >=2){
+            return true;
+        }
+        else {
+            return false;
+        }
+
+ */
+
+/* COMMON GOAL 2
+int contatore=0;
+
+        for (int i = 0; i < libreria.mappa.size()-1; i++) {
+            for (int j = 0; j < libreria.mappa.get(i).size()-1; j++) {
+                if(!Objects.equals(ritornoTipo(i, j, libreria), ritornoTipo(i + 1, j, libreria)) ||
+                        !Objects.equals(ritornoTipo(i, j + 1, libreria), ritornoTipo(i, j, libreria)) ||
+                        !Objects.equals(ritornoTipo(i, j, libreria), ritornoTipo(i + 1, j + 1, libreria))){
+
+                    contatore++;
+                }
+            }
+        }
+        if(contatore>=6)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+ */
