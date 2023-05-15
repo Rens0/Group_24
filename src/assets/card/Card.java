@@ -33,7 +33,9 @@ public class Card {
     public String  getCoord() {
         return row+" "+column;
     }
-
+    public String getId(){
+        return id;
+    }
     //@Override
     /*public String toString() {
         return id+" "+description+" "+type+" "+amount+" "+row+" "+ " "+column;

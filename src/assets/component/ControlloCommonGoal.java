@@ -16,9 +16,9 @@ public class ControlloCommonGoal {
 
     public boolean controlloCommonGoal3(Libreria libreria) {
 
-        if (ritornoTipo(0, 0, libreria) == ritornoTipo(0, libreria.mappa.get(0).size() - 1, libreria) &&
-                ritornoTipo(0, 0, libreria) == ritornoTipo(libreria.mappa.size() - 1, libreria.mappa.get(0).size() - 1, libreria) &&
-                ritornoTipo(0, 0, libreria) == ritornoTipo(libreria.mappa.size() - 1, 0, libreria)
+        if (ritornoTipo(0, 0, libreria).equals(ritornoTipo(0, libreria.mappa.get(0).size() - 1, libreria)) &&
+                ritornoTipo(0, 0, libreria).equals(ritornoTipo(libreria.mappa.size() - 1, libreria.mappa.get(0).size() - 1, libreria)) &&
+                ritornoTipo(0, 0, libreria).equals(ritornoTipo(libreria.mappa.size() - 1, 0, libreria))
         ) {
             return true;
         }
@@ -29,19 +29,19 @@ public class ControlloCommonGoal {
 
 
     public boolean controlloCommonGoal4(Libreria libreria) {
-        int contaotore=0;
+        int contatore=0;
 
         for (int i = 0; i < libreria.mappa.size()-1; i++) {
             for (int j = 0; j < libreria.mappa.get(i).size()-1; j++) {
-                if(ritornoTipo(i,j,libreria)==ritornoTipo(i+1,j,libreria)||
-                        ritornoTipo(i,j+1,libreria)==ritornoTipo(i,j,libreria)||
-                        ritornoTipo(i,j,libreria)==ritornoTipo(i+1,j+1,libreria)){
+                if(ritornoTipo(i,j,libreria).equals(ritornoTipo(i+1,j,libreria))||
+                        ritornoTipo(i,j+1,libreria).equals(ritornoTipo(i,j,libreria))||
+                        ritornoTipo(i,j,libreria).equals(ritornoTipo(i+1,j+1,libreria))){
 
-                    contaotore++;
+                    contatore++;
                 }
             }
         }
-        if(contaotore>=2)
+        if(contatore>=2)
         {
             return true;
         }
@@ -51,8 +51,36 @@ public class ControlloCommonGoal {
     }
 
     public boolean controlloCommonGoal5(Libreria libreria) {
-        //work in progress
-        return true;
+        int contatore=0;
+        for (int j=0; j< libreria.getColonne(); j++){
+            ArrayList <String> cardType=new ArrayList<>();
+            boolean isFull=true;
+            if(contatore+(libreria.getColonne()-j)<3)
+                return false;
+            for (int i=0; i< libreria.getRighe(); i++){
+
+                if(libreria.getCella(i, j).isEmpty()) {
+                    isFull=false;
+                    break;//passa alla prossima colonna
+                }
+                String type=ritornoTipo(i,j, libreria);
+
+                if(!cardType.contains(type)){
+                    cardType.add(type);
+                }
+                if(cardType.size()>3){      //numero dei tipi nell'arrayList
+                    break; //passa alla prox colonna
+                }
+
+            }
+            if(isFull && cardType.size()<=3){
+                contatore++;
+            }
+            if(contatore==3) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean controlloCommonGoal6(Libreria libreria, CardContainer cardContainer) {
@@ -140,15 +168,15 @@ public class ControlloCommonGoal {
             int contDiagoSec = 0;
             if ((libreria.mappa.size() - i) >= libreria.mappa.get(0).size()) {
                 for (int j = 0; j < libreria.mappa.get(i).size(); j++) {
-                    if (ritornoTipo(j + i, j, libreria) == ritornoTipo(0, 0, libreria)) {
+                    if (ritornoTipo(j + i, j, libreria).equals(ritornoTipo(0, 0, libreria))) {
                         contDiagoPrinc++;
                         if (contDiagoPrinc >= libreria.mappa.get(0).size()) {
                             return true;
                         }
                     }
 
-                    if (ritornoTipo(0, libreria.mappa.get(0).size(), libreria) ==
-                            ritornoTipo(j + i, libreria.mappa.get(0).size() - j - 1, libreria)) {
+                    if (ritornoTipo(0, libreria.mappa.get(0).size(), libreria).equals(
+                            ritornoTipo(j + i, libreria.mappa.get(0).size() - j - 1, libreria))) {
                         contDiagoSec++;
                         if (contDiagoSec >= libreria.mappa.get(0).size()) {
                             return true;
@@ -165,7 +193,7 @@ public class ControlloCommonGoal {
     }
 
     public boolean controlloCommonGoal8(Libreria libreria) {
-        int contatore = 0;
+        /*int contatore = 0;
         for(int i = 0; i < libreria.mappa.get(0).size(); i++){
             ArrayList<Card> tile = new ArrayList<>();
 
@@ -191,6 +219,36 @@ public class ControlloCommonGoal {
         if(contatore>=3)
             return true;
 
+        return false;*/
+        int contatore=0;
+        for (int i=0; i< libreria.getRighe(); i++){
+            ArrayList <String> cardType=new ArrayList<>();
+            boolean isFull=true;
+            if(contatore+(libreria.getRighe()-i)<4)
+                return false;
+            for (int j=0; j< libreria.getColonne(); j++){
+
+                if(libreria.getCella(i, j).isEmpty()) {
+                    isFull=false;
+                    break;//passa alla prossima riga
+                }
+                String type=ritornoTipo(i,j, libreria);
+
+                if(!cardType.contains(type)){
+                    cardType.add(type);
+                }
+                if(cardType.size()>3){      //numero dei tipi nell'arrayList
+                    break; //passa alla prox riga
+                }
+
+            }
+            if(isFull && cardType.size()<=3){
+                contatore++;
+            }
+            if(contatore==4) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -203,7 +261,7 @@ public class ControlloCommonGoal {
                 String tipo = ritornoTipo(i, j, libreria);
 
                 for (int y = 0; y < libreria.mappa.get(i).size() - 1; y++) {
-                    if (tipo == ritornoTipo(i, y + 1, libreria)) {
+                    if (tipo.equals(ritornoTipo(i, y + 1, libreria))) {
                         help = false;
                     }
                 }
@@ -227,7 +285,7 @@ public class ControlloCommonGoal {
                 String tipo = ritornoTipo(j, i, libreria);
 
                 for (int y = 0; y < libreria.mappa.size() - 1; y++) {
-                    if (tipo == ritornoTipo(y, i + 1, libreria)) {
+                    if (tipo.equals(ritornoTipo(y, i + 1, libreria))) {
                         help = false;
                     }
                 }

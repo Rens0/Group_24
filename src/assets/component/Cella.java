@@ -20,7 +20,7 @@ public class Cella {
     }
 
     public boolean isEmpty(){
-        if(tile==null){
+        if(tile.getId()==null){
             return true;
         }
         return false;
