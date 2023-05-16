@@ -164,8 +164,8 @@ public class Gestore {
 				System.out.print("conferma/ no: ");
 				conferma = sc.next().toLowerCase();
 			} while (!conferma.contains("conferma"));
-		}
-		ordine.add(0);
+		}else
+			ordine.add(0);
 		return ordine;
 	}
 	private ArrayList<Card> prelevaTessera(){ //--- prelevo le posizioni delle tessere dal tabellone
