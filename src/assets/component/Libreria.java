@@ -45,9 +45,8 @@ public class Libreria {
 
     public int inserisciTessere(ArrayList<Card> card, ArrayList<Integer> ordine,  int COLONNASELEZIONATA)  throws Exception{
         int contaCelle = 0;
-
+        //--- Conto celle disponibili
         for (int j = 0; j < righe; j++) {
-
             if (mappa.get(j).get(COLONNASELEZIONATA).getTessera().type == null) {
                 contaCelle++;
             }

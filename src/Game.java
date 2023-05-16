@@ -97,8 +97,6 @@ public class Game {
 
 
 		Gestore gestore = new Gestore(tabellone, players, commonGoal, scoringToken, tile, personalGoal);
-
-
 		gestore.init();
 		try {
 			gestore.start();
