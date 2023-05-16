@@ -92,7 +92,7 @@ public class Tabellone{
 				if(mappa.get(i).get(j).getTessera().id==null) {
 					System.out.print(".......\t");
 				} else {
-					System.out.print(mappa.get(i).get(j).getTessera().getCoord()+"\t");
+					System.out.print(mappa.get(i).get(j).getTessera().type+"\t");
 				}
 
 

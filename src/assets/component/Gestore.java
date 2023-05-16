@@ -1,11 +1,8 @@
 package assets.component;
-
 import assets.LivingRoom.Tabellone;
 import assets.card.Card;
 import assets.card.CardContainer;
 import assets.card.Goals;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -120,8 +117,6 @@ public class Gestore {
 				return tessereNonDisponibili;
 			}
 		}
-
-
 		System.out.println("Le tessere non ci stanno seleziona nuova colonna [colonna]/ ripesca [ripesca]");
 		Scanner sc = new Scanner(System.in);
 		if(sc.next().toLowerCase().equals("colonna")){
@@ -131,19 +126,7 @@ public class Gestore {
 			tabellone.inserisciTessere(card);
 			pickCard(player);
 		}
-
 		return card;
-
-
-
-
-
-
-
-		//Scanner sc = new Scanner(System.in);
-
-
-
 	}
 	private ArrayList<Integer> ordineDelleTessere(ArrayList<Card>card){
 		String conferma;
@@ -223,6 +206,32 @@ public class Gestore {
 		}
 		return null;
 	}
+	private boolean controlloPrelevoTessera(int riga, int colonna){
+		if(tabellone.mappa.get(riga++).get(colonna).tile.type==null)
+			return true;
+		if(tabellone.mappa.get(riga--).get(colonna).tile.type==null)
+			return true;
+		if(tabellone.mappa.get(riga).get(colonna++).tile.type==null)
+			return true;
+		if(tabellone.mappa.get(riga).get(colonna--).tile.type==null)
+			return true;
+		return false;
+	}
+	private boolean controlloPrelevoTessereColonna(int riga, int colonna, Card oldCard){
+		if(oldCard.column++==colonna&&oldCard.row==riga)
+			return true;
+		if(oldCard.column--==colonna&&oldCard.row==riga)
+			return true;
+		return false;
+	}
+	private boolean controlloPrelevoTesseraRiga(int riga, int colonna, Card oldCard){
+		if(oldCard.row++==riga&&oldCard.column==colonna)
+			return true;
+		if(oldCard.row--==riga&&oldCard.column==colonna)
+			return true;
+		return false;
+	}
+
 
 
 	private CardContainer pickRandomPersonalGoal(){
