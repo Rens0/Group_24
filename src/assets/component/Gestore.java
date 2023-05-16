@@ -28,7 +28,7 @@ public class Gestore {
 		this.tile = tile;
 		this.personalGoal = personalGoal;
 		chosenCommonGoal = new ArrayList<>();
-		maxTesserePescabili = 3;
+		maxTesserePescabili = 6;
 	}
 	public void init(){
 		for(int i = 0; i < players.size(); i++){
@@ -120,6 +120,18 @@ public class Gestore {
 				return tessereNonDisponibili;
 			}
 		}
+
+
+		System.out.println("Le tessere non ci stanno seleziona nuova colonna [colonna]/ ripesca [ripesca]");
+		Scanner sc = new Scanner(System.in);
+		if(sc.next().toLowerCase().equals("colonna")){
+			System.out.print("Inserisci colonna: ");
+			tessereNonCiStanno(player,card,spaziLiberi,sc.nextInt());
+		}else{
+			tabellone.inserisciTessere(card);
+			pickCard(player);
+		}
+
 		return card;
 
 
