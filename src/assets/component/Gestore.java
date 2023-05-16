@@ -89,7 +89,7 @@ public class Gestore {
 			int colonna = sc.nextInt();
 			int spaziLiberi = player.inserisciTessera(card, ordine, colonna );
 			if (card.size()-spaziLiberi>0){
-				tessereNonCiStanno(player, card, spaziLiberi, colonna);	//--- chiedo all'utente se vuole inserire le tessere
+				tabellone.inserisciTessere(tessereNonCiStanno(player, card, spaziLiberi, colonna));	//--- chiedo all'utente se vuole inserire le tessere
 			}
 			tabellone.print();
 			player.libreria.print();
@@ -97,7 +97,7 @@ public class Gestore {
 
 	}
 	//--- Chiedo all'utente, cosa vuole fare nel caso le tessere non ci stanno nella sua colonna della libreria
-	private void tessereNonCiStanno(Player player, ArrayList<Card>card, int spaziLiberi, int colonna) throws Exception {
+	private ArrayList<Card> tessereNonCiStanno(Player player, ArrayList<Card>card, int spaziLiberi, int colonna) throws Exception {
 		System.out.println("Queste tessere non ci stanno nella libreria: ");
 		ArrayList<Card>tessereNonDisponibili = new ArrayList<>();
 		for(int i = spaziLiberi; i <card.size(); i++){
@@ -116,14 +116,11 @@ public class Gestore {
 			Scanner sc = new Scanner(System.in);
 			if(sc.next().toLowerCase().equals("si")){
 				ArrayList<Integer> ordine = ordineDelleTessere(tessereDisponibili);
-				System.out.print("Inserisci colonna: ");
-				player.inserisciTessera(tessereDisponibili, ordine, sc.nextInt());
-				tabellone.inserisciTessere(tessereNonDisponibili);
-			}else
-				tabellone.inserisciTessere(card);
+				player.inserisciTessera(tessereDisponibili, ordine, colonna);
+				return tessereNonDisponibili;
+			}
 		}
-		else
-			tabellone.inserisciTessere(card);
+		return card;
 
 
 
@@ -139,7 +136,7 @@ public class Gestore {
 	private ArrayList<Integer> ordineDelleTessere(ArrayList<Card>card){
 		String conferma;
 		ArrayList<Integer>ordine=new ArrayList<>();
-		if(card.size()>0) {
+		if(card.size()-1>0) {
 			do {
 				System.out.println("Seleziona lordine delle tessere: ");
 				Scanner sc = new Scanner(System.in);
