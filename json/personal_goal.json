@@ -1,7 +1,9 @@
  {
-	"path": "personal goal cards",
-	"list": [
+	 "path": "personal goal cards",
+
+	 "list": [
 		{
+			"point": [1,2,4,6,9,12],
 			"id": "Personal_Goals",
 			"list": [
 				{
@@ -38,6 +40,7 @@
 
 		},
 		{
+			"point": [1,2,4,6,9,12],
 			"id": "Personal_Goals2",
 			"list": [
 				{
@@ -75,6 +78,7 @@
 		},
 
 		{
+			"point": [1,2,4,6,9,12],
 			"id": "Personal_Goals3",
 			"list": [
 				{
@@ -110,6 +114,7 @@
 			]
 		},
 		{
+			"point": [1,2,4,6,9,12],
 			"id": "Personal_Goals4",
 			"list": [
 				{
@@ -145,6 +150,7 @@
 			]
 		},
 		{
+			"point": [1,2,4,6,9,12],
 			"id": "Personal_Goals5",
 			"list": [
 				{
@@ -181,6 +187,7 @@
 
 		},
 		{
+			"point": [1,2,4,6,9,12],
 			"id": "Personal_Goals6",
 			"list": [
 				{
@@ -216,6 +223,7 @@
 			]
 		},
 		{
+			"point": [1,2,4,6,9,12],
 			"id": "Personal_Goals7",
 			"list": [
 				{
@@ -251,6 +259,7 @@
 			]
 		},
 		{
+			"point": [1,2,4,6,9,12],
 			"id": "Personal_Goals8",
 			"list": [
 				{
@@ -286,6 +295,7 @@
 			]
 		},
 		{
+			"point": [1,2,4,6,9,12],
 			"id": "Personal_Goals9",
 			"list": [
 				{
@@ -321,6 +331,7 @@
 			]
 		},
 		{
+			"point": [1,2,4,6,9,12],
 			"id": "Personal_Goals10",
 			"list": [
 				{
@@ -356,6 +367,7 @@
 			]
 		},
 		{
+			"point": [1,2,4,6,9,12],
 			"id": "Personal_Goals11",
 			"list": [
 				{
@@ -391,6 +403,7 @@
 			]
 		},
 		{
+			"point": [1,2,4,6,9,12],
 			"id": "Personal_Goals12",
 			"list": [
 				{

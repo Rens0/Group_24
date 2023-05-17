@@ -56,6 +56,7 @@ public class Gestore {
     public void init() {
         for (Player player : players) {
             player.personalGoal = selectRandomPersonalGoal();//--- Assegnamento dei personal goal
+
         }
         for (int i = 0; i < maxCommonGoal; i++){
             id_commonGoal.add(selectRandomCommonGoal());//--- prendo degli id dei commongoal randomici e li aggiungo
