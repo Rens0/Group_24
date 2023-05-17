@@ -122,71 +122,65 @@ public class Tabellone{
 
 	}
 
-	public boolean controlloTessereVicine() {
-		for(int i = 0; i < mappa.size(); i++){
-			for(int j = 0; j < mappa.get(0).size(); j++){
-				if(i==mappa.size()-1&&j>=mappa.get(0).size()-1)
-					break;
-				Card card = mappa.get(i).get(j).tile;
-				if(card.id!=null){
-					if(j>=mappa.get(0).size()-1) {
-						if (controlloRighaSotto(card))
-							return true;
-					}
-					else {
-						if (controlloColonnaDestra(card))
-							return true;
-					}
-					if(i>=mappa.size()-1) {
-						if(controlloColonnaDestra(card))
-							return true;
-					}else {
-						if(controlloRighaSotto(card))
-							return true;
-					}
-				}
 
-			}
-
-		}
-		return false;
-	}
-	public boolean controlloSpazioLibero(Card card) {//se trova uno spazio libero ritorna true seno false
+	public boolean controlloSpazioLibero(Card card) {//se trova uno spazio libero ritorna false seno ture
 
 
-		//---- se ci troviamo in pos 0 0 controlliamo sotto e a destra
-		if(card.row==0&&card.column==0) {
-			return true;
+
+		if(card.row==0) {
+			return false;
 		}
-		//--- se ci troviamo in pos [mappa.size-1; 0] controlliamo sopra e a destra
-		if(card.row==mappa.size()-1&&card.column==0) {
-			return true;
-		}
-		//--- se ci troviamo in posizione [0; mappa.get(0).size-1) controlliamo a sinistra e sotto
-		if(card.row==0&&card.column==mappa.get(0).size()-1){
-			return true;
-		}
-		//--- se ci troviamo in posizione [mappa.size()-1, mappa.get(0).size-1] controllo sopra e sx
-		if(card.row==mappa.size()-1&&card.column==mappa.get(0).size()-1){
-			return true;
-		}
-		//---Se sono alla riga 0 controllo sotto a dx e a sx
-		if(card.row==0){
-			return controlloColonnaDestra(card)&&controlloColonnaSinistra(card)&&controlloRighaSotto(card);
-		}
-		//---Se sono alla riga mappa.size()-1 controllo sopra sx dx
-		if(card.row==mappa.size()-1)
-			return controlloRighaSopra(card)&&controlloColonnaDestra(card)&&controlloColonnaSinistra(card);
-		//---Se sono alla colonna 0 controllo sopra sotto dx
 		if(card.column==0)
-			return controlloRighaSopra(card)&&controlloRighaSotto(card)&&controlloColonnaDestra(card);
-		//---Se sono alla colonna = mappa.get(0).size-1 controllo sopra sotto sx
-		if(card.column==mappa.get(0).size()-1)
-			return controlloRighaSopra(card)&&controlloRighaSotto(card)&&controlloColonnaSinistra(card);
+			return false;
 
+		if(card.row==mappa.size()-1) {
+			return false;
+		}
+		if(card.column==mappa.get(0).size()-1){
+			return false;
+		}
 		return controlloColonnaDestra(card)&&controlloColonnaSinistra(card)&&controlloRighaSopra(card)&&controlloRighaSotto(card);
 
 
+	}
+	public boolean controlloAddiacenza(ArrayList<Card>card){
+		if(card.size()>1) {
+			int delta = deltaRiga(card.get(card.size() - 2), card.get(card.size() - 1)) - deltaColonna(card.get(card.size() - 2), card.get(card.size() - 1));
+
+			int deltaRigaPre = deltaRiga(card.get(0), card.get(1));
+			int deltaColonnaPre = deltaColonna(card.get(0), card.get(1));
+
+			for(int i = 1; i < card.size()-1; i++){
+				int deltaRigaNow = 	deltaRiga(card.get(i), card.get(i+1));
+				int deltaColonnaNow = deltaColonna(card.get(i), card.get(i+1));
+				if(deltaRigaPre!=deltaRigaNow)
+					return false;
+				if(deltaColonnaPre!=deltaColonnaNow)
+					return false;
+			}
+
+
+			if (delta < 0)
+				delta *= -1;
+			if (delta == 0 || delta == 1)
+				return true;
+
+
+			return false;
+		}
+		return true;
+	}
+	private int deltaRiga(Card pre, Card now){
+		int delta = pre.row-now.row;
+		if(delta<0)
+			delta*=-1;
+		return delta;
+	}
+	private int deltaColonna(Card pre, Card now){
+		int delta = pre.column-now.column;
+		if(delta<0)
+			delta*=-1;
+		return delta;
 	}
 	public Boolean controlloRighaSotto(Card card){
 		if(mappa.get(card.row+1).get(card.column).tile.type!=null)
@@ -208,86 +202,47 @@ public class Tabellone{
 			return true;
 		return false;
 	}
+	public void rimuoviTessere(ArrayList<Card>card){
+		for(int i = 0; i < card.size(); i++){
+			mappa.get(card.get(i).row).get(card.get(i).column).tile=new Card();
+		}
 
+	}
 	public void rimuoviTessera(Card card) throws Exception {
 		mappa.get(card.row).get(card.column).tile = new Card();
 	}
+	public ArrayList<Card> prelevaTessera(int riga, int colonna, ArrayList<Card> card) throws Exception {
 
-    /*public Card randomTile(Cards tiles){
-		Random rand = new Random();
-		int rand1 = rand.nextInt(tiles.list.size());
-		int rand2 = rand.nextInt(tiles.list.get(rand1).moreId.size());
+		boolean controllo = true;
 
-		Card c = tiles.list.get(rand1);
-		c.id = (String) tiles.list.get(rand1).moreId.get(rand2);
+		Card carta = getTessera(riga, colonna);
 
-		if(tiles.list.get(rand1).amount>0) {
-			tiles.list.get(rand1).amount--;
-		//	System.out.println(tiles.list.get(rand1).id+" "+tiles.list.get(rand1).amount);
+		//--- Controllo che non abbia pescato la stessa tessera
+		if(card.contains(carta)){
+			System.out.println("Tessera gia seleziona");
+			return card;
+		}else
+			card.add(carta);
 
 
+		//--- Controllo che ogni tessera abbia uno spazio libero
+
+		if(controllo&&controlloSpazioLibero(carta))//--- Se una tessera non ha una cella nelle 4 direzioni libera
+		{
+			System.out.println("La tessera non ha uno spazio libero");
+			return card;
 		}
-		if(tiles.list.get(rand1).amount==0)
-			tiles.list.remove(rand1);
 
-		return c;
-	}*/
-
-    /*public void riempimento (Cards tiles)
-	{
-
-
-		/*for(int i = 0; i < mappa.length&&tiles.list.size()>0; i++){
-
-			for(int j = 0; j<mappa[i].length&&tiles.list.size()>0;j++){
-
-				if(celle[i][j] == null)
-					celle[i][j] = new Cella();
-
-				if(mappa[i][j]!=0){
-					switch (nPlayer){
-						case 2:{
-							if(mappa[i][j]==2)
-								setCella(i,j,tiles);
-							break;
-						}
-						case 3:{
-							if(mappa[i][j]>=2&&mappa[i][j]<=3)
-								setCella(i,j,tiles);
-							break;
-						}
-						case 4:{
-							if(mappa[i][j]>=2&&mappa[i][j]<=4)
-								setCella(i,j,tiles);
-							break;
-						}
-					}
-				}else{
-					celle[i][j].stato = false;
-				}
-			}
-		}*/
-	//riempe con le carte dentro la sacchetta/mazzo : GESTORE
-
-    /*ntb le tessere alla fine del turno di un player se vicino alla tessera non ci sono altre tessere adiacenti,
-      allora la tavola deve essere ririempita, DXSX*/
-	//}
-	//public void setCella(int i, int j, Cards tiles){
-	//celle[i][j].setCella(randomTile(tiles));
-	//celle[i][j].stato = true;
-	//}
-
-
-
-    /*public Celle pesca(int posizione)
-	{
-		//controlli, risettaggio cella vuota
-		return list.get(posizione);
+		//---Controllo che le tessere siano adiacenti
+		if(controllo&&!controlloAddiacenza(card)){
+			System.out.println("Le tessere non sono adiacenti");
+			card.remove(carta);
+			return card;
+		}
+		return card;
 	}
-	
-	public void inserisciTessera(Card test.card, int posizione) {
-		//da vedere
-	}*/
+
+
 
 
 }

@@ -28,31 +28,27 @@ public class Gestore {
 		maxTesserePescabili = 3;
 	}
 	public void init(){
-		for(int i = 0; i < players.size(); i++){
-			players.get(i).personalGoal=pickRandomPersonalGoal();//--- Assegnamento dei personal goal
+		for (Player player : players) {
+			player.personalGoal = pickRandomPersonalGoal();//--- Assegnamento dei personal goal
 		}
 		for(int i = 0; i < 2; i++){//--- Assegnamento common goal
 			chosenCommonGoal.add(new Goals(pickRandomCommonGoal()));//--- Assegnazione dei final token
-			switch (players.size()){
-				case 2:{
-					chosenCommonGoal.get(i).token.add(pickToken("scoring_4"));
-					chosenCommonGoal.get(i).token.add(pickToken("scoring_8"));
-					break;
+			switch (players.size()) {
+				case 2 -> {
+					chosenCommonGoal.get(i).token.add(selectToken("scoring_4"));
+					chosenCommonGoal.get(i).token.add(selectToken("scoring_8"));
 				}
-				case 3:{
-					chosenCommonGoal.get(i).token.add(pickToken("scoring_4"));
-					chosenCommonGoal.get(i).token.add(pickToken("scoring_6"));
-					chosenCommonGoal.get(i).token.add(pickToken("scoring_8"));
-					break;
+				case 3 -> {
+					chosenCommonGoal.get(i).token.add(selectToken("scoring_4"));
+					chosenCommonGoal.get(i).token.add(selectToken("scoring_6"));
+					chosenCommonGoal.get(i).token.add(selectToken("scoring_8"));
 				}
-				case 4:{
-					chosenCommonGoal.get(i).token.add(pickToken("scoring_2"));
-					chosenCommonGoal.get(i).token.add(pickToken("scoring_4"));
-					chosenCommonGoal.get(i).token.add(pickToken("scoring_6"));
-					chosenCommonGoal.get(i).token.add(pickToken("scoring_8"));
-					break;
+				case 4 -> {
+					chosenCommonGoal.get(i).token.add(selectToken("scoring_2"));
+					chosenCommonGoal.get(i).token.add(selectToken("scoring_4"));
+					chosenCommonGoal.get(i).token.add(selectToken("scoring_6"));
+					chosenCommonGoal.get(i).token.add(selectToken("scoring_8"));
 				}
-
 			}
 		}
 
@@ -64,10 +60,10 @@ public class Gestore {
 		tabellone.print();
 		boolean continua = false;
 		do{
-			for(int i = 0; i < players.size(); i++){
-				if(players.get(i).libreria.libreriaPiena())
+			for (Player player : players) {
+				if (player.libreria.libreriaPiena())
 					continua = true;
-				pescaTesseraDalTabellone(players.get(i));				//--- Preleva tessera
+				pescaTesseraDalTabellone(player);                //--- Preleva tessera
 				//--- Qui avvengono i preleva tessere e i vari controlli
 
 			}
@@ -83,49 +79,35 @@ public class Gestore {
 		Scanner sc = new Scanner(System.in);
 		//--- inserisciTessere ritorneta le tessere che non possono essere inserite nel tabellone
 		//--- creare funzione per il rinserimento delle tessere qualora non ci stassero
-			int colonna = sc.nextInt();
-			int spaziLiberi = player.inserisciTessera(card, ordine, colonna );
-			if (card.size()-spaziLiberi>0){
-				tabellone.inserisciTessere(tessereNonCiStanno(player, card, spaziLiberi, colonna));	//--- chiedo all'utente se vuole inserire le tessere
-			}
-			tabellone.print();
-			player.libreria.print();
+		int colonna = sc.nextInt();
+		int spaziLiberi = player.inserisciTessera(card, ordine, colonna );
 
-
+		if (card.size()-spaziLiberi>0){
+			tabellone.rimuoviTessere(tessereNonCiStanno(player, card, spaziLiberi, colonna));	//--- chiedo all'utente se vuole inserire le tessere
+		}else
+			tabellone.rimuoviTessere(card);
+		tabellone.print();
+		player.libreria.print();
 	}
-	//--- Chiedo all'utente, cosa vuole fare nel caso le tessere non ci stanno nella sua colonna della libreria
-	private ArrayList<Card> tessereNonCiStanno(Player player, ArrayList<Card>card, int spaziLiberi, int colonna) throws Exception {
-		System.out.println("Queste tessere non ci stanno nella libreria: ");
-		ArrayList<Card>tessereNonDisponibili = new ArrayList<>();
-		for(int i = spaziLiberi; i <card.size(); i++){
-			System.out.println(card.get(i).id);
-			tessereNonDisponibili.add(card.get(i));
-		}
-		if(card.size()-spaziLiberi!=maxTesserePescabili){
-			System.out.println("Vuoi aggiungere queste tessere? si/ no");
-			ArrayList<Card>tessereDisponibili = new ArrayList<>();
-
-			for(int i = 0; i <spaziLiberi; i++){
-				System.out.println(card.get(i).id);
-				tessereDisponibili.add(card.get(i));
-			}
-
+	private ArrayList<Card> prelevaTessera() throws Exception { //--- prelevo le posizioni delle tessere dal tabellone
+		String continua = "";
+		ArrayList<Card> card = new ArrayList<>();
+		boolean controllo;
+		do {
 			Scanner sc = new Scanner(System.in);
-			if(sc.next().toLowerCase().equals("si")){
-				ArrayList<Integer> ordine = riordinamentoDelleTessere(tessereDisponibili);
-				player.inserisciTessera(tessereDisponibili, ordine, colonna);
-				return tessereNonDisponibili;
-			}
-		}
-		System.out.println("Le tessere non ci stanno seleziona nuova colonna [colonna]/ ripesca [ripesca]");
-		Scanner sc = new Scanner(System.in);
-		if(sc.next().toLowerCase().equals("colonna")){
-			System.out.print("Inserisci colonna: ");
-			tessereNonCiStanno(player,card,spaziLiberi,sc.nextInt());
-		}else{
-			tabellone.inserisciTessere(card);
-			pescaTesseraDalTabellone(player);
-		}
+			System.out.println("Scegli tessera "+(card.size()+1));
+			System.out.print("Riga: ");
+			int riga = sc.nextInt();
+			System.out.print("Colonna: ");
+			int colonna = sc.nextInt();
+
+			card = tabellone.prelevaTessera(riga,colonna,card);
+			if(card.size()==maxTesserePescabili)
+				break;
+			System.out.print("next/ no, per terminare: ");
+			continua = sc.next();
+
+		}while(!continua.toLowerCase().contains("next") );
 		return card;
 	}
 	private ArrayList<Integer> riordinamentoDelleTessere(ArrayList<Card>card){
@@ -163,50 +145,44 @@ public class Gestore {
 			ordine.add(0);
 		return ordine;
 	}
-	private ArrayList<Card> prelevaTessera() throws Exception { //--- prelevo le posizioni delle tessere dal tabellone
-		String continua = "";
-		ArrayList<Card> card = new ArrayList<>();
-		boolean controllo;
-		do {
+
+
+	//--- Chiedo all'utente, cosa vuole fare nel caso le tessere non ci stanno nella sua colonna della libreria
+	private ArrayList<Card> tessereNonCiStanno(Player player, ArrayList<Card>card, int spaziLiberi, int colonna) throws Exception {
+		System.out.println("Queste tessere non ci stanno nella libreria: ");
+		ArrayList<Card>tessereNonDisponibili = new ArrayList<>();
+		for(int i = spaziLiberi; i <card.size(); i++){
+			System.out.println(card.get(i).id);
+			tessereNonDisponibili.add(card.get(i));
+		}
+		if(card.size()-spaziLiberi!=maxTesserePescabili){
+			System.out.println("Vuoi aggiungere queste tessere? si/ no");
+			ArrayList<Card>tessereDisponibili = new ArrayList<>();
+			for(int i = 0; i <spaziLiberi; i++){
+				System.out.println(card.get(i).id);
+				tessereDisponibili.add(card.get(i));
+			}
+
 			Scanner sc = new Scanner(System.in);
-			System.out.println("Scegli tessera "+(card.size()+1));
-			System.out.print("Riga: ");
-			int riga = sc.nextInt();
-			System.out.print("Colonna: ");
-			int colonna = sc.nextInt();
-			//--- Controllo che abbia un side libero
-			controllo = true;
-			//--- Controllo che non abbia pescato la stessa tessera
-			if(card.contains(tabellone.getTessera(riga,colonna))){
-				System.out.println("Tessera gia seleziona");
-				controllo = false;
+			if(sc.next().toLowerCase().equals("si")){
+				ArrayList<Integer> ordine = riordinamentoDelleTessere(tessereDisponibili);
+				player.inserisciTessera(tessereDisponibili, ordine, colonna);
+				return tessereDisponibili;
 			}
-
-			//--- Controllo che ogni tessera abbia uno spazio libero
-
-			if(!tabellone.controlloSpazioLibero(tabellone.getTessera(riga, colonna)))//--- Se una tessera non ha una cella nelle 4 direzioni libera
-			{
-				System.out.println("La tessera non ha uno spazio libero");
-				controllo = false;
-			}
-
-
-
-			if(controllo){
-				card.add(tabellone.getTessera(riga, colonna));
-				System.out.print("next/ no, per terminare: ");
-				continua = sc.next();
-			}
-			//--- Qua si deve fare il controllo che le tessere prelevate siano sulla stessa retta
-
-			if(card.size()>=maxTesserePescabili)
-				break;
-
-		}while(!continua.toLowerCase().contains("next") );
-
+		}
+		System.out.println("Le tessere non ci stanno seleziona nuova colonna [colonna]/ ripesca [ripesca]");
+		Scanner sc = new Scanner(System.in);
+		if(sc.next().toLowerCase().equals("colonna")){
+			System.out.print("Inserisci colonna: ");
+			tessereNonCiStanno(player,card,spaziLiberi,sc.nextInt());
+		}else{
+			tabellone.inserisciTessere(card);
+			pescaTesseraDalTabellone(player);
+		}
 		return card;
 	}
-	private Card pickToken(String id){
+
+	private Card selectToken(String id){
 		for(int i = 0; i < scoringToken.list.size(); i++){
 			if ( scoringToken.list.get(i).id.equals(id)) {
 
