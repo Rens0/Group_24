@@ -1,24 +1,31 @@
 package assets.commongoal;
 
-import assets.component.Libreria;
+
+import assets.card.Card;
+import assets.component.Player;
 
 import java.util.ArrayList;
 
-public class CommonGoal5 extends ControlloCommonGoal{
-    public boolean controlloCommonGoal5(Libreria libreria) {
+public class CommonGoal5 extends CommonGoal {
+    public CommonGoal5(String id, String path, ArrayList<Card>token){
+        this.id= id;
+        this.path=path;
+        this.token=token;
+    }
+    public boolean controllo(Player player) {
         int contatore=0;
-        for (int j=0; j< libreria.getColonne(); j++){
+        for (int j=0; j< player.getColonne(); j++){
             ArrayList<String> cardType=new ArrayList<>();
             boolean isFull=true;
-            if(contatore+(libreria.getColonne()-j)<3)
+            if(contatore+(player.getColonne()-j)<3)
                 return false;
-            for (int i=0; i< libreria.getRighe(); i++){
+            for (int i=0; i< player.getRighe(); i++){
 
-                if(libreria.getCella(i, j).isEmpty()) {
+                if(player.getCella(i, j).isEmpty()) {
                     isFull=false;
                     break;//passa alla prossima colonna
                 }
-                String type=ritornoTipo(i,j, libreria);
+                String type=ritornoTipo(i,j, player);
 
                 if(!cardType.contains(type)){
                     cardType.add(type);

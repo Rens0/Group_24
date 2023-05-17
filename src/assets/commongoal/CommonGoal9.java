@@ -1,10 +1,18 @@
 package assets.commongoal;
 
+import assets.card.Card;
 import assets.card.CardContainer;
-import assets.component.Libreria;
+import assets.component.Player;
 
-public class CommonGoal9 extends ControlloCommonGoal{
-    public boolean controlloCommonGoal9(Libreria libreria, CardContainer cardContainer) {
+import java.util.ArrayList;
+
+public class CommonGoal9 extends CommonGoal {
+    public CommonGoal9(String id, String path, ArrayList<Card> token){
+        this.id= id;
+        this.path=path;
+        this.token=token;
+    }
+    public boolean controllo(Player player, CardContainer cardContainer) {
      /*   int cont1 = 0;
         int cont2 = 0;
         int cont3 = 0;
@@ -55,9 +63,9 @@ public class CommonGoal9 extends ControlloCommonGoal{
 
         for (int c = 0; c < cardContainer.list.size(); c++) {
             int contacarte = 0;
-            for (int i = 0; i < libreria.mappa.size(); i++) {
-                for (int j = 0; j < libreria.mappa.get(i).size(); j++) {
-                    if (ritornoTipo(i, j, libreria) == cardContainer.list.get(c).type) {
+            for (int i = 0; i < player.libreria.size(); i++) {
+                for (int j = 0; j < player.libreria.get(i).size(); j++) {
+                    if (ritornoTipo(i, j, player) == cardContainer.list.get(c).type) {
                         contacarte++;
                         if (contacarte >= 8) {
                             return true;

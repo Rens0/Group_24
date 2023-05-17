@@ -4,21 +4,42 @@ import java.util.ArrayList;
 import assets.card.Card;
 import assets.card.CardContainer;
 
-public class Player {
+public class Player extends Libreria {
 
 	private String name;
 	public int ID;
 	private static int ID_Number=0; 
-	private int points=0; 
-	public Libreria libreria;
+	private int points=0;
+	public ArrayList<Card>token;
 	public CardContainer personalGoal;
+	public ArrayList<Integer>commonGoal;
+
 	public Player (String name) {
-		
 		this.name=name;
 		this.ID=ID_Number;
 		ID_Number++;
-		libreria = new Libreria();
+		token = new ArrayList<>();
+		commonGoal= new ArrayList<>();
+
 	}
+	public void setCommonGoal(ArrayList<Integer>commonGoal){
+		this.commonGoal = commonGoal;
+
+	}
+
+	public void addCommonToken(Card token){
+		commonGoal.remove(token.id);
+		this.token.add(token);
+	}
+	public void contaPunti(){
+		for(Card t : token)
+			points+=t.point;
+		//--- Controllo dei punti in base alle tessere vicine
+		//--- Controllo punti personal goal
+
+	}
+
+
 	
 
 	
@@ -32,7 +53,7 @@ public class Player {
 	}
 
 	public int inserisciTessera(ArrayList <Card> card, ArrayList <Integer> ordine, int COLONNA) throws Exception {
-		return libreria.inserisciTessere(card,ordine, COLONNA);
+		return inserisciTessere(card,ordine, COLONNA);
 
 	}
 

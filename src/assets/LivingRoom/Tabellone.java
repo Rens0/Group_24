@@ -230,6 +230,7 @@ public class Tabellone{
 		if(controllo&&controlloSpazioLibero(carta))//--- Se una tessera non ha una cella nelle 4 direzioni libera
 		{
 			System.out.println("La tessera non ha uno spazio libero");
+			card.remove(carta);
 			return card;
 		}
 

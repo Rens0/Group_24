@@ -1,19 +1,31 @@
 package assets.commongoal;
 
-import assets.component.Libreria;
 
-public class CommonGoal6 extends ControlloCommonGoal{
-    public boolean controlloCommonGoal6(Libreria libreria) {
+import assets.card.Card;
+import assets.component.Player;
+
+import java.util.ArrayList;
+
+public class CommonGoal6 extends CommonGoal {
+    public CommonGoal6(String id, String path, ArrayList<Card> token){
+        this.id= id;
+        this.path=path;
+        this.token=token;
+    }
+    public boolean controllo(Player player) {
+
         int cont = 0;
-        for (int i = 0; i < libreria.mappa.size(); i++) {
+        for (int i = 0; i < player.libreria.size(); i++) {
             boolean help = true;
-            for (int j = 0; j < libreria.mappa.get(i).size(); j++) {
+            for (int j = 0; j < player.libreria.get(i).size(); j++) {
 
-                String tipo = ritornoTipo(i, j, libreria);
+                String tipo = ritornoTipo(i, j, player);
 
-                for (int y = 0; y < libreria.mappa.get(i).size() - 1; y++) {
-                    if (tipo.equals(ritornoTipo(i, y + 1, libreria))) {
-                        help = false;
+                for (int y = 0; y < player.libreria.get(i).size() - 1; y++) {
+                    if(tipo!=null){
+                        if (tipo.equals(ritornoTipo(i, y + 1, player))) {
+                            help = false;
+                        }
                     }
                 }
             }

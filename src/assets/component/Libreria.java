@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Libreria {
+abstract class Libreria {
 
 
     private int righe;
     private int colonne;
-    public List<List<Cella>> mappa;
+    public List<List<Cella>> libreria;
     public Libreria(){
         this(6,5);
     }
@@ -20,7 +20,7 @@ public class Libreria {
         this.righe = righe;
         this.colonne = colonne;
 
-        mappa = new ArrayList<>();
+        libreria = new ArrayList<>();
         ArrayList<Cella> rigac;
         for (int i = 0; i < righe; i++) {
             rigac = new ArrayList<>();
@@ -28,7 +28,7 @@ public class Libreria {
             for (int j = 0; j < colonne; j++) {
                 rigac.add(new Cella());
             }
-            mappa.add(rigac);
+            libreria.add(rigac);
         }
 
     }
@@ -39,7 +39,7 @@ public class Libreria {
         return righe;
     }
     public Cella getCella(int riga, int colonna){
-            return mappa.get(riga).get(colonna);
+            return libreria.get(riga).get(colonna);
     }
 
 
@@ -47,7 +47,7 @@ public class Libreria {
         int contaCelle = 0;
         //--- Conto celle disponibili
         for (int j = 0; j < righe; j++) {
-            if (mappa.get(j).get(COLONNASELEZIONATA).getTessera().type == null) {
+            if (libreria.get(j).get(COLONNASELEZIONATA).getTessera().type == null) {
                 contaCelle++;
             }
         }
@@ -56,10 +56,10 @@ public class Libreria {
         if (contaCelle - card.size() >= 0) {
             for (int i = contaCelle-1; i >= 0; i--) {
 
-                if (mappa.get(i).get(COLONNASELEZIONATA).getTessera().type == null) {
+                if (libreria.get(i).get(COLONNASELEZIONATA).getTessera().type == null) {
 
                     if (ordine.size() > 0) {
-                        mappa.get(i).get(COLONNASELEZIONATA).setCella(card.get(ordine.get(0)));
+                        libreria.get(i).get(COLONNASELEZIONATA).setCella(card.get(ordine.get(0)));
                         ordine.remove(0);
                     }
 
@@ -74,7 +74,7 @@ public class Libreria {
         int contacella = 0;
         for (int i = 0; i < righe; i++) {
             for (int j = 0; j < colonne; j++) {
-                if (mappa.get(i).get(j).getTessera() != null) {
+                if (libreria.get(i).get(j).getTessera().type != null) {
                     contacella++;
                 }
             }
@@ -89,10 +89,10 @@ public class Libreria {
     public void print() {
         for (int i = 0; i < righe; i++) {
             for (int j = 0; j < colonne; j++) {
-                if (mappa.get(i).get(j).getTessera() == null) {
+                if (libreria.get(i).get(j).getTessera() == null) {
                     System.out.print(".......\t");
                 } else {
-                    System.out.print(mappa.get(i).get(j).getTessera().id+"\t");
+                    System.out.print(libreria.get(i).get(j).getTessera().id+"\t");
                 }
             }
             System.out.println();

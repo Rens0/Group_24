@@ -1,11 +1,18 @@
 package assets.commongoal;
 
-import assets.component.Libreria;
+
+import assets.card.Card;
+import assets.component.Player;
 
 import java.util.ArrayList;
 
-public class CommonGoal7 extends ControlloCommonGoal{
-    public boolean controlloCommonGoal7(Libreria libreria) {
+public class CommonGoal7 extends CommonGoal {
+    public CommonGoal7(String id, String path, ArrayList<Card>token){
+        this.id= id;
+        this.path=path;
+        this.token=token;
+    }
+    public boolean controllo(Player libreria) {
         /*int contatore = 0;
         for(int i = 0; i < libreria.mappa.get(0).size(); i++){
             ArrayList<Card> tile = new ArrayList<>();

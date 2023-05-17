@@ -1,9 +1,18 @@
 package assets.commongoal;
 
-import assets.component.Libreria;
 
-public class CommonGoal11 extends ControlloCommonGoal{
-    public boolean controlloCommonGoal11(Libreria libreria) {
+import assets.card.Card;
+import assets.component.Player;
+
+import java.util.ArrayList;
+
+public class CommonGoal11 extends CommonGoal {
+    public CommonGoal11(String id, String path, ArrayList<Card> token){
+        this.id= id;
+        this.path=path;
+        this.token=token;
+    }
+    public boolean controllo(Player player) {
         /*  ottimizzato con nuova funzione
         boolean foundMainDiagonalValue = true;
         boolean foundSecondaryDiagonalValue = true;
@@ -18,22 +27,22 @@ public class CommonGoal11 extends ControlloCommonGoal{
         }
         return foundMainDiagonalValue || foundSecondaryDiagonalValue;*/
 
-        for (int i = 0; i < libreria.mappa.size(); i++) {
+        for (int i = 0; i < player.libreria.size(); i++) {
             int contDiagoPrinc = 0;
             int contDiagoSec = 0;
-            if ((libreria.mappa.size() - i) >= libreria.mappa.get(0).size()) {
-                for (int j = 0; j < libreria.mappa.get(i).size(); j++) {
-                    if (ritornoTipo(j + i, j, libreria).equals(ritornoTipo(0, 0, libreria))) {
+            if ((player.libreria.size() - i) >= player.libreria.get(0).size()) {
+                for (int j = 0; j < player.libreria.get(i).size(); j++) {
+                    if (ritornoTipo(j + i, j, player).equals(ritornoTipo(0, 0, player))) {
                         contDiagoPrinc++;
-                        if (contDiagoPrinc >= libreria.mappa.get(0).size()) {
+                        if (contDiagoPrinc >= player.libreria.get(0).size()) {
                             return true;
                         }
                     }
 
-                    if (ritornoTipo(0, libreria.mappa.get(0).size(), libreria).equals(
-                            ritornoTipo(j + i, libreria.mappa.get(0).size() - j - 1, libreria))) {
+                    if (ritornoTipo(0, player.libreria.get(0).size(), player).equals(
+                            ritornoTipo(j + i, player.libreria.get(0).size() - j - 1, player))) {
                         contDiagoSec++;
-                        if (contDiagoSec >= libreria.mappa.get(0).size()) {
+                        if (contDiagoSec >= player.libreria.get(0).size()) {
                             return true;
                         }
                     }
