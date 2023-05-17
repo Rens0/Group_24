@@ -48,24 +48,13 @@ public class Player extends Libreria {
 		int contatore = 0;
 		for(int i = 0; i < personalGoal.list.size(); i++){
 			Card card = personalGoal.list.get(i);
-			if(card.type==libreria.get(card.row).get(card.column).tile.type)
+			if(card.type.equals(libreria.get(card.row).get(card.column).tile.type))
 				contatore++;
 		}
 		return contatore;
 	}
 
 
-	
-
-	
-	public int getPoints() {
-		return points;
-	}
-	
-	public void addPoints(int points) {
-		
-		 this.points+=points; 
-	}
 
 	public int inserisciTessera(ArrayList <Card> card, ArrayList <Integer> ordine, int COLONNA) throws Exception {
 		return inserisciTessere(card,ordine, COLONNA);
@@ -81,7 +70,6 @@ public class Player extends Libreria {
 
 
 	public void tokenPrint() {
-
 		for(Card t : token)
 			System.out.println(t.id);
 	}
