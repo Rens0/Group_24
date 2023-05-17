@@ -103,58 +103,7 @@ public class Tabellone{
 
 	}
 
-	public Card ritornoTessera(int riga, int colonna) {
-		Card tipo;
-		tipo = mappa.get(riga).get(colonna).tile;
-		return tipo;
-	}
-
-	public boolean controlloTessereVicine() {
-		for(int i = 0; i < mappa.size(); i++){
-			for(int j = 0; j < mappa.get(0).size(); j++){
-				if(i==mappa.size()-1&&j>=mappa.get(0).size()-1)
-					break;
-				if(mappa.get(i).get(j).tile.id!=null){
-
-					if(j>=mappa.get(0).size()-1) {
-
-						if (controlloRighe(i, j).type != null)
-							return true;
-					}
-					else {
-
-						if (controlloColonna(i, j).id != null)
-							return true;
-					}
-
-					if(i>=mappa.size()-1) {
-						if(controlloColonna(i, j).id!=null)
-							return true;
-
-					}else {
-						if(controlloRighe(i, j).id!=null)
-							return true;
-					}
-				}
-
-			}
-
-		}
-		return false;
-	}
-	public Card controlloRighe(int riga, int colonna){
-
-		return mappa.get(riga+1).get(colonna).tile;
-
-	}
-	public Card controlloColonna(int riga, int colonna){
-
-		return mappa.get(riga).get(colonna+1).tile;
-	}
-
-	public Card prelevaTessera(int riga, int colonna) throws Exception {
-
-		Card cartaSelezionata = new Card();
+	public Card getTessera(int riga, int colonna) throws Exception {
 
 		if(riga<0||colonna<0)
 			throw new Exception("Indice negativo");
@@ -164,11 +113,104 @@ public class Tabellone{
 			throw new Exception("colonna "+colonna+" > "+mappa.get(0).size());
 		if(mappa.get(riga).get(colonna).tile.id==null)
 			throw new Exception("La tessera selezionata non è disponibile");
-		cartaSelezionata = mappa.get(riga).get(colonna).tile;
+
+		Card cartaSelezionata = mappa.get(riga).get(colonna).tile;
 		if(cartaSelezionata.type==null)
 			throw new Exception("La carta e' null ");
-			mappa.get(riga).get(colonna).tile=new Card();
+
 		return cartaSelezionata;
+
+	}
+
+	public boolean controlloTessereVicine() {
+		for(int i = 0; i < mappa.size(); i++){
+			for(int j = 0; j < mappa.get(0).size(); j++){
+				if(i==mappa.size()-1&&j>=mappa.get(0).size()-1)
+					break;
+				Card card = mappa.get(i).get(j).tile;
+				if(card.id!=null){
+					if(j>=mappa.get(0).size()-1) {
+						if (controlloRighaSotto(card))
+							return true;
+					}
+					else {
+						if (controlloColonnaDestra(card))
+							return true;
+					}
+					if(i>=mappa.size()-1) {
+						if(controlloColonnaDestra(card))
+							return true;
+					}else {
+						if(controlloRighaSotto(card))
+							return true;
+					}
+				}
+
+			}
+
+		}
+		return false;
+	}
+	public boolean controlloSpazioLibero(Card card) {//se trova uno spazio libero ritorna true seno false
+
+
+		//---- se ci troviamo in pos 0 0 controlliamo sotto e a destra
+		if(card.row==0&&card.column==0) {
+			return true;
+		}
+		//--- se ci troviamo in pos [mappa.size-1; 0] controlliamo sopra e a destra
+		if(card.row==mappa.size()-1&&card.column==0) {
+			return true;
+		}
+		//--- se ci troviamo in posizione [0; mappa.get(0).size-1) controlliamo a sinistra e sotto
+		if(card.row==0&&card.column==mappa.get(0).size()-1){
+			return true;
+		}
+		//--- se ci troviamo in posizione [mappa.size()-1, mappa.get(0).size-1] controllo sopra e sx
+		if(card.row==mappa.size()-1&&card.column==mappa.get(0).size()-1){
+			return true;
+		}
+		//---Se sono alla riga 0 controllo sotto a dx e a sx
+		if(card.row==0){
+			return controlloColonnaDestra(card)&&controlloColonnaSinistra(card)&&controlloRighaSotto(card);
+		}
+		//---Se sono alla riga mappa.size()-1 controllo sopra sx dx
+		if(card.row==mappa.size()-1)
+			return controlloRighaSopra(card)&&controlloColonnaDestra(card)&&controlloColonnaSinistra(card);
+		//---Se sono alla colonna 0 controllo sopra sotto dx
+		if(card.column==0)
+			return controlloRighaSopra(card)&&controlloRighaSotto(card)&&controlloColonnaDestra(card);
+		//---Se sono alla colonna = mappa.get(0).size-1 controllo sopra sotto sx
+		if(card.column==mappa.get(0).size()-1)
+			return controlloRighaSopra(card)&&controlloRighaSotto(card)&&controlloColonnaSinistra(card);
+
+		return controlloColonnaDestra(card)&&controlloColonnaSinistra(card)&&controlloRighaSopra(card)&&controlloRighaSotto(card);
+
+
+	}
+	public Boolean controlloRighaSotto(Card card){
+		if(mappa.get(card.row+1).get(card.column).tile.type!=null)
+			return true;
+		return false;
+	}
+	public Boolean controlloColonnaDestra(Card card){
+		if(mappa.get(card.row).get(card.column+1).tile.type!=null)
+			return true;
+		return false;
+	}
+	public Boolean controlloRighaSopra(Card card){
+			if( mappa.get(card.row-1).get(card.column).tile.type!=null)
+			return true;
+		return false;
+	}
+	public Boolean controlloColonnaSinistra(Card card){
+		if (mappa.get(card.row).get(card.column-1).tile.type!=null)
+			return true;
+		return false;
+	}
+
+	public void rimuoviTessera(Card card) throws Exception {
+		mappa.get(card.row).get(card.column).tile = new Card();
 	}
 
     /*public Card randomTile(Cards tiles){

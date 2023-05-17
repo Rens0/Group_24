@@ -25,7 +25,7 @@ public class Gestore {
 		this.tile = tile;
 		this.personalGoal = personalGoal;
 		chosenCommonGoal = new ArrayList<>();
-		maxTesserePescabili = 6;
+		maxTesserePescabili = 3;
 	}
 	public void init(){
 		for(int i = 0; i < players.size(); i++){
@@ -67,17 +67,17 @@ public class Gestore {
 			for(int i = 0; i < players.size(); i++){
 				if(players.get(i).libreria.libreriaPiena())
 					continua = true;
-				pickCard(players.get(i));				//--- Preleva tessera
+				pescaTesseraDalTabellone(players.get(i));				//--- Preleva tessera
 				//--- Qui avvengono i preleva tessere e i vari controlli
 
 			}
 
 		}while(continua);
 	}
-	private void pickCard(Player player) throws Exception {
+	private void pescaTesseraDalTabellone(Player player) throws Exception {
 
 		ArrayList<Card> card = prelevaTessera(); //--- tessere prelevate
-		ArrayList<Integer> ordine = ordineDelleTessere(card);
+		ArrayList<Integer> ordine = riordinamentoDelleTessere(card);
 
 		System.out.println("Seleziona colonna: ");
 		Scanner sc = new Scanner(System.in);
@@ -112,7 +112,7 @@ public class Gestore {
 
 			Scanner sc = new Scanner(System.in);
 			if(sc.next().toLowerCase().equals("si")){
-				ArrayList<Integer> ordine = ordineDelleTessere(tessereDisponibili);
+				ArrayList<Integer> ordine = riordinamentoDelleTessere(tessereDisponibili);
 				player.inserisciTessera(tessereDisponibili, ordine, colonna);
 				return tessereNonDisponibili;
 			}
@@ -124,11 +124,11 @@ public class Gestore {
 			tessereNonCiStanno(player,card,spaziLiberi,sc.nextInt());
 		}else{
 			tabellone.inserisciTessere(card);
-			pickCard(player);
+			pescaTesseraDalTabellone(player);
 		}
 		return card;
 	}
-	private ArrayList<Integer> ordineDelleTessere(ArrayList<Card>card){
+	private ArrayList<Integer> riordinamentoDelleTessere(ArrayList<Card>card){
 		String conferma;
 		ArrayList<Integer>ordine=new ArrayList<>();
 		if(card.size()-1>0) {
@@ -163,37 +163,46 @@ public class Gestore {
 			ordine.add(0);
 		return ordine;
 	}
-	private ArrayList<Card> prelevaTessera(){ //--- prelevo le posizioni delle tessere dal tabellone
+	private ArrayList<Card> prelevaTessera() throws Exception { //--- prelevo le posizioni delle tessere dal tabellone
 		String continua = "";
 		ArrayList<Card> card = new ArrayList<>();
+		boolean controllo;
 		do {
 			Scanner sc = new Scanner(System.in);
-			System.out.println("Scegli tessera");
+			System.out.println("Scegli tessera "+(card.size()+1));
 			System.out.print("Riga: ");
 			int riga = sc.nextInt();
 			System.out.print("Colonna: ");
 			int colonna = sc.nextInt();
-			//--- Qua si deve fare il controllo che le tessere prelevate siano sulla stessa retta
-
-			//if controllo
-			{
-				try {
-
-					card.add(tabellone.prelevaTessera(riga, colonna));
-				} catch (Exception e) {
-					System.out.println(e);
-				}finally {
-					//else {
-					if(card.size()>=maxTesserePescabili)
-						break;
-
-					System.out.print("next/ no, per terminare: ");
-					continua = sc.next();
-					//}
-				}
+			//--- Controllo che abbia un side libero
+			controllo = true;
+			//--- Controllo che non abbia pescato la stessa tessera
+			if(card.contains(tabellone.getTessera(riga,colonna))){
+				System.out.println("Tessera gia seleziona");
+				controllo = false;
 			}
 
-		}while(!continua.toLowerCase().contains("next"));
+			//--- Controllo che ogni tessera abbia uno spazio libero
+
+			if(!tabellone.controlloSpazioLibero(tabellone.getTessera(riga, colonna)))//--- Se una tessera non ha una cella nelle 4 direzioni libera
+			{
+				System.out.println("La tessera non ha uno spazio libero");
+				controllo = false;
+			}
+
+
+
+			if(controllo){
+				card.add(tabellone.getTessera(riga, colonna));
+				System.out.print("next/ no, per terminare: ");
+				continua = sc.next();
+			}
+			//--- Qua si deve fare il controllo che le tessere prelevate siano sulla stessa retta
+
+			if(card.size()>=maxTesserePescabili)
+				break;
+
+		}while(!continua.toLowerCase().contains("next") );
 
 		return card;
 	}
@@ -206,31 +215,7 @@ public class Gestore {
 		}
 		return null;
 	}
-	private boolean controlloPrelevoTessera(int riga, int colonna){
-		if(tabellone.mappa.get(riga++).get(colonna).tile.type==null)
-			return true;
-		if(tabellone.mappa.get(riga--).get(colonna).tile.type==null)
-			return true;
-		if(tabellone.mappa.get(riga).get(colonna++).tile.type==null)
-			return true;
-		if(tabellone.mappa.get(riga).get(colonna--).tile.type==null)
-			return true;
-		return false;
-	}
-	private boolean controlloPrelevoTessereColonna(int riga, int colonna, Card oldCard){
-		if(oldCard.column++==colonna&&oldCard.row==riga)
-			return true;
-		if(oldCard.column--==colonna&&oldCard.row==riga)
-			return true;
-		return false;
-	}
-	private boolean controlloPrelevoTesseraRiga(int riga, int colonna, Card oldCard){
-		if(oldCard.row++==riga&&oldCard.column==colonna)
-			return true;
-		if(oldCard.row--==riga&&oldCard.column==colonna)
-			return true;
-		return false;
-	}
+
 
 
 
