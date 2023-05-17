@@ -7,8 +7,8 @@ import assets.component.Player;
 import java.util.ArrayList;
 
 public class CommonGoal7 extends CommonGoal {
-    public CommonGoal7(String id, String path, ArrayList<Card>token){
-        this.id= id;
+    public CommonGoal7( String path, ArrayList<Card>token){
+
         this.path=path;
         this.token=token;
     }

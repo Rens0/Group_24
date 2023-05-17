@@ -80,7 +80,7 @@ public class Game {
 
 		int number_of_players;
 		do {
-			System.out.println("Insert number of players: ");
+			System.out.print("Insert number of players: ");
 			number_of_players = scanner.nextInt();
 
 			if (number_of_players<2 || number_of_players>4)
@@ -89,7 +89,7 @@ public class Game {
 		} while (number_of_players<2 || number_of_players>4);
 
 		for (int i=0; i<number_of_players; i++) {
-			System.out.println("Insert player " + (i+1)+" name: " );
+			System.out.print("Insert player " + (i+1)+" name: " );
 			Scanner in = new Scanner (System.in);
 			players.add(new Player(in.nextLine()));
 		}

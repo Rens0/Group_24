@@ -3,9 +3,11 @@ package test;
 import assets.LivingRoom.Tabellone;
 import assets.card.Card;
 
+import assets.component.Cella;
 import assets.component.Player;
 
 import java.util.ArrayList;
+import java.util.SplittableRandom;
 
 public class Test {
     public static void main(String[] args) {
@@ -112,6 +114,14 @@ public class Test {
         for(int i = 0; i <card.size()-totTessere-1; i++){
             System.out.println(card.get(i).id);
         }*/
+        Player player = new Player("mario");
+        ArrayList<Cella>arrayList= new ArrayList<>();
+        String id = "0";
+        Cella c = new Cella();
+        c.tile=new Card(id,id);
+        arrayList.add(c);
+
+        player.libreria.add(arrayList);
 
 
 

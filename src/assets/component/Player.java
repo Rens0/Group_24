@@ -6,33 +6,40 @@ import assets.card.CardContainer;
 
 public class Player extends Libreria {
 
-	private String name;
+	public String name;
 	public int ID;
 	private static int ID_Number=0; 
 	private int points=0;
 	public ArrayList<Card>token;
 	public CardContainer personalGoal;
-	public ArrayList<Integer>commonGoal;
+	public ArrayList<Card> id_commonGoal;
 
 	public Player (String name) {
 		this.name=name;
 		this.ID=ID_Number;
 		ID_Number++;
 		token = new ArrayList<>();
-		commonGoal= new ArrayList<>();
+
+
 
 	}
-	public void setCommonGoal(ArrayList<Integer>commonGoal){
-		this.commonGoal = commonGoal;
+	public void setId_commonGoal(ArrayList<Card> id_commonGoal){
+		this.id_commonGoal = new ArrayList<>(id_commonGoal);
+
+
 
 	}
-
-	public void addCommonToken(Card token){
-		commonGoal.remove(token.id);
+	//---Aggiungo il token e rimuovo l'id
+	public void addToken(Card token, Card goal){
+		this.id_commonGoal.remove(goal);
 		this.token.add(token);
 	}
+	public void addToken(Card token){
+		this.token.add(token);
+	}
+
 	public void contaPunti(){
-		for(Card t : token)
+		for(Card t : token) //---punti dei common goal
 			points+=t.point;
 		//--- Controllo dei punti in base alle tessere vicine
 		//--- Controllo punti personal goal
@@ -65,4 +72,9 @@ public class Player extends Libreria {
 	}
 
 
+	public void tokenPrint() {
+
+		for(Card t : token)
+			System.out.println(t.id);
+	}
 }

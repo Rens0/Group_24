@@ -9,7 +9,7 @@ import java.util.ArrayList;
 abstract class CommonGoal {
     public String path;
     public ArrayList<Card>token;
-    public String id;
+
 
     public int ContaCaselleLibere(Player player, int colonna){
         int conta=0;
@@ -30,9 +30,9 @@ abstract class CommonGoal {
         return tipo;
     }
     public Card prendiToken(){
-        Card token = this.token.get(this.token.size()-1);
-        this.token.remove(this.token.size()-1);
-        return token;
+        Card t = token.get(0);
+        token.remove(0);
+        return t;
     }
 
     public void setPath(String path){
@@ -43,7 +43,7 @@ abstract class CommonGoal {
     }
     public void print(){
         for(int i = 0; i < token.size(); i++){
-            System.out.println("path: "+path+"id: "+id);
+            System.out.println("path: "+path+" id: "+token.get(i).id);
         }
     }
 }
