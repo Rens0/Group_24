@@ -5,9 +5,7 @@ import assets.card.CardContainer;
 import assets.component.Cella;
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Tabellone {
     public String path;
@@ -146,15 +144,16 @@ public class Tabellone {
     }
 
     public boolean controlloAddiacenza(ArrayList<Card> card) {
-        if (card.size() > 1) {
+        /*if (card.size() > 1) {
             int delta = deltaRiga(card.get(card.size() - 2), card.get(card.size() - 1)) - deltaColonna(card.get(card.size() - 2), card.get(card.size() - 1));
 
-            int deltaRigaPre = deltaRiga(card.get(0), card.get(1));
-            int deltaColonnaPre = deltaColonna(card.get(0), card.get(1));
+            int deltaRigaPre = deltaRiga(card.get(1), card.get(0));
+            int deltaColonnaPre = deltaColonna(card.get(1), card.get(0));
 
             for (int i = 1; i < card.size() - 1; i++) {
                 int deltaRigaNow = deltaRiga(card.get(i), card.get(i + 1));
                 int deltaColonnaNow = deltaColonna(card.get(i), card.get(i + 1));
+                System.out.println(deltaRigaPre+" "+deltaRigaNow+" delta colonna: "+deltaColonnaPre+" "+deltaColonnaNow);
                 if (deltaRigaPre != deltaRigaNow)
                     return false;
                 if (deltaColonnaPre != deltaColonnaNow)
@@ -169,8 +168,34 @@ public class Tabellone {
 
 
             return false;
+        }*/
+
+        //---Prendo carta centrale
+        //---Ordinamento
+        Collections.sort(card);
+
+        for (int i = 0; i < card.size() - 1; i++) {
+
+            int deltaR = deltaRiga(card.get(i), card.get(i + 1));
+            int deltaC = deltaColonna(card.get(i), card.get(i + 1));
+            if (deltaR < 0)
+                deltaR *= -1;
+            if (deltaC < 0)
+                deltaR *= -1;
+            if (deltaR == 0 || deltaR == 1){
+                if(deltaC == 0 || deltaC == 1)
+                    return true;
+                else
+                    return false;
+            }else
+                return false;
+
+
+
         }
-        return true;
+
+
+        return false;
     }
 
     private int deltaRiga(Card pre, Card now) {

@@ -90,11 +90,10 @@ abstract class Libreria {
             return false;
         }
     }
-
     public void print() {
         for (int i = 0; i < righe; i++) {
             for (int j = 0; j < colonne; j++) {
-                if (libreria.get(i).get(j).getTessera() == null) {
+                if (libreria.get(i).get(j).getTessera().type == null) {
                     System.out.print(".......\t");
                 } else {
                     System.out.print(libreria.get(i).get(j).getTessera().id + "\t");

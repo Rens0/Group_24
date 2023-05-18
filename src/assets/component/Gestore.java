@@ -102,6 +102,8 @@ public class Gestore {
                 }
                 try {
                     pescaTesseraDalTabellone(player);
+                    player.print();
+
                 } catch (Exception e) {
                     System.out.println(e);
                 }
