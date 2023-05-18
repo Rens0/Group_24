@@ -4,6 +4,7 @@ import assets.LivingRoom.Tabellone;
 import assets.card.Card;
 
 import assets.commongoal.CommonGoal1;
+import assets.commongoal.CommonGoal4;
 import assets.component.Cella;
 import assets.component.Player;
 
@@ -19,56 +20,62 @@ public class Test {
 
 
         //---Colonne riga1
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera("merda"));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera("merda"));//---Aggiungo una tessera
+
 
 
         player.libreria.add(arrayList);//---Aggiungo riga
 
         arrayList= new ArrayList<>();
         //---COlonne riga2
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+
         player.libreria.add(arrayList);//---Aggiungo riga
 
         arrayList= new ArrayList<>();
         //---COlonne riga3
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+
         player.libreria.add(arrayList);//---Aggiungo riga
         arrayList= new ArrayList<>();
         //---COlonne riga4
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+
         player.libreria.add(arrayList);//---Aggiungo riga
 
         arrayList= new ArrayList<>();
         //---COlonne riga5
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+
         player.libreria.add(arrayList);//---Aggiungo riga
         arrayList= new ArrayList<>();
         //---COlonne riga6
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera("merda"));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera("culo"));//---Aggiungo una tessera
+
         player.libreria.add(arrayList);//---Aggiungo riga
 
 
@@ -80,8 +87,8 @@ public class Test {
         }
 
 
-       // CommonGoal1 commonGoal1 = new CommonGoal1(null,null);
-        //System.out.println(commonGoal1.controllo(player));
+       CommonGoal4 commonGoal4 = new CommonGoal4(null,null);
+        System.out.println(commonGoal4.controllo(player));
 
     }
 
