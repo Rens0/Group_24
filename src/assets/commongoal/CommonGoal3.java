@@ -6,11 +6,11 @@ import assets.component.Player;
 import java.util.ArrayList;
 
 public class CommonGoal3 extends CommonGoal {
-    public CommonGoal3( String path, ArrayList<Card> token){
 
-        this.path=path;
-        this.token=token;
+    public CommonGoal3(String path, ArrayList<Card> token) {
+        super(path, token);
     }
+
     public boolean controllo(Player player){
         return true;
     }

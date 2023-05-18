@@ -7,11 +7,11 @@ import assets.component.Player;
 import java.util.ArrayList;
 
 public class CommonGoal2 extends CommonGoal {
-    public CommonGoal2(String path, ArrayList<Card> token){
 
-        this.path=path;
-        this.token=token;
+    public CommonGoal2(String path, ArrayList<Card> token) {
+        super(path, token);
     }
+
     public boolean controllo(Player player) {
         int cont = 0;
         for (int i = 0; i < player.libreria.get(0).size(); i++) {

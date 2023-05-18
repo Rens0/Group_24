@@ -7,11 +7,11 @@ import assets.component.Player;
 import java.util.ArrayList;
 
 public class CommonGoal7 extends CommonGoal {
-    public CommonGoal7( String path, ArrayList<Card>token){
 
-        this.path=path;
-        this.token=token;
+    public CommonGoal7(String path, ArrayList<Card> token) {
+        super(path, token);
     }
+
     public boolean controllo(Player libreria) {
         /*int contatore = 0;
         for(int i = 0; i < libreria.mappa.get(0).size(); i++){

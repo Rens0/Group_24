@@ -8,11 +8,11 @@ import assets.component.Player;
 import java.util.ArrayList;
 
 public class CommonGoal10 extends CommonGoal {
-    public CommonGoal10( String path, ArrayList<Card> token){
 
-        this.path=path;
-        this.token=token;
+    public CommonGoal10(String path, ArrayList<Card> token) {
+        super(path, token);
     }
+
     public boolean controllo(Player player) {
         int righe=player.getRighe();
         int colonne=player.getColonne();

@@ -10,7 +10,10 @@ abstract class CommonGoal {
     public String path;
     public ArrayList<Card>token;
 
-
+    public CommonGoal(String path, ArrayList<Card>token){
+        this.path=path;
+        this.token=token;
+    }
     public int ContaCaselleLibere(Player player, int colonna){
         int conta=0;
         for (int i = 0; i<player.libreria.size(); i++){
