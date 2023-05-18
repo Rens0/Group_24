@@ -172,12 +172,24 @@ public class Tabellone {
 
         //---Prendo carta centrale
         //---Ordinamento
+        boolean riga = true;
+        boolean colonna = true;
+        for (int i = 0; i < card.size() - 1; i++) {
+            if(card.get(i).row!=card.get(i+1).row)
+                riga = false;
+            if(card.get(i).column!=card.get(i+1).column)
+                colonna = false;
+        }
+        if(!riga&&!colonna)
+            return false;
+
         Collections.sort(card);
 
-        for (int i = 0; i < card.size() - 1; i++) {
 
+        for (int i = 0; i < card.size() - 1; i++) {
             int deltaR = deltaRiga(card.get(i), card.get(i + 1));
             int deltaC = deltaColonna(card.get(i), card.get(i + 1));
+            //---Controllo stessa riga
             if (deltaR < 0)
                 deltaR *= -1;
             if (deltaC < 0)
@@ -189,13 +201,8 @@ public class Tabellone {
                     return false;
             }else
                 return false;
-
-
-
         }
-
-
-        return false;
+        return true;
     }
 
     private int deltaRiga(Card pre, Card now) {
