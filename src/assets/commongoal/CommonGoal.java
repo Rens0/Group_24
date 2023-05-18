@@ -5,9 +5,12 @@ import assets.card.Card;
 import assets.card.CardContainer;
 import assets.component.Player;
 
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-abstract class CommonGoal {
+public abstract class CommonGoal {
     public String path;
     public ArrayList<Card> token;
 
