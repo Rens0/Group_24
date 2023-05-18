@@ -9,12 +9,15 @@ public class frame {
 
     public static void main(String[] args) {
         JFrame  frame = new JFrame("My Shelfie");
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int width = Toolkit.getDefaultToolkit().getScreenSize().width;  //prende la dimensione dello schermo
+        int height =Toolkit.getDefaultToolkit().getScreenSize().height; //prende la dimensione dello schermo
 
         JTextArea jTextArea = new JTextArea();
-        JButton jButtonProsegui= new JButton("Prosegui");
+        JButton jButtonProsegui= new JButton("START A NEW GAME");
         frame.add(jButtonProsegui, BorderLayout.SOUTH);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // per terminere l'esecuzione quando si preme la X
-        frame.setSize(800,500); //dimensione dello schermo
+        frame.setSize(width,height); //dimensione dello schermo
         frame.setLocationRelativeTo(null); //setta l'apertura della finestra nel centro dello schermo
         frame.getContentPane().setBackground(Color.LIGHT_GRAY);;
         frame.setVisible(true); // setta visibile la finestra
