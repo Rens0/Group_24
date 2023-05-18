@@ -19,56 +19,56 @@ public class Test {
 
 
         //---Colonne riga1
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
 
 
         player.libreria.add(arrayList);//---Aggiungo riga
 
         arrayList= new ArrayList<>();
         //---COlonne riga2
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
         player.libreria.add(arrayList);//---Aggiungo riga
 
         arrayList= new ArrayList<>();
         //---COlonne riga3
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
         player.libreria.add(arrayList);//---Aggiungo riga
         arrayList= new ArrayList<>();
         //---COlonne riga4
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
         player.libreria.add(arrayList);//---Aggiungo riga
 
         arrayList= new ArrayList<>();
         //---COlonne riga5
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
         player.libreria.add(arrayList);//---Aggiungo riga
         arrayList= new ArrayList<>();
         //---COlonne riga6
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
         player.libreria.add(arrayList);//---Aggiungo riga
 
 
