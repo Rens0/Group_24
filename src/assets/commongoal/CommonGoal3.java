@@ -11,7 +11,7 @@ public class CommonGoal3 extends CommonGoal {
         super(path, token);
     }
 
-    public boolean controllo(Player player){
+    public boolean controllo(Player player) {
         return true;
     }
 }

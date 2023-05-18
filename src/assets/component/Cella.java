@@ -5,22 +5,23 @@ import assets.card.Card;
 public class Cella {
     public Card tile;
     public int accessibilitaCella;
-    public Cella(){
+
+    public Cella() {
         tile = new Card();
     }
 
 
-    public void setCella(Card tile){
+    public void setCella(Card tile) {
 
         this.tile = tile;
     }
-    public Card getTessera()
-    {
+
+    public Card getTessera() {
         return tile;
     }
 
-    public boolean isEmpty(){
-        if(tile.getId()==null){
+    public boolean isEmpty() {
+        if (tile.getId() == null) {
             return true;
         }
         return false;

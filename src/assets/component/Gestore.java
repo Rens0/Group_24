@@ -58,10 +58,10 @@ public class Gestore {
             player.personalGoal = selectRandomPersonalGoal();//--- Assegnamento dei personal goal
 
         }
-        for (int i = 0; i < maxCommonGoal; i++){
+        for (int i = 0; i < maxCommonGoal; i++) {
             id_commonGoal.add(selectRandomCommonGoal());//--- prendo degli id dei commongoal randomici e li aggiungo
 
-             }
+        }
 
 
         for (Player player : players) {
@@ -157,12 +157,12 @@ public class Gestore {
     public void start() {
         tabellone.riempimentoTabellone(tile);
         do {
-           // tabellone.print();
+            tabellone.print();
             for (Player player : players) {
-               // player.print();
+                player.print();
 
                 if (player.libreriaPiena()) {
-                    if(finito.size()==0)//---Se primo giocatore prende il l'endgame token
+                    if (finito.size() == 0)//---Se primo giocatore prende il l'endgame token
                         player.addToken(selectToken("end game"));
                     finito.add(player);
                     players.remove(player);
@@ -172,12 +172,11 @@ public class Gestore {
                 } catch (Exception e) {
                     System.out.println(e);
                 }
-            //---Controllo common goal
-                for(int i = 0; i < id_commonGoal.size(); i++) {
-                    if(player.id_commonGoal.contains(id_commonGoal.get(i)))//--- controllo che lid del controllo sia presente in player
+                //---Controllo common goal
+                for (int i = 0; i < id_commonGoal.size(); i++) {
+                    if (player.id_commonGoal.contains(id_commonGoal.get(i)))//--- controllo che lid del controllo sia presente in player
                         controlloCommonGoal(player, id_commonGoal.get(i));   //---- Controllo che il common goal sia verificato se viene verificato, viene prelevato il token dalla classe commongoal_n viene aggiunto ai token del player e verra rimosso l'id  dai goal da verificare del player
                 }
-
 
 
             }
@@ -185,6 +184,7 @@ public class Gestore {
 
 
     }
+
     //--- Controllo che commongoalN.controllo sia verificato
     //--- se si verifica aggiungo il token al player
     private Boolean controlloCommonGoal(Player player, Card card) {//--- Controllo il common goal specifico
@@ -206,7 +206,6 @@ public class Gestore {
                 case 3 -> {
                     if (commonGoal3.controllo(player)) {
                         player.addToken(commonGoal3.prendiToken(),card);
-                        System.out.println("3");
                         return true;
                     }
                 }
@@ -269,7 +268,7 @@ public class Gestore {
                         return true;
                     }
                 }
-            }
+            }*/
         return false;
     }
 
@@ -419,8 +418,8 @@ public class Gestore {
         int randomCard = rand.nextInt(commonGoal.list.size());
         Card id = commonGoal.list.get(randomCard);
 
-        for(int i = 0; i < id_commonGoal.size(); i++){
-            if (id.id==id_commonGoal.get(i).id) {
+        for (int i = 0; i < id_commonGoal.size(); i++) {
+            if (id.id == id_commonGoal.get(i).id) {
                 return selectRandomCommonGoal();
             }
         }

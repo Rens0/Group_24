@@ -7,12 +7,13 @@ import assets.component.Player;
 import java.util.ArrayList;
 
 public class CommonGoal9 extends CommonGoal {
+    private CardContainer cardContainer;
 
     public CommonGoal9(String path, ArrayList<Card> token) {
         super(path, token);
     }
 
-    public boolean controllo(Player player, CardContainer cardContainer) {
+    public boolean controllo(Player player) {
      /*   int cont1 = 0;
         int cont2 = 0;
         int cont3 = 0;
@@ -75,5 +76,9 @@ public class CommonGoal9 extends CommonGoal {
             }
         }
         return false;
+    }
+
+    public void setCardContainer(CardContainer cardContainer) {
+        this.cardContainer = cardContainer;
     }
 }
