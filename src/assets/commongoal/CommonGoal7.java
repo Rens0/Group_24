@@ -40,32 +40,32 @@ public class CommonGoal7 extends CommonGoal {
             return true;
 
         return false;*/
-        int contatore=0;
-        for (int i=0; i< libreria.getRighe(); i++){
-            ArrayList<String> cardType=new ArrayList<>();
-            boolean isFull=true;
-            if(contatore+(libreria.getRighe()-i)<4)
+        int contatore = 0;
+        for (int i = 0; i < libreria.getRighe(); i++) {
+            ArrayList<String> cardType = new ArrayList<>();
+            boolean isFull = true;
+            if (contatore + (libreria.getRighe() - i) < 4)
                 return false;
-            for (int j=0; j< libreria.getColonne(); j++){
+            for (int j = 0; j < libreria.getColonne(); j++) {
 
-                if(libreria.getCella(i, j).isEmpty()) {
-                    isFull=false;
+                if (libreria.getCella(i, j).isEmpty()) {
+                    isFull = false;
                     break;//passa alla prossima riga
                 }
-                String type=ritornoTipo(i,j, libreria);
+                String type = ritornoTipo(i, j, libreria);
 
-                if(!cardType.contains(type)){
+                if (!cardType.contains(type)) {
                     cardType.add(type);
                 }
-                if(cardType.size()>3){      //numero dei tipi nell'arrayList
+                if (cardType.size() > 3) {      //numero dei tipi nell'arrayList
                     break; //passa alla prox riga
                 }
 
             }
-            if(isFull && cardType.size()<=3){
+            if (isFull && cardType.size() <= 3) {
                 contatore++;
             }
-            if(contatore==4) {
+            if (contatore == 4) {
                 return true;
             }
         }
