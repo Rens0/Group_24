@@ -1,8 +1,8 @@
 package assets.LivingRoom;
 
+import assets.component.Cella;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
-import assets.component.Cella;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

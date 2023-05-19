@@ -20,8 +20,8 @@ abstract class Libreria {
     public Libreria(int righe, int colonne) {
         this.righe = righe;
         this.colonne = colonne;
-        //libreria= new ArrayList<>();//---Da cancellare
-
+        libreria= new ArrayList<>();//--Da cancellare
+/*
         libreria = new ArrayList<>();
         ArrayList<Cella> rigac;
         for (int i = 0; i < righe; i++) {
@@ -32,7 +32,7 @@ abstract class Libreria {
             }
             libreria.add(rigac);
         }
-
+*/
     }
 
     public int getColonne() {
