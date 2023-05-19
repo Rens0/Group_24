@@ -125,7 +125,7 @@ public class Tabellone {
     }
 
 
-    public boolean controlloSpazioLibero(Card card) {//se trova uno spazio libero ritorna false seno ture
+    public boolean controlloSpazioLibero(Card card) {//se trova uno spazio libero ritorna false se no true
 
 
         if (card.row == 0) {
@@ -145,7 +145,7 @@ public class Tabellone {
 
     }
 
-    public boolean controlloAddiacenza(ArrayList<Card> card) {
+    public boolean controlloAdiacenza(ArrayList<Card> card) {
         /*if (card.size() > 1) {
             int delta = deltaRiga(card.get(card.size() - 2), card.get(card.size() - 1)) - deltaColonna(card.get(card.size() - 2), card.get(card.size() - 1));
 
@@ -308,7 +308,7 @@ public class Tabellone {
         }
 
         //---Controllo che le tessere siano adiacenti
-        if (controllo && !controlloAddiacenza(card)) {
+        if (controllo && !controlloAdiacenza(card)) {
             System.out.println("Le tessere non sono adiacenti");
             card.remove(carta);
             return card;

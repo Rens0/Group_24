@@ -43,11 +43,11 @@ public class Player extends Libreria {
     public void contaPunti() {
         for (Card t : token) //---punti dei common goal
             points += t.point;
-        points += personalGoal.point.get(controlloPeronsalGoal());//--- Controllo punti personal goal
+        points += personalGoal.point.get(controlloPersonalGoal());//--- Controllo punti personal goal
         //--- Controllo dei punti in base alle tessere vicine
     }
 
-    private int controlloPeronsalGoal() {
+    private int controlloPersonalGoal() {
         int contatore = 0;
         for (int i = 0; i < personalGoal.list.size(); i++) {
             Card card = personalGoal.list.get(i);
