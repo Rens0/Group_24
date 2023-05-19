@@ -12,6 +12,29 @@ public class CommonGoal3 extends CommonGoal {
     }
 
     public boolean controllo(Player player) {
-        return true;
+        int contC=0;
+        for(int i=0;i <player.libreria.size();i++){
+            int cont=0;
+            for(int j=0;j<player.libreria.get(i).size();j++)
+            {
+                if(ritornoTipo(i,j,player).equals(ritornoTipo(i,j+1,player)))
+                {
+                    cont++;
+                }
+                if(cont==4)
+                {
+                    contC++;
+                    break;
+                }
+            }
+        }
+        if(contC>=4)
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+
     }
 }
