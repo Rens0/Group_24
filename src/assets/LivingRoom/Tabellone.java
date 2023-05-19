@@ -4,8 +4,10 @@ import assets.card.Card;
 import assets.card.CardContainer;
 import assets.component.Cella;
 
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 public class Tabellone {
     public String path;
@@ -59,11 +61,11 @@ public class Tabellone {
         for (Card c : card.list) {
             sum += c.amount;
         }
-
         if (sum <= 0)
             return new Card();
+
         if (cardSalvata.amount <= 0) {
-            randomCard(card, riga, colonna);
+            return randomCard(card, riga, colonna);
         }
 
         //test.card.list.remove(valore);
@@ -175,12 +177,12 @@ public class Tabellone {
         boolean riga = true;
         boolean colonna = true;
         for (int i = 0; i < card.size() - 1; i++) {
-            if(card.get(i).row!=card.get(i+1).row)
+            if (card.get(i).row != card.get(i + 1).row)
                 riga = false;
-            if(card.get(i).column!=card.get(i+1).column)
+            if (card.get(i).column != card.get(i + 1).column)
                 colonna = false;
         }
-        if(!riga&&!colonna)
+        if (!riga && !colonna)
             return false;
 
         Collections.sort(card);
@@ -194,15 +196,43 @@ public class Tabellone {
                 deltaR *= -1;
             if (deltaC < 0)
                 deltaR *= -1;
-            if (deltaR == 0 || deltaR == 1){
-                if(deltaC == 0 || deltaC == 1)
+            if (deltaR == 0 || deltaR == 1) {
+                if (deltaC == 0 || deltaC == 1)
                     return true;
                 else
                     return false;
-            }else
+            } else
                 return false;
         }
         return true;
+    }
+
+    public boolean controlloTabellone() {
+        for (int i = 0; i < mappa.size(); i++) {
+            for (int j = 0; j < mappa.get(0).size(); j++) {
+                if (i == mappa.size() - 1 && j >= mappa.get(0).size() - 1)
+                    break;
+                Card card = mappa.get(i).get(j).tile;
+                if (card.type != null) {
+                    if (j >= mappa.get(0).size() - 1) {
+                        if (controlloRighaSotto(card))
+                            return true;
+                    } else {
+                        if (controlloColonnaDestra(card))
+                            return true;
+                    }
+                    if (i >= mappa.size() - 1) {
+                        if (controlloColonnaDestra(card))
+                            return true;
+                    } else {
+                        if (controlloRighaSotto(card))
+                            return true;
+                    }
+                }
+            }
+
+        }
+        return false;
     }
 
     private int deltaRiga(Card pre, Card now) {
