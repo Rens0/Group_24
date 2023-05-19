@@ -17,94 +17,92 @@ import java.util.Scanner;
 
 public class Game {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
 
-		String path;
-		Gson gson = new Gson();
+        String path;
+        Gson gson = new Gson();
 
-		CardContainer commonGoal;
-		path = "json/common_goal.json";
+        CardContainer commonGoal;
+        path = "json/common_goal.json";
 
-		try {
-			Reader reader = Files.newBufferedReader(Paths.get(path));
-			commonGoal = gson.fromJson(reader, CardContainer.class);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get(path));
+            commonGoal = gson.fromJson(reader, CardContainer.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-		CardContainer scoringToken;
-		path= "json/scoring_tokens.json";
-		try {
-			Reader reader = Files.newBufferedReader(Paths.get(path));
-			scoringToken = gson.fromJson(reader, CardContainer.class);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
+        CardContainer scoringToken;
+        path = "json/scoring_tokens.json";
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get(path));
+            scoringToken = gson.fromJson(reader, CardContainer.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-		CardContainer tile;
-		path = "json/tiles.json";
-		try {
-			Reader reader = Files.newBufferedReader(Paths.get(path));
-			tile = gson.fromJson(reader, CardContainer.class);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-
-
-		Goals personalGoal;
-		path = "json/personal_goal.json";
-
-		try {
-			Reader reader = Files.newBufferedReader(Paths.get(path));
-			personalGoal = gson.fromJson(reader, Goals.class);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
+        CardContainer tile;
+        path = "json/tiles.json";
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get(path));
+            tile = gson.fromJson(reader, CardContainer.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
 
-		Tabellone tabellone;
-		path= "json/tabellone.json";
-		try {
-			Reader reader = Files.newBufferedReader(Paths.get(path));
-			GsonBuilder gsonBuilder = new GsonBuilder();
-			gsonBuilder.registerTypeAdapter(Tabellone.class, new TabelloneDeserializer());
-			tabellone = gsonBuilder.create().fromJson(reader, Tabellone.class);
+        Goals personalGoal;
+        path = "json/personal_goal.json";
 
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-		//System.out.println(tabellone.mappa.get(0).size());
-		ArrayList<Player> players = new ArrayList<>();
-		Scanner scanner = new Scanner (System.in);
-
-		int number_of_players;
-		do {
-			System.out.print("Insert number of players: ");
-			number_of_players = scanner.nextInt();
-
-			if (number_of_players<2 || number_of_players>4)
-				System.out.println("Please insert from 2 to 4 players ");
-
-		} while (number_of_players<2 || number_of_players>4);
-
-		for (int i=0; i<number_of_players; i++) {
-			System.out.print("Insert player " + (i+1)+" name: " );
-			Scanner in = new Scanner (System.in);
-			players.add(new Player(in.nextLine()));
-		}
-		tabellone.setPlayer(number_of_players);
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get(path));
+            personalGoal = gson.fromJson(reader, Goals.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
 
-		Gestore gestore = new Gestore(tabellone, players, commonGoal, scoringToken, tile, personalGoal);
-		gestore.init();
+        Tabellone tabellone;
+        path = "json/tabellone.json";
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get(path));
+            GsonBuilder gsonBuilder = new GsonBuilder();
+            gsonBuilder.registerTypeAdapter(Tabellone.class, new TabelloneDeserializer());
+            tabellone = gsonBuilder.create().fromJson(reader, Tabellone.class);
 
-			gestore.start();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        //System.out.println(tabellone.mappa.get(0).size());
+        ArrayList<Player> players = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        int number_of_players;
+        do {
+            System.out.print("Insert number of players: ");
+            number_of_players = scanner.nextInt();
+
+            if (number_of_players < 2 || number_of_players > 4)
+                System.out.println("Please insert from 2 to 4 players ");
+
+        } while (number_of_players < 2 || number_of_players > 4);
+
+        for (int i = 0; i < number_of_players; i++) {
+            System.out.print("Insert player " + (i + 1) + " name: ");
+            Scanner in = new Scanner(System.in);
+            players.add(new Player(in.nextLine()));
+        }
+        tabellone.setPlayer(number_of_players);
 
 
+        Gestore gestore = new Gestore(tabellone, players, commonGoal, scoringToken, tile, personalGoal);
+        gestore.init();
+
+        gestore.start();
 
 
-		//c.controlloCommonGoal8();
+        //c.controlloCommonGoal8();
 
 
 
@@ -140,8 +138,8 @@ public class Game {
 		}*/
 
 
-		//tabellone.setPlayer(4);
-		//tabellone.riempimento(tiles);
+        //tabellone.setPlayer(4);
+        //tabellone.riempimento(tiles);
         /*
 		Libreria libreria= new Libreria();
 		ArrayList <Card> test.card = new ArrayList<>();
@@ -160,7 +158,7 @@ public class Game {
 
 		*/
 
-	}
+    }
 
 
 }

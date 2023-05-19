@@ -13,20 +13,20 @@ public class CommonGoal12 extends CommonGoal {
     }
 
     public boolean controllo(Player player) {
-        int casellePrimaColonna=ContaCaselleLibere(player, 0);
-        for(int j = 1; j<player.libreria.size(); j++){
-            if(casellePrimaColonna!=(ContaCaselleLibere(player, j)-j)){
+        int casellePrimaColonna = ContaCaselleLibere(player, 0);
+        for (int j = 1; j < player.libreria.size(); j++) {
+            if (casellePrimaColonna != (ContaCaselleLibere(player, j) - j)) {
                 break;
             }
-            if(j==4){
+            if (j == 4) {
                 return true;
             }
         }
-        for(int j = 1; j<player.libreria.size(); j++){
-            if(casellePrimaColonna!=(ContaCaselleLibere(player, j)+j)){
+        for (int j = 1; j < player.libreria.size(); j++) {
+            if (casellePrimaColonna != (ContaCaselleLibere(player, j) + j)) {
                 break;
             }
-            if(j==4){
+            if (j == 4) {
                 return true;
             }
         }

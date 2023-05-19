@@ -6,9 +6,7 @@ import assets.card.CardContainer;
 import assets.card.Goals;
 import assets.commongoal.*;
 
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Gestore {
 
@@ -24,18 +22,7 @@ public class Gestore {
     public ArrayList<Card> id_commonGoal;
     public int maxCommonGoal;
 
-    public CommonGoal1 commonGoal1;
-    public CommonGoal2 commonGoal2;
-    public CommonGoal3 commonGoal3;
-    public CommonGoal4 commonGoal4;
-    public CommonGoal5 commonGoal5;
-    public CommonGoal6 commonGoal6;
-    public CommonGoal7 commonGoal7;
-    public CommonGoal8 commonGoal8;
-    public CommonGoal9 commonGoal9;
-    public CommonGoal10 commonGoal10;
-    public CommonGoal11 commonGoal11;
-    public CommonGoal12 commonGoal12;
+    public final Map<String, CommonGoal> commonGoals = new HashMap<>();
 
 
     public Gestore(Tabellone tabellone, ArrayList<Player> players, CardContainer commonGoal, CardContainer scoringToken, CardContainer tile, Goals personalGoal) {
@@ -58,72 +45,18 @@ public class Gestore {
             player.personalGoal = selectRandomPersonalGoal();//--- Assegnamento dei personal goal
 
         }
-        for (int i = 0; i < maxCommonGoal; i++){
+        for (int i = 0; i < maxCommonGoal; i++) {
             id_commonGoal.add(selectRandomCommonGoal());//--- prendo degli id dei commongoal randomici e li aggiungo
 
-             }
+        }
 
 
         for (Player player : players) {
             player.setId_commonGoal(id_commonGoal); //--- Aggiungo ai giocatori il common goal
         }
         for (Card card : id_commonGoal) {//---Scorro i commongoal id e creo solo le classi corrispondenti a quegli id
-            int i = Integer.parseInt(card.id);
-            switch (i) {
-                case 1 -> {
-                    commonGoal1 = new CommonGoal1(commonGoal.path,assegnamentoToken());
-                }
-                case 2 -> {
-
-                    commonGoal2 = new CommonGoal2(commonGoal.path,assegnamentoToken());
-
-                }
-                case 3 -> {
-                    commonGoal3 = new CommonGoal3(commonGoal.path,assegnamentoToken());
-
-
-                }
-                case 4 -> {
-                    commonGoal4 = new CommonGoal4(commonGoal.path,assegnamentoToken());
-
-
-                }
-                case 5 -> {
-                    commonGoal5 = new CommonGoal5(commonGoal.path,assegnamentoToken());
-
-                }
-                case 6 -> {
-                    commonGoal6 = new CommonGoal6(commonGoal.path,assegnamentoToken());
-
-                }
-                case 7 -> {
-                    commonGoal7 = new CommonGoal7(commonGoal.path,assegnamentoToken());
-
-                }
-                case 8 -> {
-                    commonGoal8 = new CommonGoal8(commonGoal.path,assegnamentoToken());
-
-                }
-                case 9 -> {
-                    commonGoal9 = new CommonGoal9(commonGoal.path,assegnamentoToken());
-
-                }
-                case 10 -> {
-                    commonGoal10 = new CommonGoal10( commonGoal.path,assegnamentoToken());
-
-                }
-                case 11 -> {
-                    commonGoal11 = new CommonGoal11(commonGoal.path,assegnamentoToken());
-
-                }
-                case 12 -> {
-                    commonGoal12 = new CommonGoal12(commonGoal.path,assegnamentoToken());
-
-                }
-
-            }
+            commonGoals.put(card.id, CommonGoal.getCommonGoalById(card.id, commonGoal.path, assegnamentoToken(), tile));
         }
-
     }
 
     private ArrayList<Card> assegnamentoToken() {//---Aggiungo i token
@@ -157,27 +90,28 @@ public class Gestore {
     public void start() {
         tabellone.riempimentoTabellone(tile);
         do {
-           // tabellone.print();
+            tabellone.print();
             for (Player player : players) {
-               // player.print();
+                player.print();
 
                 if (player.libreriaPiena()) {
-                    if(finito.size()==0)//---Se primo giocatore prende il l'endgame token
+                    if (finito.size() == 0)//---Se primo giocatore prende il l'endgame token
                         player.addToken(selectToken("end game"));
                     finito.add(player);
                     players.remove(player);
                 }
                 try {
                     pescaTesseraDalTabellone(player);
+                    player.print();
+
                 } catch (Exception e) {
                     System.out.println(e);
                 }
-            //---Controllo common goal
-                for(int i = 0; i < id_commonGoal.size(); i++) {
-                    if(player.id_commonGoal.contains(id_commonGoal.get(i)))//--- controllo che lid del controllo sia presente in player
+                //---Controllo common goal
+                for (int i = 0; i < id_commonGoal.size(); i++) {
+                    if (player.id_commonGoal.contains(id_commonGoal.get(i)))//--- controllo che lid del controllo sia presente in player
                         controlloCommonGoal(player, id_commonGoal.get(i));   //---- Controllo che il common goal sia verificato se viene verificato, viene prelevato il token dalla classe commongoal_n viene aggiunto ai token del player e verra rimosso l'id  dai goal da verificare del player
                 }
-
 
 
             }
@@ -185,91 +119,16 @@ public class Gestore {
 
 
     }
+
     //--- Controllo che commongoalN.controllo sia verificato
     //--- se si verifica aggiungo il token al player
     private Boolean controlloCommonGoal(Player player, Card card) {//--- Controllo il common goal specifico
 
-            switch (Integer.parseInt(card.id)) {
-                case 1 -> {
-                    if (commonGoal1.controllo(player)) {
-                        player.addToken(commonGoal1.prendiToken(),card);
-                        return true;
-                    }
+        CommonGoal commonGoal = commonGoals.get(card.id);
+        if (commonGoal.controllo(player)) {
+            player.addToken(commonGoal.prendiToken(), card);
+        }
 
-                }
-                case 2 -> {
-                    if (commonGoal2.controllo(player)) {
-                        player.addToken(commonGoal2.prendiToken(),card);
-                        return true;
-                    }
-                }
-                case 3 -> {
-                    if (commonGoal3.controllo(player)) {
-                        player.addToken(commonGoal3.prendiToken(),card);
-                        System.out.println("3");
-                        return true;
-                    }
-                }
-                case 4 -> {
-                    if (commonGoal4.controllo(player)) {
-                        player.addToken(commonGoal4.prendiToken(),card);
-                        return true;
-                    }
-
-                }
-                case 5 -> {
-                    if (commonGoal5.controllo(player)) {
-                        player.addToken(commonGoal5.prendiToken(),card);
-                        return true;
-                    }
-                }
-                case 6 -> {
-                    if (commonGoal6.controllo(player)) {
-                        player.addToken(commonGoal6.prendiToken(),card);
-                        return true;
-                    }
-                }
-                case 7 -> {
-                    if (commonGoal7.controllo(player)) {
-                        player.addToken(commonGoal7.prendiToken(),card);
-                        return true;
-                    }
-                }
-                case 8 -> {
-                    if (commonGoal8.controllo(player)) {
-                        player.addToken(commonGoal8.prendiToken(),card);
-                        System.out.println("8");
-
-                        return true;
-                    }
-
-                }
-                case 9 -> {
-                    if (commonGoal9.controllo(player, tile)) {
-                        player.addToken(commonGoal9.prendiToken(),card);
-                        return true;
-                    }
-                }
-                case 10 -> {
-                    if (commonGoal10.controllo(player)) {
-                        player.addToken(commonGoal9.prendiToken(),card);
-                        return true;
-                    }
-                }
-                case 11 -> {
-                    if (commonGoal11.controllo(player)) {
-
-                        player.addToken(commonGoal11.prendiToken(),card);
-                        return true;
-                    }
-                }
-                case 12 -> {
-                    if (commonGoal12.controllo(player)) {
-                        player.addToken(commonGoal12.prendiToken(),card);
-                        return true;
-                    }
-                }
-            }
         return false;
     }
 
@@ -419,8 +278,8 @@ public class Gestore {
         int randomCard = rand.nextInt(commonGoal.list.size());
         Card id = commonGoal.list.get(randomCard);
 
-        for(int i = 0; i < id_commonGoal.size(); i++){
-            if (id.id==id_commonGoal.get(i).id) {
+        for (int i = 0; i < id_commonGoal.size(); i++) {
+            if (id.id == id_commonGoal.get(i).id) {
                 return selectRandomCommonGoal();
             }
         }

@@ -22,7 +22,7 @@ public class CommonGoal6 extends CommonGoal {
                 String tipo = ritornoTipo(i, j, player);
 
                 for (int y = 0; y < player.libreria.get(i).size() - 1; y++) {
-                    if(tipo!=null){
+                    if (tipo != null) {
                         if (tipo.equals(ritornoTipo(i, y + 1, player))) {
                             help = false;
                         }
