@@ -41,6 +41,9 @@ public class Gestore {
     }
 
     public void init() {
+
+
+
         for (Player player : players) {
             player.personalGoal = selectRandomPersonalGoal();//--- Assegnamento dei personal goal
 
@@ -90,8 +93,15 @@ public class Gestore {
     public void start() {
         tabellone.riempimentoTabellone(tile);
         do {
-            tabellone.print();
+
             for (Player player : players) {
+
+                if(!tabellone.controlloTabellone()) {
+                    tabellone.riempimentoTabellone(tile);
+
+                }
+                tabellone.print();
+                System.out.println("Libreria "+player.name);
                 player.print();
 
                 if (player.libreriaPiena()) {
@@ -102,7 +112,7 @@ public class Gestore {
                 }
                 try {
                     pescaTesseraDalTabellone(player);
-                    player.print();
+                   // player.print();
 
                 } catch (Exception e) {
                     System.out.println(e);
