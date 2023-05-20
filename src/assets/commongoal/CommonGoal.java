@@ -1,7 +1,6 @@
 package assets.commongoal;
 
 import assets.card.Card;
-
 import assets.card.CardContainer;
 import assets.component.Player;
 

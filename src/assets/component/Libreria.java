@@ -20,8 +20,8 @@ abstract class Libreria {
     public Libreria(int righe, int colonne) {
         this.righe = righe;
         this.colonne = colonne;
-        libreria= new ArrayList<>();//--Da cancellare
-/*
+        //libreria= new ArrayList<>();//--Da cancellare
+
         libreria = new ArrayList<>();
         ArrayList<Cella> rigac;
         for (int i = 0; i < righe; i++) {
@@ -32,7 +32,7 @@ abstract class Libreria {
             }
             libreria.add(rigac);
         }
-*/
+
     }
 
     public int getColonne() {
@@ -90,58 +90,53 @@ abstract class Libreria {
             return false;
         }
     }
-    public void print() {
-        for (int i = 0; i < righe; i++) {
-            for (int j = 0; j < colonne; j++) {
-                if (libreria.get(i).get(j).getTessera().type == null) {
-                    System.out.print(".......\t");
-                } else {
-                    System.out.print(libreria.get(i).get(j).getTessera().id + "\t");
+
+
+
+    public String tipoCasella(int riga, int colonna) {
+        return libreria.get(riga).get(colonna).getTessera().type;
+    }
+
+    public boolean checkCasella(int riga, int colonna, boolean visitata[][], String tipo) {
+        boolean dentroMatrice = (riga >= 0) && (riga < righe) && (colonna >= 0) && (colonna < colonne);
+        return dentroMatrice && !(libreria.get(riga).get(colonna).isEmpty())
+                && tipoCasella(riga, colonna).equals(tipo)
+                && !(visitata[riga][colonna]);
+    }
+
+    public int contaCaselleAdicenti(int riga, int colonna, boolean visitata[][], String tipo) {
+        int contatore = 1;
+        if (checkCasella(riga, colonna + 1, visitata, tipo)) {//destra
+            contatore += contaCaselleAdicenti(riga, colonna + 1, visitata, tipo);
+        }
+        if (checkCasella(riga + 1, colonna, visitata, tipo)) {//sotto
+            contatore += contaCaselleAdicenti(riga + 1, colonna, visitata, tipo);
+        }
+        if (checkCasella(riga, colonna - 1, visitata, tipo)) {//sinistra
+            contatore += contaCaselleAdicenti(riga, colonna - 1, visitata, tipo);
+        }
+        if (checkCasella(riga - 1, colonna, visitata, tipo)) {//sopra
+            contatore += contaCaselleAdicenti(riga - 1, colonna, visitata, tipo);
+        }
+        return contatore;
+    }
+
+    private ArrayList<String> tipi = new ArrayList<>();// i tipi sono ancora da mettere per controllare tutti e sei
+
+    public ArrayList<Integer> contaCaselleGruppi() {//ritorna un array con il numero di caselle di ogni gruppo
+        ArrayList<Integer> caselleGruppo = new ArrayList<>();
+        for (String tipo : tipi) {
+            boolean visitato[][] = new boolean[righe][colonne];
+            for (int riga = 0; riga < righe; riga++) {
+                for (int colonna = 0; colonna < colonne; colonna++) {
+                    if (!(libreria.get(riga).get(colonna).isEmpty()) && tipoCasella(riga, colonna).equals(tipo)
+                            && !(visitato[riga][colonna])) ;
+
+                    int numeroCaselle = contaCaselleAdicenti(riga, colonna, visitato, tipo);
+                    caselleGruppo.add(numeroCaselle);
                 }
             }
-            System.out.println();
         }
-    }
-    public String tipoCasella(int riga, int colonna) {
-    	return libreria.get(riga).get(colonna).getTessera().type;
-    }
-    public boolean checkCasella(int riga, int colonna, boolean visitata[][],  String tipo) {
-    	boolean dentroMatrice=(riga >=0)&&(riga <righe)&&(colonna >=0)&&(colonna <colonne);
-    	return dentroMatrice && !(libreria.get(riga).get(colonna).isEmpty()) 
-    			&& tipoCasella(riga, colonna).equals(tipo)
-    			&& !(visitata[riga][colonna]);
-    }
-    public int contaCaselleAdicenti (int riga, int colonna, boolean visitata[][],  String tipo) {
-    	int contatore=1;
-    	if(checkCasella(riga, colonna+1, visitata, tipo)) {//destra
-    		contatore+=contaCaselleAdicenti(riga, colonna+1, visitata, tipo);
-    	}
-    	if(checkCasella(riga+1, colonna, visitata, tipo)) {//sotto
-    		contatore+=contaCaselleAdicenti(riga+1, colonna, visitata, tipo);
-    	}
-    	if(checkCasella(riga, colonna-1, visitata, tipo)) {//sinistra
-    		contatore+=contaCaselleAdicenti(riga, colonna-1, visitata, tipo);
-    	}
-    	if(checkCasella(riga-1, colonna, visitata, tipo)) {//sopra
-    		contatore+=contaCaselleAdicenti(riga-1, colonna, visitata, tipo);
-    	}
-    	return contatore;
-    }
-    private ArrayList<String> tipi= new ArrayList<>();// i tipi sono ancora da mettere per controllare tutti e sei
-    public ArrayList<Integer> contaCaselleGruppi() {//ritorna un array con il numero di caselle di ogni gruppo
-    	ArrayList<Integer>caselleGruppo= new ArrayList<>();
-    	for (String tipo: tipi  ) {
-    		boolean visitato[][]= new boolean[righe][colonne];
-    		for (int riga=0; riga<righe; riga++) {
-    			for(int colonna=0; colonna<colonne; colonna++) {
-    				if(!(libreria.get(riga).get(colonna).isEmpty()) && tipoCasella(riga, colonna).equals(tipo)
-    						&& !(visitato[riga][colonna])); 
-    				
-    					int numeroCaselle=contaCaselleAdicenti(riga, colonna, visitato, tipo); 
-    					caselleGruppo.add(numeroCaselle); 
-    		}
-    	}
-    }
-    	return caselleGruppo;
+        return caselleGruppo;
     }
 }

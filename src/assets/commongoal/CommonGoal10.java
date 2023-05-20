@@ -2,7 +2,6 @@ package assets.commongoal;
 
 import assets.card.Card;
 import assets.component.Cella;
-
 import assets.component.Player;
 
 import java.util.ArrayList;

@@ -89,15 +89,27 @@ public class Tabellone {
     }
 
     public void print() {
-        for (int i = 0; i < mappa.size(); i++) {
-            for (int j = 0; j < mappa.get(i).size(); j++) {
-                if (mappa.get(i).get(j).getTessera().id == null) {
-                    System.out.print(".......\t");
-                } else {
-                    System.out.print(mappa.get(i).get(j).getTessera().type + "\t");
+        for (int i = 0; i <= mappa.size(); i++) {
+            for (int j = 0; j <= mappa.get(0).size(); j++) {
+                if(i==mappa.size()&&j==mappa.get(0).size()){
+                    System.out.print("_______");
                 }
 
+                else {
+                    if (i == mappa.size())
+                        System.out.print("___" + j + "___\t");
 
+                    if (j == mappa.get(0).size())
+                        System.out.print("___" + i + "___\t");
+                }
+
+                if(i < mappa.size()&& j < mappa.get(0).size()){
+                    if (mappa.get(i).get(j).getTessera().type == null) {
+                        System.out.print(".......\t");
+                    } else {
+                        System.out.print(mappa.get(i).get(j).getTessera().type + "\t");
+                    }
+                }
             }
 
             System.out.println();
@@ -292,8 +304,7 @@ public class Tabellone {
 
         //--- Controllo che non abbia pescato la stessa tessera
         if (card.contains(carta)) {
-            System.out.println("Tessera gia seleziona");
-            return card;
+            throw new Exception("Tessera gia selezionata");
         } else
             card.add(carta);
 
@@ -302,16 +313,14 @@ public class Tabellone {
 
         if (controllo && controlloSpazioLibero(carta))//--- Se una tessera non ha una cella nelle 4 direzioni libera
         {
-            System.out.println("La tessera non ha uno spazio libero");
             card.remove(carta);
-            return card;
+            throw new Exception("La tessera non ha uno spazio libero");
         }
 
         //---Controllo che le tessere siano adiacenti
         if (controllo && !controlloAdiacenza(card)) {
-            System.out.println("Le tessere non sono adiacenti");
             card.remove(carta);
-            return card;
+            throw new Exception("Le tessere non sono adiacenti");
         }
         return card;
     }

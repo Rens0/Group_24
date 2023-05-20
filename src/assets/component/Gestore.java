@@ -4,7 +4,7 @@ import assets.LivingRoom.Tabellone;
 import assets.card.Card;
 import assets.card.CardContainer;
 import assets.card.Goals;
-import assets.commongoal.*;
+import assets.commongoal.CommonGoal;
 
 import java.util.*;
 
@@ -41,7 +41,6 @@ public class Gestore {
     }
 
     public void init() {
-
 
 
         for (Player player : players) {
@@ -82,8 +81,6 @@ public class Gestore {
                 token.add(selectToken("scoring_6"));
                 token.add(selectToken("scoring_4"));
                 token.add(selectToken("scoring_2"));
-
-
             }
         }
         return token;
@@ -91,18 +88,15 @@ public class Gestore {
 
 
     public void start() {
-        tabellone.riempimentoTabellone(tile);
         do {
-
             for (Player player : players) {
-
-                if(!tabellone.controlloTabellone()) {
+                if (!tabellone.controlloTabellone()) {//--- Se il tabellone non ha tessere adiacenti lo riempie
                     tabellone.riempimentoTabellone(tile);
-
                 }
-                tabellone.print();
-                System.out.println("Libreria "+player.name);
-                player.print();
+                tabellone.print();//--- Stampo il tabellone
+                player.personalGoalPrint();
+                player.printLibreria();
+
 
                 if (player.libreriaPiena()) {
                     if (finito.size() == 0)//---Se primo giocatore prende il l'endgame token
@@ -110,16 +104,19 @@ public class Gestore {
                     finito.add(player);
                     players.remove(player);
                 }
+
+
+
                 try {
                     pescaTesseraDalTabellone(player);
-                   // player.print();
+                    // player.print();
 
                 } catch (Exception e) {
                     System.out.println(e);
                 }
                 //---Controllo common goal
                 for (int i = 0; i < id_commonGoal.size(); i++) {
-                    if (player.id_commonGoal.contains(id_commonGoal.get(i)))//--- controllo che lid del controllo sia presente in player
+                    if (player.id_commonGoal.contains(id_commonGoal.get(i))) //--- controllo che lid del controllo sia presente in player
                         controlloCommonGoal(player, id_commonGoal.get(i));   //---- Controllo che il common goal sia verificato se viene verificato, viene prelevato il token dalla classe commongoal_n viene aggiunto ai token del player e verra rimosso l'id  dai goal da verificare del player
                 }
 
@@ -142,18 +139,28 @@ public class Gestore {
         return false;
     }
 
-    private void pescaTesseraDalTabellone(Player player) throws Exception {
+    private void pescaTesseraDalTabellone(Player player)  {
 
         ArrayList<Card> card = prelevaTessera(); //--- tessere prelevate
         ArrayList<Integer> ordine = riordinamentoDelleTessere(card);
+        seleZionaColonna(player, card, ordine);
 
+    }
+    private void seleZionaColonna(Player player,ArrayList<Card> card, ArrayList<Integer> ordine){
         System.out.println("Seleziona colonna: ");
         Scanner sc = new Scanner(System.in);
         //--- inserisciTessere ritorneta le tessere che non possono essere inserite nel tabellone
         //--- creare funzione per il rinserimento delle tessere qualora non ci stassero
         int colonna = sc.nextInt();
-        int spaziLiberi = player.inserisciTessera(card, ordine, colonna);
+        int spaziLiberi = 0;
+        try {
+            spaziLiberi = player.inserisciTessera(card, ordine, colonna);
+        } catch (Exception e) {
+            System.out.println(e);
 
+        }finally {
+            seleZionaColonna(player, card, ordine);
+        }
         if (card.size() - spaziLiberi > 0) {
             tabellone.rimuoviTessere(tessereNonCiStanno(player, card, spaziLiberi, colonna));    //--- chiedo all'utente se vuole inserire le tessere
         } else
@@ -161,25 +168,40 @@ public class Gestore {
 
     }
 
-    private ArrayList<Card> prelevaTessera() throws Exception { //--- prelevo le posizioni delle tessere dal tabellone
+    private ArrayList<Card> prelevaTessera() { //--- prelevo le posizioni delle tessere dal tabellone
         String continua = "";
         ArrayList<Card> card = new ArrayList<>();
-        boolean controllo;
+        Scanner sc = new Scanner(System.in);
         do {
-            Scanner sc = new Scanner(System.in);
             System.out.println("Scegli tessera " + (card.size() + 1));
-            System.out.print("Riga: ");
-            int riga = sc.nextInt();
-            System.out.print("Colonna: ");
-            int colonna = sc.nextInt();
+            try {
+                System.out.print("Riga: ");
+                int riga = sc.nextInt();
+                System.out.print("Colonna: ");
+                int colonna = sc.nextInt();
+                card = tabellone.prelevaTessera(riga, colonna, card);
+                System.out.print("Vuoi deselezionare la carta pescata si/ no: ");
+                if(sc.next().toLowerCase().equals("si"))
+                    card.remove(card.size()-1);
 
-            card = tabellone.prelevaTessera(riga, colonna, card);
-            if (card.size() == maxTesserePescabili)
-                break;
-            System.out.print("next/ no, per terminare: ");
-            continua = sc.next();
-
-        } while (!continua.toLowerCase().contains("next"));
+            } catch (Exception e) {
+                System.out.println(e);
+            }finally {
+                if (card.size() == maxTesserePescabili)
+                    break;
+                if(card.size()>0) {
+                    System.out.print("Vuoi continuare a pescare? si/no: ");
+                    continua = sc.next();
+                }
+            }
+        } while (!continua.toLowerCase().contains("no"));
+        System.out.println("Hai pescato queste carte: ");
+        for(Card c: card)
+            System.out.print(c.type+"\t");
+        System.out.println();
+        System.out.print("Vuoi resettare? reset/ no: ");
+        if(sc.next().toLowerCase().equals("reset"))
+            return prelevaTessera();
         return card;
     }
 
@@ -236,7 +258,7 @@ public class Gestore {
             }
 
             Scanner sc = new Scanner(System.in);
-            if (sc.next().toLowerCase().equals("si")) {
+            if (sc.next().equalsIgnoreCase("si")) {
                 ArrayList<Integer> ordine = riordinamentoDelleTessere(tessereDisponibili);
                 try {
                     player.inserisciTessera(tessereDisponibili, ordine, colonna);
@@ -251,7 +273,7 @@ public class Gestore {
         }
         System.out.println("Le tessere non ci stanno seleziona nuova colonna [colonna]/ ripesca [ripesca]");
         Scanner sc = new Scanner(System.in);
-        if (sc.next().toLowerCase().equals("colonna")) {
+        if (sc.next().equalsIgnoreCase("colonna")) {
             System.out.print("Inserisci colonna: ");
             tessereNonCiStanno(player, card, spaziLiberi, sc.nextInt());
         } else {

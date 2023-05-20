@@ -1,5 +1,8 @@
 package assets.card;
 
+import assets.component.Player;
+
+import java.awt.font.LineBreakMeasurer;
 import java.util.ArrayList;
 
 public class Goals {
@@ -15,4 +18,5 @@ public class Goals {
         token = new ArrayList<>();
         list = new ArrayList<>();
     }
+
 }
