@@ -44,7 +44,7 @@ public class Player extends Libreria {
         for (Card t : token) //---punti dei common goal
             points += t.point;
         points += personalGoal.point.get(controlloPersonalGoal());//--- Controllo punti personal goal
-        //--- Controllo dei punti in base alle tessere vicine
+        points += contaPuntiCaselleAdiacenti(); //--- Controllo dei punti in base alle tessere vicine
     }
 
     private int controlloPersonalGoal() {
