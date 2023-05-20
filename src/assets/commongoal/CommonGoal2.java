@@ -39,7 +39,7 @@ public class CommonGoal2 extends CommonGoal {
     }
 
  */
-
+// non va
     public boolean controllo(Player player) {
         int contatore = 0;
         for (int j = 0; j < player.libreria.size() - 1; j++) {
