@@ -156,14 +156,19 @@ public class Gestore {
             if(supporto!=null)
                 tabellone.rimuoviTessere(supporto);    //--- chiedo all'utente se vuole inserire le tessere
             else{
-                System.out.println("Seleziona nuova colonna [colonna]/ ripesca [ripesca]");
                 Scanner sc = new Scanner(System.in);
-                if (sc.next().toLowerCase().equals("colonna")) {
-                    inserisciTessere(player,card,ordine);
-                }else
-                    pescaTesseraDalTabellone(player);
+                String decisione;
+                do {
+                    System.out.println("Seleziona nuova colonna [colonna]/ ripesca [ripesca]: ");
+                    decisione = sc.next().toLowerCase();
+                    if (decisione.equals("colonna")) {
+                        inserisciTessere(player,card,ordine);
+                    }
+                    if(decisione.equals("ripesca")){
+                        pescaTesseraDalTabellone(player);
+                    }
+                }while (!decisione.equals("colonna")||!decisione.equals("ripesca"));
             }
-
         } else {
             tabellone.rimuoviTessere(card);
         }
@@ -178,7 +183,7 @@ public class Gestore {
             continua = true;
             System.out.println("Seleziona colonna: ");
             colonna = sc.nextInt();
-            if (colonna >= 0 && colonna <= player.libreria.size() - 1) {
+            if (colonna >= 0 && colonna <= player.libreria.get(0).size() - 1) {
                 continua = false;
             } else {
                 System.out.println("Errore");
