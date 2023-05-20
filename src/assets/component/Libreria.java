@@ -92,7 +92,6 @@ abstract class Libreria {
     }
 
 
-
     public String tipoCasella(int riga, int colonna) {
         return libreria.get(riga).get(colonna).getTessera().type;
     }
@@ -121,17 +120,18 @@ abstract class Libreria {
         return contatore;
     }
 
-    private static final String tipi []= {"cornice", "gatto", "gioco", "trofeo", "libro", "pianta"};
-    public ArrayList<Integer> contaCaselleGruppi() {//ritorna un array con il numero di caselle di ogni gruppo
-        ArrayList<Integer>caselleGruppo= new ArrayList<>();
-        for (String tipo: tipi  ) {
-            boolean visitato[][]= new boolean[righe][colonne];
-            for (int riga=0; riga<righe; riga++) {
-                for(int colonna=0; colonna<colonne; colonna++) {
-                    if(!(libreria.get(riga).get(colonna).isEmpty()) && tipoCasella(riga, colonna).equals(tipo)
-                            && !(visitato[riga][colonna]));
+    private static final String tipi[] = {"cornice", "gatto", "gioco", "trofeo", "libro", "pianta"};
 
-                    int numeroCaselle=contaCaselleAdicenti(riga, colonna, visitato, tipo);
+    public ArrayList<Integer> contaCaselleGruppi() {//ritorna un array con il numero di caselle di ogni gruppo
+        ArrayList<Integer> caselleGruppo = new ArrayList<>();
+        for (String tipo : tipi) {
+            boolean visitato[][] = new boolean[righe][colonne];
+            for (int riga = 0; riga < righe; riga++) {
+                for (int colonna = 0; colonna < colonne; colonna++) {
+                    if (!(libreria.get(riga).get(colonna).isEmpty()) && tipoCasella(riga, colonna).equals(tipo)
+                            && !(visitato[riga][colonna])) ;
+
+                    int numeroCaselle = contaCaselleAdicenti(riga, colonna, visitato, tipo);
                     caselleGruppo.add(numeroCaselle);
                 }
             }
@@ -140,19 +140,19 @@ abstract class Libreria {
     }
 
     public int contaPuntiCaselleAdiacenti() {
-        int punti=0;
-        for (int i:contaCaselleGruppi()) {
-            if (i==3){
-                punti+=2;
+        int punti = 0;
+        for (int i : contaCaselleGruppi()) {
+            if (i == 3) {
+                punti += 2;
             }
-            if (i==4){
-                punti+=3;
+            if (i == 4) {
+                punti += 3;
             }
-            if (i==5){
-                punti+=5;
+            if (i == 5) {
+                punti += 5;
             }
-            if (i>=6){
-                punti+=8;
+            if (i >= 6) {
+                punti += 8;
             }
         }
 

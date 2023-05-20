@@ -139,11 +139,16 @@ public class Gestore {
     }
 
     private void pescaTesseraDalTabellone(Player player) {
-        ArrayList<Card> card = prelevaTessera(); //--- tessere prelevate
+        ArrayList<Card> card = prelevaTessera();
+
+
+
         ArrayList<Integer> ordine = riordinamentoDelleTessere(card);
         inserisciTessere(player, card, ordine);
+
     }
-    private void inserisciTessere(Player player, ArrayList<Card> card,ArrayList<Integer> ordine){
+
+    private void inserisciTessere(Player player, ArrayList<Card> card, ArrayList<Integer> ordine) {
         int spaziLiberi = 0;
         int colonna = selezionaColonna(player);
         try {
@@ -152,26 +157,27 @@ public class Gestore {
             System.out.println(e);
         }
         if (card.size() - spaziLiberi > 0) {
-            ArrayList<Card>supporto = tessereNonCiStanno(player, card, spaziLiberi, colonna);
-            if(supporto!=null)
+            ArrayList<Card> supporto = tessereNonCiStanno(player, card, spaziLiberi, colonna);
+            if (supporto != null)
                 tabellone.rimuoviTessere(supporto);    //--- chiedo all'utente se vuole inserire le tessere
-            else{
+            else {
                 Scanner sc = new Scanner(System.in);
-                String decisione;
-                do {
-                    System.out.println("Seleziona nuova colonna [colonna]/ ripesca [ripesca]: ");
-                    decisione = sc.next().toLowerCase();
-                    if (decisione.equals("colonna")) {
-                        inserisciTessere(player,card,ordine);
-                    }
-                    if(decisione.equals("ripesca")){
-                        pescaTesseraDalTabellone(player);
-                    }
-                }while (!decisione.equals("colonna")||!decisione.equals("ripesca"));
+                String decisione = domanda("Seleziona nuova colonna o ripesca: ", "colonna", "ripesca");
+                if (decisione.equals("colonna"))
+                    inserisciTessere(player, card, ordine);
+                if (decisione.equals("ripesca"))
+                    pescaTesseraDalTabellone(player);
             }
-        } else {
+        } else
             tabellone.rimuoviTessere(card);
-        }
+        System.out.println("Hai pescato queste carte: ");
+        for (Card c : card)
+            System.out.print(c.type + "\t");
+        System.out.println();
+      /*  String decisione = domanda("Vuoi ripescare? si/ no: ", "si", "no");
+        if (decisione.equals("si"))
+            pescaTesseraDalTabellone(player);
+*/
     }
 
     private int selezionaColonna(Player player) {
@@ -194,9 +200,11 @@ public class Gestore {
 
 
     private ArrayList<Card> prelevaTessera() { //--- prelevo le posizioni delle tessere dal tabellone
-        String continua = "";
+
+        String decisione = "";
         ArrayList<Card> card = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
+
         do {
             System.out.println("Scegli tessera " + (card.size() + 1));
             try {
@@ -205,9 +213,12 @@ public class Gestore {
                 System.out.print("Colonna: ");
                 int colonna = sc.nextInt();
                 card = tabellone.prelevaTessera(riga, colonna, card);
-                System.out.print("Vuoi deselezionare la carta pescata si/ no: ");
-                if (sc.next().toLowerCase().equals("si"))
+
+                decisione = domanda("Conferma tessera si/ no: ", "si", "no");
+                if (decisione.equals("no")){
                     card.remove(card.size() - 1);
+                    decisione="";
+                }
 
             } catch (Exception e) {
                 System.out.println(e);
@@ -215,59 +226,67 @@ public class Gestore {
                 if (card.size() == maxTesserePescabili)
                     break;
                 if (card.size() > 0) {
-                    System.out.print("Vuoi continuare a pescare? si/no: ");
-                    continua = sc.next();
+                    decisione = domanda("Vuoi continuare a pescare? si/no: ", "si", "no");
                 }
             }
-        } while (!continua.toLowerCase().contains("no"));
-        System.out.println("Hai pescato queste carte: ");
-        for (Card c : card)
-            System.out.print(c.type + "\t");
-        System.out.println();
-        System.out.print("Vuoi resettare? reset/ no: ");
-        if (sc.next().toLowerCase().equals("reset"))
-            return prelevaTessera();
+        } while (!decisione.contains("no"));
         return card;
     }
 
     private ArrayList<Integer> riordinamentoDelleTessere(ArrayList<Card> card) {
-        String conferma;
+        String decisione;
         ArrayList<Integer> ordine = new ArrayList<>();
-        if (card.size() - 1 > 0) {
-            do {
-                System.out.println("Seleziona lordine delle tessere: ");
-                Scanner sc = new Scanner(System.in);
-                ordine = new ArrayList<>();
-                for (int i = 0; i < card.size(); i++) {
-                    boolean continua;
-                    do {
-                        continua = false;
-                        System.out.print(card.get(i).type + " posizione: ");
-                        int numero = sc.nextInt();
-                        if (numero >= card.size() || numero < 0) {
-                            System.out.println("Errore indice");
-                            continua = true;
-                        }
-                        if (!continua) {
-                            if (ordine.contains(numero)) {
-                                System.out.println("Indice gia presente");
-                                continua = true;
-                            } else
-                                ordine.add(numero);
-                        }
-
-                    } while (continua);
-                }
-                System.out.print("conferma/ no: ");
-                conferma = sc.next().toLowerCase();
-            } while (!conferma.contains("conferma"));
-        } else
+        if (card.size() - 1 == 0) {
             ordine.add(0);
+            return ordine;
+        }
+        System.out.println("Seleziona lordine delle tessere: ");
+        Scanner sc = new Scanner(System.in);
+        ordine = new ArrayList<>();
+        for (int i = 0; i < card.size(); i++) {
+            boolean continua;
+            do {
+                continua = false;
+                System.out.print(card.get(i).type + " posizione: ");
+                int numero = sc.nextInt();
+                if (numero >= card.size() || numero < 0) {
+                    System.out.println("Errore indice");
+                    continua = true;
+                }
+                if (!continua) {
+                    if (ordine.contains(numero)) {
+                        System.out.println("Indice gia presente");
+                        continua = true;
+                    } else
+                        ordine.add(numero);
+                }
+            } while (continua);
+        }
+        decisione = domanda("Conferma si/no: ", "si", "no");
+        if (decisione.equals("no"))
+            riordinamentoDelleTessere(card);
         return ordine;
+    }
+
+    private String domanda(String msg, String c1, String c2) {
+        Scanner sc = new Scanner(System.in);
+        String decisione;
+        c1 = c1.toLowerCase();
+        c2 = c2.toLowerCase();
+        do {
+            System.out.println(msg);
+            decisione = sc.next().toLowerCase();
+            if (decisione.equals(c1))
+                return c1;
+            if (decisione.equals(c2))
+                return c2;
+        } while (!decisione.contains(c1) && !decisione.contains(c2));
+        return null;
     }
 
     //--- Chiedo all'utente, cosa vuole fare nel caso le tessere non ci stanno nella sua colonna della libreria
     private ArrayList<Card> tessereNonCiStanno(Player player, ArrayList<Card> card, int spaziLiberi, int colonna) {
+        String decisione;
         System.out.println("Queste tessere non ci stanno nella libreria: ");
         ArrayList<Card> tessereNonDisponibili = new ArrayList<>();
         for (int i = spaziLiberi; i < card.size(); i++) {
@@ -275,14 +294,14 @@ public class Gestore {
             tessereNonDisponibili.add(card.get(i));
         }
         if (card.size() - spaziLiberi != maxTesserePescabili) {
-            System.out.println("Vuoi aggiungere queste tessere? si/ no");
+            System.out.println("Vuoi aggiungere queste tessere?  ");
             ArrayList<Card> tessereDisponibili = new ArrayList<>();
             for (int i = 0; i < spaziLiberi; i++) {
                 System.out.println(card.get(i).id);
                 tessereDisponibili.add(card.get(i));
             }
-            Scanner sc = new Scanner(System.in);
-            if (sc.next().equalsIgnoreCase("si")) {
+            decisione = domanda("si/ no:", "si", "no");
+            if (decisione.equals("si")) {
                 ArrayList<Integer> ordine = riordinamentoDelleTessere(tessereDisponibili);
                 try {
                     player.inserisciTessera(tessereDisponibili, ordine, colonna);
@@ -292,7 +311,6 @@ public class Gestore {
                 return tessereDisponibili;
             }
         }
-
         return null;
     }
 

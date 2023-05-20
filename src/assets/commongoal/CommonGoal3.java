@@ -16,7 +16,7 @@ public class CommonGoal3 extends CommonGoal {
         for (int i = 0; i < player.libreria.size(); i++) {
             int cont = 0;
             for (int j = 0; j < player.libreria.get(i).size(); j++) {
-                if(ritornoTipo(i, j, player)!=null&&ritornoTipo(i, j, player)!=null) {
+                if (ritornoTipo(i, j, player) != null && ritornoTipo(i, j, player) != null) {
                     if (ritornoTipo(i, j, player).equals(ritornoTipo(i, j + 1, player))) {
                         cont++;
                     }

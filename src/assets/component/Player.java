@@ -74,8 +74,9 @@ public class Player extends Libreria {
         for (Card t : token)
             System.out.println(t.id);
     }
+
     public void printLibreria() {
-        System.out.println("Libreria "+name);
+        System.out.println("Libreria " + name);
         for (int i = 0; i <= libreria.size(); i++) {
             for (int j = 0; j < libreria.get(0).size(); j++) {
                 if (i == libreria.size())
@@ -84,7 +85,7 @@ public class Player extends Libreria {
                     if (libreria.get(i).get(j).getTessera().type == null) {
                         System.out.print(".......\t");
                     } else {
-                        System.out.print(libreria.get(i).get(j).getTessera().id + "\t");
+                        System.out.print(libreria.get(i).get(j).getTessera().type + "\t");
                     }
                 }
             }
@@ -96,11 +97,9 @@ public class Player extends Libreria {
         System.out.println(personalGoal.id);
         for (int i = 0; i <= libreria.size(); i++) {
             for (int j = 0; j <= libreria.get(0).size(); j++) {
-                if(i==libreria.size()&&j==libreria.get(0).size())
-                {
+                if (i == libreria.size() && j == libreria.get(0).size()) {
                     System.out.print("_______");
-                }
-                else {
+                } else {
                     if (i == libreria.size())
                         System.out.print("___" + j + "___\t");
 
@@ -108,28 +107,28 @@ public class Player extends Libreria {
                         System.out.print("___" + i + "___\t");
                 }
 
-                if(i < libreria.size()&& j < libreria.get(0).size()){
+                if (i < libreria.size() && j < libreria.get(0).size()) {
 
-                        if(i < libreria.size()&& j < libreria.get(0).size()){
-                            String help = ritornoTipo(i,j);
-                            if(help!=null)
-                                System.out.print(help+"\t");
-                            else{
-                                System.out.print(".......\t");
-                            }
+                    if (i < libreria.size() && j < libreria.get(0).size()) {
+                        String help = ritornoTipo(i, j);
+                        if (help != null)
+                            System.out.print(help + "\t");
+                        else {
+                            System.out.print(".......\t");
                         }
                     }
                 }
-             System.out.println();
             }
-
-
+            System.out.println();
         }
 
 
-    private String ritornoTipo(int i, int j){
-        for(Card card : personalGoal.list){
-            if(card.row==i&&card.column==j)
+    }
+
+
+    private String ritornoTipo(int i, int j) {
+        for (Card card : personalGoal.list) {
+            if (card.row == i && card.column == j)
                 return card.type;
         }
         return null;

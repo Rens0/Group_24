@@ -1,8 +1,5 @@
 package assets.card;
 
-import assets.component.Player;
-
-import java.awt.font.LineBreakMeasurer;
 import java.util.ArrayList;
 
 public class Goals {

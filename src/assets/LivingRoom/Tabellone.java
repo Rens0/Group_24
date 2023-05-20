@@ -91,11 +91,9 @@ public class Tabellone {
     public void print() {
         for (int i = 0; i <= mappa.size(); i++) {
             for (int j = 0; j <= mappa.get(0).size(); j++) {
-                if(i==mappa.size()&&j==mappa.get(0).size()){
+                if (i == mappa.size() && j == mappa.get(0).size()) {
                     System.out.print("_______");
-                }
-
-                else {
+                } else {
                     if (i == mappa.size())
                         System.out.print("___" + j + "___\t");
 
@@ -103,7 +101,7 @@ public class Tabellone {
                         System.out.print("___" + i + "___\t");
                 }
 
-                if(i < mappa.size()&& j < mappa.get(0).size()){
+                if (i < mappa.size() && j < mappa.get(0).size()) {
                     if (mappa.get(i).get(j).getTessera().type == null) {
                         System.out.print(".......\t");
                     } else {

@@ -1,15 +1,14 @@
 import assets.LivingRoom.Tabellone;
+import assets.LivingRoom.TabelloneDeserializer;
 import assets.card.CardContainer;
 import assets.card.Goals;
-import assets.LivingRoom.TabelloneDeserializer;
-
-
 import assets.component.Gestore;
 import assets.component.Player;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;

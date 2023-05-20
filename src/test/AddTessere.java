@@ -2,7 +2,6 @@ package test;
 
 import assets.card.Card;
 import assets.component.Cella;
-import assets.component.Player;
 
 public class AddTessere {
     public Cella addTessera(String tipo) {
