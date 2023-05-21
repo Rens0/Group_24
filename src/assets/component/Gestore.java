@@ -114,9 +114,9 @@ public class Gestore {
                     System.out.println(e);
                 }
                 //---Controllo common goal
-                for (int i = 0; i < id_commonGoal.size(); i++) {
-                    if (player.id_commonGoal.contains(id_commonGoal.get(i))) //--- controllo che lid del controllo sia presente in player
-                        controlloCommonGoal(player, id_commonGoal.get(i));   //---- Controllo che il common goal sia verificato se viene verificato, viene prelevato il token dalla classe commongoal_n viene aggiunto ai token del player e verra rimosso l'id  dai goal da verificare del player
+                for (Card card : id_commonGoal) {
+                    if (player.id_commonGoal.contains(card)) //--- controllo che lid del controllo sia presente in player
+                        controlloCommonGoal(player, card);   //---- Controllo che il common goal sia verificato se viene verificato, viene prelevato il token dalla classe commongoal_n viene aggiunto ai token del player e verra rimosso l'id  dai goal da verificare del player
                 }
 
 
@@ -138,14 +138,18 @@ public class Gestore {
         return false;
     }
 
-    private void pescaTesseraDalTabellone(Player player) {
+    private Boolean pescaTesseraDalTabellone(Player player) {
         ArrayList<Card> card = prelevaTessera();
 
-
+        String decisione = domanda("Vuoi ripescare? si/ no: ", "si", "no");
+        if (decisione.equals("si"))
+            return pescaTesseraDalTabellone(player);
 
         ArrayList<Integer> ordine = riordinamentoDelleTessere(card);
+
         inserisciTessere(player, card, ordine);
 
+        return true;
     }
 
     private void inserisciTessere(Player player, ArrayList<Card> card, ArrayList<Integer> ordine) {
@@ -161,7 +165,6 @@ public class Gestore {
             if (supporto != null)
                 tabellone.rimuoviTessere(supporto);    //--- chiedo all'utente se vuole inserire le tessere
             else {
-                Scanner sc = new Scanner(System.in);
                 String decisione = domanda("Seleziona nuova colonna o ripesca: ", "colonna", "ripesca");
                 if (decisione.equals("colonna"))
                     inserisciTessere(player, card, ordine);
@@ -174,10 +177,7 @@ public class Gestore {
         for (Card c : card)
             System.out.print(c.type + "\t");
         System.out.println();
-      /*  String decisione = domanda("Vuoi ripescare? si/ no: ", "si", "no");
-        if (decisione.equals("si"))
-            pescaTesseraDalTabellone(player);
-*/
+
     }
 
     private int selezionaColonna(Player player) {
