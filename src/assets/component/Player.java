@@ -10,7 +10,7 @@ public class Player extends Libreria {
     public String name;
     public int ID;
     private static int ID_Number = 0;
-    private int points = 0;
+    public int points = 0;
     public ArrayList<Card> token;
     public CardContainer personalGoal;
     public ArrayList<Card> id_commonGoal;
@@ -26,9 +26,8 @@ public class Player extends Libreria {
 
     public void setId_commonGoal(ArrayList<Card> id_commonGoal) {
         this.id_commonGoal = new ArrayList<>(id_commonGoal);
-
-
     }
+
 
     //---Aggiungo il token e rimuovo l'id
     public void addToken(Card token, Card goal) {

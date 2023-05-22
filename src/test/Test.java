@@ -27,6 +27,14 @@ public class Test {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        CardContainer tile;
+        path = "json/tiles.json";
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get(path));
+            tile = gson.fromJson(reader, CardContainer.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
 
 
@@ -86,11 +94,11 @@ public class Test {
 
         player.libreria.add(arrayList);//---Aggiungo riga
         arrayList = new ArrayList<>();
-        //---COlonne riga6
+        //---Colonne riga6
         arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
         arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
         arrayList.add(addTessere.addTessera("trofeo"));//---Aggiungo una tessera
-        arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
+        arrayList.add(addTessere.addTessera("trofeo"));//---Aggiungo una tessera
         arrayList.add(addTessere.addTessera(" "));//---Aggiungo una tessera
 
         player.libreria.add(arrayList);//---Aggiungo riga
@@ -100,9 +108,8 @@ public class Test {
 
         CardContainer pg = personalGoal.list.get(0);
         player.personalGoal= pg;
-        player.printPersonalGoal();
-        System.out.println(player.controlloPersonalGoal());
-
+        player.contaPunti(tile);
+        System.out.println(player.points);
 /*
         CommonGoal2 commonGoal2 = new CommonGoal2(null, null);
         System.out.println(commonGoal2.controllo(player));
