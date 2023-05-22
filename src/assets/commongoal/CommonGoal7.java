@@ -52,13 +52,15 @@ public class CommonGoal7 extends CommonGoal {
                     isFull = false;
                     break;//passa alla prossima riga
                 }
-                String type = ritornoTipo(i, j, libreria);
+                if(ritornoTipo(i, j, libreria)!=null) {
+                    String type = ritornoTipo(i, j, libreria);
 
-                if (!cardType.contains(type)) {
-                    cardType.add(type);
-                }
-                if (cardType.size() > 3) {      //numero dei tipi nell'arrayList
-                    break; //passa alla prox riga
+                    if (!cardType.contains(type)) {
+                        cardType.add(type);
+                    }
+                    if (cardType.size() > 3) {      //numero dei tipi nell'arrayList
+                        break; //passa alla prox riga
+                    }
                 }
 
             }
