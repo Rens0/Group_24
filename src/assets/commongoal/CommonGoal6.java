@@ -18,13 +18,14 @@ public class CommonGoal6 extends CommonGoal {
         for (int i = 0; i < player.libreria.size(); i++) {
             boolean help = true;
             for (int j = 0; j < player.libreria.get(i).size(); j++) {
+                if(ritornoTipo(i, j, player)!=null) {
+                    String tipo = ritornoTipo(i, j, player);
 
-                String tipo = ritornoTipo(i, j, player);
-
-                for (int y = 0; y < player.libreria.get(i).size() - 1; y++) {
-                    if (tipo != null) {
-                        if (tipo.equals(ritornoTipo(i, y + 1, player))) {
-                            help = false;
+                    for (int y = 0; y < player.libreria.get(i).size() - 1; y++) {
+                        if (tipo != null) {
+                            if (tipo.equals(ritornoTipo(i, y + 1, player))) {
+                                help = false;
+                            }
                         }
                     }
                 }

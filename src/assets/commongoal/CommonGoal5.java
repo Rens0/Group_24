@@ -25,13 +25,15 @@ public class CommonGoal5 extends CommonGoal {
                     isFull = false;
                     break;//passa alla prossima colonna
                 }
-                String type = ritornoTipo(i, j, player);
+                if(ritornoTipo(i, j, player)!=null) {
+                    String type = ritornoTipo(i, j, player);
 
-                if (!cardType.contains(type)) {
-                    cardType.add(type);
-                }
-                if (cardType.size() > 3) {      //numero dei tipi nell'arrayList
-                    break; //passa alla prox colonna
+                    if (!cardType.contains(type)) {
+                        cardType.add(type);
+                    }
+                    if (cardType.size() > 3) {      //numero dei tipi nell'arrayList
+                        break; //passa alla prox colonna
+                    }
                 }
 
             }

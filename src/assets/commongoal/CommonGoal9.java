@@ -66,10 +66,12 @@ public class CommonGoal9 extends CommonGoal {
             int contacarte = 0;
             for (int i = 0; i < player.libreria.size(); i++) {
                 for (int j = 0; j < player.libreria.get(i).size(); j++) {
-                    if (ritornoTipo(i, j, player) == cardContainer.list.get(c).type) {
-                        contacarte++;
-                        if (contacarte >= 8) {
-                            return true;
+                    if (ritornoTipo(i, j, player) != null) {
+                        if (ritornoTipo(i, j, player) == cardContainer.list.get(c).type) {
+                            contacarte++;
+                            if (contacarte >= 8) {
+                                return true;
+                            }
                         }
                     }
                 }

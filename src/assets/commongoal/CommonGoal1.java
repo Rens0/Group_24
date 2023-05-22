@@ -17,12 +17,16 @@ public class CommonGoal1 extends CommonGoal {
 
         for (int i = 0; i < player.libreria.size() - 1; i++) {
             for (int j = 0; j < player.libreria.get(i).size() - 1; j++) {
+                if (ritornoTipo(i, j, player) != null &&
+                        ritornoTipo(i + 1, j, player) != null &&
+                        ritornoTipo(i + 1, j + 1, player) != null &&
+                        ritornoTipo(i, j + 1, player) != null) {
 
-                if (ritornoTipo(i, j, player).equals(ritornoTipo(i + 1, j, player)) &&
-                        ritornoTipo(i, j + 1, player).equals(ritornoTipo(i, j, player)) &&
-                        ritornoTipo(i, j, player).equals(ritornoTipo(i + 1, j + 1, player))) {
-
-                    contatore++;
+                    if (ritornoTipo(i, j, player).equals(ritornoTipo(i + 1, j, player)) &&
+                            ritornoTipo(i, j + 1, player).equals(ritornoTipo(i, j, player)) &&
+                            ritornoTipo(i, j, player).equals(ritornoTipo(i + 1, j + 1, player))) {
+                        contatore++;
+                    }
                 }
             }
         }

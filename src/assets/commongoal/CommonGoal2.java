@@ -23,8 +23,10 @@ public class CommonGoal2 extends CommonGoal {
         Set<String> noduplicati = new LinkedHashSet<>();
         for (int j = 0; j < player.libreria.size() - 1; j++) {
             for (int i = 0; i < player.libreria.size(); i++) {
-                Colonna.add(ritornoTipo(i, j, player));
-                noduplicati.addAll(Colonna);
+                if(ritornoTipo(i, j, player)!=null) {
+                    Colonna.add(ritornoTipo(i, j, player));
+                    noduplicati.addAll(Colonna);
+                }
             }
             if (Colonna.size() == noduplicati.size()) {
                 contatore++;

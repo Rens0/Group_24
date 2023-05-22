@@ -32,18 +32,23 @@ public class CommonGoal11 extends CommonGoal {
             int contDiagoSec = 0;
             if ((player.libreria.size() - i) >= player.libreria.get(0).size()) {
                 for (int j = 0; j < player.libreria.get(i).size(); j++) {
-                    if (ritornoTipo(j + i, j, player).equals(ritornoTipo(0, 0, player))) {
-                        contDiagoPrinc++;
-                        if (contDiagoPrinc >= player.libreria.get(0).size()) {
-                            return true;
+                    if(ritornoTipo(j + i, j, player)!=null&&ritornoTipo(0, 0, player)!=null) {
+
+                        if (ritornoTipo(j + i, j, player).equals(ritornoTipo(0, 0, player))) {
+                            contDiagoPrinc++;
+                            if (contDiagoPrinc >= player.libreria.get(0).size()) {
+                                return true;
+                            }
                         }
                     }
+                    if(ritornoTipo(0, player.libreria.get(0).size(), player)!=null&&ritornoTipo(j + i, player.libreria.get(0).size() - j - 1, player)!=null) {
 
-                    if (ritornoTipo(0, player.libreria.get(0).size(), player).equals(
-                            ritornoTipo(j + i, player.libreria.get(0).size() - j - 1, player))) {
-                        contDiagoSec++;
-                        if (contDiagoSec >= player.libreria.get(0).size()) {
-                            return true;
+                        if (ritornoTipo(0, player.libreria.get(0).size(), player).equals(
+                                ritornoTipo(j + i, player.libreria.get(0).size() - j - 1, player))) {
+                            contDiagoSec++;
+                            if (contDiagoSec >= player.libreria.get(0).size()) {
+                                return true;
+                            }
                         }
                     }
 
