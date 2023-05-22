@@ -105,8 +105,10 @@ public class Gestore {
                     controlloCommonGoal(player, card);   //---- Controllo che il common goal sia verificato se viene verificato, viene prelevato il token dalla classe commongoal_n viene aggiunto ai token del player e verra rimosso l'id  dai goal da verificare del player
                 }
                 if (player.libreriaPiena()) {
-                    if (finito.size() == 0)//---Se primo giocatore prende il l'endgame token
+                    if (finito.size() == 0) {//---Se primo giocatore prende il l'endgame token
                         player.addToken(selectToken("end game"));
+                        System.out.println("Hai finito per primo e hai ottenuto l'end game token");
+                    }
                     finito.add(player);
 
                 }
@@ -136,6 +138,7 @@ public class Gestore {
             return false;
         if (commonGoal.controllo(player)) {
             player.addToken(commonGoal.prendiToken(), card);
+            System.out.println("Hai sbloccato il common goal: "+commonGoal+" token: "+player.token.get(player.token.size()-1));
             return true;
         }
         return false;
