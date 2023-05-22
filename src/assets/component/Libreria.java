@@ -14,7 +14,7 @@ abstract class Libreria {
     public List<List<Cella>> libreria;
 
     public Libreria() {
-        this(6, 5);
+        this(1, 1);
     }
 
     public Libreria(int righe, int colonne) {
@@ -23,7 +23,7 @@ abstract class Libreria {
 
 
         libreria = new ArrayList<>();
-        /*ArrayList<Cella> rigac;
+        ArrayList<Cella> rigac;
         for (int i = 0; i < righe; i++) {
             rigac = new ArrayList<>();
 
@@ -31,7 +31,7 @@ abstract class Libreria {
                 rigac.add(new Cella());
             }
             libreria.add(rigac);
-        }*/
+        }
 
     }
 

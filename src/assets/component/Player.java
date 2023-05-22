@@ -5,7 +5,7 @@ import assets.card.CardContainer;
 
 import java.util.ArrayList;
 
-public class Player extends Libreria {
+public class Player extends Libreria implements Comparable<Player> {
 
     public String name;
     public int ID;
@@ -42,9 +42,8 @@ public class Player extends Libreria {
     public void contaPunti(CardContainer tile) {
         for (Card t : token) //---punti dei common goal
             points += t.point;
-
         points += controlloPersonalGoal();//--- Controllo punti personal goal
-        points += contaPuntiCaselleAdiacenti(); //--- Controllo dei punti in base alle tessere vicine
+      //  points += contaPuntiCaselleAdiacenti(); //--- Controllo dei punti in base alle tessere vicine
     }
 
     public int controlloPersonalGoal() {
@@ -95,6 +94,10 @@ public class Player extends Libreria {
         }
     }
 
+    public int getID() {
+        return ID;
+    }
+
     public void printPersonalGoal() {
         if(personalGoal!=null) {
             System.out.println(personalGoal.id);
@@ -138,4 +141,12 @@ public class Player extends Libreria {
     }
 
 
+    @Override
+    public int compareTo(Player player) {
+        if(this.points > player.points)
+            return 1;
+        if(this.points < player.points)
+            return -1;
+        return 0;
+    }
 }

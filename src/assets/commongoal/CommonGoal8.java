@@ -21,7 +21,7 @@ public class CommonGoal8 extends CommonGoal {
             return true;
         }
 */
-        return false;
+        return true;
 
 
     }

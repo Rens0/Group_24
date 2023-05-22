@@ -75,15 +75,20 @@ public class Game {
         }
         //System.out.println(tabellone.mappa.get(0).size());
         ArrayList<Player> players = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
 
-        int number_of_players;
+
+        int number_of_players=0;
         do {
             System.out.print("Insert number of players: ");
-            number_of_players = scanner.nextInt();
+            try {
+                Scanner scanner = new Scanner(System.in);
+                number_of_players = scanner.nextInt();
+                if (number_of_players < 2 || number_of_players > 4)
+                    System.out.println("Please insert from 2 to 4 players ");
+            }catch (Exception e){
+                System.out.println(e);
+            }
 
-            if (number_of_players < 2 || number_of_players > 4)
-                System.out.println("Please insert from 2 to 4 players ");
 
         } while (number_of_players < 2 || number_of_players > 4);
 

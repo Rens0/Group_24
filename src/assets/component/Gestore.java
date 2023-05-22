@@ -45,7 +45,6 @@ public class Gestore {
 
         for (Player player : players) {
             player.personalGoal = selectRandomPersonalGoal();//--- Assegnamento dei personal goal
-
         }
         for (int i = 0; i < maxCommonGoal; i++) {
             id_commonGoal.add(selectRandomCommonGoal());//--- prendo degli id dei commongoal randomici e li aggiungo
@@ -96,45 +95,49 @@ public class Gestore {
                 tabellone.print();//--- Stampo il tabellone
                 player.printPersonalGoal();
                 player.printLibreria();
-
-
-                if (player.libreriaPiena()) {
-                    if (finito.size() == 0)//---Se primo giocatore prende il l'endgame token
-                        player.addToken(selectToken("end game"));
-                    finito.add(player);
-                    players.remove(player);
-                }
-
-
                 try {
                     pescaTesseraDalTabellone(player);
-                    // player.print();
-
                 } catch (Exception e) {
                     System.out.println(e);
                 }
                 //---Controllo common goal
                 for (Card card : id_commonGoal) {
-                    if (player.id_commonGoal.contains(card)) //--- controllo che lid del controllo sia presente in player
-                        controlloCommonGoal(player, card);   //---- Controllo che il common goal sia verificato se viene verificato, viene prelevato il token dalla classe commongoal_n viene aggiunto ai token del player e verra rimosso l'id  dai goal da verificare del player
+                    controlloCommonGoal(player, card);   //---- Controllo che il common goal sia verificato se viene verificato, viene prelevato il token dalla classe commongoal_n viene aggiunto ai token del player e verra rimosso l'id  dai goal da verificare del player
                 }
+                if (player.libreriaPiena()) {
+                    if (finito.size() == 0)//---Se primo giocatore prende il l'endgame token
+                        player.addToken(selectToken("end game"));
+                    finito.add(player);
 
-
+                }
             }
-        } while (players.size() != 0);
+        } while (finito.size() != players.size());
 
+        //--- Classifica
+
+        for (Player p : finito) {
+            p.contaPunti(tile);
+        }
+        Collections.sort(finito, Collections.reverseOrder());
+        int i = 1;
+        for (Player p : finito) {
+            System.out.println(i + " " + p.name + " point: " + p.points);
+            i++;
+        }
 
     }
 
     //--- Controllo che commongoalN.controllo sia verificato
     //--- se si verifica aggiungo il token al player
     private Boolean controlloCommonGoal(Player player, Card card) {//--- Controllo il common goal specifico
-
         CommonGoal commonGoal = commonGoals.get(card.id);
+
+        if (!player.id_commonGoal.contains(card)) //--- controllo che lid del controllo sia presente in player
+            return false;
         if (commonGoal.controllo(player)) {
             player.addToken(commonGoal.prendiToken(), card);
+            return true;
         }
-
         return false;
     }
 
@@ -182,17 +185,22 @@ public class Gestore {
 
     private int selezionaColonna(Player player) {
 
-        Scanner sc = new Scanner(System.in);
-        int colonna;
+
+        int colonna=0;
         boolean continua;
         do {
             continua = true;
-            System.out.println("Seleziona colonna: ");
-            colonna = sc.nextInt();
-            if (colonna >= 0 && colonna <= player.libreria.get(0).size() - 1) {
-                continua = false;
-            } else {
-                System.out.println("Errore");
+            try {
+                System.out.println("Seleziona colonna: ");
+                Scanner sc = new Scanner(System.in);
+                colonna = sc.nextInt();
+                if (colonna >= 0 && colonna <= player.libreria.get(0).size() - 1) {
+                    continua = false;
+                } else {
+                    System.out.println("Errore");
+                }
+            } catch (Exception e) {
+                System.out.println(e);
             }
         } while (continua);
         return colonna;
@@ -203,11 +211,12 @@ public class Gestore {
 
         String decisione = "";
         ArrayList<Card> card = new ArrayList<>();
-        Scanner sc = new Scanner(System.in);
+
 
         do {
             System.out.println("Scegli tessera " + (card.size() + 1));
             try {
+                Scanner sc = new Scanner(System.in);
                 System.out.print("Riga: ");
                 int riga = sc.nextInt();
                 System.out.print("Colonna: ");
@@ -215,9 +224,9 @@ public class Gestore {
                 card = tabellone.prelevaTessera(riga, colonna, card);
 
                 decisione = domanda("Conferma tessera si/ no: ", "si", "no");
-                if (decisione.equals("no")){
+                if (decisione.equals("no")) {
                     card.remove(card.size() - 1);
-                    decisione="";
+                    decisione = "";
                 }
 
             } catch (Exception e) {
@@ -241,24 +250,31 @@ public class Gestore {
             return ordine;
         }
         System.out.println("Seleziona lordine delle tessere: ");
-        Scanner sc = new Scanner(System.in);
+
+
         ordine = new ArrayList<>();
         for (int i = 0; i < card.size(); i++) {
             boolean continua;
             do {
                 continua = false;
-                System.out.print(card.get(i).type + " posizione: ");
-                int numero = sc.nextInt();
-                if (numero >= card.size() || numero < 0) {
-                    System.out.println("Errore indice");
-                    continua = true;
-                }
-                if (!continua) {
-                    if (ordine.contains(numero)) {
-                        System.out.println("Indice gia presente");
+                try {
+                    Scanner sc = new Scanner(System.in);
+                    System.out.print(card.get(i).type + " posizione: ");
+                    int numero = sc.nextInt();
+                    if (numero >= card.size() || numero < 0) {
+                        System.out.println("Errore indice");
                         continua = true;
-                    } else
-                        ordine.add(numero);
+                    }
+                    if (!continua) {
+                        if (ordine.contains(numero)) {
+                            System.out.println("Indice gia presente");
+                            continua = true;
+                        } else
+                            ordine.add(numero);
+                    }
+                } catch (Exception e) {
+                    continua = true;
+                    System.out.println(e);
                 }
             } while (continua);
         }
@@ -293,7 +309,7 @@ public class Gestore {
             System.out.println(card.get(i).id);
             tessereNonDisponibili.add(card.get(i));
         }
-        if (card.size() - spaziLiberi != maxTesserePescabili) {
+        if (card.size() - tessereNonDisponibili.size() != 0) {
             System.out.println("Vuoi aggiungere queste tessere?  ");
             ArrayList<Card> tessereDisponibili = new ArrayList<>();
             for (int i = 0; i < spaziLiberi; i++) {
