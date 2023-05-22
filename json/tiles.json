@@ -3,7 +3,7 @@
 	"list": [
 		{
 			"type": "cornice",
-			"amount": 22,
+				"amount": 22,
 			"moreId": ["Cornici1.1","Cornici1.2","Cornici1.3"]
 		},
 		{

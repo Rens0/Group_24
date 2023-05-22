@@ -20,10 +20,10 @@ abstract class Libreria {
     public Libreria(int righe, int colonne) {
         this.righe = righe;
         this.colonne = colonne;
-        //libreria= new ArrayList<>();//--Da cancellare
+
 
         libreria = new ArrayList<>();
-        ArrayList<Cella> rigac;
+        /*ArrayList<Cella> rigac;
         for (int i = 0; i < righe; i++) {
             rigac = new ArrayList<>();
 
@@ -31,7 +31,7 @@ abstract class Libreria {
                 rigac.add(new Cella());
             }
             libreria.add(rigac);
-        }
+        }*/
 
     }
 

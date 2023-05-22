@@ -43,18 +43,21 @@ public class Player extends Libreria {
     public void contaPunti(CardContainer tile) {
         for (Card t : token) //---punti dei common goal
             points += t.point;
-        points += personalGoal.point.get(controlloPersonalGoal());//--- Controllo punti personal goal
+
+        points += controlloPersonalGoal();//--- Controllo punti personal goal
         points += contaPuntiCaselleAdiacenti(); //--- Controllo dei punti in base alle tessere vicine
     }
 
-    private int controlloPersonalGoal() {
+    public int controlloPersonalGoal() {
         int contatore = 0;
         for (int i = 0; i < personalGoal.list.size(); i++) {
             Card card = personalGoal.list.get(i);
             if (card.type.equals(libreria.get(card.row).get(card.column).tile.type))
                 contatore++;
         }
-        return contatore;
+        if(contatore==0)
+            return 0;
+        return personalGoal.point.get(contatore-1);
     }
 
 
@@ -93,35 +96,36 @@ public class Player extends Libreria {
         }
     }
 
-    public void personalGoalPrint() {
-        System.out.println(personalGoal.id);
-        for (int i = 0; i <= libreria.size(); i++) {
-            for (int j = 0; j <= libreria.get(0).size(); j++) {
-                if (i == libreria.size() && j == libreria.get(0).size()) {
-                    System.out.print("_______");
-                } else {
-                    if (i == libreria.size())
-                        System.out.print("___" + j + "___\t");
+    public void printPersonalGoal() {
+        if(personalGoal!=null) {
+            System.out.println(personalGoal.id);
+            for (int i = 0; i <= libreria.size(); i++) {
+                for (int j = 0; j <= libreria.get(0).size(); j++) {
+                    if (i == libreria.size() && j == libreria.get(0).size()) {
+                        System.out.print("_______");
+                    } else {
+                        if (i == libreria.size())
+                            System.out.print("___" + j + "___\t");
 
-                    if (j == libreria.get(0).size())
-                        System.out.print("___" + i + "___\t");
-                }
-
-                if (i < libreria.size() && j < libreria.get(0).size()) {
+                        if (j == libreria.get(0).size())
+                            System.out.print("___" + i + "___\t");
+                    }
 
                     if (i < libreria.size() && j < libreria.get(0).size()) {
-                        String help = ritornoTipo(i, j);
-                        if (help != null)
-                            System.out.print(help + "\t");
-                        else {
-                            System.out.print(".......\t");
+
+                        if (i < libreria.size() && j < libreria.get(0).size()) {
+                            String help = ritornoTipo(i, j);
+                            if (help != null)
+                                System.out.print(help + "\t");
+                            else {
+                                System.out.print(".......\t");
+                            }
                         }
                     }
                 }
+                System.out.println();
             }
-            System.out.println();
         }
-
 
     }
 

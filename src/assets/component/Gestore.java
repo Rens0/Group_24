@@ -94,7 +94,7 @@ public class Gestore {
                     tabellone.riempimentoTabellone(tile);
                 }
                 tabellone.print();//--- Stampo il tabellone
-                player.personalGoalPrint();
+                player.printPersonalGoal();
                 player.printLibreria();
 
 
