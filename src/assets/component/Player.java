@@ -50,8 +50,10 @@ public class Player extends Libreria implements Comparable<Player> {
         int contatore = 0;
         for (int i = 0; i < personalGoal.list.size(); i++) {
             Card card = personalGoal.list.get(i);
-            if (card.type.equals(libreria.get(card.row).get(card.column).tile.type))
-                contatore++;
+            if(card.row<libreria.size()&&card.column<libreria.get(0).size()) {
+                if (card.type.equals(libreria.get(card.row).get(card.column).tile.type))
+                    contatore++;
+            }
         }
         if(contatore==0)
             return 0;
