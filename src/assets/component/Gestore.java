@@ -252,7 +252,7 @@ public class Gestore {
             ordine.add(0);
             return ordine;
         }
-        System.out.println("Seleziona lordine delle tessere: ");
+        System.out.println("Seleziona l'ordine delle tessere: ");
 
 
         ordine = new ArrayList<>();
