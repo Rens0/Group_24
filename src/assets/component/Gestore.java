@@ -138,7 +138,7 @@ public class Gestore {
             return false;
         if (commonGoal.controllo(player)) {
             player.addToken(commonGoal.prendiToken(), card);
-            System.out.println("Hai sbloccato il common goal: "+commonGoal+" token: "+player.token.get(player.token.size()-1));
+            System.out.println("Hai sbloccato il common goal: "+card.id+" token: "+player.token.get(player.token.size()-1).id);
             return true;
         }
         return false;
