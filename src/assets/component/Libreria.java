@@ -14,7 +14,7 @@ abstract class Libreria {
     public List<List<Cella>> libreria;
 
     public Libreria() {
-        this(1, 1);
+        this(6, 5);
     }
 
     public Libreria(int righe, int colonne) {
