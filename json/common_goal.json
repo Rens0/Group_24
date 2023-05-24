@@ -1,16 +1,45 @@
 {
-	"path": "common goal cards",
-	"list":[
-			{
-				"id": 3,
-				"description": "Four tiles of the same type in the four corners of the bookshelf. "
-			},
-
-			{
-				"id": 8,
-				"description":"Three columns each formed by 6 tiles of maximum three different types. One column can show the same or a different combination of another column."
-			}
-
-
-		]
+  "path": "common goal cards",
+  "list": [
+    {
+      "id": 1,
+      "description": "Two groups each containing 4 tiles of\nthe same type in a 2x2 square. The tiles\nof one square can be different from\nthose of the other square."
+    },
+    {
+      "id": 2,
+      "description": "Two columns each formed by 6\ndifferent types of tiles. "
+    },
+    {
+      "id": 3,
+      "description": "Four groups each containing at least\n4 tiles of the same type (not necessarily\nin the depicted shape).\nThe tiles of one group can be different\nfrom those of another group. "
+    },
+    {
+      "id": 4,
+      "description": "Six groups each containing at least\n2 tiles of the same type (not necessarily\nin the depicted shape).\nThe tiles of one group can be different\nfrom those of another group."
+    },
+    {
+      "id": 5,
+      "description": "Three columns each formed by 6 tiles \nof maximum three different types. One\ncolumn can show the same or a different\ncombination of another column."
+    },
+    {
+      "id": 6,
+      "description": "Two lines each formed by 5 different\ntypes of tiles. One line can show the\nsame or a different combination of the\nother line."
+    },
+    {
+      "id": 7,
+      "description": "Four lines each formed by 5 tiles of\nmaximum three different types. One\nline can show the same or a different\ncombination of another line."
+    },
+    {
+      "id": 8,
+      "description": "Three columns each formed by 6 tiles of maximum three different types. One column can show the same or a different combination of another column."
+    },
+    {
+      "id": 9,
+      "description": "Eight tiles of the same type. There’s no\nrestriction about the position of these\ntiles."
+    },
+    {
+      "id": 10,
+      "description": "Five tiles of the same type forming an X."
+    }
+  ]
 }

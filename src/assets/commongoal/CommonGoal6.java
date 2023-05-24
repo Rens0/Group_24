@@ -13,30 +13,33 @@ public class CommonGoal6 extends CommonGoal {
     }
 
     public boolean controllo(Player player) {
-
-        int cont = 0;
-        for (int i = 0; i < player.libreria.size(); i++) {
-            boolean help = true;
-            for (int j = 0; j < player.libreria.get(i).size(); j++) {
-                if(ritornoTipo(i, j, player)!=null) {
-                    String tipo = ritornoTipo(i, j, player);
-
-                    for (int y = 0; y < player.libreria.get(i).size() - 1; y++) {
-                        if (tipo != null) {
-                            if (tipo.equals(ritornoTipo(i, y + 1, player))) {
-                                help = false;
+        int counter = 0;
+        for (int j = 0; j < player.libreria.size(); j++) {
+            Boolean controllo = true;
+            for (int i = 0; i < player.libreria.get(0).size(); i++) {
+                String tessera = ritornoTipo(j, i, player);
+                if (tessera != null) {
+                    for (int k = 0; k < player.libreria.get(0).size(); k++) {
+                        String tesseran = ritornoTipo(j, k, player);
+                        if (tesseran != null) {
+                            if (k != i && tessera.equals(tesseran)) {
+                                controllo = false;
                             }
+                        } else {
+                            controllo = false;
+                            break;
                         }
                     }
-                }
+
+                } else
+                    controllo = false;
+
             }
-            if (help) {
-                cont++;
-            }
-            if (cont >= 2) {
-                return true;
-            }
+            if (controllo)
+                counter++;
         }
-        return false;
+        return (counter >= 2);
+
+
     }
 }

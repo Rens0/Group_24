@@ -13,37 +13,52 @@ public class CommonGoal5 extends CommonGoal {
     }
 
     public boolean controllo(Player player) {
-        int contatore = 0;
-        for (int j = 0; j < player.getColonne(); j++) {
-            ArrayList<String> cardType = new ArrayList<>();
-            boolean isFull = true;
-            if (contatore + (player.getColonne() - j) < 3)
-                return false;
-            for (int i = 0; i < player.getRighe(); i++) {
+        int counter = 0;
+        ArrayList<String> base = getArray(player, 0);
+        if (base != null) {
+            for (int i = 0; i < player.libreria.get(0).size(); i++) {
+                int controllo = 0;
 
-                if (player.getCella(i, j).isEmpty()) {
-                    isFull = false;
-                    break;//passa alla prossima colonna
-                }
-                if(ritornoTipo(i, j, player)!=null) {
-                    String type = ritornoTipo(i, j, player);
-
-                    if (!cardType.contains(type)) {
-                        cardType.add(type);
-                    }
-                    if (cardType.size() > 3) {      //numero dei tipi nell'arrayList
-                        break; //passa alla prox colonna
+                ArrayList<String> confronto = getArray(player, i);
+                if (confronto != null) {
+                    for (int j = 0; j < confronto.size(); j++) {
+                        if (confronto.get(j).contains(base.get(j))) {
+                            controllo++;
+                        }
                     }
                 }
+                if (controllo == base.size())
+                    counter++;
 
             }
-            if (isFull && cardType.size() <= 3) {
-                contatore++;
-            }
-            if (contatore == 3) {
-                return true;
-            }
+
+
         }
-        return false;
+
+
+        return (counter >= 3);
+    }
+
+    private ArrayList<String> getArray(Player player, int index) {
+        ArrayList<String> tessere = new ArrayList<>();
+        //--- Utilizzo array di support
+
+        for (int i = index; i < player.libreria.get(0).size(); i++) {
+            int counter = 0;
+            if (tessere.size() != 3)
+                tessere = new ArrayList<>();
+
+            for (int j = 0; j < player.libreria.size(); j++) {
+                String tessera = ritornoTipo(j, i, player);
+                if (tessera != null) {
+                    counter++;
+                    if (!tessere.contains(tessera))
+                        tessere.add(tessera);
+                }
+            }
+            if (tessere.size() == 3 && counter == player.libreria.size())
+                return tessere;
+        }
+        return null;
     }
 }

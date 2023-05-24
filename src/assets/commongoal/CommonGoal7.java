@@ -12,65 +12,51 @@ public class CommonGoal7 extends CommonGoal {
         super(path, token);
     }
 
-    public boolean controllo(Player libreria) {
-        /*int contatore = 0;
-        for(int i = 0; i < libreria.mappa.get(0).size(); i++){
-            ArrayList<Card> tile = new ArrayList<>();
+    public boolean controllo(Player player) {
+        int counter = 0;
+        ArrayList<String> base = getArray(player, 0);
+        if (base != null) {
+            for (int i = 0; i < player.libreria.size(); i++) {
+                int controllo = 0;
 
-            for(int j = 0; j <libreria.mappa.size(); j++){
-                for(int c = 0; c<tile.size(); c++){
-                    Card card = tile.get(c);
-                    boolean aggiungi = true;
-                    for(int k = 0; k<tile.size(); k++){
-                        if (k!=c){
-                            if(card.type == tile.get(k).type)
-                                aggiungi = false;
+                ArrayList<String> confronto = getArray(player, i);
+                if (confronto != null) {
+                    for (int j = 0; j < confronto.size(); j++) {
+                        if (confronto.get(j).contains(base.get(j))) {
+                            controllo++;
                         }
                     }
-                    if(aggiungi)
-                        tile.add(card);
                 }
-                if(tile.size()<=3)
-                    contatore++;
+                if (controllo == base.size())
+                    counter++;
 
-            }
-
-        }
-        if(contatore>=3)
-            return true;
-
-        return false;*/
-        int contatore = 0;
-        for (int i = 0; i < libreria.getRighe(); i++) {
-            ArrayList<String> cardType = new ArrayList<>();
-            boolean isFull = true;
-            if (contatore + (libreria.getRighe() - i) < 4)
-                return false;
-            for (int j = 0; j < libreria.getColonne(); j++) {
-
-                if (libreria.getCella(i, j).isEmpty()) {
-                    isFull = false;
-                    break;//passa alla prossima riga
-                }
-                if(ritornoTipo(i, j, libreria)!=null) {
-                    String type = ritornoTipo(i, j, libreria);
-
-                    if (!cardType.contains(type)) {
-                        cardType.add(type);
-                    }
-                    if (cardType.size() > 3) {      //numero dei tipi nell'arrayList
-                        break; //passa alla prox riga
-                    }
-                }
-
-            }
-            if (isFull && cardType.size() <= 3) {
-                contatore++;
-            }
-            if (contatore == 4) {
-                return true;
             }
         }
-        return false;
+
+
+        return (counter >= 4);
+    }
+
+    private ArrayList<String> getArray(Player player, int index) {
+        ArrayList<String> tessere = new ArrayList<>();
+        //--- Utilizzo array di support
+
+        for (int i = index; i < player.libreria.size(); i++) {
+            int counter = 0;
+            if (tessere.size() != 3)
+                tessere = new ArrayList<>();
+
+            for (int j = 0; j < player.libreria.get(0).size(); j++) {
+                String tessera = ritornoTipo(i, j, player);
+                if (tessera != null) {
+                    counter++;
+                    if (!tessere.contains(tessera))
+                        tessere.add(tessera);
+                }
+            }
+            if (tessere.size() == 3 && counter == player.libreria.get(0).size())
+                return tessere;
+        }
+        return null;
     }
 }

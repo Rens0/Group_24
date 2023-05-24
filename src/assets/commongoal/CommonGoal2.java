@@ -5,9 +5,6 @@ import assets.card.Card;
 import assets.component.Player;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
 
 //import static jdk.internal.logger.DefaultLoggerFinder.SharedLoggers.system;
 
@@ -18,30 +15,35 @@ public class CommonGoal2 extends CommonGoal {
     }
 
     public boolean controllo(Player player) {
-        int contatore = 0;
-        List<String> Colonna = new ArrayList();
-        Set<String> noduplicati = new LinkedHashSet<>();
-        for (int j = 0; j < player.libreria.size() - 1; j++) {
+
+        int counter = 0;
+        for (int j = 0; j < player.libreria.get(0).size(); j++) {
+            Boolean controllo = true;
             for (int i = 0; i < player.libreria.size(); i++) {
-                if(ritornoTipo(i, j, player)!=null) {
-                    Colonna.add(ritornoTipo(i, j, player));
-                    noduplicati.addAll(Colonna);
-                }
-            }
-            if (Colonna.size() == noduplicati.size()) {
-                contatore++;
-            }
+                String tessera = ritornoTipo(i, j, player);
+                if (tessera != null) {
+                    for (int k = 0; k < player.libreria.size(); k++) {
+                        String tesseran = ritornoTipo(k, j, player);
+                        if (tesseran != null) {
+                            if (k != i && tessera.equals(tesseran)) {
+                                controllo = false;
+                            }
+                        } else {
+                            controllo = false;
+                            break;
+                        }
+                    }
 
-            Colonna.clear();
-            noduplicati.clear();
+                } else
+                    controllo = false;
+
+            }
+            if (controllo)
+                counter++;
         }
-
-        if (contatore >= 2) {
+        if (counter >= 2)
             return true;
-        } else {
-            return false;
-
-        }
+        return false;
     }
 
 }

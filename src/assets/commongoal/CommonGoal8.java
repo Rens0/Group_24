@@ -13,7 +13,7 @@ public class CommonGoal8 extends CommonGoal {
     }
 
     public boolean controllo(Player player) {
-        if(ritornoTipo(0, 0, player)!=null&&ritornoTipo(0, player.libreria.get(0).size() - 1, player)!=null&&ritornoTipo(player.libreria.size() - 1, player.libreria.get(0).size() - 1, player)!=null&&ritornoTipo(player.libreria.size() - 1, 0, player)!=null) {
+        if (ritornoTipo(0, 0, player) != null && ritornoTipo(0, player.libreria.get(0).size() - 1, player) != null && ritornoTipo(player.libreria.size() - 1, player.libreria.get(0).size() - 1, player) != null && ritornoTipo(player.libreria.size() - 1, 0, player) != null) {
             return ritornoTipo(0, 0, player).equals(ritornoTipo(0, player.libreria.get(0).size() - 1, player)) &&
                     ritornoTipo(0, 0, player).equals(ritornoTipo(player.libreria.size() - 1, player.libreria.get(0).size() - 1, player)) &&
                     ritornoTipo(0, 0, player).equals(ritornoTipo(player.libreria.size() - 1, 0, player));

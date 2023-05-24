@@ -26,38 +26,60 @@ public class CommonGoal11 extends CommonGoal {
             }
         }
         return foundMainDiagonalValue || foundSecondaryDiagonalValue;*/
-
+        boolean diagop = false;
+        Boolean diagos;
         for (int i = 0; i < player.libreria.size(); i++) {
-            int contDiagoPrinc = 0;
-            int contDiagoSec = 0;
-            if ((player.libreria.size() - i) >= player.libreria.get(0).size()) {
-                for (int j = 0; j < player.libreria.get(i).size(); j++) {
-                    if(ritornoTipo(j + i, j, player)!=null&&ritornoTipo(0, 0, player)!=null) {
+            diagop = diagop(player, i);
+            //diagos = diagos(player, i);
+        }
+        return diagop;
+    }
 
-                        if (ritornoTipo(j + i, j, player).equals(ritornoTipo(0, 0, player))) {
-                            contDiagoPrinc++;
-                            if (contDiagoPrinc >= player.libreria.get(0).size()) {
-                                return true;
-                            }
-                        }
+    private boolean diagos(Player player, int index) {
+        String tipo = ritornoTipo(index, 0, player);
+        for (int i = index; i < player.libreria.size(); i++) {
+            if (tipo != null) {
+                for (int j = 0; j < player.libreria.get(0).size(); j++) {
+                    if ((player.libreria.get(0).size()-index-1) == j) {
+                        String next = ritornoTipo(i, j, player);
+                        System.out.println(next);
+                        if (next != null)
+                            if (!next.equals(tipo))
+                                return false;
+
+
                     }
-                    if(ritornoTipo(0, player.libreria.get(0).size(), player)!=null&&ritornoTipo(j + i, player.libreria.get(0).size() - j - 1, player)!=null) {
-
-                        if (ritornoTipo(0, player.libreria.get(0).size(), player).equals(
-                                ritornoTipo(j + i, player.libreria.get(0).size() - j - 1, player))) {
-                            contDiagoSec++;
-                            if (contDiagoSec >= player.libreria.get(0).size()) {
-                                return true;
-                            }
-                        }
-                    }
-
 
                 }
+
+
             }
-
-
         }
-        return false;
+        return true;
+
+    }
+
+    private boolean diagop(Player player, int index) {
+
+        String tipo = ritornoTipo(index, 0, player);
+        for (int i = index; i < player.libreria.size(); i++) {
+
+            if (tipo != null) {
+                for (int j = 0; j < player.libreria.get(0).size(); j++) {
+                    if (i - index == j) {
+                        String next = ritornoTipo(i, j, player);
+                        if (next != null)
+                            if (!next.equals(tipo))
+                                return false;
+
+
+                    }
+
+                }
+
+
+            }
+        }
+        return true;
     }
 }

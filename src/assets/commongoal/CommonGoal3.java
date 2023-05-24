@@ -12,26 +12,64 @@ public class CommonGoal3 extends CommonGoal {
     }
 
     public boolean controllo(Player player) {
-        int contC = 0;
-        for (int i = 0; i < player.libreria.size(); i++) {
-            int cont = 0;
-            for (int j = 0; j < player.libreria.get(i).size()-1; j++) {
-                if (ritornoTipo(i, j, player) != null && ritornoTipo(i, j+1, player) != null) {
-                    if (ritornoTipo(i, j, player).equals(ritornoTipo(i, j + 1, player))) {
-                        cont++;
+        int counter = 0;
+        //--- Controllo per colonna
+        counter += controlloRriga(player.libreria.size(), player.libreria.get(0).size(), player.libreria.get(0).size(), player, 0);
+        //--- Controllo per riga
+        counter += controlloColonna(player.libreria.get(0).size(), player.libreria.size(), player.libreria.size(), player, 1);
+        if (counter >= 4)
+            return true;
+        return false;
+
+    }
+
+    private int controlloRriga(int x, int y, int z, Player player, int scelta) {
+        int counter = 0;
+        //--- Controllo per colonna
+        for (int i = 0; i < x; i++) {
+            int controllo = 0;
+            for (int j = 0; j < y; j++) {
+                String tipo = ritornoTipo(i, j, player);
+                if (tipo != null) {
+                    for (int k = 0; k < z; k++) {
+                        String tipoN = ritornoTipo(i, k, player);
+                        if (tipoN != null) {
+                            if (j != k && tipo.equals(tipoN)) {
+                                controllo++;
+                            }
+
+                        }
                     }
                 }
-                if (cont == 4) {
-                    contC++;
-                    break;
+            }
+            if (controllo >= 4)
+                counter++;
+        }
+        return counter;
+    }
+
+    private int controlloColonna(int x, int y, int z, Player player, int scelta) {
+        int counter = 0;
+        //--- Controllo per colonna
+        for (int i = 0; i < x; i++) {
+            int controllo = 0;
+            for (int j = 0; j < y; j++) {
+                String tipo = ritornoTipo(j, i, player);
+                if (tipo != null) {
+                    for (int k = 0; k < z; k++) {
+                        String tipoN = ritornoTipo(k, i, player);
+                        if (tipoN != null) {
+                            if (j != k && tipo.equals(tipoN)) {
+                                controllo++;
+                            }
+
+                        }
+                    }
                 }
             }
+            if (controllo >= 4)
+                counter++;
         }
-        if (contC >= 4) {
-            return true;
-        } else {
-            return false;
-        }
-
+        return counter;
     }
 }
