@@ -21,7 +21,7 @@ public class Cella {
     }
 
     public boolean isEmpty() {
-        if (tile.getId() == null) {
+        if (tile.type == null||tile.getId()==null) {
             return true;
         }
         return false;
