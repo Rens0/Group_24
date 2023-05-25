@@ -27,33 +27,38 @@ public class CommonGoal11 extends CommonGoal {
         }
         return foundMainDiagonalValue || foundSecondaryDiagonalValue;*/
         boolean diagop = false;
-        Boolean diagos;
+        Boolean diagos = false;
         for (int i = 0; i < player.libreria.size(); i++) {
             diagop = diagop(player, i);
-            //diagos = diagos(player, i);
+            diagos = diagos(player, i);
+            if(diagop||diagos)
+                return true;
         }
-        return diagop;
+        return false;
     }
 
     private boolean diagos(Player player, int index) {
         String tipo = ritornoTipo(index, 0, player);
-        for (int i = index; i < player.libreria.size(); i++) {
+        for (int i = 0; i < player.libreria.size(); i++) {
             if (tipo != null) {
                 for (int j = 0; j < player.libreria.get(0).size(); j++) {
-                    if ((player.libreria.get(0).size()-index-1) == j) {
+                    if ((index-i) == j) {
                         String next = ritornoTipo(i, j, player);
-                        System.out.println(next);
-                        if (next != null)
+                        if (next != null) {
                             if (!next.equals(tipo))
                                 return false;
 
+                        }else return false;
 
                     }
+
 
                 }
 
 
             }
+            else return false;
+
         }
         return true;
 
@@ -68,10 +73,10 @@ public class CommonGoal11 extends CommonGoal {
                 for (int j = 0; j < player.libreria.get(0).size(); j++) {
                     if (i - index == j) {
                         String next = ritornoTipo(i, j, player);
-                        if (next != null)
+                        if (next != null) {
                             if (!next.equals(tipo))
                                 return false;
-
+                        }else return false;
 
                     }
 
@@ -79,6 +84,7 @@ public class CommonGoal11 extends CommonGoal {
 
 
             }
+            else return false;
         }
         return true;
     }

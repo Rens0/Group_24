@@ -49,7 +49,7 @@ public class Test {
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("1"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("B"));//---Aggiungo una tessera
 
 
@@ -59,26 +59,26 @@ public class Test {
         //---COlonne riga2
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("2"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("B"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("3"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera("A"));//---Aggiungo una tessera
 
         player.libreria.add(arrayList);//---Aggiungo riga
 
         arrayList = new ArrayList<>();
         //---COlonne riga3
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("4"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("B"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("5"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera("A"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
 
         player.libreria.add(arrayList);//---Aggiungo riga
         arrayList = new ArrayList<>();
         //---COlonne riga4
-        arrayList.add(addTessere.aggiungiTessera("6"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("B"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("7"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera("A"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
 
@@ -88,7 +88,7 @@ public class Test {
 
         //---COlonne riga5
         arrayList.add(addTessere.aggiungiTessera("B"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("8"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera("A"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
