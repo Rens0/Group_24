@@ -50,7 +50,5 @@ public class CommonGoal9 extends CommonGoal {
     }
 
 
-    public void setCardContainer(CardContainer cardContainer) {
-        this.cardContainer = cardContainer;
-    }
+
 }

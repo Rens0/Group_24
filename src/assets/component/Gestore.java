@@ -56,7 +56,7 @@ public class Gestore {
             player.setId_commonGoal(id_commonGoal); //--- Aggiungo ai giocatori il common goal
         }
         for (Card card : id_commonGoal) {//---Scorro i commongoal id e creo solo le classi corrispondenti a quegli id
-            commonGoals.put(card.id, CommonGoal.getCommonGoalById(card.id, commonGoal.path, assegnamentoToken(), tile));
+            commonGoals.put(card.id, CommonGoal.getCommonGoalById(card.id, commonGoal.path, assegnamentoToken()));
         }
     }
 

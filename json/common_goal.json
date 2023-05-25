@@ -40,6 +40,9 @@
     {
       "id": 10,
       "description": "Five tiles of the same type forming an X."
+    },{
+      "id": 11,
+      "description": "Five tiles of the same type forming a\ndiagonal."
     }
   ]
 }

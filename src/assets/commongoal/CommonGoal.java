@@ -75,7 +75,7 @@ public abstract class CommonGoal {
         }
     }
 
-    public static CommonGoal getCommonGoalById(String id, String path, ArrayList<Card> token, CardContainer tile) {
+    public static CommonGoal getCommonGoalById(String id, String path, ArrayList<Card> token) {
         Class<? extends CommonGoal> clazz = commonGoals.get(id);
         if (clazz == null) throw new RuntimeException();
 
@@ -83,10 +83,7 @@ public abstract class CommonGoal {
             Constructor<? extends CommonGoal> constructor = clazz.getConstructor(String.class, ArrayList.class);
             CommonGoal goal = constructor.newInstance(path, token);
 
-            if (goal instanceof CommonGoal9) {
-                CommonGoal9 goal9 = (CommonGoal9) goal;
-                goal9.setCardContainer(tile);
-            }
+
 
             return goal;
         } catch (Exception e) {
