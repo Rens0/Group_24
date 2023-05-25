@@ -66,14 +66,11 @@ public class Gestore {
             case 2 -> {
                 token.add(selectToken("scoring_8"));
                 token.add(selectToken("scoring_4"));
-
             }
             case 3 -> {
                 token.add(selectToken("scoring_8"));
                 token.add(selectToken("scoring_6"));
                 token.add(selectToken("scoring_4"));
-
-
             }
             case 4 -> {
                 token.add(selectToken("scoring_8"));
