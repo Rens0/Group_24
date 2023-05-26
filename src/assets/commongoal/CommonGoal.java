@@ -39,10 +39,10 @@ public abstract class CommonGoal {
         int conta = 0;
         for (int i = 0; i < player.getLibreria().getRighe(); i++) {
 
-            if (player.getLibreria().getLibreria().get(i).get(colonna).getTessera() == null) {
+            if (player.getLibreria().getLibreria().get(i).get(colonna).isEmpty()) {
                 conta++;
             }
-            if (player.getLibreria().getLibreria().get(i).get(colonna).getTessera() != null) {
+            if (!player.getLibreria().getLibreria().get(i).get(colonna).isEmpty()) {
                 break;
             }
         }
