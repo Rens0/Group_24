@@ -37,6 +37,7 @@ public class CommonGoal2 extends CommonGoal {
                 } else
                     controllo = false;
 
+
             }
             if (controllo)
                 counter++;
