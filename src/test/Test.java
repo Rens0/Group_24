@@ -46,68 +46,67 @@ public class Test {
 
 
         //---Colonne riga1
+        arrayList.add(addTessere.aggiungiTessera("a"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
 
 
         player.getLibreria().getLibreria().add(arrayList);//---Aggiungo riga
 
         arrayList = new ArrayList<>();
         //---COlonne riga2
+        arrayList.add(addTessere.aggiungiTessera("b"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
 
         player.getLibreria().getLibreria().add(arrayList);//---Aggiungo riga
 
         arrayList = new ArrayList<>();
         //---COlonne riga3
+        arrayList.add(addTessere.aggiungiTessera("c"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("libro"));//---Aggiungo una tessera
-
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         player.getLibreria().getLibreria().add(arrayList);//---Aggiungo riga
         arrayList = new ArrayList<>();
         //---COlonne riga4
+        arrayList.add(addTessere.aggiungiTessera("d"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
 
         player.getLibreria().getLibreria().add(arrayList);//---Aggiungo riga
 
         arrayList = new ArrayList<>();
 
         //---COlonne riga5
-        arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("cornice"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("cornice"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera("e"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
 
 
         player.getLibreria().getLibreria().add(arrayList);//---Aggiungo riga
         arrayList = new ArrayList<>();
         //---Colonne riga6
-        arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("cornice"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("cornice"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("cornice"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("cornice"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera("f"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
 
         player.getLibreria().getLibreria().add(arrayList);//---Aggiungo riga
         player.printLibreria();
-        System.out.println(player.getLibreria().contaPuntiCaselleAdiacenti());
-        System.out.println(player.getLibreria().tipoCasella(5, 1));
-        CommonGoal12 commonGoal = new CommonGoal12(null, null);
+      //  System.out.println(player.getLibreria().contaPuntiCaselleAdiacenti());
+       // System.out.println(player.getLibreria().tipoCasella(5, 1));
+        CommonGoal2 commonGoal = new CommonGoal2(null, null);
         System.out.println(commonGoal.controllo(player));
 
         
