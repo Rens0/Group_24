@@ -5,16 +5,8 @@ import assets.card.CardContainer;
 
 import java.util.ArrayList;
 
-public class Player /*extends Libreria*/ implements Comparable<Player> {
+public class Player implements Comparable<Player> {
 
-    /*public String name;
-    public int ID;
-    private static int ID_Number = 0;
-    public int points = 0;
-    public ArrayList<Card> token;
-    public CardContainer personalGoal;
-    public ArrayList<Card> id_commonGoal;
-    */
 	private String name;
     private int ID;
     private static int ID_Number = 0;
@@ -25,7 +17,6 @@ public class Player /*extends Libreria*/ implements Comparable<Player> {
     private Libreria libreria;
     
     public Player(String name) {
-    	//super(6,5);
     	libreria= new Libreria();
         this.name = name;
         this.ID = ID_Number;

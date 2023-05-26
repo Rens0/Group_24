@@ -11,7 +11,7 @@ public class Libreria {
 
     private int righe;
     private int colonne;
-    public List<List<Cella>> libreria;
+    private List<List<Cella>> libreria;
     
 
 	//private Cella[][] libreria;
