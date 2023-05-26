@@ -14,7 +14,7 @@ abstract class Libreria {
     public List<List<Cella>> libreria;
 
     public Libreria() {
-        this(1, 1);
+        this(6, 5);
     }
 
     public Libreria(int righe, int colonne) {
@@ -23,8 +23,8 @@ abstract class Libreria {
 
 
         libreria = new ArrayList<>();
-        /*ArrayList<Cella> rigac;
-        for (int i = 0; i < righe; i++) {
+        ArrayList<Cella> rigac;
+        /*for (int i = 0; i < righe; i++) {
             rigac = new ArrayList<>();
 
             for (int j = 0; j < colonne; j++) {
@@ -96,15 +96,16 @@ abstract class Libreria {
         return libreria.get(riga).get(colonna).getTessera().type;
     }
 
-    public boolean checkCasella(int riga, int colonna, boolean visitata[][], String tipo) {
-        boolean dentroMatrice = (riga >= 0) && (riga < righe) && (colonna >= 0) && (colonna < colonne);
-        return dentroMatrice && !(libreria.get(riga).get(colonna).isEmpty())
+    public boolean checkCasella(int riga, int colonna, boolean visitato[][], String tipo) {
+        //boolean dentroMatrice = (riga >= 0) && (riga < righe) && (colonna >= 0) && (colonna < colonne);
+        return (riga >= 0) && (riga < righe) && (colonna >= 0) && (colonna < colonne) && !(libreria.get(riga).get(colonna).isEmpty())
                 && tipoCasella(riga, colonna).equals(tipo)
-                && !(visitata[riga][colonna]);
+                && !(visitato[riga][colonna]);
     }
 
     public int contaCaselleAdicenti(int riga, int colonna, boolean visitata[][], String tipo) {
         int contatore = 1;
+        visitata[riga][colonna]=true;
         if (checkCasella(riga, colonna + 1, visitata, tipo)) {//destra
             contatore += contaCaselleAdicenti(riga, colonna + 1, visitata, tipo);
         }
@@ -122,8 +123,12 @@ abstract class Libreria {
 
     private static final String tipi[] = {"cornice", "gatto", "gioco", "trofeo", "libro", "pianta"};
 
-    public ArrayList<Integer> contaCaselleGruppi() {//ritorna un array con il numero di caselle di ogni gruppo
-        ArrayList<Integer> caselleGruppo = new ArrayList<>();
+    private ArrayList<Integer> caselleGruppo = new ArrayList<>();
+    public ArrayList<Integer> getCaselleGruppo() {
+		return caselleGruppo;
+	}
+
+	public void contaCaselleGruppi() {//ritorna un array con il numero di caselle di ogni gruppo
         for (String tipo : tipi) {
             boolean visitato[][] = new boolean[righe][colonne];
             for (int riga = 0; riga < righe; riga++) {
@@ -136,12 +141,12 @@ abstract class Libreria {
                 }
             }
         }
-        return caselleGruppo;
+        
     }
 
     public int contaPuntiCaselleAdiacenti() {
         int punti = 0;
-        for (int i : contaCaselleGruppi()) {
+        for (int i : caselleGruppo) {
             if (i == 3) {
                 punti += 2;
             }

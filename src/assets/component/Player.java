@@ -16,6 +16,7 @@ public class Player extends Libreria implements Comparable<Player> {
     public ArrayList<Card> id_commonGoal;
 
     public Player(String name) {
+    	super(6,5);
         this.name = name;
         this.ID = ID_Number;
         ID_Number++;
