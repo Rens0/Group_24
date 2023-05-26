@@ -89,8 +89,17 @@ abstract class Libreria {
         } else {
             return false;
         }
+        /*for (int j=0; j<colonne; j++) {
+        	for(int i=6; i>0;i--) {
+        		if(libreria.get(i).get(j).getTessera()!=null) {
+        			return true; 
+        		}
+        		else {
+        			return false; 
+        		}
+        	}
+        }*/
     }
-
 
     public String tipoCasella(int riga, int colonna) {
         return libreria.get(riga).get(colonna).getTessera().type;
@@ -128,16 +137,19 @@ abstract class Libreria {
 		return caselleGruppo;
 	}
 
-	public void contaCaselleGruppi() {//ritorna un array con il numero di caselle di ogni gruppo
+	private void contaCaselleGruppi() {//ritorna un array con il numero di caselle di ogni gruppo
+		
         for (String tipo : tipi) {
             boolean visitato[][] = new boolean[righe][colonne];
             for (int riga = 0; riga < righe; riga++) {
                 for (int colonna = 0; colonna < colonne; colonna++) {
                     if (!(libreria.get(riga).get(colonna).isEmpty()) && tipoCasella(riga, colonna).equals(tipo)
-                            && !(visitato[riga][colonna])) ;
+                            && !(visitato[riga][colonna])) {
 
-                    int numeroCaselle = contaCaselleAdicenti(riga, colonna, visitato, tipo);
+                    	int numeroCaselle = contaCaselleAdicenti(riga, colonna, visitato, tipo);
+                    if(numeroCaselle>2)
                     caselleGruppo.add(numeroCaselle);
+                    }
                 }
             }
         }
@@ -146,6 +158,7 @@ abstract class Libreria {
 
     public int contaPuntiCaselleAdiacenti() {
         int punti = 0;
+        contaCaselleGruppi();
         for (int i : caselleGruppo) {
             if (i == 3) {
                 punti += 2;
