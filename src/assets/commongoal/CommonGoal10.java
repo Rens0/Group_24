@@ -12,8 +12,8 @@ public class CommonGoal10 extends CommonGoal {
     }
 
     public boolean controllo(Player player) {
-        for (int i = 0; i < player.libreria.size() - 2; i++) {
-            for (int j = 0; j < player.libreria.get(0).size() - 2; j++) {
+        for (int i = 0; i < player.getLibreria().getRighe() - 2; i++) {
+            for (int j = 0; j < player.getLibreria().getColonne() - 2; j++) {
                 String usx = ritornoTipo(i, j, player);
                 String udx = ritornoTipo(i, j + 2, player);
                 String dsx = ritornoTipo(i + 2, j, player);

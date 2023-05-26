@@ -16,7 +16,7 @@ public class CommonGoal7 extends CommonGoal {
         int counter = 0;
         ArrayList<String> base = getArray(player, 0);
         if (base != null) {
-            for (int i = 0; i < player.libreria.size(); i++) {
+            for (int i = 0; i < player.getLibreria().getRighe(); i++) {
                 int controllo = 0;
 
                 ArrayList<String> confronto = getArray(player, i);
@@ -41,12 +41,12 @@ public class CommonGoal7 extends CommonGoal {
         ArrayList<String> tessere = new ArrayList<>();
         //--- Utilizzo array di support
 
-        for (int i = index; i < player.libreria.size(); i++) {
+        for (int i = index; i < player.getLibreria().getRighe(); i++) {
             int counter = 0;
             if (tessere.size() != 3)
                 tessere = new ArrayList<>();
 
-            for (int j = 0; j < player.libreria.get(0).size(); j++) {
+            for (int j = 0; j < player.getLibreria().getColonne(); j++) {
                 String tessera = ritornoTipo(i, j, player);
                 if (tessera != null) {
                     counter++;
@@ -54,7 +54,7 @@ public class CommonGoal7 extends CommonGoal {
                         tessere.add(tessera);
                 }
             }
-            if (tessere.size() == 3 && counter == player.libreria.get(0).size())
+            if (tessere.size() == 3 && counter == player.getLibreria().getColonne())
                 return tessere;
         }
         return null;

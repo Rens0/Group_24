@@ -17,12 +17,12 @@ public class CommonGoal2 extends CommonGoal {
     public boolean controllo(Player player) {
 
         int counter = 0;
-        for (int j = 0; j < player.libreria.get(0).size(); j++) {
+        for (int j = 0; j < player.getLibreria().getColonne(); j++) {
             Boolean controllo = true;
-            for (int i = 0; i < player.libreria.size(); i++) {
+            for (int i = 0; i < player.getLibreria().getRighe(); i++) {
                 String tessera = ritornoTipo(i, j, player);
                 if (tessera != null) {
-                    for (int k = 0; k < player.libreria.size(); k++) {
+                    for (int k = 0; k < player.getLibreria().getRighe(); k++) {
                         String tesseran = ritornoTipo(k, j, player);
                         if (tesseran != null) {
                             if (k != i && tessera.equals(tesseran)) {

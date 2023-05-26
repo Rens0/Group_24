@@ -15,8 +15,8 @@ public class CommonGoal4 extends CommonGoal {
     public boolean controllo(Player player) {
         int counter = 0;
         //---Controllo colonna
-        for (int i = 0; i < player.libreria.size(); i++) {
-            for (int j = 0; j < player.libreria.get(0).size() - 1; j++) {
+        for (int i = 0; i < player.getLibreria().getRighe(); i++) {
+            for (int j = 0; j < player.getLibreria().getColonne() - 1; j++) {
                 String t = ritornoTipo(i, j, player);
                 if (t != null) {
                     String t_next = ritornoTipo(i, j + 1, player);
@@ -28,8 +28,8 @@ public class CommonGoal4 extends CommonGoal {
             }
         }
         //---Controllo riga
-        for (int i = 0; i < player.libreria.get(0).size(); i++) {
-            for (int j = 0; j < player.libreria.size() - 1; j++) {
+        for (int i = 0; i < player.getLibreria().getColonne(); i++) {
+            for (int j = 0; j < player.getLibreria().getRighe() - 1; j++) {
                 String t = ritornoTipo(j, i, player);
                 if (t != null) {
                     String t_next = ritornoTipo(j + 1, i, player);

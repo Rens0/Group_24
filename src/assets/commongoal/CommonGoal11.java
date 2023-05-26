@@ -28,7 +28,7 @@ public class CommonGoal11 extends CommonGoal {
         return foundMainDiagonalValue || foundSecondaryDiagonalValue;*/
         boolean diagop = false;
         Boolean diagos = false;
-        for (int i = 0; i < player.libreria.size(); i++) {
+        for (int i = 0; i < player.getLibreria().getRighe(); i++) {
             diagop = diagop(player, i);
             diagos = diagos(player, i);
             if(diagop||diagos)
@@ -39,9 +39,9 @@ public class CommonGoal11 extends CommonGoal {
 
     private boolean diagos(Player player, int index) {
         String tipo = ritornoTipo(index, 0, player);
-        for (int i = 0; i < player.libreria.size(); i++) {
+        for (int i = 0; i < player.getLibreria().getRighe(); i++) {
             if (tipo != null) {
-                for (int j = 0; j < player.libreria.get(0).size(); j++) {
+                for (int j = 0; j < player.getLibreria().getColonne(); j++) {
                     if ((index-i) == j) {
                         String next = ritornoTipo(i, j, player);
                         if (next != null) {
@@ -67,10 +67,10 @@ public class CommonGoal11 extends CommonGoal {
     private boolean diagop(Player player, int index) {
 
         String tipo = ritornoTipo(index, 0, player);
-        for (int i = index; i < player.libreria.size(); i++) {
+        for (int i = index; i < player.getLibreria().getRighe(); i++) {
 
             if (tipo != null) {
-                for (int j = 0; j < player.libreria.get(0).size(); j++) {
+                for (int j = 0; j < player.getLibreria().getColonne(); j++) {
                     if (i - index == j) {
                         String next = ritornoTipo(i, j, player);
                         if (next != null) {

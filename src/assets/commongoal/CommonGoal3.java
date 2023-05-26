@@ -14,9 +14,9 @@ public class CommonGoal3 extends CommonGoal {
     public boolean controllo(Player player) {
         int counter = 0;
         //--- Controllo per colonna
-        counter += controlloRriga(player.libreria.size(), player.libreria.get(0).size(), player.libreria.get(0).size(), player, 0);
+        counter += controlloRriga(player.getLibreria().getRighe(), player.getLibreria().getColonne(), player.getLibreria().getColonne(), player, 0);
         //--- Controllo per riga
-        counter += controlloColonna(player.libreria.get(0).size(), player.libreria.size(), player.libreria.size(), player, 1);
+        counter += controlloColonna(player.getLibreria().getColonne(), player.getLibreria().getRighe(), player.getLibreria().getRighe(), player, 1);
         if (counter >= 4)
             return true;
         return false;

@@ -17,8 +17,8 @@ public class CommonGoal9 extends CommonGoal {
         ArrayList<String> tipi = cercoTipi(player);
         for (int k = 0; k < tipi.size(); k++) {
             int contatore = 0;
-            for (int i = 0; i < player.libreria.size(); i++) {
-                for (int j = 0; j < player.libreria.get(0).size(); j++) {
+            for (int i = 0; i < player.getLibreria().getRighe(); i++) {
+                for (int j = 0; j < player.getLibreria().getColonne(); j++) {
                     String tipo = ritornoTipo(i, j, player);
                     if (tipo != null) {
                         if (tipo.equals(tipi.get(k)))
@@ -35,8 +35,8 @@ public class CommonGoal9 extends CommonGoal {
 
     private ArrayList<String> cercoTipi(Player player) {
         ArrayList<String> tipi = new ArrayList<>();
-        for (int i = 0; i < player.libreria.size(); i++) {
-            for (int j = 0; j < player.libreria.get(0).size(); j++) {
+        for (int i = 0; i < player.getLibreria().getRighe(); i++) {
+            for (int j = 0; j < player.getLibreria().getColonne(); j++) {
                 String tipo = ritornoTipo(i, j, player);
                 if (tipo != null) {
                     if (!tipi.contains(tipo))

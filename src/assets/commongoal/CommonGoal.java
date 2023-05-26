@@ -37,12 +37,12 @@ public abstract class CommonGoal {
 
     public int ContaCaselleLibere(Player player, int colonna) {
         int conta = 0;
-        for (int i = 0; i < player.libreria.size(); i++) {
+        for (int i = 0; i < player.getLibreria().getRighe(); i++) {
 
-            if (player.libreria.get(i).get(colonna).getTessera() == null) {
+            if (player.getLibreria().getLibreria().get(i).get(colonna).getTessera() == null) {
                 conta++;
             }
-            if (player.libreria.get(i).get(colonna).getTessera() != null) {
+            if (player.getLibreria().getLibreria().get(i).get(colonna).getTessera() != null) {
                 break;
             }
         }
@@ -51,7 +51,7 @@ public abstract class CommonGoal {
 
     public String ritornoTipo(int riga, int colonna, Player player) {
         String tipo;
-        tipo = player.libreria.get(riga).get(colonna).tile.type;
+        tipo = player.getLibreria().getLibreria().get(riga).get(colonna).tile.type;
         return tipo;
     }
 

@@ -6,13 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-abstract class Libreria {
+public class Libreria {
 
 
     private int righe;
     private int colonne;
     public List<List<Cella>> libreria;
+    
 
+	//private Cella[][] libreria;
     public Libreria() {
         this(6, 5);
     }
@@ -24,11 +26,12 @@ abstract class Libreria {
 
         libreria = new ArrayList<>();
         ArrayList<Cella> rigac;
-        /*for (int i = 0; i < righe; i++) {
+       /* for (int i = 0; i < righe; i++) {
             rigac = new ArrayList<>();
 
             for (int j = 0; j < colonne; j++) {
                 rigac.add(new Cella());
+            	//libreria[i][j]= new Cella();
             }
             libreria.add(rigac);
         }*/
@@ -45,6 +48,7 @@ abstract class Libreria {
 
     public Cella getCella(int riga, int colonna) {
         return libreria.get(riga).get(colonna);
+    	//return libreria[riga][colonna];
     }
 
 
@@ -53,6 +57,7 @@ abstract class Libreria {
         //--- Conto celle disponibili
         for (int j = 0; j < righe; j++) {
             if (libreria.get(j).get(COLONNASELEZIONATA).getTessera().type == null) {
+        	//if (libreria[j][COLONNASELEZIONATA].getTessera().type == null) {
                 contaCelle++;
             }
         }
@@ -62,9 +67,12 @@ abstract class Libreria {
             for (int i = contaCelle - 1; i >= 0; i--) {
 
                 if (libreria.get(i).get(COLONNASELEZIONATA).getTessera().type == null) {
+            	//if (libreria[i][COLONNASELEZIONATA].getTessera().type == null) {
 
                     if (ordine.size() > 0) {
                         libreria.get(i).get(COLONNASELEZIONATA).setCella(card.get(ordine.get(0)));
+                    	//libreria[i][COLONNASELEZIONATA].setCella(card.get(ordine.get(0)));
+                    	
                         ordine.remove(0);
                     }
 
@@ -176,4 +184,7 @@ abstract class Libreria {
 
         return punti;
     }
+    public List<List<Cella>> getLibreria() {
+		return libreria;
+	}
 }

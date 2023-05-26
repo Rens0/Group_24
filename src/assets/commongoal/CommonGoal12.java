@@ -14,7 +14,7 @@ public class CommonGoal12 extends CommonGoal {
 
     public boolean controllo(Player player) {
         int casellePrimaColonna = ContaCaselleLibere(player, 0);
-        for (int j = 1; j < player.libreria.size(); j++) {
+        for (int j = 1; j < player.getLibreria().getRighe(); j++) {
             if (casellePrimaColonna != (ContaCaselleLibere(player, j) - j)) {
                 break;
             }
@@ -22,7 +22,7 @@ public class CommonGoal12 extends CommonGoal {
                 return true;
             }
         }
-        for (int j = 1; j < player.libreria.size(); j++) {
+        for (int j = 1; j < player.getLibreria().getRighe(); j++) {
             if (casellePrimaColonna != (ContaCaselleLibere(player, j) + j)) {
                 break;
             }

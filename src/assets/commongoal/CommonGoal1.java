@@ -14,8 +14,8 @@ public class CommonGoal1 extends CommonGoal {
 
     public boolean controllo(Player player) {
         int counter = 0;
-        for (int i = 0; i < player.libreria.size() - 1; i++) {
-            for (int j = 0; j < player.libreria.get(0).size() - 1; j++) {
+        for (int i = 0; i < player.getLibreria().getRighe() - 1; i++) {
+            for (int j = 0; j < player.getLibreria().getColonne() - 1; j++) {
                 boolean controllo = false;
                 if (ritornoTipo(i, j, player) != null && ritornoTipo(i, j + 1, player) != null && ritornoTipo(i + 1, j, player) != null && ritornoTipo(i + 1, j + 1, player) != null) {
                     controllo = ritornoTipo(i, j, player).equals(ritornoTipo(i, j + 1, player)) && ritornoTipo(i, j, player).equals(ritornoTipo(i + 1, j, player)) && ritornoTipo(i + 1, j, player).equals(ritornoTipo(i + 1, j + 1, player));

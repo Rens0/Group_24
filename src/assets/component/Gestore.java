@@ -44,7 +44,7 @@ public class Gestore {
 
 
         for (Player player : players) {
-            player.personalGoal = selectRandomPersonalGoal();//--- Assegnamento dei personal goal
+            player.setPersonalGoal(selectRandomPersonalGoal());//--- Assegnamento dei personal goal
         }
         for (int i = 0; i < maxCommonGoal; i++) {
             id_commonGoal.add(selectRandomCommonGoal());//--- prendo degli id dei commongoal randomici e li aggiungo
@@ -101,7 +101,7 @@ public class Gestore {
                 for (Card card : id_commonGoal) {
                     controlloCommonGoal(player, card);   //---- Controllo che il common goal sia verificato se viene verificato, viene prelevato il token dalla classe commongoal_n viene aggiunto ai token del player e verra rimosso l'id  dai goal da verificare del player
                 }
-                if (player.libreriaPiena()) {
+                if (player.getLibreria().libreriaPiena()) {
                     if (finito.size() == 0) {//---Se primo giocatore prende il l'endgame token
                         player.addToken(selectToken("end game"));
                         System.out.println("Hai finito per primo e hai ottenuto l'end game token");
@@ -120,7 +120,7 @@ public class Gestore {
         Collections.sort(finito, Collections.reverseOrder());
         int i = 1;
         for (Player p : finito) {
-            System.out.println(i + " " + p.name + " point: " + p.points);
+            System.out.println(i + " " + p.getName() + " point: " + p.getPoints());
             i++;
         }
 
@@ -131,11 +131,11 @@ public class Gestore {
     private Boolean controlloCommonGoal(Player player, Card card) {//--- Controllo il common goal specifico
         CommonGoal commonGoal = commonGoals.get(card.id);
 
-        if (!player.id_commonGoal.contains(card)) //--- controllo che lid del controllo sia presente in player
+        if (!player.getId_commonGoal().contains(card)) //--- controllo che lid del controllo sia presente in player
             return false;
         if (commonGoal.controllo(player)) {
             player.addToken(commonGoal.prendiToken(), card);
-            System.out.println("Hai sbloccato il common goal: "+card.id+" token: "+player.token.get(player.token.size()-1).id);
+            System.out.println("Hai sbloccato il common goal: "+card.id+" token: "+player.getToken().get(player.getToken().size()-1).id);
             return true;
         }
         return false;
@@ -194,7 +194,7 @@ public class Gestore {
                 System.out.println("Seleziona colonna: ");
                 Scanner sc = new Scanner(System.in);
                 colonna = sc.nextInt();
-                if (colonna >= 0 && colonna <= player.libreria.get(0).size() - 1) {
+                if (colonna >= 0 && colonna <= player.getLibreria().getColonne() - 1) {
                     continua = false;
                 } else {
                     System.out.println("Errore");
