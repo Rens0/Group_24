@@ -172,7 +172,9 @@ public class Player implements Comparable<Player> {
         return null;
     }
 
-
+	public void printName() {
+		System.out.println(name);
+	}
     @Override
     public int compareTo(Player player) {
         if(this.points > player.points)

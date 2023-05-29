@@ -86,10 +86,13 @@ public class Gestore {
     public void start() {
         do {
             for (Player player : players) {
+            	System.out.print("E' il turno di : ");
+            	player.printName();
                 if (!tabellone.controlloTabellone()) {//--- Se il tabellone non ha tessere adiacenti lo riempie
                     tabellone.riempimentoTabellone(tile);
                 }
                 tabellone.print();//--- Stampo il tabellone
+                
                 player.printPersonalGoal();
                 player.printLibreria();
                 printCommonGoal();
