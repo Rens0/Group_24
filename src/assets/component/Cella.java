@@ -4,6 +4,15 @@ import assets.card.Card;
 
 public class Cella {
     public Card tile;
+
+    public Card getTile() {
+        return tile;
+    }
+
+    public int getAccessibilitaCella() {
+        return accessibilitaCella;
+    }
+
     public int accessibilitaCella;
 
     public Cella() {

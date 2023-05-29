@@ -10,19 +10,19 @@ import java.util.*;
 
 public class Gestore {
 
-    public Tabellone tabellone;
-    public ArrayList<Player> players;
-    public ArrayList<Player> finito;
-    public CardContainer commonGoal;
-    public CardContainer scoringToken;
-    public CardContainer tile;
-    public Goals personalGoal;
-    public int maxTesserePescabili;
+    private Tabellone tabellone;
+    private ArrayList<Player> players;
+    private ArrayList<Player> finito;
+    private CardContainer commonGoal;
+    private CardContainer scoringToken;
+    private CardContainer tile;
+    private Goals personalGoal;
+    private int maxTesserePescabili;
 
-    public ArrayList<Card> id_commonGoal;
-    public int maxCommonGoal;
+    private ArrayList<Card> id_commonGoal;
+    private int maxCommonGoal;
 
-    public final Map<String, CommonGoal> commonGoals = new HashMap<>();
+    private final Map<String, CommonGoal> commonGoals = new HashMap<>();
 
 
     public Gestore(Tabellone tabellone, ArrayList<Player> players, CardContainer commonGoal, CardContainer scoringToken, CardContainer tile, Goals personalGoal) {
@@ -122,8 +122,9 @@ public class Gestore {
         }
         Collections.sort(finito, Collections.reverseOrder());
         int i = 1;
+
         for (Player p : finito) {
-            System.out.println(i + " " + p.name + " point: " + p.points);
+            System.out.println(i + " " + p.getName() + " point: " + p.getPoints());
             i++;
         }
 
@@ -134,11 +135,11 @@ public class Gestore {
     private Boolean controlloCommonGoal(Player player, Card card) {//--- Controllo il common goal specifico
         CommonGoal commonGoal = commonGoals.get(card.id);
 
-        if (!player.id_commonGoal.contains(card)) //--- controllo che lid del controllo sia presente in player
+        if (!player.getId_commonGoal().contains(card)) //--- controllo che lid del controllo sia presente in player
             return false;
         if (commonGoal.controllo(player)) {
             player.addToken(commonGoal.prendiToken(), card);
-            System.out.println("Hai sbloccato il common goal: "+commonGoal+" token: "+player.token.get(player.token.size()-1));
+            System.out.println("Hai sbloccato il common goal: "+commonGoal+" token: "+player.getToken().get(player.getToken().size()-1));
             return true;
         }
         return false;

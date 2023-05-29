@@ -30,20 +30,20 @@ public class Tabellone {
             for (int j = 0; j < mappa.get(i).size(); j++) {
                 switch (nPlayer) {
                     case 2: {
-                        if (mappa.get(i).get(j).accessibilitaCella == 2) {
+                        if (mappa.get(i).get(j).getAccessibilitaCella() == 2) {
                             mappa.get(i).get(j).setCella(randomCard(card, i, j));
                         }
                         break;
                     }
                     case 3: {
-                        if (mappa.get(i).get(j).accessibilitaCella >= 2 && mappa.get(i).get(j).accessibilitaCella <= 3) {
+                        if (mappa.get(i).get(j).getAccessibilitaCella() >= 2 && mappa.get(i).get(j).getAccessibilitaCella() <= 3) {
                             mappa.get(i).get(j).setCella(randomCard(card, i, j));
                         }
 
                         break;
                     }
                     case 4: {
-                        if (mappa.get(i).get(j).accessibilitaCella >= 2 && mappa.get(i).get(j).accessibilitaCella <= 4) {
+                        if (mappa.get(i).get(j).getAccessibilitaCella()>= 2 && mappa.get(i).get(j).getAccessibilitaCella() <= 4) {
                             mappa.get(i).get(j).setCella(randomCard(card, i, j));
                         }
                         break;
@@ -123,10 +123,10 @@ public class Tabellone {
             throw new Exception("riga " + riga + " > " + mappa.size());
         if (colonna > mappa.get(0).size())
             throw new Exception("colonna " + colonna + " > " + mappa.get(0).size());
-        if (mappa.get(riga).get(colonna).tile.id == null)
+        if (mappa.get(riga).get(colonna).getTile().id == null)
             throw new Exception("La tessera selezionata non è disponibile");
 
-        Card cartaSelezionata = mappa.get(riga).get(colonna).tile;
+        Card cartaSelezionata = mappa.get(riga).get(colonna).getTile();
         if (cartaSelezionata.type == null)
             throw new Exception("La carta e' null ");
 
@@ -222,7 +222,7 @@ public class Tabellone {
             for (int j = 0; j < mappa.get(0).size(); j++) {
                 if (i == mappa.size() - 1 && j >= mappa.get(0).size() - 1)
                     break;
-                Card card = mappa.get(i).get(j).tile;
+                Card card = mappa.get(i).get(j).getTile();
                 if (card.type != null) {
                     if (j >= mappa.get(0).size() - 1) {
                         if (controlloRighaSotto(card))
@@ -260,25 +260,25 @@ public class Tabellone {
     }
 
     public Boolean controlloRighaSotto(Card card) {
-        if (mappa.get(card.row + 1).get(card.column).tile.type != null)
+        if (mappa.get(card.row + 1).get(card.column).getTile().type != null)
             return true;
         return false;
     }
 
     public Boolean controlloColonnaDestra(Card card) {
-        if (mappa.get(card.row).get(card.column + 1).tile.type != null)
+        if (mappa.get(card.row).get(card.column + 1).getTile().type != null)
             return true;
         return false;
     }
 
     public Boolean controlloRighaSopra(Card card) {
-        if (mappa.get(card.row - 1).get(card.column).tile.type != null)
+        if (mappa.get(card.row - 1).get(card.column).getTile().type != null)
             return true;
         return false;
     }
 
     public Boolean controlloColonnaSinistra(Card card) {
-        if (mappa.get(card.row).get(card.column - 1).tile.type != null)
+        if (mappa.get(card.row).get(card.column - 1).getTile().type != null)
             return true;
         return false;
     }

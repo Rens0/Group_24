@@ -7,13 +7,20 @@ import java.util.ArrayList;
 
 public class Player extends Libreria implements Comparable<Player> {
 
-    public String name;
-    public int ID;
+    private String name;
+    private int ID;
     private static int ID_Number = 0;
-    public int points = 0;
-    public ArrayList<Card> token;
+
+
+    private int points = 0;
+    private ArrayList<Card> token;
     public CardContainer personalGoal;
-    public ArrayList<Card> id_commonGoal;
+
+    public ArrayList<Card> getId_commonGoal() {
+        return id_commonGoal;
+    }
+
+    private ArrayList<Card> id_commonGoal;
 
     public Player(String name) {
         this.name = name;
@@ -50,7 +57,7 @@ public class Player extends Libreria implements Comparable<Player> {
         int contatore = 0;
         for (int i = 0; i < personalGoal.list.size(); i++) {
             Card card = personalGoal.list.get(i);
-            if (card.type.equals(libreria.get(card.row).get(card.column).tile.type))
+            if (card.type.equals(libreria.get(card.row).get(card.column).getTile().type))
                 contatore++;
         }
         if(contatore==0)
@@ -149,4 +156,25 @@ public class Player extends Libreria implements Comparable<Player> {
             return -1;
         return 0;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public static int getID_Number() {
+        return ID_Number;
+    }
+
+    public ArrayList<Card> getToken() {
+        return token;
+    }
+
+    public CardContainer getPersonalGoal() {
+        return personalGoal;
+    }
 }
+
