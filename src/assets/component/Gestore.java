@@ -92,6 +92,7 @@ public class Gestore {
                 tabellone.print();//--- Stampo il tabellone
                 player.printPersonalGoal();
                 player.printLibreria();
+                printCommonGoal();
                 try {
                     pescaTesseraDalTabellone(player);
                 } catch (Exception e) {
@@ -362,5 +363,11 @@ public class Gestore {
         return id;
     }
 
-
+    private void printCommonGoal() {
+    	int i=1;
+    	for(Card card: id_commonGoal) {
+    		System.out.println("CommonGoal "+ i++ +":");
+    		System.out.println(card.getDescription());
+    	}
+    }
 }
