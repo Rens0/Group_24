@@ -10,6 +10,5 @@ public class AddTessere {
         Cella colonna = new Cella();
         colonna.setTile(new Card("0", tipo));
         return colonna;
-
     }
 }

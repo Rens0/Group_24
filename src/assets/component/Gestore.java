@@ -263,7 +263,7 @@ public class Gestore {
                 try {
                     Scanner sc = new Scanner(System.in);
                     System.out.print(card.get(i).getType() + " posizione: ");
-                    int numero = sc.nextInt();
+                    int numero = sc.nextInt()-1;
                     if (numero >= card.size() || numero < 0) {
                         System.out.println("Errore indice");
                         continua = true;
