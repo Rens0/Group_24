@@ -19,4 +19,20 @@ public class CardContainer {
         }
         return txt;
     }
+
+	public String getPath() {
+		return path;
+	}
+
+	public List<Card> getList() {
+		return list;
+	}
+
+	public ArrayList<Integer> getPoint() {
+		return point;
+	}
+
+	public String getId() {
+		return id;
+	}
 }

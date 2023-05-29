@@ -52,7 +52,7 @@ public abstract class CommonGoal {
 
     public String ritornoTipo(int riga, int colonna, Player player) {
         String tipo;
-        tipo = player.getLibreria().getLibreria().get(riga).get(colonna).tile.getType();
+        tipo = player.getLibreria().getLibreria().get(riga).get(colonna).getTile().getType();
         return tipo;
     }
 

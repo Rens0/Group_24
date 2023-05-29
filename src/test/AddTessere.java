@@ -8,7 +8,7 @@ public class AddTessere {
         if(tipo.equals(""))
             return new Cella();
         Cella colonna = new Cella();
-        colonna.tile = new Card("0", tipo);
+        colonna.setTile(new Card("0", tipo));
         return colonna;
 
     }

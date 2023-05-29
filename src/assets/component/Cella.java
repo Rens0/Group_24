@@ -10,7 +10,9 @@ public class Cella {
         tile = new Card();
     }
 
-
+    public Card getTile() {
+    	return tile;
+    }
     public void setCella(Card tile) {
 
         this.tile = tile;
@@ -26,5 +28,17 @@ public class Cella {
         }
         return false;
     }
+
+	public void setTile(Card tile) {
+		this.tile = tile;
+	}
+
+	public int getAccessibilitaCella() {
+		return accessibilitaCella;
+	}
+
+	public void setAccessibilitaCella(int accessibilitaCella) {
+		this.accessibilitaCella = accessibilitaCella;
+	}
 
 }

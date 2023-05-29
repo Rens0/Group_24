@@ -143,7 +143,8 @@ public class Libreria {
     public ArrayList<Integer> getCaselleGruppo() {
 		return caselleGruppo;
 	}
-
+    
+ 
 	private void contaCaselleGruppi() {//ritorna un array con il numero di caselle di ogni gruppo
 		
         for (String tipo : tipi) {

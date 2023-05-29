@@ -29,14 +29,14 @@ public class TabelloneDeserializer implements JsonDeserializer<Tabellone> {
                     switch (accCella) {
                         case 0, 2, 3, 4: {
                             Cella cella = new Cella();
-                            cella.accessibilitaCella = accCella;
+                            cella.setAccessibilitaCella(accCella);
                             matrice.add(cella);
                             break;
                         }
                     }
                 }
 
-                tabellone.mappa.add(matrice);
+                tabellone.getMappa().add(matrice);
 
             }
 

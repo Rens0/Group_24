@@ -50,16 +50,16 @@ public class Player implements Comparable<Player> {
 
     public int controlloPersonalGoal() {
         int contatore = 0;
-        for (int i = 0; i < getPersonalGoal().list.size(); i++) {
-            Card card = getPersonalGoal().list.get(i);
+        for (int i = 0; i < getPersonalGoal().getList().size(); i++) {
+            Card card = getPersonalGoal().getList().get(i);
             if(card.getRow()<libreria.getRighe()&&card.getColumn()<libreria.getColonne()) {
-                if (card.getType().equals(libreria.getLibreria().get(card.getRow()).get(card.getColumn()).tile.getType()))
+                if (card.getType().equals(libreria.getLibreria().get(card.getRow()).get(card.getColumn()).getTile().getType()))
                     contatore++;
             }
         }
         if(contatore==0)
             return 0;
-        return getPersonalGoal().point.get(contatore-1);
+        return getPersonalGoal().getPoint().get(contatore-1);
     }
 
 
@@ -104,7 +104,7 @@ public class Player implements Comparable<Player> {
 
     public void printPersonalGoal() {
         if(getPersonalGoal()!=null) {
-            System.out.println(getPersonalGoal().id);
+            System.out.println(getPersonalGoal().getId());
             for (int i = 0; i <= libreria.getRighe(); i++) {
                 for (int j = 0; j <= libreria.getColonne(); j++) {
                     if (i == libreria.getRighe() && j == libreria.getColonne()) {
@@ -165,7 +165,7 @@ public class Player implements Comparable<Player> {
 	}
 
 	private String ritornoTipo(int i, int j) {
-        for (Card card : getPersonalGoal().list) {
+        for (Card card : getPersonalGoal().getList()) {
             if (card.getRow() == i && card.getColumn() == j)
                 return card.getType();
         }

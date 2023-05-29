@@ -30,20 +30,20 @@ public class Tabellone {
             for (int j = 0; j < mappa.get(i).size(); j++) {
                 switch (nPlayer) {
                     case 2: {
-                        if (mappa.get(i).get(j).accessibilitaCella == 2) {
+                        if (mappa.get(i).get(j).getAccessibilitaCella() == 2) {
                             mappa.get(i).get(j).setCella(randomCard(card, i, j));
                         }
                         break;
                     }
                     case 3: {
-                        if (mappa.get(i).get(j).accessibilitaCella >= 2 && mappa.get(i).get(j).accessibilitaCella <= 3) {
+                        if (mappa.get(i).get(j).getAccessibilitaCella() >= 2 && mappa.get(i).get(j).getAccessibilitaCella() <= 3) {
                             mappa.get(i).get(j).setCella(randomCard(card, i, j));
                         }
 
                         break;
                     }
                     case 4: {
-                        if (mappa.get(i).get(j).accessibilitaCella >= 2 && mappa.get(i).get(j).accessibilitaCella <= 4) {
+                        if (mappa.get(i).get(j).getAccessibilitaCella() >= 2 && mappa.get(i).get(j).getAccessibilitaCella() <= 4) {
                             mappa.get(i).get(j).setCella(randomCard(card, i, j));
                         }
                         break;
@@ -55,10 +55,10 @@ public class Tabellone {
 
     private Card randomCard(CardContainer card, int riga, int colonna) {
         Random rand = new Random();
-        int randomCard = rand.nextInt(card.list.size());
-        Card cardSalvata = card.list.get(randomCard);
+        int randomCard = rand.nextInt(card.getList().size());
+        Card cardSalvata = card.getList().get(randomCard);
         int sum = 0;
-        for (Card c : card.list) {
+        for (Card c : card.getList()) {
             sum += c.getAmount();
         }
         if (sum <= 0)
@@ -69,21 +69,21 @@ public class Tabellone {
         }
 
         //test.card.list.remove(valore);
-        int randomId = rand.nextInt(card.list.get(randomCard).getMoreId().size());
-        String id = card.list.get(randomCard).getMoreId().get(randomId);
-        String type = card.list.get(randomCard).getType();
+        int randomId = rand.nextInt(card.getList().get(randomCard).getMoreId().size());
+        String id = card.getList().get(randomCard).getMoreId().get(randomId);
+        String type = card.getList().get(randomCard).getType();
 
         cardSalvata = new Card(id, type);
         cardSalvata.setCoord(riga, colonna);
         //System.out.println(cardSalvata.id);
-        card.list.get(randomCard).getAmount();
+        card.getList().get(randomCard).getAmount();
 
         return cardSalvata;
     }
 
     public void inserisciTessere(ArrayList<Card> card) {
         for (int i = 0; i < card.size(); i++) {
-            mappa.get(card.get(i).getRow()).get(card.get(i).getColumn()).tile = card.get(i);
+            mappa.get(card.get(i).getRow()).get(card.get(i).getColumn()).setTile(card.get(i));
         }
 
     }
@@ -123,10 +123,10 @@ public class Tabellone {
             throw new Exception("riga " + riga + " > " + mappa.size());
         if (colonna > mappa.get(0).size())
             throw new Exception("colonna " + colonna + " > " + mappa.get(0).size());
-        if (mappa.get(riga).get(colonna).tile.getId() == null)
+        if (mappa.get(riga).get(colonna).getTile().getId() == null)
             throw new Exception("La tessera selezionata non è disponibile");
 
-        Card cartaSelezionata = mappa.get(riga).get(colonna).tile;
+        Card cartaSelezionata = mappa.get(riga).get(colonna).getTile();
         if (cartaSelezionata.getType() == null)
             throw new Exception("La carta e' null ");
 
@@ -222,7 +222,7 @@ public class Tabellone {
             for (int j = 0; j < mappa.get(0).size(); j++) {
                 if (i == mappa.size() - 1 && j >= mappa.get(0).size() - 1)
                     break;
-                Card card = mappa.get(i).get(j).tile;
+                Card card = mappa.get(i).get(j).getTile();
                 if (card.getType() != null) {
                     if (j >= mappa.get(0).size() - 1) {
                         if (controlloRighaSotto(card))
@@ -260,38 +260,38 @@ public class Tabellone {
     }
 
     public Boolean controlloRighaSotto(Card card) {
-        if (mappa.get(card.getRow() + 1).get(card.getColumn()).tile.getType() != null)
+        if (mappa.get(card.getRow() + 1).get(card.getColumn()).getTile().getType() != null)
             return true;
         return false;
     }
 
     public Boolean controlloColonnaDestra(Card card) {
-        if (mappa.get(card.getRow()).get(card.getColumn() + 1).tile.getType() != null)
+        if (mappa.get(card.getRow()).get(card.getColumn() + 1).getTile().getType() != null)
             return true;
         return false;
     }
 
     public Boolean controlloRighaSopra(Card card) {
-        if (mappa.get(card.getRow() - 1).get(card.getColumn()).tile.getType() != null)
+        if (mappa.get(card.getRow() - 1).get(card.getColumn()).getTile().getType() != null)
             return true;
         return false;
     }
 
     public Boolean controlloColonnaSinistra(Card card) {
-        if (mappa.get(card.getRow()).get(card.getColumn() - 1).tile.getType() != null)
+        if (mappa.get(card.getRow()).get(card.getColumn() - 1).getTile().getType() != null)
             return true;
         return false;
     }
 
     public void rimuoviTessere(ArrayList<Card> card) {
         for (int i = 0; i < card.size(); i++) {
-            mappa.get(card.get(i).getRow()).get(card.get(i).getColumn()).tile = new Card();
+            mappa.get(card.get(i).getRow()).get(card.get(i).getColumn()).setTile(new Card());
         }
 
     }
 
     public void rimuoviTessera(Card card) throws Exception {
-        mappa.get(card.getRow()).get(card.getColumn()).tile = new Card();
+        mappa.get(card.getRow()).get(card.getColumn()).setTile(new Card());
     }
 
     public ArrayList<Card> prelevaTessera(int riga, int colonna, ArrayList<Card> card) throws Exception {
@@ -322,6 +322,10 @@ public class Tabellone {
         }
         return card;
     }
+
+	public List<ArrayList<Cella>> getMappa() {
+		return mappa;
+	}
 
 
 }

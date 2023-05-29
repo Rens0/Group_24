@@ -55,7 +55,7 @@ public class Gestore {
             player.setId_commonGoal(id_commonGoal); //--- Aggiungo ai giocatori il common goal
         }
         for (Card card : id_commonGoal) {//---Scorro i commongoal id e creo solo le classi corrispondenti a quegli id
-            commonGoals.put(card.getId(), CommonGoal.getCommonGoalById(card.getId(), commonGoal.path, assegnamentoToken()));
+            commonGoals.put(card.getId(), CommonGoal.getCommonGoalById(card.getId(), commonGoal.getPath(), assegnamentoToken()));
         }
     }
 
@@ -334,9 +334,9 @@ public class Gestore {
     }
 
     private Card selectToken(String id) {
-        for (int i = 0; i < scoringToken.list.size(); i++) {
-            if (scoringToken.list.get(i).getId().equals(id)) {
-                return scoringToken.list.get(i);
+        for (int i = 0; i < scoringToken.getList().size(); i++) {
+            if (scoringToken.getList().get(i).getId().equals(id)) {
+                return scoringToken.getList().get(i);
             }
         }
         return null;
@@ -353,8 +353,8 @@ public class Gestore {
     private Card selectRandomCommonGoal() {
         Random rand = new Random();
 
-        int randomCard = rand.nextInt(commonGoal.list.size());
-        Card id = commonGoal.list.get(randomCard);
+        int randomCard = rand.nextInt(commonGoal.getList().size());
+        Card id = commonGoal.getList().get(randomCard);
 
         for (int i = 0; i < id_commonGoal.size(); i++) {
             if (id.getId() == id_commonGoal.get(i).getId()) {
