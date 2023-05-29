@@ -10,8 +10,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class CommonGoal {
-    public String path;
-    public ArrayList<Card> token;
+    private String path;
+    private ArrayList<Card> token;
+   
 
     private static final Map<String, Class<? extends CommonGoal>> commonGoals = new HashMap<>();
 
