@@ -59,31 +59,31 @@ public class Tabellone {
         Card cardSalvata = card.list.get(randomCard);
         int sum = 0;
         for (Card c : card.list) {
-            sum += c.amount;
+            sum += c.getAmount();
         }
         if (sum <= 0)
             return new Card();
 
-        if (cardSalvata.amount <= 0) {
+        if (cardSalvata.getAmount() <= 0) {
             return randomCard(card, riga, colonna);
         }
 
         //test.card.list.remove(valore);
-        int randomId = rand.nextInt(card.list.get(randomCard).moreId.size());
-        String id = card.list.get(randomCard).moreId.get(randomId);
-        String type = card.list.get(randomCard).type;
+        int randomId = rand.nextInt(card.list.get(randomCard).getMoreId().size());
+        String id = card.list.get(randomCard).getMoreId().get(randomId);
+        String type = card.list.get(randomCard).getType();
 
         cardSalvata = new Card(id, type);
         cardSalvata.setCoord(riga, colonna);
         //System.out.println(cardSalvata.id);
-        card.list.get(randomCard).amount--;
+        card.list.get(randomCard).getAmount();
 
         return cardSalvata;
     }
 
     public void inserisciTessere(ArrayList<Card> card) {
         for (int i = 0; i < card.size(); i++) {
-            mappa.get(card.get(i).row).get(card.get(i).column).tile = card.get(i);
+            mappa.get(card.get(i).getRow()).get(card.get(i).getColumn()).tile = card.get(i);
         }
 
     }
@@ -102,10 +102,10 @@ public class Tabellone {
                 }
 
                 if (i < mappa.size() && j < mappa.get(0).size()) {
-                    if (mappa.get(i).get(j).getTessera().type == null) {
+                    if (mappa.get(i).get(j).getTessera().getType() == null) {
                         System.out.print(".......\t");
                     } else {
-                        System.out.print(mappa.get(i).get(j).getTessera().type + "\t");
+                        System.out.print(mappa.get(i).get(j).getTessera().getType() + "\t");
                     }
                 }
             }
@@ -123,11 +123,11 @@ public class Tabellone {
             throw new Exception("riga " + riga + " > " + mappa.size());
         if (colonna > mappa.get(0).size())
             throw new Exception("colonna " + colonna + " > " + mappa.get(0).size());
-        if (mappa.get(riga).get(colonna).tile.id == null)
+        if (mappa.get(riga).get(colonna).tile.getId() == null)
             throw new Exception("La tessera selezionata non è disponibile");
 
         Card cartaSelezionata = mappa.get(riga).get(colonna).tile;
-        if (cartaSelezionata.type == null)
+        if (cartaSelezionata.getType() == null)
             throw new Exception("La carta e' null ");
 
         return cartaSelezionata;
@@ -138,16 +138,16 @@ public class Tabellone {
     public boolean controlloSpazioLibero(Card card) {//se trova uno spazio libero ritorna false se no true
 
 
-        if (card.row == 0) {
+        if (card.getRow() == 0) {
             return false;
         }
-        if (card.column == 0)
+        if (card.getColumn() == 0)
             return false;
 
-        if (card.row == mappa.size() - 1) {
+        if (card.getRow() == mappa.size() - 1) {
             return false;
         }
-        if (card.column == mappa.get(0).size() - 1) {
+        if (card.getColumn() == mappa.get(0).size() - 1) {
             return false;
         }
         return controlloColonnaDestra(card) && controlloColonnaSinistra(card) && controlloRighaSopra(card) && controlloRighaSotto(card);
@@ -187,9 +187,9 @@ public class Tabellone {
         boolean riga = true;
         boolean colonna = true;
         for (int i = 0; i < card.size() - 1; i++) {
-            if (card.get(i).row != card.get(i + 1).row)
+            if (card.get(i).getRow() != card.get(i + 1).getRow())
                 riga = false;
-            if (card.get(i).column != card.get(i + 1).column)
+            if (card.get(i).getColumn() != card.get(i + 1).getColumn())
                 colonna = false;
         }
         if (!riga && !colonna)
@@ -223,7 +223,7 @@ public class Tabellone {
                 if (i == mappa.size() - 1 && j >= mappa.get(0).size() - 1)
                     break;
                 Card card = mappa.get(i).get(j).tile;
-                if (card.type != null) {
+                if (card.getType() != null) {
                     if (j >= mappa.get(0).size() - 1) {
                         if (controlloRighaSotto(card))
                             return true;
@@ -246,52 +246,52 @@ public class Tabellone {
     }
 
     private int deltaRiga(Card pre, Card now) {
-        int delta = pre.row - now.row;
+        int delta = pre.getRow() - now.getRow();
         if (delta < 0)
             delta *= -1;
         return delta;
     }
 
     private int deltaColonna(Card pre, Card now) {
-        int delta = pre.column - now.column;
+        int delta = pre.getColumn() - now.getColumn();
         if (delta < 0)
             delta *= -1;
         return delta;
     }
 
     public Boolean controlloRighaSotto(Card card) {
-        if (mappa.get(card.row + 1).get(card.column).tile.type != null)
+        if (mappa.get(card.getRow() + 1).get(card.getColumn()).tile.getType() != null)
             return true;
         return false;
     }
 
     public Boolean controlloColonnaDestra(Card card) {
-        if (mappa.get(card.row).get(card.column + 1).tile.type != null)
+        if (mappa.get(card.getRow()).get(card.getColumn() + 1).tile.getType() != null)
             return true;
         return false;
     }
 
     public Boolean controlloRighaSopra(Card card) {
-        if (mappa.get(card.row - 1).get(card.column).tile.type != null)
+        if (mappa.get(card.getRow() - 1).get(card.getColumn()).tile.getType() != null)
             return true;
         return false;
     }
 
     public Boolean controlloColonnaSinistra(Card card) {
-        if (mappa.get(card.row).get(card.column - 1).tile.type != null)
+        if (mappa.get(card.getRow()).get(card.getColumn() - 1).tile.getType() != null)
             return true;
         return false;
     }
 
     public void rimuoviTessere(ArrayList<Card> card) {
         for (int i = 0; i < card.size(); i++) {
-            mappa.get(card.get(i).row).get(card.get(i).column).tile = new Card();
+            mappa.get(card.get(i).getRow()).get(card.get(i).getColumn()).tile = new Card();
         }
 
     }
 
     public void rimuoviTessera(Card card) throws Exception {
-        mappa.get(card.row).get(card.column).tile = new Card();
+        mappa.get(card.getRow()).get(card.getColumn()).tile = new Card();
     }
 
     public ArrayList<Card> prelevaTessera(int riga, int colonna, ArrayList<Card> card) throws Exception {

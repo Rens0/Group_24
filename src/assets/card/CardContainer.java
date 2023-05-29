@@ -13,7 +13,7 @@ public class CardContainer {
     public String toString() {
         String txt = id + "\n";
         for (int i = 0; i < list.size(); i++) {
-            txt += list.get(i).type + " " + list.get(i).row + " " + list.get(i).column + "\n";
+            txt += list.get(i).getType() + " " + list.get(i).getRow() + " " + list.get(i).getColumn() + "\n";
 
 
         }

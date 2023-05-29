@@ -3,14 +3,14 @@ package assets.card;
 import java.util.ArrayList;
 
 public class Card implements Comparable<Card> {
-    public String id;
-    public String description;
-    public String type;
-    public ArrayList<String> moreId;
-    public int amount;
-    public int row;
-    public int column;
-    public int point;
+    private String id;
+    private String description;
+    private String type;
+    private ArrayList<String> moreId;
+    private int amount;
+    private int row;
+    private int column;
+    private int point;
 
     public String path;
 
@@ -58,6 +58,38 @@ public class Card implements Comparable<Card> {
         }
         return 0;
     }
+
+	public int getRow() {
+		return row;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public ArrayList<String> getMoreId() {
+		return moreId;
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public int getColumn() {
+		return column;
+	}
+
+	public int getPoint() {
+		return point;
+	}
+
+	public String getPath() {
+		return path;
+	}
 
 
     //@Override

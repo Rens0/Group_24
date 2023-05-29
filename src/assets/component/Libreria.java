@@ -56,7 +56,7 @@ public class Libreria {
         int contaCelle = 0;
         //--- Conto celle disponibili
         for (int j = 0; j < righe; j++) {
-            if (libreria.get(j).get(COLONNASELEZIONATA).getTessera().type == null) {
+            if (libreria.get(j).get(COLONNASELEZIONATA).getTessera().getType() == null) {
         	//if (libreria[j][COLONNASELEZIONATA].getTessera().type == null) {
                 contaCelle++;
             }
@@ -66,7 +66,7 @@ public class Libreria {
         if (contaCelle - card.size() >= 0) {
             for (int i = contaCelle - 1; i >= 0; i--) {
 
-                if (libreria.get(i).get(COLONNASELEZIONATA).getTessera().type == null) {
+                if (libreria.get(i).get(COLONNASELEZIONATA).getTessera().getType() == null) {
             	//if (libreria[i][COLONNASELEZIONATA].getTessera().type == null) {
 
                     if (ordine.size() > 0) {
@@ -87,7 +87,7 @@ public class Libreria {
         int contacella = 0;
         for (int i = 0; i < righe; i++) {
             for (int j = 0; j < colonne; j++) {
-                if (libreria.get(i).get(j).getTessera().type != null) {
+                if (libreria.get(i).get(j).getTessera().getType() != null) {
                     contacella++;
                 }
             }
@@ -110,7 +110,7 @@ public class Libreria {
     }
 
     public String tipoCasella(int riga, int colonna) {
-        return libreria.get(riga).get(colonna).getTessera().type;
+        return libreria.get(riga).get(colonna).getTessera().getType();
     }
 
     public boolean checkCasella(int riga, int colonna, boolean visitato[][], String tipo) {

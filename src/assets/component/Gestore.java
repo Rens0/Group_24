@@ -56,7 +56,7 @@ public class Gestore {
             player.setId_commonGoal(id_commonGoal); //--- Aggiungo ai giocatori il common goal
         }
         for (Card card : id_commonGoal) {//---Scorro i commongoal id e creo solo le classi corrispondenti a quegli id
-            commonGoals.put(card.id, CommonGoal.getCommonGoalById(card.id, commonGoal.path, assegnamentoToken()));
+            commonGoals.put(card.getId(), CommonGoal.getCommonGoalById(card.getId(), commonGoal.path, assegnamentoToken()));
         }
     }
 
@@ -129,13 +129,13 @@ public class Gestore {
     //--- Controllo che commongoalN.controllo sia verificato
     //--- se si verifica aggiungo il token al player
     private Boolean controlloCommonGoal(Player player, Card card) {//--- Controllo il common goal specifico
-        CommonGoal commonGoal = commonGoals.get(card.id);
+        CommonGoal commonGoal = commonGoals.get(card.getId());
 
         if (!player.getId_commonGoal().contains(card)) //--- controllo che lid del controllo sia presente in player
             return false;
         if (commonGoal.controllo(player)) {
             player.addToken(commonGoal.prendiToken(), card);
-            System.out.println("Hai sbloccato il common goal: "+card.id+" token: "+player.getToken().get(player.getToken().size()-1).id);
+            System.out.println("Hai sbloccato il common goal: "+card.getId()+" token: "+player.getToken().get(player.getToken().size()-1).getId());
             return true;
         }
         return false;
@@ -178,7 +178,7 @@ public class Gestore {
             tabellone.rimuoviTessere(card);
         System.out.println("Hai pescato queste carte: ");
         for (Card c : card)
-            System.out.print(c.type + "\t");
+            System.out.print(c.getType() + "\t");
         System.out.println();
 
     }
@@ -259,7 +259,7 @@ public class Gestore {
                 continua = false;
                 try {
                     Scanner sc = new Scanner(System.in);
-                    System.out.print(card.get(i).type + " posizione: ");
+                    System.out.print(card.get(i).getType() + " posizione: ");
                     int numero = sc.nextInt();
                     if (numero >= card.size() || numero < 0) {
                         System.out.println("Errore indice");
@@ -306,14 +306,14 @@ public class Gestore {
         System.out.println("Queste tessere non ci stanno nella libreria: ");
         ArrayList<Card> tessereNonDisponibili = new ArrayList<>();
         for (int i = spaziLiberi; i < card.size(); i++) {
-            System.out.println(card.get(i).id);
+            System.out.println(card.get(i).getId());
             tessereNonDisponibili.add(card.get(i));
         }
         if (card.size() - tessereNonDisponibili.size() != 0) {
             System.out.println("Vuoi aggiungere queste tessere?  ");
             ArrayList<Card> tessereDisponibili = new ArrayList<>();
             for (int i = 0; i < spaziLiberi; i++) {
-                System.out.println(card.get(i).id);
+                System.out.println(card.get(i).getId());
                 tessereDisponibili.add(card.get(i));
             }
             decisione = domanda("si/ no:", "si", "no");
@@ -332,7 +332,7 @@ public class Gestore {
 
     private Card selectToken(String id) {
         for (int i = 0; i < scoringToken.list.size(); i++) {
-            if (scoringToken.list.get(i).id.equals(id)) {
+            if (scoringToken.list.get(i).getId().equals(id)) {
                 return scoringToken.list.get(i);
             }
         }
@@ -354,7 +354,7 @@ public class Gestore {
         Card id = commonGoal.list.get(randomCard);
 
         for (int i = 0; i < id_commonGoal.size(); i++) {
-            if (id.id == id_commonGoal.get(i).id) {
+            if (id.getId() == id_commonGoal.get(i).getId()) {
                 return selectRandomCommonGoal();
             }
         }

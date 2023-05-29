@@ -43,7 +43,7 @@ public class Player implements Comparable<Player> {
 
     public void contaPunti(CardContainer tile) {
         for (Card t : token) //---punti dei common goal
-            points += t.point;
+            points += t.getPoint();
         points += controlloPersonalGoal();//--- Controllo punti personal goal
         points += libreria.contaPuntiCaselleAdiacenti(); //--- Controllo dei punti in base alle tessere vicine
     }
@@ -52,8 +52,8 @@ public class Player implements Comparable<Player> {
         int contatore = 0;
         for (int i = 0; i < getPersonalGoal().list.size(); i++) {
             Card card = getPersonalGoal().list.get(i);
-            if(card.row<libreria.getRighe()&&card.column<libreria.getColonne()) {
-                if (card.type.equals(libreria.getLibreria().get(card.row).get(card.column).tile.type))
+            if(card.getRow()<libreria.getRighe()&&card.getColumn()<libreria.getColonne()) {
+                if (card.getType().equals(libreria.getLibreria().get(card.getRow()).get(card.getColumn()).tile.getType()))
                     contatore++;
             }
         }
@@ -77,7 +77,7 @@ public class Player implements Comparable<Player> {
 
     public void tokenPrint() {
         for (Card t : token)
-            System.out.println(t.id);
+            System.out.println(t.getId());
     }
 
     public void printLibreria() {
@@ -87,10 +87,10 @@ public class Player implements Comparable<Player> {
                 if (i == libreria.getRighe())
                     System.out.print("___" + j + "___\t");
                 else {
-                    if (libreria.getLibreria().get(i).get(j).getTessera().type == null) {
+                    if (libreria.getLibreria().get(i).get(j).getTessera().getType() == null) {
                         System.out.print(".......\t");
                     } else {
-                        System.out.print(libreria.getLibreria().get(i).get(j).getTessera().type + "\t");
+                        System.out.print(libreria.getLibreria().get(i).get(j).getTessera().getType() + "\t");
                     }
                 }
             }
@@ -166,8 +166,8 @@ public class Player implements Comparable<Player> {
 
 	private String ritornoTipo(int i, int j) {
         for (Card card : getPersonalGoal().list) {
-            if (card.row == i && card.column == j)
-                return card.type;
+            if (card.getRow() == i && card.getColumn() == j)
+                return card.getType();
         }
         return null;
     }
