@@ -3,9 +3,9 @@ package assets.card;
 import java.util.ArrayList;
 
 public class Goals {
-    public String path;
-    public String id;
-    public Card card;
+    private String path;
+    private String id;
+    private Card card;
 
     public ArrayList<CardContainer> list;
     public ArrayList<Card> token;

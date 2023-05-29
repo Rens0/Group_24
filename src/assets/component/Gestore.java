@@ -10,19 +10,18 @@ import java.util.*;
 
 public class Gestore {
 
-    public Tabellone tabellone;
-    public ArrayList<Player> players;
-    public ArrayList<Player> finito;
-    public CardContainer commonGoal;
-    public CardContainer scoringToken;
-    public CardContainer tile;
-    public Goals personalGoal;
-    public int maxTesserePescabili;
+    private Tabellone tabellone;
+    private ArrayList<Player> players;
+    private ArrayList<Player> finito;
+    private CardContainer commonGoal;
+    private CardContainer scoringToken;
+    private CardContainer tile;
+    private Goals personalGoal;
+    private int maxTesserePescabili;
+    private ArrayList<Card> id_commonGoal;
+    private int maxCommonGoal;
 
-    public ArrayList<Card> id_commonGoal;
-    public int maxCommonGoal;
-
-    public final Map<String, CommonGoal> commonGoals = new HashMap<>();
+    private final Map<String, CommonGoal> commonGoals = new HashMap<>();
 
 
     public Gestore(Tabellone tabellone, ArrayList<Player> players, CardContainer commonGoal, CardContainer scoringToken, CardContainer tile, Goals personalGoal) {

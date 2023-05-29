@@ -3,8 +3,8 @@ package assets.component;
 import assets.card.Card;
 
 public class Cella {
-    public Card tile;
-    public int accessibilitaCella;
+    private Card tile;
+    private int accessibilitaCella;
 
     public Cella() {
         tile = new Card();

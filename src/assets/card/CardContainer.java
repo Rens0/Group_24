@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CardContainer {
-    public String path;
-    public List<Card> list;
-    public String id;
-    public ArrayList<Integer> point;
+    private String path;
+    private List<Card> list;
+    private String id;
+    private ArrayList<Integer> point;
 
     @Override
     public String toString() {

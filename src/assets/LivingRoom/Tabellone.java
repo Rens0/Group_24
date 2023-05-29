@@ -10,12 +10,12 @@ import java.util.List;
 import java.util.Random;
 
 public class Tabellone {
-    public String path;
-    public String id;
+    private String path;
+    private String id;
 
-    public int nPlayer;
+    private int nPlayer;
 
-    public List<ArrayList<Cella>> mappa;
+    private List<ArrayList<Cella>> mappa;
 
     public Tabellone() {
         mappa = new ArrayList<ArrayList<Cella>>();
