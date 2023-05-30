@@ -125,7 +125,7 @@
         },
         {
           "type": "trofeo",
-          "row": 4,
+          "row": 3,
           "column": 4
         }
       ]
@@ -168,8 +168,8 @@
         },
         {
           "type": "trofeo",
-          "row": 4,
-          "column": 3
+          "row": 2,
+          "column": 0
         }
       ]
     },
@@ -239,7 +239,7 @@
         },
         {
           "type": "gatto",
-          "row": 1,
+          "row": 0,
           "column": 4
         },
         {
@@ -315,33 +315,33 @@
       "list": [
         {
           "type": "cornice",
-          "row": 1,
-          "column": 5
+          "row": 0,
+          "column": 4
         },
         {
           "type": "gatto",
-          "row": 2,
-          "column": 4
-        },
-        {
-          "type": "trofeo",
-          "row": 3,
-          "column": 3
-        },
-        {
-          "type": "pianta",
-          "row": 4,
+          "row": 1,
           "column": 1
         },
         {
+          "type": "trofeo",
+          "row": 2,
+          "column": 2
+        },
+        {
+          "type": "pianta",
+          "row": 3,
+          "column": 0
+        },
+        {
           "type": "libro",
-          "row": 5,
-          "column": 4
+          "row": 4,
+          "column": 3
         },
         {
           "type": "gioco",
-          "row": 6,
-          "column": 5
+          "row": 5,
+          "column": 3
         }
       ]
     },
@@ -401,33 +401,33 @@
       "list": [
         {
           "type": "trofeo",
-          "row": 1,
-          "column": 5
+          "row": 0,
+          "column": 4
         },
         {
           "type": "gioco",
-          "row": 2,
-          "column": 2
-        },
-        {
-          "type": "libro",
-          "row": 3,
+          "row": 1,
           "column": 1
         },
         {
+          "type": "libro",
+          "row": 2,
+          "column": 0
+        },
+        {
           "type": "gatto",
-          "row": 4,
-          "column": 4
+          "row": 3,
+          "column": 3
         },
         {
           "type": "cornice",
-          "row": 5,
-          "column": 2
+          "row": 4,
+          "column": 1
         },
         {
           "type": "pianta",
-          "row": 6,
-          "column": 4
+          "row": 5,
+          "column": 3
         }
       ]
     },
@@ -464,8 +464,8 @@
         },
         {
           "type": "gioco",
-          "row": 0,
-          "column": 2
+          "row": 2,
+          "column": 0
         },
         {
           "type": "trofeo",

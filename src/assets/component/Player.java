@@ -63,10 +63,7 @@ public class Player implements Comparable<Player> {
     }
 
 
-    public int inserisciTessera(ArrayList<Card> card, ArrayList<Integer> ordine, int COLONNA) throws Exception {
-        return libreria.inserisciTessere(card, ordine, COLONNA);
 
-    }
 
 
     @Override

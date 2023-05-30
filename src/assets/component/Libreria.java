@@ -26,7 +26,7 @@ public class Libreria {
 
         libreria = new ArrayList<>();
         ArrayList<Cella> rigac;
-        for (int i = 0; i < righe; i++) {
+       /* for (int i = 0; i < righe; i++) {
             rigac = new ArrayList<>();
 
             for (int j = 0; j < colonne; j++) {
@@ -34,7 +34,7 @@ public class Libreria {
             	//libreria[i][j]= new Cella();
             }
             libreria.add(rigac);
-        }
+        }*/
     }
 
     public int getColonne() {
@@ -51,7 +51,7 @@ public class Libreria {
     }
 
 
-    public int inserisciTessere(ArrayList<Card> card, ArrayList<Integer> ordine, int COLONNASELEZIONATA) throws Exception {
+    public int inserisciTessere(ArrayList<Card> card, int COLONNASELEZIONATA) throws Exception {
         int contaCelle = 0;
         //--- Conto celle disponibili
         for (int j = 0; j < righe; j++) {
@@ -63,18 +63,14 @@ public class Libreria {
 
 
         if (contaCelle - card.size() >= 0) {
+            int h = 0;
             for (int i = contaCelle - 1; i >= 0; i--) {
-
                 if (libreria.get(i).get(COLONNASELEZIONATA).getTessera().getType() == null) {
-            	//if (libreria[i][COLONNASELEZIONATA].getTessera().type == null) {
+                    if (h < card.size() ) {
+                        libreria.get(i).get(COLONNASELEZIONATA).setCella(card.get(h));
 
-                    if (ordine.size() > 0) {
-                        libreria.get(i).get(COLONNASELEZIONATA).setCella(card.get(ordine.get(0)));
-                    	//libreria[i][COLONNASELEZIONATA].setCella(card.get(ordine.get(0)));
-                    	
-                        ordine.remove(0);
                     }
-
+                    h++;
                 }
             }
         }
