@@ -46,9 +46,9 @@ public class Test {
 
 
         //---Colonne riga1
-        arrayList.add(addTessere.aggiungiTessera("a"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("a"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera("cornice"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera("cornice"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera("cornice"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
 
@@ -109,13 +109,16 @@ public class Test {
         CommonGoal2 commonGoal = new CommonGoal2(null, null);
         System.out.println(commonGoal.controllo(player));
 
+
         
 
-        /*CardContainer pg = personalGoal.list.get(0);
-        player.personalGoal= pg;
+        CardContainer pg = personalGoal.list.get(0);
+        player.setPersonalGoal(pg);
+        player.printPersonalGoal();
+
         player.contaPunti(tile);
-        System.out.println(player.points);
-        */
+        System.out.println(player.getPoints());
+
 
 
 
