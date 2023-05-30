@@ -259,7 +259,8 @@ public class Gestore {
             ordine.add(0);
             return ordine;
         }
-        System.out.println("Seleziona l'ordine delle tessere: ");
+        System.out.println("\nSeleziona l'ordine delle tessere: ");
+        System.out.println("1 => prima tessera inserita \n2=> seconda tessera inserita \n ...e così a seguire\n");
 
 
         ordine = new ArrayList<>();
@@ -270,6 +271,7 @@ public class Gestore {
                 try {
                     Scanner sc = new Scanner(System.in);
                     System.out.print(card.get(i).getType() + " posizione: ");
+
                     int numero = sc.nextInt() - 1;
                     if (numero >= card.size() || numero < 0) {
                         System.out.println("Errore indice");
