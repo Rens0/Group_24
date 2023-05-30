@@ -148,7 +148,12 @@ public class Gestore {
     private Boolean pescaTesseraDalTabellone(Player player) {
         ArrayList<Card> card = prelevaTessera();
 
-        String decisione = domanda("Vuoi ripescare? si/ no: ", "si", "no");
+        System.out.println("Hai pescato queste carte: ");
+        for (Card c : card)
+            System.out.print(c.getType() + "\t");
+        System.out.println();
+
+        String decisione = domanda("Vuoi annullare ciò che hai pescato e ripescare? si/ no: ", "si", "no");
         if (decisione.equals("si"))
             return pescaTesseraDalTabellone(player);
 
@@ -180,11 +185,12 @@ public class Gestore {
             }
         } else
             tabellone.rimuoviTessere(card);
+        /*
         System.out.println("Hai pescato queste carte: ");
         for (Card c : card)
             System.out.print(c.getType() + "\t");
         System.out.println();
-
+        */
     }
 
     private int selezionaColonna(Player player) {
