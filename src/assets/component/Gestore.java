@@ -111,19 +111,19 @@ public class Gestore {
                         System.out.println("Hai finito per primo e hai ottenuto l'end game token");
                     }
                     finito.add(player);
-
+                    break;
                 }
             }
-        } while (finito.size() != players.size());
+        } while (finito.size() != 1);
 
         //--- Classifica
 
-        for (Player p : finito) {
+        for (Player p : players) {
             p.contaPunti(tile);
         }
-        Collections.sort(finito, Collections.reverseOrder());
+        Collections.sort(players, Collections.reverseOrder());
         int i = 1;
-        for (Player p : finito) {
+        for (Player p : players) {
             System.out.println(i + " " + p.getName() + " point: " + p.getPoints());
             i++;
         }
