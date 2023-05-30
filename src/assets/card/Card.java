@@ -59,37 +59,37 @@ public class Card implements Comparable<Card> {
         return 0;
     }
 
-	public int getRow() {
-		return row;
-	}
+    public int getRow() {
+        return row;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public String getType() {
-		return type;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public ArrayList<String> getMoreId() {
-		return moreId;
-	}
+    public ArrayList<String> getMoreId() {
+        return moreId;
+    }
 
-	public int getAmount() {
-		return amount;
-	}
+    public int getAmount() {
+        return amount;
+    }
 
-	public int getColumn() {
-		return column;
-	}
+    public int getColumn() {
+        return column;
+    }
 
-	public int getPoint() {
-		return point;
-	}
+    public int getPoint() {
+        return point;
+    }
 
-	public String getPath() {
-		return path;
-	}
+    public String getPath() {
+        return path;
+    }
 
 
     //@Override

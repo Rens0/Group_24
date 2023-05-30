@@ -19,32 +19,30 @@ public class CommonGoal2 extends CommonGoal {
 
     public boolean controllo(Player player) {
         int contatore = 0;
-        int righe=0;
+        int righe = 0;
         List<String> Colonna = new ArrayList();
         Set<String> noduplicati = new LinkedHashSet<>();
         for (int j = 0; j < player.getLibreria().getColonne(); j++) {
             for (int i = 0; i < player.getLibreria().getRighe(); i++) {
-                if(ritornoTipo(i, j, player)!=null) {
+                if (ritornoTipo(i, j, player) != null) {
                     Colonna.add(ritornoTipo(i, j, player));
                     noduplicati.addAll(Colonna);
                     righe++;
-                }
-                else{
+                } else {
                     righe--;
                 }
             }
             if (Colonna.size() == noduplicati.size() && righe == 6) {
                 contatore++;
-                System.out.println("La colonna è "+ Colonna);
+
             }
             Colonna.clear();
             noduplicati.clear();
-            righe =0;
+            righe = 0;
         }
-        System.out.println("il contatore è "+ contatore);
-        if (contatore >= 2)
-            return true;
-        return false;
+
+        return contatore >= 2;
+
 
       /*  int counter = 0;
         for (int j = 0; j < player.getLibreria().getColonne(); j++) {

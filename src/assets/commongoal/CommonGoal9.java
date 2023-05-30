@@ -50,5 +50,4 @@ public class CommonGoal9 extends CommonGoal {
     }
 
 
-
 }

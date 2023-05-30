@@ -1,33 +1,32 @@
-{		
-	"id": "scoring tokens",
-	"list": [
-
-		{
-			"id": "scoring_2",
-			"amount": 4,
-			"point":2
-		},
-		{
-			"id": "scoring_4",
-			"amount": 4,
-			"point":4
-		},
-		{
-			"id": "scoring_6",
-			"amount": 4,
-			"point":6
-		},
-		{
-			"id": "scoring_8",
-			"amount": 4,
-			"point":8
-		},
-		{
-			"id": "end game",
-			"amount": 4,
-			"point":1
-		}
-	]
+{
+  "id": "scoring tokens",
+  "list": [
+    {
+      "id": "scoring_2",
+      "amount": 4,
+      "point": 2
+    },
+    {
+      "id": "scoring_4",
+      "amount": 4,
+      "point": 4
+    },
+    {
+      "id": "scoring_6",
+      "amount": 4,
+      "point": 6
+    },
+    {
+      "id": "scoring_8",
+      "amount": 4,
+      "point": 8
+    },
+    {
+      "id": "end game",
+      "amount": 4,
+      "point": 1
+    }
+  ]
 }
 
 

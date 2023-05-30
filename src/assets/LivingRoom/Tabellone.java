@@ -323,9 +323,9 @@ public class Tabellone {
         return card;
     }
 
-	public List<ArrayList<Cella>> getMappa() {
-		return mappa;
-	}
+    public List<ArrayList<Cella>> getMappa() {
+        return mappa;
+    }
 
 
 }

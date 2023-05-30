@@ -1,7 +1,6 @@
 package assets.commongoal;
 
 import assets.card.Card;
-import assets.card.CardContainer;
 import assets.component.Player;
 
 import java.lang.reflect.Constructor;
@@ -12,7 +11,7 @@ import java.util.Map;
 public abstract class CommonGoal {
     private String path;
     private ArrayList<Card> token;
-   
+
 
     private static final Map<String, Class<? extends CommonGoal>> commonGoals = new HashMap<>();
 
@@ -83,7 +82,6 @@ public abstract class CommonGoal {
         try {
             Constructor<? extends CommonGoal> constructor = clazz.getConstructor(String.class, ArrayList.class);
             CommonGoal goal = constructor.newInstance(path, token);
-
 
 
             return goal;

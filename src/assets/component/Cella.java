@@ -11,8 +11,9 @@ public class Cella {
     }
 
     public Card getTile() {
-    	return tile;
+        return tile;
     }
+
     public void setCella(Card tile) {
 
         this.tile = tile;
@@ -23,22 +24,22 @@ public class Cella {
     }
 
     public boolean isEmpty() {
-        if (tile.getType() == null||tile.getId()==null) {
+        if (tile.getType() == null || tile.getId() == null) {
             return true;
         }
         return false;
     }
 
-	public void setTile(Card tile) {
-		this.tile = tile;
-	}
+    public void setTile(Card tile) {
+        this.tile = tile;
+    }
 
-	public int getAccessibilitaCella() {
-		return accessibilitaCella;
-	}
+    public int getAccessibilitaCella() {
+        return accessibilitaCella;
+    }
 
-	public void setAccessibilitaCella(int accessibilitaCella) {
-		this.accessibilitaCella = accessibilitaCella;
-	}
+    public void setAccessibilitaCella(int accessibilitaCella) {
+        this.accessibilitaCella = accessibilitaCella;
+    }
 
 }

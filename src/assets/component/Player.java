@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Player implements Comparable<Player> {
 
-	private String name;
+    private String name;
     private int ID;
     private static int ID_Number = 0;
     private int points = 0;
@@ -15,9 +15,9 @@ public class Player implements Comparable<Player> {
     private CardContainer personalGoal;
     private ArrayList<Card> id_commonGoal;
     private Libreria libreria;
-    
+
     public Player(String name) {
-    	libreria= new Libreria();
+        libreria = new Libreria();
         this.name = name;
         this.ID = ID_Number;
         ID_Number++;
@@ -52,14 +52,14 @@ public class Player implements Comparable<Player> {
         int contatore = 0;
         for (int i = 0; i < getPersonalGoal().getList().size(); i++) {
             Card card = getPersonalGoal().getList().get(i);
-            if(card.getRow()<libreria.getRighe()&&card.getColumn()<libreria.getColonne()) {
+            if (card.getRow() < libreria.getRighe() && card.getColumn() < libreria.getColonne()) {
                 if (card.getType().equals(libreria.getLibreria().get(card.getRow()).get(card.getColumn()).getTile().getType()))
                     contatore++;
             }
         }
-        if(contatore==0)
+        if (contatore == 0)
             return 0;
-        return getPersonalGoal().getPoint().get(contatore-1);
+        return getPersonalGoal().getPoint().get(contatore - 1);
     }
 
 
@@ -103,7 +103,7 @@ public class Player implements Comparable<Player> {
     }
 
     public void printPersonalGoal() {
-        if(getPersonalGoal()!=null) {
+        if (getPersonalGoal() != null) {
             System.out.println(getPersonalGoal().getId());
             for (int i = 0; i <= libreria.getRighe(); i++) {
                 for (int j = 0; j <= libreria.getColonne(); j++) {
@@ -137,34 +137,34 @@ public class Player implements Comparable<Player> {
 
 
     public String getName() {
-		return name;
-	}
+        return name;
+    }
 
-	public static int getID_Number() {
-		return ID_Number;
-	}
+    public static int getID_Number() {
+        return ID_Number;
+    }
 
-	public int getPoints() {
-		return points;
-	}
+    public int getPoints() {
+        return points;
+    }
 
-	public ArrayList<Card> getToken() {
-		return token;
-	}
+    public ArrayList<Card> getToken() {
+        return token;
+    }
 
-	public CardContainer getPersonalGoal() {
-		return personalGoal;
-	}
+    public CardContainer getPersonalGoal() {
+        return personalGoal;
+    }
 
-	public ArrayList<Card> getId_commonGoal() {
-		return id_commonGoal;
-	}
+    public ArrayList<Card> getId_commonGoal() {
+        return id_commonGoal;
+    }
 
-	public Libreria getLibreria() {
-		return libreria;
-	}
+    public Libreria getLibreria() {
+        return libreria;
+    }
 
-	private String ritornoTipo(int i, int j) {
+    private String ritornoTipo(int i, int j) {
         for (Card card : getPersonalGoal().getList()) {
             if (card.getRow() == i && card.getColumn() == j)
                 return card.getType();
@@ -172,19 +172,20 @@ public class Player implements Comparable<Player> {
         return null;
     }
 
-	public void printName() {
-		System.out.println(name);
-	}
+    public void printName() {
+        System.out.println(name);
+    }
+
     @Override
     public int compareTo(Player player) {
-        if(this.points > player.points)
+        if (this.points > player.points)
             return 1;
-        if(this.points < player.points)
+        if (this.points < player.points)
             return -1;
         return 0;
     }
 
-	public void setPersonalGoal(CardContainer personalGoal) {
-		this.personalGoal=personalGoal;
-	}
+    public void setPersonalGoal(CardContainer personalGoal) {
+        this.personalGoal = personalGoal;
+    }
 }

@@ -12,9 +12,9 @@ public class Libreria {
     private int righe;
     private int colonne;
     private List<List<Cella>> libreria;
-    
 
-	//private Cella[][] libreria;
+
+    //private Cella[][] libreria;
     public Libreria() {
         this(6, 5);
     }
@@ -26,7 +26,7 @@ public class Libreria {
 
         libreria = new ArrayList<>();
         ArrayList<Cella> rigac;
-        for (int i = 0; i < righe; i++) {
+        /*for (int i = 0; i < righe; i++) {
             rigac = new ArrayList<>();
 
             for (int j = 0; j < colonne; j++) {
@@ -34,7 +34,7 @@ public class Libreria {
             	//libreria[i][j]= new Cella();
             }
             libreria.add(rigac);
-        }
+        }*/
     }
 
     public int getColonne() {
@@ -47,7 +47,7 @@ public class Libreria {
 
     public Cella getCella(int riga, int colonna) {
         return libreria.get(riga).get(colonna);
-    	//return libreria[riga][colonna];
+        //return libreria[riga][colonna];
     }
 
 
@@ -56,7 +56,7 @@ public class Libreria {
         //--- Conto celle disponibili
         for (int j = 0; j < righe; j++) {
             if (libreria.get(j).get(COLONNASELEZIONATA).getTessera().getType() == null) {
-        	//if (libreria[j][COLONNASELEZIONATA].getTessera().type == null) {
+                //if (libreria[j][COLONNASELEZIONATA].getTessera().type == null) {
                 contaCelle++;
             }
         }
@@ -66,12 +66,12 @@ public class Libreria {
             for (int i = contaCelle - 1; i >= 0; i--) {
 
                 if (libreria.get(i).get(COLONNASELEZIONATA).getTessera().getType() == null) {
-            	//if (libreria[i][COLONNASELEZIONATA].getTessera().type == null) {
+                    //if (libreria[i][COLONNASELEZIONATA].getTessera().type == null) {
 
                     if (ordine.size() > 0) {
                         libreria.get(i).get(COLONNASELEZIONATA).setCella(card.get(ordine.get(0)));
-                    	//libreria[i][COLONNASELEZIONATA].setCella(card.get(ordine.get(0)));
-                    	
+                        //libreria[i][COLONNASELEZIONATA].setCella(card.get(ordine.get(0)));
+
                         ordine.remove(0);
                     }
 
@@ -121,7 +121,7 @@ public class Libreria {
 
     public int contaCaselleAdicenti(int riga, int colonna, boolean visitata[][], String tipo) {
         int contatore = 1;
-        visitata[riga][colonna]=true;
+        visitata[riga][colonna] = true;
         if (checkCasella(riga, colonna + 1, visitata, tipo)) {//destra
             contatore += contaCaselleAdicenti(riga, colonna + 1, visitata, tipo);
         }
@@ -140,13 +140,14 @@ public class Libreria {
     private static final String tipi[] = {"cornice", "gatto", "gioco", "trofeo", "libro", "pianta"};
 
     private ArrayList<Integer> caselleGruppo = new ArrayList<>();
+
     public ArrayList<Integer> getCaselleGruppo() {
-		return caselleGruppo;
-	}
-    
- 
-	private void contaCaselleGruppi() {//ritorna un array con il numero di caselle di ogni gruppo
-		
+        return caselleGruppo;
+    }
+
+
+    private void contaCaselleGruppi() {//ritorna un array con il numero di caselle di ogni gruppo
+
         for (String tipo : tipi) {
             boolean visitato[][] = new boolean[righe][colonne];
             for (int riga = 0; riga < righe; riga++) {
@@ -154,14 +155,14 @@ public class Libreria {
                     if (!(libreria.get(riga).get(colonna).isEmpty()) && tipoCasella(riga, colonna).equals(tipo)
                             && !(visitato[riga][colonna])) {
 
-                    	int numeroCaselle = contaCaselleAdicenti(riga, colonna, visitato, tipo);
-                    if(numeroCaselle>2)
-                    caselleGruppo.add(numeroCaselle);
+                        int numeroCaselle = contaCaselleAdicenti(riga, colonna, visitato, tipo);
+                        if (numeroCaselle > 2)
+                            caselleGruppo.add(numeroCaselle);
                     }
                 }
             }
         }
-        
+
     }
 
     public int contaPuntiCaselleAdiacenti() {
@@ -184,7 +185,8 @@ public class Libreria {
 
         return punti;
     }
+
     public List<List<Cella>> getLibreria() {
-		return libreria;
-	}
+        return libreria;
+    }
 }

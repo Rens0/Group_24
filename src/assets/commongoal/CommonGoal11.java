@@ -31,7 +31,7 @@ public class CommonGoal11 extends CommonGoal {
         for (int i = 0; i < player.getLibreria().getRighe(); i++) {
             diagop = diagop(player, i);
             diagos = diagos(player, i);
-            if(diagop||diagos)
+            if (diagop || diagos)
                 return true;
         }
         return false;
@@ -42,13 +42,13 @@ public class CommonGoal11 extends CommonGoal {
         for (int i = 0; i < player.getLibreria().getRighe(); i++) {
             if (tipo != null) {
                 for (int j = 0; j < player.getLibreria().getColonne(); j++) {
-                    if ((index-i) == j) {
+                    if ((index - i) == j) {
                         String next = ritornoTipo(i, j, player);
                         if (next != null) {
                             if (!next.equals(tipo))
                                 return false;
 
-                        }else return false;
+                        } else return false;
 
                     }
 
@@ -56,8 +56,7 @@ public class CommonGoal11 extends CommonGoal {
                 }
 
 
-            }
-            else return false;
+            } else return false;
 
         }
         return true;
@@ -76,15 +75,14 @@ public class CommonGoal11 extends CommonGoal {
                         if (next != null) {
                             if (!next.equals(tipo))
                                 return false;
-                        }else return false;
+                        } else return false;
 
                     }
 
                 }
 
 
-            }
-            else return false;
+            } else return false;
         }
         return true;
     }

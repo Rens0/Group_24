@@ -85,16 +85,17 @@ public class Gestore {
     public void start() {
         do {
             for (Player player : players) {
-            	System.out.print("E' il turno di : ");
-            	player.printName();
+                System.out.print("E' il turno di : ");
+                player.printName();
+                printCommonGoal();
+
                 if (!tabellone.controlloTabellone()) {//--- Se il tabellone non ha tessere adiacenti lo riempie
                     tabellone.riempimentoTabellone(tile);
                 }
                 tabellone.print();//--- Stampo il tabellone
-                
+
                 player.printPersonalGoal();
                 player.printLibreria();
-                printCommonGoal();
                 try {
                     pescaTesseraDalTabellone(player);
                 } catch (Exception e) {
@@ -138,7 +139,7 @@ public class Gestore {
             return false;
         if (commonGoal.controllo(player)) {
             player.addToken(commonGoal.prendiToken(), card);
-            System.out.println("Hai sbloccato il common goal: "+card.getId()+" token: "+player.getToken().get(player.getToken().size()-1).getId());
+            System.out.println("Hai sbloccato il common goal: " + card.getId() + " token: " + player.getToken().get(player.getToken().size() - 1).getId());
             return true;
         }
         return false;
@@ -189,7 +190,7 @@ public class Gestore {
     private int selezionaColonna(Player player) {
 
 
-        int colonna=0;
+        int colonna = 0;
         boolean continua;
         do {
             continua = true;
@@ -263,7 +264,7 @@ public class Gestore {
                 try {
                     Scanner sc = new Scanner(System.in);
                     System.out.print(card.get(i).getType() + " posizione: ");
-                    int numero = sc.nextInt()-1;
+                    int numero = sc.nextInt() - 1;
                     if (numero >= card.size() || numero < 0) {
                         System.out.println("Errore indice");
                         continua = true;
@@ -309,14 +310,14 @@ public class Gestore {
         System.out.println("Queste tessere non ci stanno nella libreria: ");
         ArrayList<Card> tessereNonDisponibili = new ArrayList<>();
         for (int i = spaziLiberi; i < card.size(); i++) {
-            System.out.println(card.get(i).getId());
+            System.out.println(card.get(i).getType());
             tessereNonDisponibili.add(card.get(i));
         }
         if (card.size() - tessereNonDisponibili.size() != 0) {
             System.out.println("Vuoi aggiungere queste tessere?  ");
             ArrayList<Card> tessereDisponibili = new ArrayList<>();
             for (int i = 0; i < spaziLiberi; i++) {
-                System.out.println(card.get(i).getId());
+                System.out.println(card.get(i).getType());
                 tessereDisponibili.add(card.get(i));
             }
             decisione = domanda("si/ no:", "si", "no");
@@ -366,10 +367,10 @@ public class Gestore {
     }
 
     private void printCommonGoal() {
-    	int i=1;
-    	for(Card card: id_commonGoal) {
-    		System.out.println("CommonGoal "+ i++ +":");
-    		System.out.println(card.getDescription());
-    	}
+        int i = 1;
+        for (Card card : id_commonGoal) {
+            System.out.println("CommonGoal " + i++ + ":");
+            System.out.println(card.getDescription());
+        }
     }
 }
