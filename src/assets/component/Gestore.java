@@ -304,10 +304,12 @@ public class Gestore {
         do {
             System.out.println(msg);
             decisione = sc.next().toLowerCase();
-            if (decisione.equals(c1))
-                return c1;
-            if (decisione.equals(c2))
-                return c2;
+            if(decisione!=null) {
+                if (decisione.equals(c1))
+                    return c1;
+                if (decisione.equals(c2))
+                    return c2;
+            }
         } while (!decisione.contains(c1) && !decisione.contains(c2));
         return null;
     }
