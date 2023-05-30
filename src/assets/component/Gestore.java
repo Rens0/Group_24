@@ -101,6 +101,7 @@ public class Gestore {
                 } catch (Exception e) {
                     System.out.println(e);
                 }
+                player.printLibreria();
                 //---Controllo common goal
                 for (Card card : id_commonGoal) {
                     controlloCommonGoal(player, card);   //---- Controllo che il common goal sia verificato se viene verificato, viene prelevato il token dalla classe commongoal_n viene aggiunto ai token del player e verra rimosso l'id  dai goal da verificare del player
@@ -156,19 +157,16 @@ public class Gestore {
         String decisione = domanda("Vuoi annullare ciò che hai pescato e ripescare? si/ no: ", "si", "no");
         if (decisione.equals("si"))
             return pescaTesseraDalTabellone(player);
-
-        ArrayList<Integer> ordine = riordinamentoDelleTessere(card);
-
-        inserisciTessere(player, card, ordine);
+        inserisciTessere(player,  riordinamentoDelleTessere(card));
 
         return true;
     }
 
-    private void inserisciTessere(Player player, ArrayList<Card> card, ArrayList<Integer> ordine) {
+    private void inserisciTessere(Player player, ArrayList<Card> card) {
         int spaziLiberi = 0;
         int colonna = selezionaColonna(player);
         try {
-            spaziLiberi = player.inserisciTessera(card, ordine, colonna);
+            spaziLiberi = player.getLibreria().inserisciTessere(card, colonna);
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -179,22 +177,19 @@ public class Gestore {
             else {
                 String decisione = domanda("Seleziona nuova colonna o ripesca: ", "colonna", "ripesca");
                 if (decisione.equals("colonna"))
-                    inserisciTessere(player, card, ordine);
+                    inserisciTessere(player, card);
                 if (decisione.equals("ripesca"))
                     pescaTesseraDalTabellone(player);
             }
-        } else
+        } else{
+
             tabellone.rimuoviTessere(card);
-        /*
-        System.out.println("Hai pescato queste carte: ");
-        for (Card c : card)
-            System.out.print(c.getType() + "\t");
-        System.out.println();
-        */
+
+        }
+
     }
 
     private int selezionaColonna(Player player) {
-
 
         int colonna = 0;
         boolean continua;
@@ -252,17 +247,16 @@ public class Gestore {
         return card;
     }
 
-    private ArrayList<Integer> riordinamentoDelleTessere(ArrayList<Card> card) {
+    private ArrayList<Card> riordinamentoDelleTessere(ArrayList<Card> card) {
         String decisione;
         ArrayList<Integer> ordine = new ArrayList<>();
         if (card.size() - 1 == 0) {
-            ordine.add(0);
-            return ordine;
+            return card;
         }
         System.out.println("Seleziona l'ordine delle tessere: ");
 
 
-        ordine = new ArrayList<>();
+
         for (int i = 0; i < card.size(); i++) {
             boolean continua;
             do {
@@ -288,10 +282,18 @@ public class Gestore {
                 }
             } while (continua);
         }
+        for(int i=0; i<ordine.size()-1; i++)
+        {
+            for(int j=i+1; j<ordine.size(); j++)
+                if(ordine.get(i)> ordine.get(j)) {
+                    Collections.swap(ordine,i,j);
+                    Collections.swap(card,i,j);
+                }
+        }
         decisione = domanda("Conferma si/no: ", "si", "no");
         if (decisione.equals("no"))
             riordinamentoDelleTessere(card);
-        return ordine;
+        return card;
     }
 
     private String domanda(String msg, String c1, String c2) {
@@ -328,9 +330,8 @@ public class Gestore {
             }
             decisione = domanda("si/ no:", "si", "no");
             if (decisione.equals("si")) {
-                ArrayList<Integer> ordine = riordinamentoDelleTessere(tessereDisponibili);
                 try {
-                    player.inserisciTessera(tessereDisponibili, ordine, colonna);
+                    player.getLibreria().inserisciTessere(riordinamentoDelleTessere(tessereDisponibili), colonna);
                 } catch (Exception e) {
                     System.out.println(e);
                 }
