@@ -111,7 +111,7 @@ public class Test {
 
         
 
-        CardContainer pg = personalGoal.list.get(7);
+        CardContainer pg = personalGoal.list.get(9);
         player.setPersonalGoal(pg);
        // player.contaPunti(tile);
         //System.out.println(player.points);

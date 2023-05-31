@@ -26,7 +26,7 @@ public class Libreria {
 
         libreria = new ArrayList<>();
         ArrayList<Cella> rigac;
-       /* for (int i = 0; i < righe; i++) {
+        for (int i = 0; i < righe; i++) {
             rigac = new ArrayList<>();
 
             for (int j = 0; j < colonne; j++) {
@@ -34,7 +34,7 @@ public class Libreria {
             	//libreria[i][j]= new Cella();
             }
             libreria.add(rigac);
-        }*/
+        }
     }
 
     public int getColonne() {
@@ -79,7 +79,7 @@ public class Libreria {
 
 
     public boolean libreriaPiena() {
-        int contacella = 0;
+       int contacella = 0;
         for (int i = 0; i < righe; i++) {
             for (int j = 0; j < colonne; j++) {
                 if (libreria.get(i).get(j).getTessera().getType() != null) {
@@ -93,15 +93,14 @@ public class Libreria {
             return false;
         }
         /*for (int j=0; j<colonne; j++) {
-        	for(int i=6; i>0;i--) {
-        		if(libreria.get(i).get(j).getTessera()!=null) {
-        			return true; 
-        		}
-        		else {
+        	for(int i=5; i>0;i--) {
+        		if(libreria.get(i).get(j).getTessera()==null) {
         			return false; 
         		}
+        		      		
         	}
-        }*/
+        }
+        return true; */
     }
 
     public String tipoCasella(int riga, int colonna) {
