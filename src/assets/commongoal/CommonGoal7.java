@@ -5,6 +5,8 @@ import assets.card.Card;
 import assets.component.Player;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class CommonGoal7 extends CommonGoal {
 
@@ -13,7 +15,25 @@ public class CommonGoal7 extends CommonGoal {
     }
 
     public boolean controllo(Player player) {
-        int counter = 0;
+    	int counter=0;
+    	
+    	for(int i=0;i<player.getLibreria().getRighe();i++) {
+    		Set<String> tipi= new HashSet<>();
+    		for(int j=0;j<player.getLibreria().getColonne();j++) {
+    			String tipo= ritornoTipo(i,j,player);
+        		if(tipo==null) {
+        			break;
+        		}
+        		tipi.add(tipo);
+        		if(tipi.size()<=3 && j==4) {
+        			counter++;
+        		}
+        	}
+    		if(counter>= 4)
+    			return true;
+    	}
+    	return false;
+       /* int counter = 0;
         ArrayList<String> base = getArray(player, 0);
         if (base != null) {
             for (int i = 0; i < player.getLibreria().getRighe(); i++) {
@@ -34,7 +54,7 @@ public class CommonGoal7 extends CommonGoal {
         }
 
 
-        return (counter >= 4);
+        return (counter >= 4);*/
     }
 
     private ArrayList<String> getArray(Player player, int index) {
