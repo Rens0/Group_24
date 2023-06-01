@@ -24,14 +24,14 @@ public class Libreria {
 
         libreria = new ArrayList<>();
         ArrayList<Cella> rigac;
-       /*for (int i = 0; i < righe; i++) {
+       for (int i = 0; i < righe; i++) {
             rigac = new ArrayList<>();
 
             for (int j = 0; j < colonne; j++) {
                 rigac.add(new Cella());
             }
             libreria.add(rigac);
-        }*/
+        }
     }
 
     public int getColonne() {
