@@ -23,15 +23,15 @@
     },
     {
       "id": 6,
-      "description": "Two lines each formed by 5 different\ntypes of tiles. One line can show the\nsame or a different combination of the\nother line."
+      "description": "Two rows each formed by 5 different\ntypes of tiles. One line can show the\nsame or a different combination of the\nother line."
     },
     {
       "id": 7,
-      "description": "Four lines each formed by 5 tiles of\nmaximum three different types. One\nline can show the same or a different\ncombination of another line."
+      "description": "Four rows each formed by 5 tiles of\nmaximum three different types. One\nline can show the same or a different\ncombination of another line."
     },
     {
       "id": 8,
-      "description": "Three columns each formed by 6 tiles of maximum three different types. One column can show the same or a different combination of another column."
+      "description": "Four tiles of the same type in the four corners of the bookshelf."
     },
     {
       "id": 9,

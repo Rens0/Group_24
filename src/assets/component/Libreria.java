@@ -106,15 +106,31 @@ public class Libreria {
     public String tipoCasella(int riga, int colonna) {
         return libreria.get(riga).get(colonna).getTessera().getType();
     }
+    
+    /**
+     * controlla che la casella non sia nulla e che sia rientri nella matrice della libreria
+     * @param riga della casella 
+     * @param colonna della casella 
+     * @param visitato matrice di controllo
+     * @param tipo della tessera
+     * @return true se sono soddisfatte le condizioni "non nulla" e "dentro la matrice" 
+     */
 
-    public boolean checkCasella(int riga, int colonna, boolean visitato[][], String tipo) {
+    private boolean checkCasella(int riga, int colonna, boolean visitato[][], String tipo) {
         //boolean dentroMatrice = (riga >= 0) && (riga < righe) && (colonna >= 0) && (colonna < colonne);
         return (riga >= 0) && (riga < righe) && (colonna >= 0) && (colonna < colonne) && !(libreria.get(riga).get(colonna).isEmpty())
                 && tipoCasella(riga, colonna).equals(tipo)
                 && !(visitato[riga][colonna]);
     }
-
-    public int contaCaselleAdicenti(int riga, int colonna, boolean visitata[][], String tipo) {
+    /**
+     * partendo da una casella conta se le caselle adiacenti hanno lo stesso tipo di tessera
+     * @param riga della casella
+     * @param colonna della casella 
+     * @param visitata matrice di supporto
+     * @param tipo della tessera 
+     * @return contatore: numero di caselle nel gruppo
+     */
+    private int contaCaselleAdicenti(int riga, int colonna, boolean visitata[][], String tipo) {
         int contatore = 1;
         visitata[riga][colonna]=true;
         if (checkCasella(riga, colonna + 1, visitata, tipo)) {//destra
@@ -139,6 +155,9 @@ public class Libreria {
 		return caselleGruppo;
 	}
     
+    /**
+     * mette nella lista "caselleGruppo" la dimensione di ogni gruppo
+     */
  
 	private void contaCaselleGruppi() {//ritorna un array con il numero di caselle di ogni gruppo
 		
@@ -158,6 +177,10 @@ public class Libreria {
         }
         
     }
+	
+	/**
+	 * @return punti: ritorna il numero di punti in base al numero di caselle adiacenti 
+	 */
 
     public int contaPuntiCaselleAdiacenti() {
         int punti = 0;
