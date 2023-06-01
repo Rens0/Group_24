@@ -79,7 +79,7 @@ public class Test {
         arrayList.add(addTessere.aggiungiTessera("cornice"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("pianta"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("libro"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("pianta"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
 
         player.getLibreria().getLibreria().add(arrayList);//---Aggiungo riga
 
@@ -106,7 +106,7 @@ public class Test {
         player.printLibreria();
       //  System.out.println(player.getLibreria().contaPuntiCaselleAdiacenti());
        // System.out.println(player.getLibreria().tipoCasella(5, 1));
-        CommonGoal3  commonGoal = new CommonGoal3(null, null);
+        CommonGoal4  commonGoal = new CommonGoal4(null, null);
         System.out.println(commonGoal.controllo(player));
 
         
