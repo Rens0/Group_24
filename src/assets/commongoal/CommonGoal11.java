@@ -13,19 +13,6 @@ public class CommonGoal11 extends CommonGoal {
     }
 
     public boolean controllo(Player player) {
-        /*  ottimizzato con nuova funzione
-        boolean foundMainDiagonalValue = true;
-        boolean foundSecondaryDiagonalValue = true;
-        for (int i = 1; i < 5; i++) {
-
-            if (libreria.celle.get(i).get(i).tile.type != libreria.celle.get(0).get(0).tile.type) {
-                foundMainDiagonalValue = false;
-            }
-            if (libreria.celle.get(i).get(5-i).tile.type != libreria.celle.get(0).get(5).tile.type) {
-                foundSecondaryDiagonalValue = false;
-            }
-        }
-        return foundMainDiagonalValue || foundSecondaryDiagonalValue;*/
         boolean diagop = false;
         Boolean diagos = false;
         for (int i = 0; i < player.getLibreria().getRighe(); i++) {
@@ -52,9 +39,7 @@ public class CommonGoal11 extends CommonGoal {
 
                     }
 
-
                 }
-
 
             } else return false;
 

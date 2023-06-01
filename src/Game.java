@@ -73,7 +73,6 @@ public class Game {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        //System.out.println(tabellone.mappa.get(0).size());
         ArrayList<Player> players = new ArrayList<>();
 
 
@@ -105,64 +104,6 @@ public class Game {
 
         gestore.start();
 
-
-        //c.controlloCommonGoal8();
-
-
-
-
-
-/*
-		ArrayList<ArrayList<Integer>>posizion=new ArrayList<>();
-		ArrayList <Integer>posizioni= new ArrayList<>();
-		posizioni.add(1);
-		posizioni.add(3);
-		posizion.add(posizioni);
-		posizioni=new ArrayList<>();
-		posizioni.add(1);
-		posizioni.add(4);
-		posizion.add(posizioni);
-		ArrayList <Card>p;
-		p=tabellone.prelevaTessera(posizion);
-
-		System.out.println("------");
-		tabellone.print();
-		*/
-        /*
-		List<Card> personalGoal;
-		path = "json/personal_goal.json";
-
-		try {
-			Reader reader = Files.newBufferedReader(Paths.get(path));
-			GsonBuilder gsonBuilder = new GsonBuilder();
-			gsonBuilder.registerTypeAdapter(new TypeToken<List<Card>>(){}.getType(), new CardDeserializer());
-			scoringToken = gsonBuilder.create().fromJson(reader, new TypeToken<List<Card>>(){}.getType());
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}*/
-
-
-        //tabellone.setPlayer(4);
-        //tabellone.riempimento(tiles);
-        /*
-		Libreria libreria= new Libreria();
-		ArrayList <Card> test.card = new ArrayList<>();
-		test.card.add(new Card());
-		test.card.add(new Card());
-		libreria.inserisciTessere(test.card,1);
-		*/
-
-/*
-
-
-
-
-		int number_of_players;
-
-
-		*/
-
     }
-
 
 }

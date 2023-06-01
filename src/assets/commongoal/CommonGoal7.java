@@ -33,28 +33,7 @@ public class CommonGoal7 extends CommonGoal {
     			return true;
     	}
     	return false;
-       /* int counter = 0;
-        ArrayList<String> base = getArray(player, 0);
-        if (base != null) {
-            for (int i = 0; i < player.getLibreria().getRighe(); i++) {
-                int controllo = 0;
 
-                ArrayList<String> confronto = getArray(player, i);
-                if (confronto != null) {
-                    for (int j = 0; j < confronto.size(); j++) {
-                        if (confronto.get(j).contains(base.get(j))) {
-                            controllo++;
-                        }
-                    }
-                }
-                if (controllo == base.size())
-                    counter++;
-
-            }
-        }
-
-
-        return (counter >= 4);*/
     }
 
     private ArrayList<String> getArray(Player player, int index) {

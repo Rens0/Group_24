@@ -12,9 +12,7 @@ public class Libreria {
     private int righe;
     private int colonne;
     private List<List<Cella>> libreria;
-    
-
-	//private Cella[][] libreria;
+   
     public Libreria() {
         this(6, 5);
     }
@@ -26,15 +24,14 @@ public class Libreria {
 
         libreria = new ArrayList<>();
         ArrayList<Cella> rigac;
-       /* for (int i = 0; i < righe; i++) {
+       for (int i = 0; i < righe; i++) {
             rigac = new ArrayList<>();
 
             for (int j = 0; j < colonne; j++) {
                 rigac.add(new Cella());
-            	//libreria[i][j]= new Cella();
             }
             libreria.add(rigac);
-        }*/
+        }
     }
 
     public int getColonne() {
@@ -47,7 +44,6 @@ public class Libreria {
 
     public Cella getCella(int riga, int colonna) {
         return libreria.get(riga).get(colonna);
-    	//return libreria[riga][colonna];
     }
 
 
@@ -56,7 +52,6 @@ public class Libreria {
         //--- Conto celle disponibili
         for (int j = 0; j < righe; j++) {
             if (libreria.get(j).get(COLONNASELEZIONATA).getTessera().getType() == null) {
-        	//if (libreria[j][COLONNASELEZIONATA].getTessera().type == null) {
                 contaCelle++;
             }
         }
@@ -92,15 +87,7 @@ public class Libreria {
         } else {
             return false;
         }
-        /*for (int j=0; j<colonne; j++) {
-        	for(int i=5; i>0;i--) {
-        		if(libreria.get(i).get(j).getTessera()==null) {
-        			return false; 
-        		}
-        		      		
-        	}
-        }
-        return true; */
+
     }
 
     public String tipoCasella(int riga, int colonna) {
@@ -117,7 +104,7 @@ public class Libreria {
      */
 
     private boolean checkCasella(int riga, int colonna, boolean visitato[][], String tipo) {
-        //boolean dentroMatrice = (riga >= 0) && (riga < righe) && (colonna >= 0) && (colonna < colonne);
+ 
         return (riga >= 0) && (riga < righe) && (colonna >= 0) && (colonna < colonne) && !(libreria.get(riga).get(colonna).isEmpty())
                 && tipoCasella(riga, colonna).equals(tipo)
                 && !(visitato[riga][colonna]);

@@ -91,9 +91,4 @@ public class Card implements Comparable<Card> {
         return path;
     }
 
-
-    //@Override
-    /*public String toString() {
-        return id+" "+description+" "+type+" "+amount+" "+row+" "+ " "+column;
-    }*/
 }

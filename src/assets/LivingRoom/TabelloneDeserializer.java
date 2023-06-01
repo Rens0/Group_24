@@ -40,20 +40,6 @@ public class TabelloneDeserializer implements JsonDeserializer<Tabellone> {
 
             }
 
-
-            /*
-
-            for(int i = 0; i < tabellone.mappa.size(); i++){
-
-                for(int j = 0; j<tabellone.mappa.get(i).size();j++){
-                    Cella accCella = tabellone.mappa.get(i).get(j);
-                    System.out.print(accCella.access);
-
-                }
-                System.out.println();
-            }*/
-
-
             return tabellone;
         }
     }

@@ -43,36 +43,6 @@ public class CommonGoal2 extends CommonGoal {
 
         return contatore >= 2;
 
-
-      /*  int counter = 0;
-        for (int j = 0; j < player.getLibreria().getColonne(); j++) {
-            Boolean controllo = true;
-            for (int i = 0; i < player.getLibreria().getRighe(); i++) {
-                String tessera = ritornoTipo(i, j, player);
-                if (tessera != null) {
-                    for (int k = 0; k < player.getLibreria().getRighe(); k++) {
-                        String tesseran = ritornoTipo(k, j, player);
-                        if (tesseran != null) {
-                            if (k != i && tessera.equals(tesseran)) {
-                                controllo = false;
-                            }
-                        } else {
-                            controllo = false;
-                            break;
-                        }
-                    }
-
-                } else
-                    controllo = false;
-
-
-            }
-            if (controllo)
-                counter++;
-        }
-        if (counter >= 2)
-            return true;
-        return false;*/
     }
 
 }

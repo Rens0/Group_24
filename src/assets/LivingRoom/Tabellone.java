@@ -68,14 +68,12 @@ public class Tabellone {
             return randomCard(card, riga, colonna);
         }
 
-        //test.card.list.remove(valore);
         int randomId = rand.nextInt(card.getList().get(randomCard).getMoreId().size());
         String id = card.getList().get(randomCard).getMoreId().get(randomId);
         String type = card.getList().get(randomCard).getType();
 
         cardSalvata = new Card(id, type);
         cardSalvata.setCoord(riga, colonna);
-        //System.out.println(cardSalvata.id);
         card.getList().get(randomCard).getAmount();
 
         return cardSalvata;
@@ -156,31 +154,6 @@ public class Tabellone {
     }
 
     public boolean controlloAdiacenza(ArrayList<Card> card) {
-        /*if (card.size() > 1) {
-            int delta = deltaRiga(card.get(card.size() - 2), card.get(card.size() - 1)) - deltaColonna(card.get(card.size() - 2), card.get(card.size() - 1));
-
-            int deltaRigaPre = deltaRiga(card.get(1), card.get(0));
-            int deltaColonnaPre = deltaColonna(card.get(1), card.get(0));
-
-            for (int i = 1; i < card.size() - 1; i++) {
-                int deltaRigaNow = deltaRiga(card.get(i), card.get(i + 1));
-                int deltaColonnaNow = deltaColonna(card.get(i), card.get(i + 1));
-                System.out.println(deltaRigaPre+" "+deltaRigaNow+" delta colonna: "+deltaColonnaPre+" "+deltaColonnaNow);
-                if (deltaRigaPre != deltaRigaNow)
-                    return false;
-                if (deltaColonnaPre != deltaColonnaNow)
-                    return false;
-            }
-
-
-            if (delta < 0)
-                delta *= -1;
-            if (delta == 0 || delta == 1)
-                return true;
-
-
-            return false;
-        }*/
 
         //---Prendo carta centrale
         //---Ordinamento
