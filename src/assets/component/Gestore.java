@@ -175,7 +175,7 @@ public class Gestore {
             if (supporto != null)
                 tabellone.rimuoviTessere(supporto);    //--- chiedo all'utente se vuole inserire le tessere
             else {
-                String decisione = domanda("Seleziona nuova (colonna) o (ripesca): ", "colonna", "ripesca");
+                String decisione = domanda("Seleziona (colonna) o (ripesca): ", "colonna", "ripesca"); //scrivere "colonna" o "ripesca"
                 if (decisione.equals("colonna"))
                     inserisciTessere(player, card);
                 if (decisione.equals("ripesca"))
