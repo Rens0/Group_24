@@ -136,7 +136,7 @@ public class Gestore {
     private Boolean controlloCommonGoal(Player player, Card card) {//--- Controllo il common goal specifico
         CommonGoal commonGoal = commonGoals.get(card.getId());
 
-        if (!player.getId_commonGoal().contains(card)) //--- controllo che lid del controllo sia presente in player
+        if (!player.getId_commonGoal().contains(card)) //--- controllo che l'id del controllo sia presente in player
             return false;
         if (commonGoal.controllo(player)) {
             player.addToken(commonGoal.prendiToken(), card);
@@ -175,7 +175,7 @@ public class Gestore {
             if (supporto != null)
                 tabellone.rimuoviTessere(supporto);    //--- chiedo all'utente se vuole inserire le tessere
             else {
-                String decisione = domanda("Seleziona nuova colonna o ripesca: ", "colonna", "ripesca");
+                String decisione = domanda("Seleziona nuova (colonna) o (ripesca): ", "colonna", "ripesca");
                 if (decisione.equals("colonna"))
                     inserisciTessere(player, card);
                 if (decisione.equals("ripesca"))
@@ -254,7 +254,7 @@ public class Gestore {
             return card;
         }
         System.out.println("\nSeleziona l'ordine delle tessere: ");
-        System.out.println("1 => prima tessera inserita \n2=> seconda tessera inserita \n ...e così a seguire\n");
+        System.out.println("1 => prima tessera inserita (sotto) \n2=> seconda tessera inserita (sopra) \n ...e così a seguire\n");
 
 
 
