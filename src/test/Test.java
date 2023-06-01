@@ -47,9 +47,9 @@ public class Test {
 
         //---Colonne riga1
         arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("pianta"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("libro"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera("quadro"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("libro"));//---Aggiungo una tessera
 
 
@@ -57,26 +57,26 @@ public class Test {
 
         arrayList = new ArrayList<>();
         //---COlonne riga2
-        arrayList.add(addTessere.aggiungiTessera("pianta"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("libro"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("cornice"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("libro"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera("libro"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera(""));//---Aggiungo una tessera
 
         player.getLibreria().getLibreria().add(arrayList);//---Aggiungo riga
 
         arrayList = new ArrayList<>();
         //---COlonne riga3
+        arrayList.add(addTessere.aggiungiTessera("pianta"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera("cornice"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("libro"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("libro"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("libro"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("pianta"));//---Aggiungo una tessera
         player.getLibreria().getLibreria().add(arrayList);//---Aggiungo riga
         arrayList = new ArrayList<>();
         //---COlonne riga4
         arrayList.add(addTessere.aggiungiTessera("pianta"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera("cornice"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("pianta"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("libro"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("pianta"));//---Aggiungo una tessera
@@ -88,8 +88,8 @@ public class Test {
         //---COlonne riga5
         arrayList.add(addTessere.aggiungiTessera("pianta"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("libro"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera("cornice"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera("cornice"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("libro"));//---Aggiungo una tessera
 
 
@@ -98,7 +98,7 @@ public class Test {
         //---Colonne riga6
         arrayList.add(addTessere.aggiungiTessera("pianta"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("libro"));//---Aggiungo una tessera
-        arrayList.add(addTessere.aggiungiTessera("libro"));//---Aggiungo una tessera
+        arrayList.add(addTessere.aggiungiTessera("cornice"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("cornice"));//---Aggiungo una tessera
         arrayList.add(addTessere.aggiungiTessera("gatto"));//---Aggiungo una tessera
 
@@ -106,7 +106,7 @@ public class Test {
         player.printLibreria();
       //  System.out.println(player.getLibreria().contaPuntiCaselleAdiacenti());
        // System.out.println(player.getLibreria().tipoCasella(5, 1));
-        CommonGoal5 commonGoal = new CommonGoal5(null, null);
+        CommonGoal3  commonGoal = new CommonGoal3(null, null);
         System.out.println(commonGoal.controllo(player));
 
         
