@@ -13,7 +13,7 @@ public abstract class CommonGoal {
     private ArrayList<Card> token;
 
 
-    private static final Map<String, Class<? extends CommonGoal>> commonGoals = new HashMap<>();
+    private static  Map<String, Class<? extends CommonGoal>> commonGoals = new HashMap<>();
 
     static {
         commonGoals.put("1", CommonGoal1.class);

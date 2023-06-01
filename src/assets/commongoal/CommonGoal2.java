@@ -20,7 +20,7 @@ public class CommonGoal2 extends CommonGoal {
     public boolean controllo(Player player) {
         int contatore = 0;
         int righe = 0;
-        List<String> Colonna = new ArrayList();
+        List<String> Colonna = new ArrayList<>();
         Set<String> noduplicati = new LinkedHashSet<>();
         for (int j = 0; j < player.getLibreria().getColonne(); j++) {
             for (int i = 0; i < player.getLibreria().getRighe(); i++) {

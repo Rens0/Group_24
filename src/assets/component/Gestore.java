@@ -377,11 +377,17 @@ public class Gestore {
         return id;
     }
 
-    private void printCommonGoal() {
+    private void printCommonGoal() {	
         int i = 1;
         for (Card card : id_commonGoal) {
-            System.out.println("CommonGoal " + i++ + ":");
+        	if(i==1)
+        		System.out.print("Primo ");
+        	if(i==2)
+        		System.out.print("Secondo ");
+            System.out.println("CommonGoal :");
             System.out.println(card.getDescription());
+            System.out.println();
+            i++;
         }
     }
 }
